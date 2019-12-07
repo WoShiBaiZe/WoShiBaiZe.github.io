@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next beep use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Linux,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Docker Compose 命令说明命令对象与格式对于 Compose 来说，大部分命令的对象既可以是项目本身，也可以指定为项目中的服务或者容器。如果没有特别的说明，命令对象将是项目，这意味着项目中所有的服务都会受到命令影响。 执行 docker-compose [COMMAND] --help 或者 docker-compose help [COMMAND] 可以查看具体某个命令的使用格式。d">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker Compose 命令说明">
+<meta property="og:url" content="https://woshibaize.github.io/2013/07/12/Linux/Day59_DockerCompose/附：Docker Compose 命令说明/index.html">
+<meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="Docker Compose 命令说明命令对象与格式对于 Compose 来说，大部分命令的对象既可以是项目本身，也可以指定为项目中的服务或者容器。如果没有特别的说明，命令对象将是项目，这意味着项目中所有的服务都会受到命令影响。 执行 docker-compose [COMMAND] --help 或者 docker-compose help [COMMAND] 可以查看具体某个命令的使用格式。d">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-10-10T18:56:09.626Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Docker Compose 命令说明">
+<meta name="twitter:description" content="Docker Compose 命令说明命令对象与格式对于 Compose 来说，大部分命令的对象既可以是项目本身，也可以指定为项目中的服务或者容器。如果没有特别的说明，命令对象将是项目，这意味着项目中所有的服务都会受到命令影响。 执行 docker-compose [COMMAND] --help 或者 docker-compose help [COMMAND] 可以查看具体某个命令的使用格式。d">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Beep',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":6,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://woshibaize.github.io/2013/07/12/Linux/Day59_DockerCompose/附：Docker Compose 命令说明/">
+
+
+
+<!-- 文章加密 -->
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+		if (history.length === 1) {
+		    window.opener = null;
+		    window.open('', '_self');
+		    window.close();
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
+
+<!-- fontawesome5 -->
+<link href="/lib/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" type="text/css">
+
+  <title>Docker Compose 命令说明 | 个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband">
+	<a href="https://github.com/woshibaize" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="/images/headband/forkme_right_red.png" alt="Fork me on GitHub"></a>
+    </div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">personal blog</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa-fw fas fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa-fw fas fa-archive"></i> <br>
+            
+            文章
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa-fw fas fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa-fw fas fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa-fw fas fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fas fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fas fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="far fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+ </div>
+    </header>
+    
+    <a href="https://github.com/woshibaize" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub">
+      <svg width="80" height="80" viewbox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+	<path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+      </svg>
+    </a>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2013/07/12/Linux/Day59_DockerCompose/附：Docker Compose 命令说明/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BaiZe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Docker Compose 命令说明</h2>
+        
+
+        <div class="post-meta">
+	  
+	  
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar-plus"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-07-12T23:03:53+08:00">
+                2013-07-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <!--<i class="far fa-file-word"></i>-->
+		  <i class="fas fa-book-open"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文共计 &#58;</span>
+                
+                <span title="本文共计">
+                  2k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="far fa-clock"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅文耗时 &asymp;</span>
+                
+                <span title="阅文耗时">
+                  7 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Docker-Compose-命令说明"><a href="#Docker-Compose-命令说明" class="headerlink" title="Docker Compose 命令说明"></a>Docker Compose 命令说明</h1><h2 id="命令对象与格式"><a href="#命令对象与格式" class="headerlink" title="命令对象与格式"></a>命令对象与格式</h2><p>对于 Compose 来说，大部分命令的对象既可以是项目本身，也可以指定为项目中的服务或者容器。如果没有特别的说明，命令对象将是项目，这意味着项目中所有的服务都会受到命令影响。</p>
+<p>执行 <code>docker-compose [COMMAND] --help</code> 或者 <code>docker-compose help [COMMAND]</code> 可以查看具体某个命令的使用格式。<code>docker-compose</code> 命令的基本的使用格式是</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose [-f=&lt;arg&gt;...] [options] [COMMAND] [ARGS...]</span><br></pre></td></tr></table></figure>
+<h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><ul>
+<li><code>-f, --file FILE</code> 指定使用的 Compose 模板文件，默认为 <code>docker-compose.yml</code>，可以多次指定。</li>
+<li><code>-p, --project-name NAME</code> 指定项目名称，默认将使用所在目录名称作为项目名。</li>
+<li><code>--x-networking</code> 使用 Docker 的可拔插网络后端特性</li>
+<li><code>--x-network-driver DRIVER</code> 指定网络后端的驱动，默认为 <code>bridge</code></li>
+<li><code>--verbose</code> 输出更多调试信息。</li>
+<li><code>-v, --version</code> 打印版本并退出。</li>
+</ul>
+<h2 id="build"><a href="#build" class="headerlink" title="build"></a>build</h2><p>格式为 <code>docker-compose build [options] [SERVICE...]</code>。</p>
+<p>构建（重新构建）项目中的服务容器。</p>
+<p>服务容器一旦构建后，将会带上一个标记名，例如对于 web 项目中的一个 db 容器，可能是 web_db。</p>
+<p>可以随时在项目目录下运行 <code>docker-compose build</code> 来重新构建服务。</p>
+<p>选项包括：</p>
+<ul>
+<li><code>--force-rm</code> 删除构建过程中的临时容器。</li>
+<li><code>--no-cache</code> 构建镜像过程中不使用 cache（这将加长构建过程）。</li>
+<li><code>--pull</code> 始终尝试通过 pull 来获取更新版本的镜像。</li>
+</ul>
+<h2 id="config"><a href="#config" class="headerlink" title="config"></a>config</h2><p>验证 Compose 文件格式是否正确，若正确则显示配置，若格式错误显示错误原因。</p>
+<h2 id="down"><a href="#down" class="headerlink" title="down"></a>down</h2><p>此命令将会停止 <code>up</code> 命令所启动的容器，并移除网络</p>
+<h2 id="exec"><a href="#exec" class="headerlink" title="exec"></a>exec</h2><p>进入指定的容器。</p>
+<h2 id="help"><a href="#help" class="headerlink" title="help"></a>help</h2><p>获得一个命令的帮助。</p>
+<h2 id="images"><a href="#images" class="headerlink" title="images"></a>images</h2><p>列出 Compose 文件中包含的镜像。</p>
+<h2 id="kill"><a href="#kill" class="headerlink" title="kill"></a>kill</h2><p>格式为 <code>docker-compose kill [options] [SERVICE...]</code>。</p>
+<p>通过发送 <code>SIGKILL</code> 信号来强制停止服务容器。</p>
+<p>支持通过 <code>-s</code> 参数来指定发送的信号，例如通过如下指令发送 <code>SIGINT</code> 信号。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose <span class="built_in">kill</span> -s SIGINT</span><br></pre></td></tr></table></figure>
+<h2 id="logs"><a href="#logs" class="headerlink" title="logs"></a>logs</h2><p>格式为 <code>docker-compose logs [options] [SERVICE...]</code>。</p>
+<p>查看服务容器的输出。默认情况下，docker-compose 将对不同的服务输出使用不同的颜色来区分。可以通过 <code>--no-color</code> 来关闭颜色。</p>
+<p>该命令在调试问题的时候十分有用。</p>
+<h2 id="pause"><a href="#pause" class="headerlink" title="pause"></a>pause</h2><p>格式为 <code>docker-compose pause [SERVICE...]</code>。</p>
+<p>暂停一个服务容器。</p>
+<h2 id="port"><a href="#port" class="headerlink" title="port"></a>port</h2><p>格式为 <code>docker-compose port [options] SERVICE PRIVATE_PORT</code>。</p>
+<p>打印某个容器端口所映射的公共端口。</p>
+<p>选项：</p>
+<ul>
+<li><code>--protocol=proto</code> 指定端口协议，tcp（默认值）或者 udp。</li>
+<li><code>--index=index</code> 如果同一服务存在多个容器，指定命令对象容器的序号（默认为 1）。</li>
+</ul>
+<h2 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h2><p>格式为 <code>docker-compose ps [options] [SERVICE...]</code>。</p>
+<p>列出项目中目前的所有容器。</p>
+<p>选项：</p>
+<ul>
+<li><code>-q</code> 只打印容器的 ID 信息。</li>
+</ul>
+<h2 id="pull"><a href="#pull" class="headerlink" title="pull"></a>pull</h2><p>格式为 <code>docker-compose pull [options] [SERVICE...]</code>。</p>
+<p>拉取服务依赖的镜像。</p>
+<p>选项：</p>
+<ul>
+<li><code>--ignore-pull-failures</code> 忽略拉取镜像过程中的错误。</li>
+</ul>
+<h2 id="push"><a href="#push" class="headerlink" title="push"></a>push</h2><p>推送服务依赖的镜像到 Docker 镜像仓库。</p>
+<h2 id="restart"><a href="#restart" class="headerlink" title="restart"></a>restart</h2><p>格式为 <code>docker-compose restart [options] [SERVICE...]</code>。</p>
+<p>重启项目中的服务。</p>
+<p>选项：</p>
+<ul>
+<li><code>-t, --timeout TIMEOUT</code> 指定重启前停止容器的超时（默认为 10 秒）。</li>
+</ul>
+<h2 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h2><p>格式为 <code>docker-compose rm [options] [SERVICE...]</code>。</p>
+<p>删除所有（停止状态的）服务容器。推荐先执行 <code>docker-compose stop</code> 命令来停止容器。</p>
+<p>选项：</p>
+<ul>
+<li><code>-f, --force</code> 强制直接删除，包括非停止状态的容器。一般尽量不要使用该选项。</li>
+<li><code>-v</code> 删除容器所挂载的数据卷。</li>
+</ul>
+<h2 id="run"><a href="#run" class="headerlink" title="run"></a>run</h2><p>格式为 <code>docker-compose run [options] [-p PORT...] [-e KEY=VAL...] SERVICE [COMMAND] [ARGS...]</code>。</p>
+<p>在指定服务上执行一个命令。</p>
+<p>例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose run ubuntu ping docker.com</span><br></pre></td></tr></table></figure>
+<p>将会启动一个 ubuntu 服务容器，并执行 <code>ping docker.com</code> 命令。</p>
+<p>默认情况下，如果存在关联，则所有关联的服务将会自动被启动，除非这些服务已经在运行中。</p>
+<p>该命令类似启动容器后运行指定的命令，相关卷、链接等等都将会按照配置自动创建。</p>
+<p>两个不同点：</p>
+<ul>
+<li>给定命令将会覆盖原有的自动运行命令；</li>
+<li>不会自动创建端口，以避免冲突。</li>
+</ul>
+<p>如果不希望自动启动关联的容器，可以使用 <code>--no-deps</code> 选项，例如</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose run --no-deps web python manage.py shell</span><br></pre></td></tr></table></figure>
+<p>将不会启动 web 容器所关联的其它容器。</p>
+<p>选项：</p>
+<ul>
+<li><code>-d</code> 后台运行容器。</li>
+<li><code>--name NAME</code> 为容器指定一个名字。</li>
+<li><code>--entrypoint CMD</code> 覆盖默认的容器启动指令。</li>
+<li><code>-e KEY=VAL</code> 设置环境变量值，可多次使用选项来设置多个环境变量。</li>
+<li><code>-u, --user=&quot;&quot;</code> 指定运行容器的用户名或者 uid。</li>
+<li><code>--no-deps</code> 不自动启动关联的服务容器。</li>
+<li><code>--rm</code> 运行命令后自动删除容器，<code>d</code> 模式下将忽略。</li>
+<li><code>-p, --publish=[]</code> 映射容器端口到本地主机。</li>
+<li><code>--service-ports</code> 配置服务端口并映射到本地主机。</li>
+<li><code>-T</code> 不分配伪 tty，意味着依赖 tty 的指令将无法运行。</li>
+</ul>
+<h2 id="scale"><a href="#scale" class="headerlink" title="scale"></a>scale</h2><p>格式为 <code>docker-compose scale [options] [SERVICE=NUM...]</code>。</p>
+<p>设置指定服务运行的容器个数。</p>
+<p>通过 <code>service=num</code> 的参数来设置数量。例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose scale web=3 db=2</span><br></pre></td></tr></table></figure>
+<p>将启动 3 个容器运行 web 服务，2 个容器运行 db 服务。</p>
+<p>一般的，当指定数目多于该服务当前实际运行容器，将新创建并启动容器；反之，将停止容器。</p>
+<p>选项：</p>
+<ul>
+<li><code>-t, --timeout TIMEOUT</code> 停止容器时候的超时（默认为 10 秒）。</li>
+</ul>
+<h2 id="start"><a href="#start" class="headerlink" title="start"></a>start</h2><p>格式为 <code>docker-compose start [SERVICE...]</code>。</p>
+<p>启动已经存在的服务容器。</p>
+<h2 id="stop"><a href="#stop" class="headerlink" title="stop"></a>stop</h2><p>格式为 <code>docker-compose stop [options] [SERVICE...]</code>。</p>
+<p>停止已经处于运行状态的容器，但不删除它。通过 <code>docker-compose start</code> 可以再次启动这些容器。</p>
+<p>选项：</p>
+<ul>
+<li><code>-t, --timeout TIMEOUT</code> 停止容器时候的超时（默认为 10 秒）。</li>
+</ul>
+<h2 id="top"><a href="#top" class="headerlink" title="top"></a>top</h2><p>查看各个服务容器内运行的进程。</p>
+<h2 id="unpause"><a href="#unpause" class="headerlink" title="unpause"></a>unpause</h2><p>格式为 <code>docker-compose unpause [SERVICE...]</code>。</p>
+<p>恢复处于暂停状态中的服务。</p>
+<h2 id="up"><a href="#up" class="headerlink" title="up"></a>up</h2><p>格式为 <code>docker-compose up [options] [SERVICE...]</code>。</p>
+<p>该命令十分强大，它将尝试自动完成包括构建镜像，（重新）创建服务，启动服务，并关联服务相关容器的一系列操作。</p>
+<p>链接的服务都将会被自动启动，除非已经处于运行状态。</p>
+<p>可以说，大部分时候都可以直接通过该命令来启动一个项目。</p>
+<p>默认情况，<code>docker-compose up</code> 启动的容器都在前台，控制台将会同时打印所有容器的输出信息，可以很方便进行调试。</p>
+<p>当通过 <code>Ctrl-C</code> 停止命令时，所有容器将会停止。</p>
+<p>如果使用 <code>docker-compose up -d</code>，将会在后台启动并运行所有的容器。一般推荐生产环境下使用该选项。</p>
+<p>默认情况，如果服务容器已经存在，<code>docker-compose up</code> 将会尝试停止容器，然后重新创建（保持使用 <code>volumes-from</code> 挂载的卷），以保证新启动的服务匹配 <code>docker-compose.yml</code> 文件的最新内容。如果用户不希望容器被停止并重新创建，可以使用 <code>docker-compose up --no-recreate</code>。这样将只会启动处于停止状态的容器，而忽略已经运行的服务。如果用户只想重新部署某个服务，可以使用 <code>docker-compose up --no-deps -d &lt;SERVICE_NAME&gt;</code> 来重新创建服务并后台停止旧服务，启动新服务，并不会影响到其所依赖的服务。</p>
+<p>选项：</p>
+<ul>
+<li><code>-d</code> 在后台运行服务容器。</li>
+<li><code>--no-color</code> 不使用颜色来区分不同的服务的控制台输出。</li>
+<li><code>--no-deps</code> 不启动服务所链接的容器。</li>
+<li><code>--force-recreate</code> 强制重新创建容器，不能与 <code>--no-recreate</code> 同时使用。</li>
+<li><code>--no-recreate</code> 如果容器已经存在了，则不重新创建，不能与 <code>--force-recreate</code> 同时使用。</li>
+<li><code>--no-build</code> 不自动构建缺失的服务镜像。</li>
+<li><code>-t, --timeout TIMEOUT</code> 停止容器时候的超时（默认为 10 秒）。</li>
+</ul>
+<h2 id="version"><a href="#version" class="headerlink" title="version"></a>version</h2><p>格式为 <code>docker-compose version</code>。</p>
+<p>打印版本信息。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wechat.jpg" alt="BaiZe wechat" style="width: 200px; max-width: 100%;">
+    <div>欢迎扫描二维码关注公众号一起成长~</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>觉得文章对您有帮助请我喝杯咖啡吧^_^</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="BaiZe 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"><i class="fas fa-tag"></i> Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div>
+	  <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    BaiZe
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://woshibaize.github.io/2013/07/12/Linux/Day59_DockerCompose/附：Docker Compose 命令说明/" title="Docker Compose 命令说明">https://woshibaize.github.io/2013/07/12/Linux/Day59_DockerCompose/附：Docker Compose 命令说明/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章均采用 <a href rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议，转载请注明出处！
+  </li>
+</ul>
+
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2013/07/11/Linux/Day59_DockerCompose/031.DockerCompose-网络设置/" rel="next" title="Docker Compose 网路设置">
+                <i class="fas fa-chevron-left"></i> Docker Compose 网路设置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2013/07/13/Linux/Day59_DockerCompose/附：Docker Compose 模板文件/" rel="prev" title="Docker Compose 模板文件">
+                Docker Compose 模板文件 <i class="fas fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MzY0My8yMDE4Mg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+	        <img class="site-avatar-plug-bilibili">
+                <img class="site-author-image-bilibili" itemprop="image" src="/images/avatar.png" alt="点击头像试试看~~">
+	    
+              <p class="site-author-name" itemprop="name">BaiZe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">325</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa-fw link"></i>
+                <i class="fas fa-hand-holding-heart fa-flip-horizontal"></i> 友情链接 <i class="fas fa-hand-holding-heart"></i>
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jikexueyuan.com/" title="极客学院" target="_blank">极客学院</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.imooc.com/" title="慕课网" target="_blank">慕课网</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.zhizuobiao.com/courseCenter/index?courseAndGoodsName=iOS" title="职坐标" target="_blank">职坐标</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.coder520.com/courses?type=1" title="码码在线" target="_blank">码码在线</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.runoob.com/coder-learn-path" title="菜鸟教程" target="_blank">菜鸟教程</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://linux.linuxidc.com/" title="Linux公社" target="_blank">Linux公社</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://mvnrepository.com/" title="mvnrepository" target="_blank">mvnrepository</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.panduoduo.net/" title="盘多多" target="_blank">盘多多</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://mirrors.tuna.tsinghua.edu.cn/" title="清华大学开源软件镜像" target="_blank">清华大学开源软件镜像</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.gulixueyuan.com/" title="谷粒学院" target="_blank">谷粒学院</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.liaoxuefeng.com/" title="廖雪峰" target="_blank">廖雪峰</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://study.163.com/" title="网易云课堂" target="_blank">网易云课堂</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://chuanke.baidu.com/" title="百度传课" target="_blank">百度传课</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+		  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="260" height="52" src="//music.163.com/outchain/player?type=2&id=1345884127&auto=1&height=32"></iframe>
+
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker-Compose-命令说明"><span class="nav-text">Docker Compose 命令说明</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#命令对象与格式"><span class="nav-text">命令对象与格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令选项"><span class="nav-text">命令选项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#build"><span class="nav-text">build</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#config"><span class="nav-text">config</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#down"><span class="nav-text">down</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#exec"><span class="nav-text">exec</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#help"><span class="nav-text">help</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#images"><span class="nav-text">images</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kill"><span class="nav-text">kill</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#logs"><span class="nav-text">logs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pause"><span class="nav-text">pause</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#port"><span class="nav-text">port</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ps"><span class="nav-text">ps</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pull"><span class="nav-text">pull</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#push"><span class="nav-text">push</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#restart"><span class="nav-text">restart</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rm"><span class="nav-text">rm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#run"><span class="nav-text">run</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scale"><span class="nav-text">scale</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#start"><span class="nav-text">start</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stop"><span class="nav-text">stop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#top"><span class="nav-text">top</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#unpause"><span class="nav-text">unpause</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#up"><span class="nav-text">up</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#version"><span class="nav-text">version</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fas fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BaiZe</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fas fa-chart-area"></i>
+    </span>
+    
+      <span class="post-meta-item-text">全站共计字数&#58;</span>
+    
+    <span title="全站共计字数">334.9k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    <div class="sidebar_wo">
+      <div id="leimu">
+        <img src="/images/b2t/leimuA.png" alt="雷姆" onmouseover="this.src='/images/b2t/leimuB.png'" onmouseout="this.src='/images/b2t/leimuA.png'" title="回到顶部">
+      </div>
+      <div class="sidebar_wo" id="lamu">
+        <img src="/images/b2t/lamuA.png" alt="雷姆" onmouseover="this.src='/images/b2t/lamuB.png'" onmouseout="this.src='/images/b2t/lamuA.png'" title="回到底部">
+      </div>
+    </div>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fas fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="far fa-frown fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  
+<!-- 图片轮播js文件cdn -->
+<script src="https://cdn.bootcss.com/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+
+<!-- 剪贴板js文件 -->
+<script type="text/javascript" src="/lib/zclip/clipboard.min.js"></script>
+
+<script>
+
+<!-- 头像挂件及自动刷新 -->
+
+    $(function () {
+        $(".site-avatar-plug-bilibili").attr("src", "/images/avatar-plug/bilibili_" + (~~(44*Math.random())+1) + ".png");
+    });
+
+
+</script>
+
+<!-- 自定义的js文件 -->
+<script type="text/javascript" src="/js/src/custom.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?a84a10965b0e13b3bf2d22960408192c"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>

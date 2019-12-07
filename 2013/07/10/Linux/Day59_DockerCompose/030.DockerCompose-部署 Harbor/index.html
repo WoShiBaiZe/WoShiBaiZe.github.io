@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next beep use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Linux,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Docker Compose 部署 Harbor什么是 HarborHarbor 是一个用于存储和分发 Docker 镜像的企业级 Registry 服务器，通过添加一些企业必需的功能特性，例如安全、标识和管理等，扩展了开源 Docker Distribution。作为一个企业级私有 Registry 服务器，Harbor 提供了更好的性能和安全。提升用户使用 Registry 构建和运行环境传输">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker Compose 部署 Harbor">
+<meta property="og:url" content="https://woshibaize.github.io/2013/07/10/Linux/Day59_DockerCompose/030.DockerCompose-部署 Harbor/index.html">
+<meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="Docker Compose 部署 Harbor什么是 HarborHarbor 是一个用于存储和分发 Docker 镜像的企业级 Registry 服务器，通过添加一些企业必需的功能特性，例如安全、标识和管理等，扩展了开源 Docker Distribution。作为一个企业级私有 Registry 服务器，Harbor 提供了更好的性能和安全。提升用户使用 Registry 构建和运行环境传输">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://woshibaize.github.io/assets/2017101103304659.png">
+<meta property="og:image" content="https://woshibaize.github.io/assets/Lusifer_20190617010524.png">
+<meta property="og:image" content="https://woshibaize.github.io/assets/Lusifer_20190617010713.png">
+<meta property="og:image" content="https://woshibaize.github.io/assets/Lusifer_20190618052805.png">
+<meta property="og:image" content="https://woshibaize.github.io/assets/Lusifer_20190618052902.png">
+<meta property="og:image" content="https://woshibaize.github.io/assets/Lusifer_20190618052957.png">
+<meta property="og:image" content="https://woshibaize.github.io/assets/Lusifer_20190618053555.png">
+<meta property="og:image" content="https://woshibaize.github.io/assets/Lusifer_20190618053614.png">
+<meta property="og:updated_time" content="2019-10-10T18:55:56.783Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Docker Compose 部署 Harbor">
+<meta name="twitter:description" content="Docker Compose 部署 Harbor什么是 HarborHarbor 是一个用于存储和分发 Docker 镜像的企业级 Registry 服务器，通过添加一些企业必需的功能特性，例如安全、标识和管理等，扩展了开源 Docker Distribution。作为一个企业级私有 Registry 服务器，Harbor 提供了更好的性能和安全。提升用户使用 Registry 构建和运行环境传输">
+<meta name="twitter:image" content="https://woshibaize.github.io/assets/2017101103304659.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Beep',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":6,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://woshibaize.github.io/2013/07/10/Linux/Day59_DockerCompose/030.DockerCompose-部署 Harbor/">
+
+
+
+<!-- 文章加密 -->
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+		if (history.length === 1) {
+		    window.opener = null;
+		    window.open('', '_self');
+		    window.close();
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
+
+<!-- fontawesome5 -->
+<link href="/lib/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" type="text/css">
+
+  <title>Docker Compose 部署 Harbor | 个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband">
+	<a href="https://github.com/woshibaize" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="/images/headband/forkme_right_red.png" alt="Fork me on GitHub"></a>
+    </div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">personal blog</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa-fw fas fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa-fw fas fa-archive"></i> <br>
+            
+            文章
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa-fw fas fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa-fw fas fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa-fw fas fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fas fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fas fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="far fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+ </div>
+    </header>
+    
+    <a href="https://github.com/woshibaize" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub">
+      <svg width="80" height="80" viewbox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+	<path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+      </svg>
+    </a>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2013/07/10/Linux/Day59_DockerCompose/030.DockerCompose-部署 Harbor/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BaiZe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Docker Compose 部署 Harbor</h2>
+        
+
+        <div class="post-meta">
+	  
+	  
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar-plus"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-07-10T23:03:53+08:00">
+                2013-07-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <!--<i class="far fa-file-word"></i>-->
+		  <i class="fas fa-book-open"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文共计 &#58;</span>
+                
+                <span title="本文共计">
+                  2.7k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="far fa-clock"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅文耗时 &asymp;</span>
+                
+                <span title="阅文耗时">
+                  12 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Docker-Compose-部署-Harbor"><a href="#Docker-Compose-部署-Harbor" class="headerlink" title="Docker Compose 部署 Harbor"></a>Docker Compose 部署 Harbor</h1><h2 id="什么是-Harbor"><a href="#什么是-Harbor" class="headerlink" title="什么是 Harbor"></a>什么是 Harbor</h2><p>Harbor 是一个用于存储和分发 Docker 镜像的企业级 Registry 服务器，通过添加一些企业必需的功能特性，例如安全、标识和管理等，扩展了开源 Docker Distribution。作为一个企业级私有 Registry 服务器，Harbor 提供了更好的性能和安全。提升用户使用 Registry 构建和运行环境传输镜像的效率。Harbor 支持安装在多个 Registry 节点的镜像资源复制，镜像全部保存在私有 Registry 中， 确保数据和知识产权在公司内部网络中管控。另外，Harbor 也提供了高级的安全特性，诸如用户管理，访问控制和活动审计等。</p>
+<h2 id="Harbor-特性"><a href="#Harbor-特性" class="headerlink" title="Harbor 特性"></a>Harbor 特性</h2><ul>
+<li><strong>基于角色的访问控制 ：</strong> 用户与 Docker 镜像仓库通过 “项目” 进行组织管理，一个用户可以对多个镜像仓库在同一命名空间（project）里有不同的权限。</li>
+<li><strong>镜像复制 ：</strong>  镜像可以在多个 Registry 实例中复制（同步）。尤其适合于负载均衡，高可用，混合云和多云的场景。</li>
+<li><strong>图形化用户界面 ： </strong> 用户可以通过浏览器来浏览，检索当前 Docker 镜像仓库，管理项目和命名空间。</li>
+<li><strong>AD/LDAP 支持 ：</strong>  Harbor 可以集成企业内部已有的 AD/LDAP，用于鉴权认证管理。</li>
+<li><strong>审计管理 ：</strong>  所有针对镜像仓库的操作都可以被记录追溯，用于审计管理。</li>
+<li><strong>国际化 ：</strong>  已拥有英文、中文、德文、日文和俄文的本地化版本。更多的语言将会添加进来。</li>
+<li><strong>RESTful API ：</strong>  RESTful API 提供给管理员对于 Harbor 更多的操控，使得与其它管理软件集成变得更容易。</li>
+<li><strong>部署简单 ：</strong>  提供在线和离线两种安装工具， 也可以安装到 vSphere 平台 (OVA 方式) 虚拟设备。</li>
+</ul>
+<h2 id="Harbor-组件"><a href="#Harbor-组件" class="headerlink" title="Harbor 组件"></a>Harbor 组件</h2><ul>
+<li><strong>Proxy：</strong> Harbor 的 registry,  UI,  token 等服务，通过一个前置的反向代理统一接收浏览器、Docker 客户端的请求，并将请求转发给后端不同的服务。</li>
+<li><strong>Registry：</strong>  负责储存 Docker 镜像，并处理 docker push/pull 命令。由于我们要对用户进行访问控制，即不同用户对 Docker image 有不同的读写权限，Registry 会指向一个 token 服务，强制用户的每次 docker pull/push 请求都要携带一个合法的 token, Registry 会通过公钥对 token 进行解密验证。</li>
+<li><strong>Core services：</strong>  这是 Harbor 的核心功能，主要提供以下服务：<ul>
+<li><strong>UI：</strong> 提供图形化界面，帮助用户管理 registry 上的镜像（image）, 并对用户进行授权。</li>
+<li><strong>WebHook：</strong> 为了及时获取 registry 上 image 状态变化的情况， 在 Registry 上配置 webhook，把状态变化传递给 UI 模块。</li>
+<li><strong>Token：</strong> 负责根据用户权限给每个 docker push/pull 命令签发 token. Docker 客户端向 - Registry 服务发起的请求，如果不包含 token，会被重定向到这里，获得 token 后再重新向 Registry 进行请求。</li>
+</ul>
+</li>
+<li><strong>Database：</strong> 为 core services 提供数据库服务，负责储存用户权限、审计日志、Docker image 分组信息等数据。</li>
+<li><strong>Job Services：</strong> 提供镜像远程复制功能，可以把本地镜像同步到其他 Harbor 实例中。</li>
+<li><strong>Log Collector：</strong> 为了帮助监控 Harbor 运行，负责收集其他组件的 log，供日后进行分析。</li>
+</ul>
+<p><img src="/assets/2017101103304659.png" alt></p>
+<h2 id="安装-Harbor"><a href="#安装-Harbor" class="headerlink" title="安装 Harbor"></a>安装 Harbor</h2><p><a href="https://github.com/goharbor/harbor" target="_blank" rel="noopener">官方 GitHub</a> 上下载最新离线安装版（我已经下载并放置在群分享的 <strong>Linux</strong> 目录下）并上传至服务器</p>
+<h3 id="解压安装包"><a href="#解压安装包" class="headerlink" title="解压安装包"></a>解压安装包</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf harbor-offline-installer-v1.8.0.tgz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出如下</span></span><br><span class="line">harbor/harbor.v1.8.0.tar.gz</span><br><span class="line">harbor/prepare</span><br><span class="line">harbor/LICENSE</span><br><span class="line">harbor/install.sh</span><br><span class="line">harbor/harbor.yml</span><br></pre></td></tr></table></figure>
+<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vi harbor.yml</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改为域名或你服务器 IP</span></span><br><span class="line">hostname: 192.168.141.150</span><br></pre></td></tr></table></figure>
+<h3 id="执行安装脚本"><a href="#执行安装脚本" class="headerlink" title="执行安装脚本"></a>执行安装脚本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br></pre></td><td class="code"><pre><span class="line">./install.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出如下</span></span><br><span class="line">[Step 0]: checking installation environment ...</span><br><span class="line"></span><br><span class="line">Note: docker version: 18.09.6</span><br><span class="line"></span><br><span class="line">Note: docker-compose version: 1.24.0</span><br><span class="line"></span><br><span class="line">[Step 1]: loading Harbor images ...</span><br><span class="line">23d9f72a5270: Loading layer [==================================================&gt;]  33.25MB/33.25MB</span><br><span class="line">1d4a1da12c02: Loading layer [==================================================&gt;]  50.51MB/50.51MB</span><br><span class="line">8eb1a006f3b0: Loading layer [==================================================&gt;]  3.584kB/3.584kB</span><br><span class="line">41b6f75847f4: Loading layer [==================================================&gt;]  3.072kB/3.072kB</span><br><span class="line">ec9bd6e4d4e8: Loading layer [==================================================&gt;]   2.56kB/2.56kB</span><br><span class="line">6d852bb664c2: Loading layer [==================================================&gt;]  3.072kB/3.072kB</span><br><span class="line">0e4ed2b5a5b8: Loading layer [==================================================&gt;]  3.584kB/3.584kB</span><br><span class="line">8dfb2b644f30: Loading layer [==================================================&gt;]  12.29kB/12.29kB</span><br><span class="line">Loaded image: goharbor/harbor-log:v1.8.0</span><br><span class="line">d8c53538042b: Loading layer [==================================================&gt;]  63.34MB/63.34MB</span><br><span class="line">1b5fb7ee22e0: Loading layer [==================================================&gt;]  47.96MB/47.96MB</span><br><span class="line">a8bdca5e9d71: Loading layer [==================================================&gt;]  6.656kB/6.656kB</span><br><span class="line">f7cec940b52c: Loading layer [==================================================&gt;]  2.048kB/2.048kB</span><br><span class="line">301a4a2af7db: Loading layer [==================================================&gt;]   7.68kB/7.68kB</span><br><span class="line">e588e1e3a775: Loading layer [==================================================&gt;]   2.56kB/2.56kB</span><br><span class="line">539f28a5d0ea: Loading layer [==================================================&gt;]   2.56kB/2.56kB</span><br><span class="line">8b4a72241226: Loading layer [==================================================&gt;]   2.56kB/2.56kB</span><br><span class="line">Loaded image: goharbor/harbor-db:v1.8.0</span><br><span class="line">c88db349fb2f: Loading layer [==================================================&gt;]  8.972MB/8.972MB</span><br><span class="line">1f2d4d72bba2: Loading layer [==================================================&gt;]  35.77MB/35.77MB</span><br><span class="line">dddbcf598df5: Loading layer [==================================================&gt;]  2.048kB/2.048kB</span><br><span class="line">0ced476c2d9c: Loading layer [==================================================&gt;]  3.072kB/3.072kB</span><br><span class="line">af24eb0bf40b: Loading layer [==================================================&gt;]  35.77MB/35.77MB</span><br><span class="line">Loaded image: goharbor/chartmuseum-photon:v0.8.1-v1.8.0</span><br><span class="line">b185d348bd7d: Loading layer [==================================================&gt;]   2.56kB/2.56kB</span><br><span class="line">f032ded7f92e: Loading layer [==================================================&gt;]  1.536kB/1.536kB</span><br><span class="line">c6c822edbc47: Loading layer [==================================================&gt;]   66.9MB/66.9MB</span><br><span class="line">73ef3c4363bf: Loading layer [==================================================&gt;]  39.75MB/39.75MB</span><br><span class="line">0c490e002448: Loading layer [==================================================&gt;]  144.4kB/144.4kB</span><br><span class="line">31afe2abafb4: Loading layer [==================================================&gt;]  3.004MB/3.004MB</span><br><span class="line">Loaded image: goharbor/prepare:v1.8.0</span><br><span class="line">257ebcc1c9c4: Loading layer [==================================================&gt;]  8.967MB/8.967MB</span><br><span class="line">7579d3c94fca: Loading layer [==================================================&gt;]  38.68MB/38.68MB</span><br><span class="line">323611f7dd17: Loading layer [==================================================&gt;]  38.68MB/38.68MB</span><br><span class="line">Loaded image: goharbor/harbor-jobservice:v1.8.0</span><br><span class="line">587a5757a7f6: Loading layer [==================================================&gt;]  3.548MB/3.548MB</span><br><span class="line">Loaded image: goharbor/nginx-photon:v1.8.0</span><br><span class="line">a61ab2060e6e: Loading layer [==================================================&gt;]  8.967MB/8.967MB</span><br><span class="line">25359ae00f57: Loading layer [==================================================&gt;]  5.143MB/5.143MB</span><br><span class="line">610a1668f8bf: Loading layer [==================================================&gt;]  15.13MB/15.13MB</span><br><span class="line">db2252abd9e0: Loading layer [==================================================&gt;]  26.47MB/26.47MB</span><br><span class="line">4f406312560b: Loading layer [==================================================&gt;]  22.02kB/22.02kB</span><br><span class="line">1cee0947e5a7: Loading layer [==================================================&gt;]  3.072kB/3.072kB</span><br><span class="line">48db2b9b0752: Loading layer [==================================================&gt;]  46.74MB/46.74MB</span><br><span class="line">Loaded image: goharbor/notary-server-photon:v0.6.1-v1.8.0</span><br><span class="line">aaf447150765: Loading layer [==================================================&gt;]    113MB/113MB</span><br><span class="line">6835441e1a1d: Loading layer [==================================================&gt;]  10.94MB/10.94MB</span><br><span class="line">9f4739e3a532: Loading layer [==================================================&gt;]  2.048kB/2.048kB</span><br><span class="line">928f489135f0: Loading layer [==================================================&gt;]  48.13kB/48.13kB</span><br><span class="line">1495a1a09ada: Loading layer [==================================================&gt;]  3.072kB/3.072kB</span><br><span class="line">1a5f5b141717: Loading layer [==================================================&gt;]  10.99MB/10.99MB</span><br><span class="line">Loaded image: goharbor/clair-photon:v2.0.8-v1.8.0</span><br><span class="line">66006ea937c6: Loading layer [==================================================&gt;]  337.8MB/337.8MB</span><br><span class="line">d272ba122880: Loading layer [==================================================&gt;]  106.5kB/106.5kB</span><br><span class="line">Loaded image: goharbor/harbor-migrator:v1.8.0</span><br><span class="line">05bc5efb1724: Loading layer [==================================================&gt;]  8.967MB/8.967MB</span><br><span class="line">af3a6f89469a: Loading layer [==================================================&gt;]  46.85MB/46.85MB</span><br><span class="line">452d238b3e48: Loading layer [==================================================&gt;]  5.632kB/5.632kB</span><br><span class="line">36e1cb2d6ffa: Loading layer [==================================================&gt;]  27.14kB/27.14kB</span><br><span class="line">5385ffb8451e: Loading layer [==================================================&gt;]  46.85MB/46.85MB</span><br><span class="line">Loaded image: goharbor/harbor-core:v1.8.0</span><br><span class="line">268091c30a67: Loading layer [==================================================&gt;]  71.66MB/71.66MB</span><br><span class="line">4433bcd802e7: Loading layer [==================================================&gt;]  3.072kB/3.072kB</span><br><span class="line">420b26399278: Loading layer [==================================================&gt;]   59.9kB/59.9kB</span><br><span class="line">8864c4b9ac3d: Loading layer [==================================================&gt;]  61.95kB/61.95kB</span><br><span class="line">Loaded image: goharbor/redis-photon:v1.8.0</span><br><span class="line">63645c97bf5d: Loading layer [==================================================&gt;]  8.968MB/8.968MB</span><br><span class="line">ccb295818ad9: Loading layer [==================================================&gt;]  3.072kB/3.072kB</span><br><span class="line">1ec2d1eefa8f: Loading layer [==================================================&gt;]   2.56kB/2.56kB</span><br><span class="line">b88acf0f9f5f: Loading layer [==================================================&gt;]   20.1MB/20.1MB</span><br><span class="line">0e7375de12e6: Loading layer [==================================================&gt;]   20.1MB/20.1MB</span><br><span class="line">Loaded image: goharbor/registry-photon:v2.7.1-patch-2819-v1.8.0</span><br><span class="line">444b0c8bfeee: Loading layer [==================================================&gt;]  3.548MB/3.548MB</span><br><span class="line">ed0415346760: Loading layer [==================================================&gt;]  6.568MB/6.568MB</span><br><span class="line">572bd51089e0: Loading layer [==================================================&gt;]  160.8kB/160.8kB</span><br><span class="line">1410c2919a92: Loading layer [==================================================&gt;]    215kB/215kB</span><br><span class="line">8ecdca210598: Loading layer [==================================================&gt;]  3.584kB/3.584kB</span><br><span class="line">Loaded image: goharbor/harbor-portal:v1.8.0</span><br><span class="line">7fb66591fb58: Loading layer [==================================================&gt;]  8.968MB/8.968MB</span><br><span class="line">42ec4a6394bf: Loading layer [==================================================&gt;]  3.072kB/3.072kB</span><br><span class="line">be6c2180cb57: Loading layer [==================================================&gt;]   20.1MB/20.1MB</span><br><span class="line">d956d9e974c5: Loading layer [==================================================&gt;]  3.072kB/3.072kB</span><br><span class="line">e2e0b4f17ad8: Loading layer [==================================================&gt;]  7.465MB/7.465MB</span><br><span class="line">7e29d670afe9: Loading layer [==================================================&gt;]  27.56MB/27.56MB</span><br><span class="line">Loaded image: goharbor/harbor-registryctl:v1.8.0</span><br><span class="line">453732ea69d4: Loading layer [==================================================&gt;]  13.72MB/13.72MB</span><br><span class="line">c985f3824f33: Loading layer [==================================================&gt;]  26.47MB/26.47MB</span><br><span class="line">76eaa2763221: Loading layer [==================================================&gt;]  22.02kB/22.02kB</span><br><span class="line">0ef55a752948: Loading layer [==================================================&gt;]  3.072kB/3.072kB</span><br><span class="line">c5749b90723d: Loading layer [==================================================&gt;]  45.33MB/45.33MB</span><br><span class="line">Loaded image: goharbor/notary-signer-photon:v0.6.1-v1.8.0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[Step 2]: preparing environment ...</span><br><span class="line">prepare base dir is <span class="built_in">set</span> to /usr/<span class="built_in">local</span>/docker/harbor/harbor</span><br><span class="line">Generated configuration file: /config/<span class="built_in">log</span>/logrotate.conf</span><br><span class="line">Generated configuration file: /config/nginx/nginx.conf</span><br><span class="line">Generated configuration file: /config/core/env</span><br><span class="line">Generated configuration file: /config/core/app.conf</span><br><span class="line">Generated configuration file: /config/registry/config.yml</span><br><span class="line">Generated configuration file: /config/registryctl/env</span><br><span class="line">Generated configuration file: /config/db/env</span><br><span class="line">Generated configuration file: /config/jobservice/env</span><br><span class="line">Generated configuration file: /config/jobservice/config.yml</span><br><span class="line">Generated and saved secret to file: /secret/keys/secretkey</span><br><span class="line">Generated certificate, key file: /secret/core/private_key.pem, cert file: /secret/registry/root.crt</span><br><span class="line">Generated configuration file: /compose_location/docker-compose.yml</span><br><span class="line">Clean up the input dir</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[Step 3]: starting Harbor ...</span><br><span class="line">Creating network <span class="string">"harbor_harbor"</span> with the default driver</span><br><span class="line">Creating harbor-log ... <span class="keyword">done</span></span><br><span class="line">Creating harbor-db   ... <span class="keyword">done</span></span><br><span class="line">Creating registryctl ... <span class="keyword">done</span></span><br><span class="line">Creating redis       ... <span class="keyword">done</span></span><br><span class="line">Creating registry    ... <span class="keyword">done</span></span><br><span class="line">Creating harbor-core ... <span class="keyword">done</span></span><br><span class="line">Creating harbor-jobservice ... <span class="keyword">done</span></span><br><span class="line">Creating harbor-portal     ... <span class="keyword">done</span></span><br><span class="line">Creating nginx             ... <span class="keyword">done</span></span><br><span class="line"></span><br><span class="line">✔ ----Harbor has been installed and started successfully.----</span><br><span class="line"></span><br><span class="line">Now you should be able to visit the admin portal at http://192.168.141.150. </span><br><span class="line">For more details, please visit https://github.com/goharbor/harbor .</span><br></pre></td></tr></table></figure>
+<h3 id="验证安装是否成功"><a href="#验证安装是否成功" class="headerlink" title="验证安装是否成功"></a>验证安装是否成功</h3><p>通过浏览器访问 <a href="http://192.168.141.150" target="_blank" rel="noopener">http://192.168.141.150</a> ，看到登录页面</p>
+<p><img src="/assets/Lusifer_20190617010524.png" alt></p>
+<p>输入账号 <code>admin</code>，密码 <code>Harbor12345</code>，登录成功后</p>
+<p><img src="/assets/Lusifer_20190617010713.png" alt></p>
+<h2 id="Harbor-启动和停止"><a href="#Harbor-启动和停止" class="headerlink" title="Harbor 启动和停止"></a>Harbor 启动和停止</h2><p>Harbor 的日常运维管理是通过 docker-compose 来完成的，Harbor 本身有多个服务进程，都放在 docker 容器之中运行，我们可以通过 <code>docker ps</code> 命令查看。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">docker ps | grep goharbor</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出如下</span></span><br><span class="line">07b401504357        goharbor/nginx-photon:v1.8.0                        <span class="string">"nginx -g 'daemon of…"</span>   23 minutes ago      Up 23 minutes (healthy)   0.0.0.0:80-&gt;80/tcp          nginx</span><br><span class="line">050f39a147bc        goharbor/harbor-portal:v1.8.0                       <span class="string">"nginx -g 'daemon of…"</span>   23 minutes ago      Up 23 minutes (healthy)   80/tcp                      harbor-portal</span><br><span class="line">305077bc0a3e        goharbor/harbor-jobservice:v1.8.0                   <span class="string">"/harbor/start.sh"</span>       23 minutes ago      Up 23 minutes                                         harbor-jobservice</span><br><span class="line">4eb33b09b268        goharbor/harbor-core:v1.8.0                         <span class="string">"/harbor/start.sh"</span>       23 minutes ago      Up 23 minutes (healthy)                               harbor-core</span><br><span class="line">e9efb7a6abf9        goharbor/registry-photon:v2.7.1-patch-2819-v1.8.0   <span class="string">"/entrypoint.sh /etc…"</span>   24 minutes ago      Up 23 minutes (healthy)   5000/tcp                    registry</span><br><span class="line">f9bc75d47752        goharbor/harbor-registryctl:v1.8.0                  <span class="string">"/harbor/start.sh"</span>       24 minutes ago      Up 23 minutes (healthy)                               registryctl</span><br><span class="line">76d33d1755f6        goharbor/redis-photon:v1.8.0                        <span class="string">"docker-entrypoint.s…"</span>   24 minutes ago      Up 23 minutes             6379/tcp                    redis</span><br><span class="line">3870b3b93f46        goharbor/harbor-db:v1.8.0                           <span class="string">"/entrypoint.sh post…"</span>   24 minutes ago      Up 23 minutes (healthy)   5432/tcp                    harbor-db</span><br><span class="line">6e848e4d8bc2        goharbor/harbor-log:v1.8.0                          <span class="string">"/bin/sh -c /usr/loc…"</span>   24 minutes ago      Up 24 minutes (healthy)   127.0.0.1:1514-&gt;10514/tcp   harbor-log</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动</span></span><br><span class="line">docker-compose start</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止</span></span><br><span class="line">docker-comose stop</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启</span></span><br><span class="line">docker-compose restart</span><br></pre></td></tr></table></figure>
+<p><strong>说明：</strong></p>
+<ul>
+<li><strong>nginx：</strong> nginx 负责流量转发和安全验证，对外提供的流量都是从 nginx 中转，所以开放 https 的 443 端口，它将流量分发到后端的 ui 和正在 docker 镜像存储的 docker registry。</li>
+<li><strong>harbor-jobservice：</strong> harbor-jobservice 是 harbor 的 job 管理模块，job 在 harbor 里面主要是为了镜像仓库之前同步使用的；</li>
+<li><strong>harbor-ui：</strong> harbor-ui 是 web 管理页面，主要是前端的页面和后端 CURD 的接口；</li>
+<li><strong>registry：</strong> registry 就是 docker 原生的仓库，负责保存镜像。</li>
+<li><strong>harbor-adminserver：</strong> harbor-adminserver 是 harbor 系统管理接口，可以修改系统配置以及获取系统信息。</li>
+<li><strong>harbor-db：</strong> harbor-db 是 harbor 的数据库，这里保存了系统的 job 以及项目、人员权限管理。由于本 harbor 的认证也是通过数据，在生产环节大多对接到企业的 ldap 中；</li>
+<li><strong>harbor-log：</strong> harbor-log 是 harbor 的日志服务，统一管理 harbor 的日志。通过 inspect 可以看出容器统一将日志输出的 syslog。</li>
+</ul>
+<p>这几个容器通过 Docker link 的形式连接在一起，这样，在容器之间可以通过容器名字互相访问。对终端用户而言，只需要暴露 proxy （即 Nginx）的服务端口。</p>
+<h2 id="配置客户端"><a href="#配置客户端" class="headerlink" title="配置客户端"></a>配置客户端</h2><p>在 <code>/etc/docker/daemon.json</code> 中增加如下内容（如果文件不存在请新建该文件）</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"registry-mirrors"</span>: [</span><br><span class="line">    <span class="string">"https://registry.docker-cn.com"</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"insecure-registries"</span>: [</span><br><span class="line">    <span class="string">"192.168.141.150"</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>注意：</strong> 该文件必须符合 JSON 规范，否则 Docker 将不能启动。</p>
+</blockquote>
+<p>重启服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
+<h2 id="检查客户端配置是否生效"><a href="#检查客户端配置是否生效" class="headerlink" title="检查客户端配置是否生效"></a>检查客户端配置是否生效</h2><p>使用 <code>docker info</code> 命令手动检查，如果从配置中看到如下内容，说明配置成功</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Insecure Registries:</span><br><span class="line"> 192.168.141.150</span><br><span class="line"> 127.0.0.0/8</span><br></pre></td></tr></table></figure>
+<h2 id="Harbor-上传镜像"><a href="#Harbor-上传镜像" class="headerlink" title="Harbor 上传镜像"></a>Harbor 上传镜像</h2><h3 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h3><p>我们以推送 Nginx 为例，首先需要在 Harbor 上创建一个 <strong>公开/私有</strong> 的项目</p>
+<p><img src="/assets/Lusifer_20190618052805.png" alt></p>
+<p><img src="/assets/Lusifer_20190618052902.png" alt></p>
+<h3 id="推送镜像"><a href="#推送镜像" class="headerlink" title="推送镜像"></a>推送镜像</h3><p><img src="/assets/Lusifer_20190618052957.png" alt></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在项目中标记镜像</span></span><br><span class="line">docker tag nginx 192.168.141.150/myshop/nginx:latest</span><br><span class="line"></span><br><span class="line"><span class="comment"># 登录 Harbor</span></span><br><span class="line">docker login 192.168.141.150 -u admin -p Harbor12345</span><br><span class="line"></span><br><span class="line"><span class="comment"># 推送镜像到项目</span></span><br><span class="line">docker push 192.168.141.150/myshop/nginx:latest</span><br></pre></td></tr></table></figure>
+<h3 id="查看镜像"><a href="#查看镜像" class="headerlink" title="查看镜像"></a>查看镜像</h3><p><img src="/assets/Lusifer_20190618053555.png" alt></p>
+<p><img src="/assets/Lusifer_20190618053614.png" alt></p>
+<h2 id="Harbor-下载镜像"><a href="#Harbor-下载镜像" class="headerlink" title="Harbor 下载镜像"></a>Harbor 下载镜像</h2><p>在其它机器下载镜像只需要配置好客户端即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull 192.168.141.150/myshop/nginx:latest</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wechat.jpg" alt="BaiZe wechat" style="width: 200px; max-width: 100%;">
+    <div>欢迎扫描二维码关注公众号一起成长~</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>觉得文章对您有帮助请我喝杯咖啡吧^_^</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="BaiZe 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"><i class="fas fa-tag"></i> Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div>
+	  <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    BaiZe
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://woshibaize.github.io/2013/07/10/Linux/Day59_DockerCompose/030.DockerCompose-部署 Harbor/" title="Docker Compose 部署 Harbor">https://woshibaize.github.io/2013/07/10/Linux/Day59_DockerCompose/030.DockerCompose-部署 Harbor/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章均采用 <a href rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议，转载请注明出处！
+  </li>
+</ul>
+
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2013/07/09/Linux/Day59_DockerCompose/029.DockerCompose-部署 Nexus/" rel="next" title="Docker Compose 部署 Nexus">
+                <i class="fas fa-chevron-left"></i> Docker Compose 部署 Nexus
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2013/07/11/Linux/Day59_DockerCompose/031.DockerCompose-网络设置/" rel="prev" title="Docker Compose 网路设置">
+                Docker Compose 网路设置 <i class="fas fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MzY0My8yMDE4Mg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+	        <img class="site-avatar-plug-bilibili">
+                <img class="site-author-image-bilibili" itemprop="image" src="/images/avatar.png" alt="点击头像试试看~~">
+	    
+              <p class="site-author-name" itemprop="name">BaiZe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">325</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa-fw link"></i>
+                <i class="fas fa-hand-holding-heart fa-flip-horizontal"></i> 友情链接 <i class="fas fa-hand-holding-heart"></i>
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jikexueyuan.com/" title="极客学院" target="_blank">极客学院</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.imooc.com/" title="慕课网" target="_blank">慕课网</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.zhizuobiao.com/courseCenter/index?courseAndGoodsName=iOS" title="职坐标" target="_blank">职坐标</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.coder520.com/courses?type=1" title="码码在线" target="_blank">码码在线</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.runoob.com/coder-learn-path" title="菜鸟教程" target="_blank">菜鸟教程</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://linux.linuxidc.com/" title="Linux公社" target="_blank">Linux公社</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://mvnrepository.com/" title="mvnrepository" target="_blank">mvnrepository</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.panduoduo.net/" title="盘多多" target="_blank">盘多多</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://mirrors.tuna.tsinghua.edu.cn/" title="清华大学开源软件镜像" target="_blank">清华大学开源软件镜像</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.gulixueyuan.com/" title="谷粒学院" target="_blank">谷粒学院</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.liaoxuefeng.com/" title="廖雪峰" target="_blank">廖雪峰</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://study.163.com/" title="网易云课堂" target="_blank">网易云课堂</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://chuanke.baidu.com/" title="百度传课" target="_blank">百度传课</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+		  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="260" height="52" src="//music.163.com/outchain/player?type=2&id=1345884127&auto=1&height=32"></iframe>
+
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker-Compose-部署-Harbor"><span class="nav-text">Docker Compose 部署 Harbor</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是-Harbor"><span class="nav-text">什么是 Harbor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Harbor-特性"><span class="nav-text">Harbor 特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Harbor-组件"><span class="nav-text">Harbor 组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-Harbor"><span class="nav-text">安装 Harbor</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解压安装包"><span class="nav-text">解压安装包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改配置文件"><span class="nav-text">修改配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行安装脚本"><span class="nav-text">执行安装脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证安装是否成功"><span class="nav-text">验证安装是否成功</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Harbor-启动和停止"><span class="nav-text">Harbor 启动和停止</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置客户端"><span class="nav-text">配置客户端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检查客户端配置是否生效"><span class="nav-text">检查客户端配置是否生效</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Harbor-上传镜像"><span class="nav-text">Harbor 上传镜像</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#新建项目"><span class="nav-text">新建项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#推送镜像"><span class="nav-text">推送镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看镜像"><span class="nav-text">查看镜像</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Harbor-下载镜像"><span class="nav-text">Harbor 下载镜像</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fas fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BaiZe</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fas fa-chart-area"></i>
+    </span>
+    
+      <span class="post-meta-item-text">全站共计字数&#58;</span>
+    
+    <span title="全站共计字数">334.9k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    <div class="sidebar_wo">
+      <div id="leimu">
+        <img src="/images/b2t/leimuA.png" alt="雷姆" onmouseover="this.src='/images/b2t/leimuB.png'" onmouseout="this.src='/images/b2t/leimuA.png'" title="回到顶部">
+      </div>
+      <div class="sidebar_wo" id="lamu">
+        <img src="/images/b2t/lamuA.png" alt="雷姆" onmouseover="this.src='/images/b2t/lamuB.png'" onmouseout="this.src='/images/b2t/lamuA.png'" title="回到底部">
+      </div>
+    </div>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fas fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="far fa-frown fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  
+<!-- 图片轮播js文件cdn -->
+<script src="https://cdn.bootcss.com/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+
+<!-- 剪贴板js文件 -->
+<script type="text/javascript" src="/lib/zclip/clipboard.min.js"></script>
+
+<script>
+
+<!-- 头像挂件及自动刷新 -->
+
+    $(function () {
+        $(".site-avatar-plug-bilibili").attr("src", "/images/avatar-plug/bilibili_" + (~~(44*Math.random())+1) + ".png");
+    });
+
+
+</script>
+
+<!-- 自定义的js文件 -->
+<script type="text/javascript" src="/js/src/custom.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?a84a10965b0e13b3bf2d22960408192c"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>
