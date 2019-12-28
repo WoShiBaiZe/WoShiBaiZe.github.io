@@ -2009,7 +2009,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #c2ff63;
+  background: #63c241;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -4017,12 +4017,6 @@ section .post-body .fancybox img {
   text-align: left;
   word-wrap: break-word;
   word-break: break-all;
-}
-body {
-  background: url("https://source.unsplash.com/random/1600x900");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: 50% 50%;
 }
 @-moz-keyframes play {
   0% {
