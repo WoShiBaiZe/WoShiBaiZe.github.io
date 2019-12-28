@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title></title>
+    <url>%2F2019%2F12%2F29%2F2019-12-29.Kubernetes%2F</url>
+    <content type="text"><![CDATA[12345title: testdate: 2019-12-08 18:45:13tags: fdfacategories: javacopyright: baize]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[更改IP并安装Docker]]></title>
     <url>%2F2019%2F12%2F08%2F2019-12-8.%E6%9B%B4%E6%94%B9ip%E5%B9%B6%E5%AE%89%E8%A3%85Docker%2F</url>
     <content type="text"><![CDATA[更改ip并安装Docker 1.Ubuntu更改IProot@ubuntu:~# vim /etc/netplan/50-cloud-init.yaml123456789101112network: ethernets: eth0: addresses: - 192.168.15.72/20 gateway4: 192.168.12.2 nameservers: addresses: - 223.5.5.5 search: [] optional: true version: 2 root@ubuntu:~# netplan apply2.安装Docker]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
       <tags>
         <tag>微服务架构</tag>
       </tags>
