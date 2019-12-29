@@ -8,7 +8,11 @@
         <category>Linux、Ubuntu18.04</category>
       </categories>
       <tags>
-        <tag>微服务架构、Docker、IP、系统更新、Docker、Centos 7</tag>
+        <tag>微服务架构</tag>
+        <tag>Docker</tag>
+        <tag>IP</tag>
+        <tag>系统更新</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -16,10 +20,15 @@
     <url>%2F2019%2F12%2F08%2FDocker%E5%AE%89%E8%A3%85(Centos%E7%89%88)%2F</url>
     <content type="text"><![CDATA[基于Centos 7Docker安装 1.Centos7更改静态IP1234567891011root@localhost:~# vim /etc/sysconfig/network-scripts/ifcfg-ens33# 把dhcp改成staticBOOTPROTO=&quot;static&quot;# 以下为增加内容IPADDR=&quot;XXX.XXX.XXX.XXX&quot;NETMASK=&quot;255.255.255.0&quot;GATEWAY=&quot;XXX.XXX.XXX.XXX&quot;DNS1=&quot;XXX.XXX.XXX.XXX&quot;root@localhost:~# vim /etc/resolv.confnameserver xxx.xxx.xxx.xxx #第二种更改DNS方式 更改生效：1service network restart 或者 systemctl restart network 2.Centos7更新软件包与删除指定内核12345671. yum update -y # 更新系统内核，会重新下载一个新的2. uname -sr # 查看当前使用的系统内核3. rpm -q kernel # 搜索查看当前机器上所有的内核4. yum remove kernel-3.10.0-123.el7.x86_64 kernel-devel-3.10.0-123.el7.x86_64或者 rpm -e kernel-3.10.0-123.el7.x86_64 # 删除指定的内核5. reboot # 重启6. rpm -qa|grep kernel* # 再次查看所有内核 3.指定版本docker安装1234567891011121314151617181920212223242526272829301. 更新软件包 sudo yum update 2. 卸载原来安装 sudo yum remove docker \ docker-client \ docker-client-latest \ docker-common \ docker-latest \ docker-latest-logrotate \ docker-logrotate \ docker-engine3.清空docker包 rm -rf /var/lib/docker/4.安装所需包 sudo yum install -y yum-utils \ device-mapper-persistent-data \ lvm25.设置稳定存储库 sudo yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo6.安装默认最新 sudo yum install docker-ce docker-ce-cli containerd.io7.安装特定版本（查看有哪些版本） yum list docker-ce --showduplicates | sort -r8. 更换&lt;VERSION_STRING&gt;选择的版本 sudo yum install docker-ce-&lt;VERSION_STRING&gt; docker-ce-cli-&lt;VERSION_STRING&gt; containerd.io9.启动docker并设置开机自启 sudo systemctl start docker sudo systemctl enable docker]]></content>
       <categories>
-        <category>Linux、Centos7</category>
+        <category>Linux</category>
+        <category>Centos7</category>
       </categories>
       <tags>
-        <tag>微服务架构、Docker、IP、系统更新、Docker、Centos 7</tag>
+        <tag>微服务架构</tag>
+        <tag>Docker</tag>
+        <tag>IP</tag>
+        <tag>系统更新</tag>
+        <tag>Centos 7</tag>
       </tags>
   </entry>
 </search>
