@@ -77,7 +77,7 @@
 
 
 
-  <meta name="keywords" content="Docker,IP,系统更新,微服务架构,Ubuntu,">
+  <meta name="keywords" content="微服务,Docker,Centos,">
 
 
 
@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="基于Ubuntu 18.04 Docker安装 1.Ubuntu更改静态IProot@ubuntu:~# vim /etc/netplan/50-cloud-init.yaml123456789101112network:    ethernets:        eth0:            addresses:            - 192.168.15.72/20">
-<meta name="keywords" content="Docker,IP,系统更新,微服务架构,Ubuntu">
+<meta name="description" content="基于Centos 7 Kubernetes(k8s安装) 1.准备本次安装采用 Centos 7 版本安装 kubernetes 集群环境，集群节点为 1 主 2 从模式，此次对虚拟机会有些基本要求，如下：  OS：Centos7 CPU：最低要求，1 CPU 2 核 内存：最低要求，2GB 磁盘：最低要求，20GB  创建三台虚拟机，分别命名如下：  Centos7 Kubernetes Mas">
+<meta name="keywords" content="微服务,Docker,Centos">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker安装(Ubuntu版)">
-<meta property="og:url" content="https://woshibaize.github.io/2019/12/29/Docker安装(Ubuntu版)/index.html">
+<meta property="og:title" content="Kubernetes(Centos版)">
+<meta property="og:url" content="https://woshibaize.github.io/2019/12/29/Kubernetes（Centos版）/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="基于Ubuntu 18.04 Docker安装 1.Ubuntu更改静态IProot@ubuntu:~# vim /etc/netplan/50-cloud-init.yaml123456789101112network:    ethernets:        eth0:            addresses:            - 192.168.15.72/20">
+<meta property="og:description" content="基于Centos 7 Kubernetes(k8s安装) 1.准备本次安装采用 Centos 7 版本安装 kubernetes 集群环境，集群节点为 1 主 2 从模式，此次对虚拟机会有些基本要求，如下：  OS：Centos7 CPU：最低要求，1 CPU 2 核 内存：最低要求，2GB 磁盘：最低要求，20GB  创建三台虚拟机，分别命名如下：  Centos7 Kubernetes Mas">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-12-29T04:28:29.218Z">
+<meta property="og:updated_time" content="2019-12-30T07:38:18.507Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Docker安装(Ubuntu版)">
-<meta name="twitter:description" content="基于Ubuntu 18.04 Docker安装 1.Ubuntu更改静态IProot@ubuntu:~# vim /etc/netplan/50-cloud-init.yaml123456789101112network:    ethernets:        eth0:            addresses:            - 192.168.15.72/20">
+<meta name="twitter:title" content="Kubernetes(Centos版)">
+<meta name="twitter:description" content="基于Centos 7 Kubernetes(k8s安装) 1.准备本次安装采用 Centos 7 版本安装 kubernetes 集群环境，集群节点为 1 主 2 从模式，此次对虚拟机会有些基本要求，如下：  OS：Centos7 CPU：最低要求，1 CPU 2 核 内存：最低要求，2GB 磁盘：最低要求，20GB  创建三台虚拟机，分别命名如下：  Centos7 Kubernetes Mas">
 
 
 
@@ -129,7 +129,7 @@
 
 
 
-  <link rel="canonical" href="https://woshibaize.github.io/2019/12/29/Docker安装(Ubuntu版)/">
+  <link rel="canonical" href="https://woshibaize.github.io/2019/12/29/Kubernetes（Centos版）/">
 
 
 
@@ -154,7 +154,7 @@
 <!-- fontawesome5 -->
 <link href="/lib/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" type="text/css">
 
-  <title>Docker安装(Ubuntu版) | 个人博客</title>
+  <title>Kubernetes(Centos版) | 个人博客</title>
   
 
 
@@ -331,7 +331,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2019/12/29/Docker安装(Ubuntu版)/">
+    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2019/12/29/Kubernetes（Centos版）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="BaiZe">
@@ -348,7 +348,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Docker安装(Ubuntu版)</h2>
+          <h2 class="post-title" itemprop="name headline">Kubernetes(Centos版)</h2>
         
 
         <div class="post-meta">
@@ -362,7 +362,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-29T11:02:40+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-29T13:51:31+08:00">
                 2019-12-29
               </time>
             
@@ -396,8 +396,19 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/Ubuntu18-04/" itemprop="url" rel="index">
-                    <span itemprop="name">Ubuntu18.04</span>
+                  <a href="/categories/Linux/Centos7/" itemprop="url" rel="index">
+                    <span itemprop="name">Centos7</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/Centos7/k8s/" itemprop="url" rel="index">
+                    <span itemprop="name">k8s</span>
                   </a>
                 </span>
 
@@ -428,7 +439,7 @@
                   <span class="post-meta-item-text">本文共计 &#58;</span>
                 
                 <span title="本文共计">
-                  1.2k 字
+                  2.1k 字
                 </span>
               
 
@@ -444,7 +455,7 @@
                   <span class="post-meta-item-text">阅文耗时 &asymp;</span>
                 
                 <span title="阅文耗时">
-                  5 min
+                  8 min
                 </span>
               
             </div>
@@ -465,51 +476,139 @@
       
 
       
-        <p></p><h2><center>基于Ubuntu 18.04 Docker安装</center></h2><p></p>
-<h2 id="1-Ubuntu更改静态IP"><a href="#1-Ubuntu更改静态IP" class="headerlink" title="1.Ubuntu更改静态IP"></a>1.Ubuntu更改静态IP</h2><h3 id="root-ubuntu-vim-etc-netplan-50-cloud-init-yaml"><a href="#root-ubuntu-vim-etc-netplan-50-cloud-init-yaml" class="headerlink" title="root@ubuntu:~# vim /etc/netplan/50-cloud-init.yaml"></a>root@ubuntu:~# vim /etc/netplan/50-cloud-init.yaml</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">network:</span><br><span class="line">    ethernets:</span><br><span class="line">        eth0:</span><br><span class="line">            addresses:</span><br><span class="line">            - 192.168.15.72/20</span><br><span class="line">            gateway4: 192.168.12.2</span><br><span class="line">            nameservers:</span><br><span class="line">                addresses:</span><br><span class="line">                - 223.5.5.5</span><br><span class="line">                search: []</span><br><span class="line">            optional: true</span><br><span class="line">    version: 2</span><br></pre></td></tr></table></figure>
-<h3 id="root-ubuntu-netplan-apply"><a href="#root-ubuntu-netplan-apply" class="headerlink" title="root@ubuntu:~# netplan apply"></a>root@ubuntu:~# netplan apply</h3><h2 id="2-Ubuntu18-04更新软件包"><a href="#2-Ubuntu18-04更新软件包" class="headerlink" title="2.Ubuntu18.04更新软件包"></a>2.Ubuntu18.04更新软件包</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit /etc/apt/sources.list # 编辑软件源</span><br><span class="line">apt-get update -y # 更新软件列表</span><br><span class="line">sudo apt-get upgrade # 跟新软件</span><br></pre></td></tr></table></figure>
-<h2 id="3-Docker安装"><a href="#3-Docker安装" class="headerlink" title="3.Docker安装"></a>3.Docker安装</h2><h3 id="系统要求"><a href="#系统要求" class="headerlink" title="系统要求"></a>系统要求</h3><p>Docker CE 支持以下版本的 <a href="https://www.ubuntu.com/server" target="_blank" rel="noopener">Ubuntu</a> 操作系统：</p>
+        <p></p><h2><center>基于Centos 7 Kubernetes(k8s安装)</center></h2><p></p>
+<h2 id="1-准备"><a href="#1-准备" class="headerlink" title="1.准备"></a>1.准备</h2><p>本次安装采用 Centos 7 版本安装 kubernetes 集群环境，集群节点为 1 主 2 从模式，此次对虚拟机会有些基本要求，如下：</p>
 <ul>
-<li>Artful 17.10 (Docker CE 17.11 Edge +)</li>
-<li>Xenial 16.04 (LTS)</li>
-<li>Trusty 14.04 (LTS)</li>
+<li>OS：Centos7</li>
+<li>CPU：最低要求，1 CPU 2 核</li>
+<li>内存：最低要求，2GB</li>
+<li>磁盘：最低要求，20GB</li>
 </ul>
-<p>Docker CE 可以安装在 64 位的 x86 平台或 ARM 平台上。Ubuntu 发行版中，LTS（Long-Term-Support）长期支持版本，会获得 5 年的升级维护支持，这样的版本会更稳定，因此在生产环境中推荐使用 LTS 版本,当前最新的 LTS 版本为 Ubuntu 16.04。</p>
-<h3 id="卸载旧版本"><a href="#卸载旧版本" class="headerlink" title="卸载旧版本"></a>卸载旧版本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get remove docker \</span><br><span class="line">               docker-engine \</span><br><span class="line">               docker.io</span><br></pre></td></tr></table></figure>
-<h3 id="Ubuntu-14-04-可选内核模块"><a href="#Ubuntu-14-04-可选内核模块" class="headerlink" title="Ubuntu 14.04 可选内核模块"></a>Ubuntu 14.04 可选内核模块</h3><p>从 Ubuntu 14.04 开始，一部分内核模块移到了可选内核模块包 (<code>linux-image-extra-*</code>) ，以减少内核软件包的体积。正常安装的系统应该会包含可选内核模块包，而一些裁剪后的系统可能会将其精简掉。<code>AUFS</code> 内核驱动属于可选内核模块的一部分，作为推荐的 Docker 存储层驱动，一般建议安装可选内核模块包以使用 <code>AUFS</code>。</p>
-<p>如果系统没有安装可选内核模块的话，可以执行下面的命令来安装可选内核模块包：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line"></span><br><span class="line">$ sudo apt-get install \</span><br><span class="line">    linux-image-extra-$(uname -r) \</span><br><span class="line">    linux-image-extra-virtual</span><br></pre></td></tr></table></figure>
-<h3 id="Ubuntu-16-04"><a href="#Ubuntu-16-04" class="headerlink" title="Ubuntu 16.04 +"></a>Ubuntu 16.04 +</h3><h3 id="使用APT安装"><a href="#使用APT安装" class="headerlink" title="使用APT安装"></a>使用APT安装</h3><p>Ubuntu 16.04 + 上的 Docker CE 默认使用 <code>overlay2</code> 存储层驱动,无需手动配置。</p>
-<h4 id="安装必要的一些系统工具"><a href="#安装必要的一些系统工具" class="headerlink" title="安装必要的一些系统工具"></a>安装必要的一些系统工具</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get -y install apt-transport-https ca-certificates curl software-properties-common</span><br></pre></td></tr></table></figure>
-<h4 id="安装-GPG-证书"><a href="#安装-GPG-证书" class="headerlink" title="安装 GPG 证书"></a>安装 GPG 证书</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL http://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add -</span><br></pre></td></tr></table></figure>
-<h4 id="写入软件源信息"><a href="#写入软件源信息" class="headerlink" title="写入软件源信息"></a>写入软件源信息</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository &quot;deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/ubuntu $(lsb_release -cs) stable&quot;</span><br></pre></td></tr></table></figure>
-<h4 id="更新并安装-Docker-CE"><a href="#更新并安装-Docker-CE" class="headerlink" title="更新并安装 Docker CE"></a>更新并安装 Docker CE</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get -y update</span><br><span class="line">sudo apt-get -y install docker-ce</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>以上命令会添加稳定版本的 Docker CE APT 镜像源，如果需要最新或者测试版本的 Docker CE 请将 stable 改为 edge 或者 test。从 Docker 17.06 开始，edge test 版本的 APT 镜像源也会包含稳定版本的 Docker。</p>
-</blockquote>
-<h4 id="使用脚本自动安装"><a href="#使用脚本自动安装" class="headerlink" title="使用脚本自动安装"></a>使用脚本自动安装</h4><p>在测试或开发环境中 Docker 官方为了简化安装流程，提供了一套便捷的安装脚本，Ubuntu 系统上可以使用这套脚本安装：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ curl -fsSL get.docker.com -o get-docker.sh</span><br><span class="line"># 可能会出现 404 错误，请移步下面的特别说明</span><br><span class="line">$ sudo sh get-docker.sh --mirror Aliyun</span><br></pre></td></tr></table></figure>
-<h3 id="特别说明"><a href="#特别说明" class="headerlink" title="特别说明"></a>特别说明</h3><p>2018 年 7 月 21 日，貌似阿里云这边在做调整，故导致 Docker 的 Aliyun 安装脚本不可用，是永久性还是临时性的尚不清除，如果你已经按照之前的操作安装 Docker，请按以下步骤进行修复并重新安装</p>
+<p>创建三台虚拟机，分别命名如下：</p>
 <ul>
-<li>如果已经使用了 Aliyun 脚本安装并成功的<ul>
-<li>请先卸载 Docker，命令为：<code>apt-get autoremove docker-ce</code></li>
-<li>删除 <code>/etc/apt/sources.list.d</code> 目录下的 <code>docker.list</code> 文件</li>
+<li>Centos7 Kubernetes Master</li>
+<li>Centos7 Kubernetes Slave1</li>
+<li>Centos7 Kubernetes Slave2</li>
+</ul>
+<p>对虚拟机系统的配置：</p>
+<ul>
+<li>关闭交换空间：<code>sudo swapoff -a</code></li>
+<li>避免开机启动交换空间：注释 <code>/etc/fstab</code> 中的 <code>swap</code></li>
+<li>关闭防火墙：<code>ufw disable</code></li>
+</ul>
+<h2 id="2-Docker安装"><a href="#2-Docker安装" class="headerlink" title="2.Docker安装"></a>2.Docker安装</h2><p><a href="[https://woshibaize.github.io/2019/12/08/Docker%E5%AE%89%E8%A3%85(Centos%E7%89%88">参考前面做过的Docker安装</a>/](<a href="https://woshibaize.github.io/2019/12/08/Docker安装(Centos版)/">https://woshibaize.github.io/2019/12/08/Docker安装(Centos版)/</a>)</p>
+<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">docker version</span><br><span class="line">Client:</span><br><span class="line"> Version:           18.09.6</span><br><span class="line"> API version:       1.39</span><br><span class="line"> Go version:        go1.10.8</span><br><span class="line"> Git commit:        481bc77</span><br><span class="line"> Built:             Sat May  4 02:35:57 2019</span><br><span class="line"> OS/Arch:           linux/amd64</span><br><span class="line"> Experimental:      false</span><br><span class="line"></span><br><span class="line">Server: Docker Engine - Community</span><br><span class="line"> Engine:</span><br><span class="line">  Version:          18.09.6</span><br><span class="line">  API version:      1.39 (minimum version 1.12)</span><br><span class="line">  Go version:       go1.10.8</span><br><span class="line">  Git commit:       481bc77</span><br><span class="line">  Built:            Sat May  4 01:59:36 2019</span><br><span class="line">  OS/Arch:          linux/amd64</span><br><span class="line">  Experimental:     false</span><br></pre></td></tr></table></figure>
+<h3 id="配置加速器"><a href="#配置加速器" class="headerlink" title="配置加速器"></a>配置加速器</h3><p>对于使用 <strong>systemd</strong> 的系统，请在 <code>/etc/docker/daemon.json</code> 中写入如下内容（如果文件不存在请新建该文件）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 此处为docker在国内的镜像地址，建议配置阿里的，在Docker安装文章中写过配置方式</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [</span><br><span class="line">    &quot;https://registry.docker-cn.com&quot;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意，一定要保证该文件符合 JSON 规范，否则 Docker 将不能启动。</p>
+</blockquote>
+<p>验证加速器是否配置成功：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart docker</span><br><span class="line">docker info</span><br><span class="line">...</span><br><span class="line"># 出现如下语句即表示配置成功</span><br><span class="line">Registry Mirrors:</span><br><span class="line"> https://registry.docker-cn.com/</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h3 id="修改主机名"><a href="#修改主机名" class="headerlink" title="修改主机名"></a>修改主机名</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 查看当前主机名</span><br><span class="line">hostnamectl</span><br><span class="line"># 使用 hostnamectl 命令修改，其中 kubernetes-master 为新的主机名</span><br><span class="line">hostnamectl set-hostname kubernetes-master</span><br></pre></td></tr></table></figure>
+<h2 id="3-安装Kubelet"><a href="#3-安装Kubelet" class="headerlink" title="3.安装Kubelet"></a>3.安装Kubelet</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 在 master 节点和 worker 节点都要执行</span><br><span class="line"># 最后一个参数 1.17.0 用于指定 kubenetes 版本，支持所有 1.17.x 版本的安装</span><br><span class="line"></span><br><span class="line">curl -sSL https://kuboard.cn/install-script/v1.17.x/install_kubelet.sh | sh -s 1.17.0</span><br></pre></td></tr></table></figure>
+<h2 id="4-初始化master节点"><a href="#4-初始化master节点" class="headerlink" title="4.初始化master节点"></a>4.初始化master节点</h2><blockquote>
+<p>关于初始化时用到的环境变量</p>
+<ul>
+<li><strong>APISERVER_NAME</strong> 不能是 master 的 hostname</li>
+<li><strong>APISERVER_NAME</strong> 必须全为小写字母、数字、小数点，不能包含减号</li>
+<li><strong>POD_SUBNET</strong> 所使用的网段不能与 <strong><em>master节点/worker节点</em></strong> 所在的网段重叠。该字段的取值为一个 <a href="https://kuboard.cn/glossary/cidr.html" target="_blank" rel="noopener">CIDR</a> 值，如果您对 CIDR 这个概念还不熟悉，请仍然执行 export POD_SUBNET=10.100.0.1/16 命令，不做修改</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 只在 master 节点执行</span><br><span class="line"># 替换 x.x.x.x 为 master 节点实际 IP（请使用内网 IP）</span><br><span class="line"># export 命令只在当前 shell 会话中有效，开启新的 shell 窗口后，如果要继续安装过程，请重新执行此处的 export 命令</span><br><span class="line">export MASTER_IP=x.x.x.x</span><br><span class="line"># 替换 apiserver.demo 为 您想要的 dnsName</span><br><span class="line">export APISERVER_NAME=apiserver.demo</span><br><span class="line"># Kubernetes 容器组所在的网段，该网段安装完成后，由 kubernetes 创建，事先并不存在于您的物理网络中</span><br><span class="line">export POD_SUBNET=10.100.0.1/16</span><br><span class="line">echo &quot;$&#123;MASTER_IP&#125;    $&#123;APISERVER_NAME&#125;&quot; &gt;&gt; /etc/hosts</span><br><span class="line">curl -sSL https://kuboard.cn/install-script/v1.17.x/init_master.sh | sh -s 1.17.0</span><br></pre></td></tr></table></figure>
+<h3 id="如果出错"><a href="#如果出错" class="headerlink" title="如果出错"></a>如果出错</h3><ul>
+<li>请确保您的环境符合 <a href="https://kuboard.cn/install/install-k8s.html#安装docker及kubelet" target="_blank" rel="noopener">安装docker及kubelet</a> 中所有勾选框的要求</li>
+<li>请确保您使用 root 用户执行初始化命令</li>
+<li>不能下载 kubernetes 的 docker 镜像<ul>
+<li>安装文档中，默认使用阿里云的 docker 镜像仓库，然而，有时候，该镜像会罢工</li>
+<li>如碰到不能下载 docker 镜像的情况，请尝试手工初始化，并修改手工初始化脚本里的第22行（文档中已高亮）为：</li>
 </ul>
 </li>
-<li>使用 <code>AzureChinaCloud</code> 镜像脚本重新安装，命令为：<code>sudo sh get-docker.sh --mirror AzureChinaCloud</code></li>
 </ul>
-<h3 id="启动-Docker-CE"><a href="#启动-Docker-CE" class="headerlink" title="启动 Docker CE"></a>启动 Docker CE</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo systemctl enable docker</span><br><span class="line">$ sudo systemctl start docker</span><br></pre></td></tr></table></figure>
-<p>Ubuntu 14.04 请使用以下命令启动：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo service docker start</span><br></pre></td></tr></table></figure>
-<h3 id="建立-docker-用户组"><a href="#建立-docker-用户组" class="headerlink" title="建立 docker 用户组"></a>建立 docker 用户组</h3><p>默认情况下，<code>docker</code> 命令会使用 <a href="https://en.wikipedia.org/wiki/Unix_domain_socket" target="_blank" rel="noopener">Unix socket</a> 与 Docker 引擎通讯。而只有 <code>root</code> 用户和 <code>docker</code> 组的用户才可以访问 Docker 引擎的 Unix socket。出于安全考虑，一般 Linux 系统上不会直接使用 <code>root</code> 用户。因此，更好地做法是将需要使用 <code>docker</code> 的用户加入 <code>docker</code> 用户组。</p>
-<p>建立 <code>docker</code> 组：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo groupadd docker</span><br></pre></td></tr></table></figure>
-<p>将当前用户加入 <code>docker</code> 组：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo usermod -aG docker $USER</span><br></pre></td></tr></table></figure>
-<p>退出当前终端并重新登录，进行如下测试</p>
-<h3 id="测试-Docker-是否安装正确"><a href="#测试-Docker-是否安装正确" class="headerlink" title="测试 Docker 是否安装正确"></a>测试 Docker 是否安装正确</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">$ docker run hello-world</span><br><span class="line"></span><br><span class="line">Unable to find image &apos;hello-world:latest&apos; locally</span><br><span class="line">latest: Pulling from library/hello-world</span><br><span class="line">ca4f61b1923c: Pull complete</span><br><span class="line">Digest: sha256:be0cd392e45be79ffeffa6b05338b98ebb16c87b255f48e297ec7f98e123905c</span><br><span class="line">Status: Downloaded newer image for hello-world:latest</span><br><span class="line"></span><br><span class="line">Hello from Docker!</span><br><span class="line">This message shows that your installation appears to be working correctly.</span><br><span class="line"></span><br><span class="line">To generate this message, Docker took the following steps:</span><br><span class="line"> 1. The Docker client contacted the Docker daemon.</span><br><span class="line"> 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.</span><br><span class="line">    (amd64)</span><br><span class="line"> 3. The Docker daemon created a new container from that image which runs the</span><br><span class="line">    executable that produces the output you are currently reading.</span><br><span class="line"> 4. The Docker daemon streamed that output to the Docker client, which sent it</span><br><span class="line">    to your terminal.</span><br><span class="line"></span><br><span class="line">To try something more ambitious, you can run an Ubuntu container with:</span><br><span class="line"> $ docker run -it ubuntu bash</span><br><span class="line"></span><br><span class="line">Share images, automate workflows, and more with a free Docker ID:</span><br><span class="line"> https://cloud.docker.com/</span><br><span class="line"></span><br><span class="line">For more examples and ideas, visit:</span><br><span class="line"> https://docs.docker.com/engine/userguide/</span><br></pre></td></tr></table></figure>
-<p>若能正常输出以上信息，则说明安装成功。</p>
-<h3 id="镜像加速器"><a href="#镜像加速器" class="headerlink" title="镜像加速器"></a>镜像加速器</h3><p><a href="www.aliyun.com">阿里云</a>登录后，搜索容器镜像服务—&gt;镜像加速器，选择适合自己的操作系统</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">imageRepository: gcr.azk8s.cn/google-containers</span><br></pre></td></tr></table></figure>
+<ul>
+<li>检查环境变量，执行如下命令</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo MASTER_IP=$&#123;MASTER_IP&#125; &amp;&amp; echo APISERVER_NAME=$&#123;APISERVER_NAME&#125; &amp;&amp; echo POD_SUBNET=$&#123;POD_SUBNET&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>请验证如下几点：<ul>
+<li>环境变量 <strong><em>MASTER_IP</em></strong> 的值应该为 master 节点的 <strong>内网IP</strong>，如果不是，请重新 export</li>
+<li><strong>APISERVER_NAME</strong> 不能是 master 的 hostname</li>
+<li><strong>APISERVER_NAME</strong> 必须全为小写字母、数字、小数点，不能包含减号</li>
+<li><strong>POD_SUBNET</strong> 所使用的网段不能与 <strong><em>master节点/worker节点</em></strong> 所在的网段重叠。该字段的取值为一个 <a href="https://kuboard.cn/glossary/cidr.html" target="_blank" rel="noopener">CIDR</a> 值，如果您对 CIDR 这个概念还不熟悉，请仍然执行 export POD_SUBNET=10.100.0.1/16 命令，不做修改</li>
+</ul>
+</li>
+<li>重新初始化 master 节点前，请先执行 <code>kubeadm reset -f</code> 操作</li>
+</ul>
+<p><strong>检查 master 初始化结果</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 只在 master 节点执行</span><br><span class="line"></span><br><span class="line"># 执行如下命令，等待 3-10 分钟，直到所有的容器组处于 Running 状态</span><br><span class="line">watch kubectl get pod -n kube-system -o wide</span><br><span class="line"></span><br><span class="line"># 查看 master 节点初始化结果</span><br><span class="line">kubectl get nodes -o wide</span><br></pre></td></tr></table></figure>
+<h2 id="5-初始化-worker节点"><a href="#5-初始化-worker节点" class="headerlink" title="5.初始化 worker节点"></a>5.初始化 worker节点</h2><h3 id="获得-join命令参数"><a href="#获得-join命令参数" class="headerlink" title="获得 join命令参数"></a>获得 join命令参数</h3><p><strong>在 master 节点上执行</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 只在 master 节点执行</span><br><span class="line">kubeadm token create --print-join-command</span><br></pre></td></tr></table></figure>
+<p>可获取kubeadm join 命令及参数，如下所示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># kubeadm token create 命令的输出</span><br><span class="line">kubeadm join apiserver.demo:6443 --token mpfjma.4vjjg8flqihor4vt     --discovery-token-ca-cert-hash sha256:6f7a8e40a810323672de5eee6f4d19aa2dbdb38411845a1bf5dd63485c43d303</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>有效时间</p>
+<p>该 token 的有效时间为 2 个小时，2小时内，您可以使用此 token 初始化任意数量的 worker 节点。</p>
+</blockquote>
+<h3 id="初始化worker"><a href="#初始化worker" class="headerlink" title="初始化worker"></a>初始化worker</h3><p><strong>针对所有的 worker 节点执行</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 只在 worker 节点执行</span><br><span class="line"># 替换 x.x.x.x 为 master 节点的内网 IP</span><br><span class="line">export MASTER_IP=x.x.x.x</span><br><span class="line"># 替换 apiserver.demo 为初始化 master 节点时所使用的 APISERVER_NAME</span><br><span class="line">export APISERVER_NAME=apiserver.demo</span><br><span class="line">echo &quot;$&#123;MASTER_IP&#125;    $&#123;APISERVER_NAME&#125;&quot; &gt;&gt; /etc/hosts</span><br><span class="line"></span><br><span class="line"># 替换为 master 节点上 kubeadm token create 命令的输出</span><br><span class="line">kubeadm join apiserver.demo:6443 --token mpfjma.4vjjg8flqihor4vt     --discovery-token-ca-cert-hash sha256:6f7a8e40a810323672de5eee6f4d19aa2dbdb38411845a1bf5dd63485c43d303</span><br></pre></td></tr></table></figure>
+<h3 id="如果出错-1"><a href="#如果出错-1" class="headerlink" title="如果出错"></a>如果出错</h3><h3 id="常见错误原因"><a href="#常见错误原因" class="headerlink" title="常见错误原因"></a>常见错误原因</h3><p>经常在群里提问为什么 join 不成功的情况大致有这几种：</p>
+<h4 id="worker-节点不能访问-apiserver"><a href="#worker-节点不能访问-apiserver" class="headerlink" title="worker 节点不能访问 apiserver"></a>worker 节点不能访问 apiserver</h4><p>在worker节点执行以下语句可验证worker节点是否能访问 apiserver</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -ik https://apiserver.demo:6443</span><br></pre></td></tr></table></figure>
+<p>如果不能，请在 master 节点上验证</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -ik https://localhost:6443</span><br></pre></td></tr></table></figure>
+<p>正常输出结果如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 403 Forbidden</span><br><span class="line">Cache-Control: no-cache, private</span><br><span class="line">Content-Type: application/json</span><br><span class="line">X-Content-Type-Options: nosniff</span><br><span class="line">Date: Fri, 15 Nov 2019 04:34:40 GMT</span><br><span class="line">Content-Length: 233</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  &quot;kind&quot;: &quot;Status&quot;,</span><br><span class="line">  &quot;apiVersion&quot;: &quot;v1&quot;,</span><br><span class="line">  &quot;metadata&quot;: &#123;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>可能原因</p>
+<ul>
+<li>如果 master 节点能够访问 apiserver、而 worker 节点不能，则请检查自己的网络设置<ul>
+<li>/etc/hosts 是否正确设置？</li>
+<li>是否有安全组或防火墙的限制？</li>
+</ul>
+</li>
+</ul>
+<h4 id="worker-节点默认网卡"><a href="#worker-节点默认网卡" class="headerlink" title="worker 节点默认网卡"></a>worker 节点默认网卡</h4><ul>
+<li>Kubelet使用的 IP 地址</li>
+</ul>
+<p>  与 master 节点可互通（无需 NAT 映射），且没有防火墙、安全组隔离</p>
+<ul>
+<li>如果你使用 vmware 或 virtualbox 创建虚拟机用于 K8S 学习，可以尝试 NAT 模式的网络，而不是桥接模式的网络</li>
+</ul>
+<h3 id="移除worker节点并重试"><a href="#移除worker节点并重试" class="headerlink" title="移除worker节点并重试"></a>移除worker节点并重试</h3><blockquote>
+<p>WARNING</p>
+<p>正常情况下，您无需移除 worker 节点，如果添加到集群出错，您可以移除 worker 节点，再重新尝试添加</p>
+</blockquote>
+<p>在准备移除的 worker 节点上执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 只在 worker 节点执行</span><br><span class="line">kubeadm reset -f</span><br></pre></td></tr></table></figure>
+<p>在 master 节点 demo-master-a-1 上执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 只在 master 节点执行</span><br><span class="line">kubectl get nodes -o wide</span><br></pre></td></tr></table></figure>
+<p>如果列表中没有您要移除的节点，则忽略下一个步骤</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 只在 master 节点执行</span><br><span class="line">kubectl delete node demo-worker-x-x</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>TIP</p>
+<ul>
+<li>将 demo-worker-x-x 替换为要移除的 worker 节点的名字</li>
+<li>worker 节点的名字可以通过在节点 demo-master-a-1 上执行 kubectl get nodes 命令获得</li>
+</ul>
+</blockquote>
+<h3 id="检查初始化结果"><a href="#检查初始化结果" class="headerlink" title="检查初始化结果"></a>检查初始化结果</h3><p>在 master 节点上执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 只在 master 节点执行</span><br><span class="line">kubectl get nodes -o wide</span><br></pre></td></tr></table></figure>
+<p>输出结果如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@demo-master-a-1 ~]# kubectl get nodes</span><br><span class="line">NAME     STATUS   ROLES    AGE     VERSION</span><br><span class="line">demo-master-a-1   Ready    master   5m3s    v1.17.x</span><br><span class="line">demo-worker-a-1   Ready    &lt;none&gt;   2m26s   v1.17.x</span><br><span class="line">demo-worker-a-2   Ready    &lt;none&gt;   3m56s   v1.17.x</span><br></pre></td></tr></table></figure>
+<h2 id="6-安装-Ingress-Controller"><a href="#6-安装-Ingress-Controller" class="headerlink" title="6.安装 Ingress Controller"></a>6.安装 Ingress Controller</h2><p><strong>在 master 节点上执行</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 只在 master 节点执行</span><br><span class="line">kubectl apply -f https://kuboard.cn/install-script/v1.17.x/nginx-ingress.yaml</span><br></pre></td></tr></table></figure>
+<p><strong>配置域名解析</strong></p>
+<p>将域名 *.demo.yourdomain.com 解析到 demo-worker-a-2 的 IP 地址 z.z.z.z （也可以是 demo-worker-a-1 的地址 y.y.y.y）</p>
+<p><strong>验证配置</strong></p>
+<p>在浏览器访问 a.demo.yourdomain.com，将得到 404 NotFound 错误页面</p>
+<blockquote>
+<p>提示</p>
+<p>许多初学者在安装 Ingress Controller 时会碰到问题，请不要灰心，可暂时跳过 <strong><em>安装 Ingress Controller</em></strong> 这个部分，等您学完 <a href="http://www.kuboard.cn" target="_blank" rel="noopener">www.kuboard.cn</a> 上 <a href="https://kuboard.cn/learning/k8s-basics/kubernetes-basics.html" target="_blank" rel="noopener">Kubernetes 入门</a> 以及 <a href="https://kuboard.cn/learning/k8s-intermediate/service/ingress.html" target="_blank" rel="noopener">通过互联网访问您的应用程序</a> 这两部分内容后，再来回顾 Ingress Controller 的安装。</p>
+</blockquote>
+<blockquote>
+<p>WARNING</p>
+<p>如果您打算将 Kubernetes 用于生产环境，请参考此文档 <a href="https://github.com/nginxinc/kubernetes-ingress/blob/v1.5.3/docs/installation.md" target="_blank" rel="noopener">Installing Ingress Controller</a>，完善 Ingress 的配置</p>
+</blockquote>
 
       
     </div>
@@ -557,15 +656,11 @@
       
         <div class="post-tags">
           
+            <a href="/tags/微服务/" rel="tag"><i class="fas fa-tag"></i> 微服务</a>
+          
             <a href="/tags/Docker/" rel="tag"><i class="fas fa-tag"></i> Docker</a>
           
-            <a href="/tags/IP/" rel="tag"><i class="fas fa-tag"></i> IP</a>
-          
-            <a href="/tags/系统更新/" rel="tag"><i class="fas fa-tag"></i> 系统更新</a>
-          
-            <a href="/tags/微服务架构/" rel="tag"><i class="fas fa-tag"></i> 微服务架构</a>
-          
-            <a href="/tags/Ubuntu/" rel="tag"><i class="fas fa-tag"></i> Ubuntu</a>
+            <a href="/tags/Centos/" rel="tag"><i class="fas fa-tag"></i> Centos</a>
           
         </div>
       
@@ -583,7 +678,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://woshibaize.github.io/2019/12/29/Docker安装(Ubuntu版)/" title="Docker安装(Ubuntu版)">https://woshibaize.github.io/2019/12/29/Docker安装(Ubuntu版)/</a>
+    <a href="https://woshibaize.github.io/2019/12/29/Kubernetes（Centos版）/" title="Kubernetes(Centos版)">https://woshibaize.github.io/2019/12/29/Kubernetes（Centos版）/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -598,7 +693,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/12/08/Docker安装(Centos版)/" rel="next" title="Docker安装(Centos版)">
+              <a href="/2019/12/28/Docker安装(Centos版)/" rel="next" title="Docker安装(Centos版)">
                 <i class="fas fa-chevron-left"></i> Docker安装(Centos版)
               </a>
             
@@ -608,8 +703,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/12/30/Kubernetes（Centos版）/" rel="prev" title="Kubernetes(Centos版)">
-                Kubernetes(Centos版) <i class="fas fa-chevron-right"></i>
+              <a href="/2019/12/29/Kubernetes(Ubuntu版)/" rel="prev" title="Kubernetes(Ubuntu)">
+                Kubernetes(Ubuntu) <i class="fas fa-chevron-right"></i>
               </a>
             
           </div>
@@ -812,7 +907,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">基于Ubuntu 18.04 Docker安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Ubuntu更改静态IP"><span class="nav-text">1.Ubuntu更改静态IP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#root-ubuntu-vim-etc-netplan-50-cloud-init-yaml"><span class="nav-text">root@ubuntu:~# vim /etc/netplan/50-cloud-init.yaml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#root-ubuntu-netplan-apply"><span class="nav-text">root@ubuntu:~# netplan apply</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Ubuntu18-04更新软件包"><span class="nav-text">2.Ubuntu18.04更新软件包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Docker安装"><span class="nav-text">3.Docker安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#系统要求"><span class="nav-text">系统要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卸载旧版本"><span class="nav-text">卸载旧版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ubuntu-14-04-可选内核模块"><span class="nav-text">Ubuntu 14.04 可选内核模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ubuntu-16-04"><span class="nav-text">Ubuntu 16.04 +</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用APT安装"><span class="nav-text">使用APT安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装必要的一些系统工具"><span class="nav-text">安装必要的一些系统工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装-GPG-证书"><span class="nav-text">安装 GPG 证书</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#写入软件源信息"><span class="nav-text">写入软件源信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新并安装-Docker-CE"><span class="nav-text">更新并安装 Docker CE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用脚本自动安装"><span class="nav-text">使用脚本自动安装</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特别说明"><span class="nav-text">特别说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动-Docker-CE"><span class="nav-text">启动 Docker CE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建立-docker-用户组"><span class="nav-text">建立 docker 用户组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试-Docker-是否安装正确"><span class="nav-text">测试 Docker 是否安装正确</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#镜像加速器"><span class="nav-text">镜像加速器</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">基于Centos 7 Kubernetes(k8s安装)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-准备"><span class="nav-text">1.准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Docker安装"><span class="nav-text">2.Docker安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#验证"><span class="nav-text">验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置加速器"><span class="nav-text">配置加速器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改主机名"><span class="nav-text">修改主机名</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-安装Kubelet"><span class="nav-text">3.安装Kubelet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-初始化master节点"><span class="nav-text">4.初始化master节点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如果出错"><span class="nav-text">如果出错</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-初始化-worker节点"><span class="nav-text">5.初始化 worker节点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获得-join命令参数"><span class="nav-text">获得 join命令参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化worker"><span class="nav-text">初始化worker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果出错-1"><span class="nav-text">如果出错</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见错误原因"><span class="nav-text">常见错误原因</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#worker-节点不能访问-apiserver"><span class="nav-text">worker 节点不能访问 apiserver</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#worker-节点默认网卡"><span class="nav-text">worker 节点默认网卡</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#移除worker节点并重试"><span class="nav-text">移除worker节点并重试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检查初始化结果"><span class="nav-text">检查初始化结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-安装-Ingress-Controller"><span class="nav-text">6.安装 Ingress Controller</span></a></li></ol></div>
             
 
           </div>

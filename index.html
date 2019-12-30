@@ -538,7 +538,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2019/12/30/Kubernetes(Ubuntu版)/">
+    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2019/12/30/Kubectl 常用命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="BaiZe">
@@ -557,7 +557,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/12/30/Kubernetes(Ubuntu版)/" itemprop="url">Kubernetes(Ubuntu)</a></h2>
+                <a class="post-title-link" href="/2019/12/30/Kubectl 常用命令/" itemprop="url">Kubectl 常用命令</a></h2>
         
 
         <div class="post-meta">
@@ -605,18 +605,7 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/Centos7/" itemprop="url" rel="index">
-                    <span itemprop="name">Centos7</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/Centos7/k8s/" itemprop="url" rel="index">
+                  <a href="/categories/Linux/k8s/" itemprop="url" rel="index">
                     <span itemprop="name">k8s</span>
                   </a>
                 </span>
@@ -648,7 +637,7 @@
                   <span class="post-meta-item-text">本文共计 &#58;</span>
                 
                 <span title="本文共计">
-                  5.2k 字
+                  272 字
                 </span>
               
 
@@ -664,7 +653,7 @@
                   <span class="post-meta-item-text">阅文耗时 &asymp;</span>
                 
                 <span title="阅文耗时">
-                  24 min
+                  1 min
                 </span>
               
             </div>
@@ -687,13 +676,13 @@
       
         
           
-          基于Ubuntu18.04 Kubernetes(k8s安装)
+          
+小提示： 所有命令前都可以加上 watch 命令来观察状态的实时变化，如：watch kubectl get pods --all-namespaces
 
-一、什么是 Kubernetes概述
-Kubernetes 是 Google 2014 年创建管理的，是 Google 10 多年大规模容器管理技术 Borg 的开源版本。
-Kubernetes 是容器集群管理系统，是一个开源的平台，可以实现容器集群的自动化部署、自动扩缩容、维护等功能。使用 Kubernetes 我们可以：
-
-快速
+查看组件状态1kubectl get cs
+查看环境信息1kubectl cluster-info
+查看 Node1kubectl get nodes -o wide
+查看集群配置1kubectl -n kube-system get cm 
           ...
 	  <!--noindex-->
 	  <div class="post-footer-index">
@@ -704,12 +693,12 @@ Kubernetes 是容器集群管理系统，是一个开源的平台，可以实现
 		
 		  <a href="/tags/Docker/" rel="tag"><i class="fas fa-tag"></i> Docker</a>
 		
-		  <a href="/tags/Centos/" rel="tag"><i class="fas fa-tag"></i> Centos</a>
+		  <a href="/tags/Linux/" rel="tag"><i class="fas fa-tag"></i> Linux</a>
 		
 	      </div>
 	    
             <div class="post-button text-center">
-              <a class="btn" target="_blank" href="/2019/12/30/Kubernetes(Ubuntu版)/" rel="contents">
+              <a class="btn" target="_blank" href="/2019/12/30/Kubectl 常用命令/" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -975,7 +964,7 @@ kubectl run
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2019/12/30/Kubectl 常用命令/">
+    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2019/12/29/Kubernetes(Ubuntu版)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="BaiZe">
@@ -994,7 +983,7 @@ kubectl run
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/12/30/Kubectl 常用命令/" itemprop="url">Kubectl 常用命令</a></h2>
+                <a class="post-title-link" href="/2019/12/29/Kubernetes(Ubuntu版)/" itemprop="url">Kubernetes(Ubuntu)</a></h2>
         
 
         <div class="post-meta">
@@ -1008,8 +997,8 @@ kubectl run
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-30T13:51:40+08:00">
-                2019-12-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-29T13:51:40+08:00">
+                2019-12-29
               </time>
             
 
@@ -1042,7 +1031,18 @@ kubectl run
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/k8s/" itemprop="url" rel="index">
+                  <a href="/categories/Linux/Centos7/" itemprop="url" rel="index">
+                    <span itemprop="name">Centos7</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/Centos7/k8s/" itemprop="url" rel="index">
                     <span itemprop="name">k8s</span>
                   </a>
                 </span>
@@ -1074,7 +1074,7 @@ kubectl run
                   <span class="post-meta-item-text">本文共计 &#58;</span>
                 
                 <span title="本文共计">
-                  272 字
+                  5.2k 字
                 </span>
               
 
@@ -1090,7 +1090,7 @@ kubectl run
                   <span class="post-meta-item-text">阅文耗时 &asymp;</span>
                 
                 <span title="阅文耗时">
-                  1 min
+                  24 min
                 </span>
               
             </div>
@@ -1113,13 +1113,12 @@ kubectl run
       
         
           
-          
-小提示： 所有命令前都可以加上 watch 命令来观察状态的实时变化，如：watch kubectl get pods --all-namespaces
+          基于Ubuntu18.04 Kubernetes(k8s安装)
+一、什么是 Kubernetes概述
+Kubernetes 是 Google 2014 年创建管理的，是 Google 10 多年大规模容器管理技术 Borg 的开源版本。
+Kubernetes 是容器集群管理系统，是一个开源的平台，可以实现容器集群的自动化部署、自动扩缩容、维护等功能。使用 Kubernetes 我们可以：
 
-查看组件状态1kubectl get cs
-查看环境信息1kubectl cluster-info
-查看 Node1kubectl get nodes -o wide
-查看集群配置1kubectl -n kube-system get cm 
+快速部
           ...
 	  <!--noindex-->
 	  <div class="post-footer-index">
@@ -1130,12 +1129,12 @@ kubectl run
 		
 		  <a href="/tags/Docker/" rel="tag"><i class="fas fa-tag"></i> Docker</a>
 		
-		  <a href="/tags/Linux/" rel="tag"><i class="fas fa-tag"></i> Linux</a>
+		  <a href="/tags/Centos/" rel="tag"><i class="fas fa-tag"></i> Centos</a>
 		
 	      </div>
 	    
             <div class="post-button text-center">
-              <a class="btn" target="_blank" href="/2019/12/30/Kubectl 常用命令/" rel="contents">
+              <a class="btn" target="_blank" href="/2019/12/29/Kubernetes(Ubuntu版)/" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1189,7 +1188,7 @@ kubectl run
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2019/12/30/Kubernetes（Centos版）/">
+    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2019/12/29/Kubernetes（Centos版）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="BaiZe">
@@ -1208,7 +1207,7 @@ kubectl run
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/12/30/Kubernetes（Centos版）/" itemprop="url">Kubernetes(Centos版)</a></h2>
+                <a class="post-title-link" href="/2019/12/29/Kubernetes（Centos版）/" itemprop="url">Kubernetes(Centos版)</a></h2>
         
 
         <div class="post-meta">
@@ -1222,8 +1221,8 @@ kubectl run
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-30T13:51:31+08:00">
-                2019-12-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-29T13:51:31+08:00">
+                2019-12-29
               </time>
             
 
@@ -1364,7 +1363,7 @@ Centos7 Kubernetes Mas
 	      </div>
 	    
             <div class="post-button text-center">
-              <a class="btn" target="_blank" href="/2019/12/30/Kubernetes（Centos版）/" rel="contents">
+              <a class="btn" target="_blank" href="/2019/12/29/Kubernetes（Centos版）/" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1418,7 +1417,7 @@ Centos7 Kubernetes Mas
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2019/12/29/Docker安装(Ubuntu版)/">
+    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2019/12/28/Docker安装(Centos版)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="BaiZe">
@@ -1437,7 +1436,7 @@ Centos7 Kubernetes Mas
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/12/29/Docker安装(Ubuntu版)/" itemprop="url">Docker安装(Ubuntu版)</a></h2>
+                <a class="post-title-link" href="/2019/12/28/Docker安装(Centos版)/" itemprop="url">Docker安装(Centos版)</a></h2>
         
 
         <div class="post-meta">
@@ -1451,221 +1450,8 @@ Centos7 Kubernetes Mas
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-29T11:02:40+08:00">
-                2019-12-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/Ubuntu18-04/" itemprop="url" rel="index">
-                    <span itemprop="name">Ubuntu18.04</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <!--<i class="far fa-file-word"></i>-->
-		  <i class="fas fa-book-open"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文共计 &#58;</span>
-                
-                <span title="本文共计">
-                  1.2k 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="far fa-clock"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅文耗时 &asymp;</span>
-                
-                <span title="阅文耗时">
-                  5 min
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          基于Ubuntu 18.04 Docker安装
-1.Ubuntu更改静态IProot@ubuntu:~# vim /etc/netplan/50-cloud-init.yaml123456789101112network:    ethernets:        eth0:            addresses:            - 192.168.15.72/20          
-          ...
-	  <!--noindex-->
-	  <div class="post-footer-index">
-	    
-	      <div class="post-tags">
-		
-		  <a href="/tags/Docker/" rel="tag"><i class="fas fa-tag"></i> Docker</a>
-		
-		  <a href="/tags/IP/" rel="tag"><i class="fas fa-tag"></i> IP</a>
-		
-		  <a href="/tags/系统更新/" rel="tag"><i class="fas fa-tag"></i> 系统更新</a>
-		
-		  <a href="/tags/微服务架构/" rel="tag"><i class="fas fa-tag"></i> 微服务架构</a>
-		
-		  <a href="/tags/Ubuntu/" rel="tag"><i class="fas fa-tag"></i> Ubuntu</a>
-		
-	      </div>
-	    
-            <div class="post-button text-center">
-              <a class="btn" target="_blank" href="/2019/12/29/Docker安装(Ubuntu版)/" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-	  </div>
-	  <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-        
-    
-        
-            
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2019/12/08/Docker安装(Centos版)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="BaiZe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/12/08/Docker安装(Centos版)/" itemprop="url">Docker安装(Centos版)</a></h2>
-        
-
-        <div class="post-meta">
-	  
-	  
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar-plus"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-08T18:45:13+08:00">
-                2019-12-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-28T18:45:13+08:00">
+                2019-12-28
               </time>
             
 
@@ -1790,7 +1576,220 @@ Centos7 Kubernetes Mas
 	      </div>
 	    
             <div class="post-button text-center">
-              <a class="btn" target="_blank" href="/2019/12/08/Docker安装(Centos版)/" rel="contents">
+              <a class="btn" target="_blank" href="/2019/12/28/Docker安装(Centos版)/" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+	  </div>
+	  <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+        
+    
+        
+            
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2019/12/28/Docker安装(Ubuntu版)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BaiZe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/28/Docker安装(Ubuntu版)/" itemprop="url">Docker安装(Ubuntu版)</a></h2>
+        
+
+        <div class="post-meta">
+	  
+	  
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar-plus"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-28T11:02:40+08:00">
+                2019-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/Ubuntu18-04/" itemprop="url" rel="index">
+                    <span itemprop="name">Ubuntu18.04</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <!--<i class="far fa-file-word"></i>-->
+		  <i class="fas fa-book-open"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文共计 &#58;</span>
+                
+                <span title="本文共计">
+                  1.2k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="far fa-clock"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅文耗时 &asymp;</span>
+                
+                <span title="阅文耗时">
+                  5 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          基于Ubuntu 18.04 Docker安装
+1.Ubuntu更改静态IProot@ubuntu:~# vim /etc/netplan/50-cloud-init.yaml123456789101112network:    ethernets:        eth0:            addresses:            - 192.168.15.72/20          
+          ...
+	  <!--noindex-->
+	  <div class="post-footer-index">
+	    
+	      <div class="post-tags">
+		
+		  <a href="/tags/Docker/" rel="tag"><i class="fas fa-tag"></i> Docker</a>
+		
+		  <a href="/tags/IP/" rel="tag"><i class="fas fa-tag"></i> IP</a>
+		
+		  <a href="/tags/系统更新/" rel="tag"><i class="fas fa-tag"></i> 系统更新</a>
+		
+		  <a href="/tags/微服务架构/" rel="tag"><i class="fas fa-tag"></i> 微服务架构</a>
+		
+		  <a href="/tags/Ubuntu/" rel="tag"><i class="fas fa-tag"></i> Ubuntu</a>
+		
+	      </div>
+	    
+            <div class="post-button text-center">
+              <a class="btn" target="_blank" href="/2019/12/28/Docker安装(Ubuntu版)/" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
