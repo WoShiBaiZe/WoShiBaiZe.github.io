@@ -77,6 +77,7 @@
 
 
 
+  <meta name="keywords" content="微服务,Docker,Linux,">
 
 
 
@@ -86,16 +87,19 @@
 
 
 
-<meta name="description" content="Java从入门到放弃">
-<meta property="og:type" content="website">
-<meta property="og:title" content="个人博客">
-<meta property="og:url" content="https://woshibaize.github.io/tags/IP/index.html">
+
+<meta name="description" content="小提示： 所有命令前都可以加上 watch 命令来观察状态的实时变化，如：watch kubectl get pods --all-namespaces  查看组件状态1kubectl get cs 查看环境信息1kubectl cluster-info 查看 Node1kubectl get nodes -o wide 查看集群配置1kubectl -n kube-system get cm">
+<meta name="keywords" content="微服务,Docker,Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kubectl 常用命令">
+<meta property="og:url" content="https://woshibaize.github.io/2019/12/30/Kubectl 常用命令/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="Java从入门到放弃">
+<meta property="og:description" content="小提示： 所有命令前都可以加上 watch 命令来观察状态的实时变化，如：watch kubectl get pods --all-namespaces  查看组件状态1kubectl get cs 查看环境信息1kubectl cluster-info 查看 Node1kubectl get nodes -o wide 查看集群配置1kubectl -n kube-system get cm">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-12-30T06:44:21.602Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="个人博客">
-<meta name="twitter:description" content="Java从入门到放弃">
+<meta name="twitter:title" content="Kubectl 常用命令">
+<meta name="twitter:description" content="小提示： 所有命令前都可以加上 watch 命令来观察状态的实时变化，如：watch kubectl get pods --all-namespaces  查看组件状态1kubectl get cs 查看环境信息1kubectl cluster-info 查看 Node1kubectl get nodes -o wide 查看集群配置1kubectl -n kube-system get cm">
 
 
 
@@ -125,7 +129,7 @@
 
 
 
-  <link rel="canonical" href="https://woshibaize.github.io/tags/IP/">
+  <link rel="canonical" href="https://woshibaize.github.io/2019/12/30/Kubectl 常用命令/">
 
 
 
@@ -150,7 +154,7 @@
 <!-- fontawesome5 -->
 <link href="/lib/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" type="text/css">
 
-  <title>标签: IP | 个人博客</title>
+  <title>Kubectl 常用命令 | 个人博客</title>
   
 
 
@@ -169,7 +173,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband">
 	<a href="https://github.com/woshibaize" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="/images/headband/forkme_right_red.png" alt="Fork me on GitHub"></a>
     </div>
@@ -313,78 +317,294 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>IP<small>标签</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2019/12/30/Kubectl 常用命令/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BaiZe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/12/29/Docker安装(Ubuntu版)/" itemprop="url">
-              
-                <span itemprop="name">Docker安装(Ubuntu版)</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">Kubectl 常用命令</h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-12-29T11:02:40+08:00" content="2019-12-29">
-          12-29
-        </time>
-      </div>
+        <div class="post-meta">
+	  
+	  
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar-plus"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-30T13:51:40+08:00">
+                2019-12-30
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/k8s/" itemprop="url" rel="index">
+                    <span itemprop="name">k8s</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <!--<i class="far fa-file-word"></i>-->
+		  <i class="fas fa-book-open"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文共计 &#58;</span>
+                
+                <span title="本文共计">
+                  272 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="far fa-clock"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅文耗时 &asymp;</span>
+                
+                <span title="阅文耗时">
+                  1 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+      
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2019/12/08/Docker安装(Centos版)/" itemprop="url">
-              
-                <span itemprop="name">Docker安装(Centos版)</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-12-08T18:45:13+08:00" content="2019-12-08">
-          12-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <blockquote>
+<p><strong>小提示：</strong> 所有命令前都可以加上 <code>watch</code> 命令来观察状态的实时变化，如：<code>watch kubectl get pods --all-namespaces</code></p>
+</blockquote>
+<h2 id="查看组件状态"><a href="#查看组件状态" class="headerlink" title="查看组件状态"></a>查看组件状态</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get cs</span><br></pre></td></tr></table></figure>
+<h2 id="查看环境信息"><a href="#查看环境信息" class="headerlink" title="查看环境信息"></a>查看环境信息</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl cluster-info</span><br></pre></td></tr></table></figure>
+<h2 id="查看-Node"><a href="#查看-Node" class="headerlink" title="查看 Node"></a>查看 Node</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get nodes -o wide</span><br></pre></td></tr></table></figure>
+<h2 id="查看集群配置"><a href="#查看集群配置" class="headerlink" title="查看集群配置"></a>查看集群配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl -n kube-system get cm kubeadm-config -oyaml</span><br></pre></td></tr></table></figure>
+<h2 id="运行容器"><a href="#运行容器" class="headerlink" title="运行容器"></a>运行容器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl run nginx --image=nginx --replicas=2 --port=80</span><br></pre></td></tr></table></figure>
+<h2 id="暴露服务"><a href="#暴露服务" class="headerlink" title="暴露服务"></a>暴露服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl expose deployment nginx --port=80 --<span class="built_in">type</span>=LoadBalancer</span><br></pre></td></tr></table></figure>
+<h2 id="查看命名空间"><a href="#查看命名空间" class="headerlink" title="查看命名空间"></a>查看命名空间</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get namespace</span><br></pre></td></tr></table></figure>
+<h2 id="创建命名空间"><a href="#创建命名空间" class="headerlink" title="创建命名空间"></a>创建命名空间</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Namespace</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">development</span></span><br></pre></td></tr></table></figure>
+<h2 id="查看容器"><a href="#查看容器" class="headerlink" title="查看容器"></a>查看容器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubectl get pods -o wide</span><br><span class="line">kubectl get deployment -o wide</span><br></pre></td></tr></table></figure>
+<h2 id="查看服务"><a href="#查看服务" class="headerlink" title="查看服务"></a>查看服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get service -o wide</span><br></pre></td></tr></table></figure>
+<h2 id="查看详情"><a href="#查看详情" class="headerlink" title="查看详情"></a>查看详情</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubectl describe pod &lt;Pod Name&gt;</span><br><span class="line">kubectl describe deployment &lt;Deployment Name&gt;</span><br><span class="line">kubectl describe service &lt;Service Name&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl logs -f &lt;Pod Name&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="删除容器和服务"><a href="#删除容器和服务" class="headerlink" title="删除容器和服务"></a>删除容器和服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubectl delete deployment &lt;Deployment Name&gt;</span><br><span class="line">kubectl delete service &lt;Service Name&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="配置方式运行"><a href="#配置方式运行" class="headerlink" title="配置方式运行"></a>配置方式运行</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl create -f &lt;YAML&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="配置方式删除"><a href="#配置方式删除" class="headerlink" title="配置方式删除"></a>配置方式删除</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl delete -f &lt;YAML&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="查看配置"><a href="#查看配置" class="headerlink" title="查看配置"></a>查看配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubeadm config view</span><br><span class="line">kubectl config view</span><br></pre></td></tr></table></figure>
+<h2 id="查看-Ingress"><a href="#查看-Ingress" class="headerlink" title="查看 Ingress"></a>查看 Ingress</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get ingress</span><br></pre></td></tr></table></figure>
+<h2 id="查看持久卷"><a href="#查看持久卷" class="headerlink" title="查看持久卷"></a>查看持久卷</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get pv</span><br></pre></td></tr></table></figure>
+<h2 id="查看持久卷消费者"><a href="#查看持久卷消费者" class="headerlink" title="查看持久卷消费者"></a>查看持久卷消费者</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get pvc</span><br></pre></td></tr></table></figure>
+<h2 id="查看-ConfigMap"><a href="#查看-ConfigMap" class="headerlink" title="查看 ConfigMap"></a>查看 ConfigMap</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get cm &lt;ConfigMap Name&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="修改-ConfigMap"><a href="#修改-ConfigMap" class="headerlink" title="修改 ConfigMap"></a>修改 ConfigMap</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl edit cm &lt;ConfigMap Name&gt;</span><br></pre></td></tr></table></figure>
       
     </div>
+    
+    
+    
 
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wechat.jpg" alt="BaiZe wechat" style="width: 200px; max-width: 100%;">
+    <div>欢迎扫描二维码关注公众号一起成长~</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>觉得文章对您有帮助请我喝杯咖啡吧^_^</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="BaiZe 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/微服务/" rel="tag"><i class="fas fa-tag"></i> 微服务</a>
+          
+            <a href="/tags/Docker/" rel="tag"><i class="fas fa-tag"></i> Docker</a>
+          
+            <a href="/tags/Linux/" rel="tag"><i class="fas fa-tag"></i> Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div>
+	  <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    BaiZe
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://woshibaize.github.io/2019/12/30/Kubectl 常用命令/" title="Kubectl 常用命令">https://woshibaize.github.io/2019/12/30/Kubectl 常用命令/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章均采用 <a href rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议，转载请注明出处！
+  </li>
+</ul>
+
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/30/Kubernetes（Centos版）/" rel="next" title="Kubernetes(Centos版)">
+                <i class="fas fa-chevron-left"></i> Kubernetes(Centos版)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/12/30/Kubernetes命令/" rel="prev" title="Kubernetes命令">
+                Kubernetes命令 <i class="fas fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -392,6 +612,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MzY0My8yMDE4Mg=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -412,8 +641,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -538,6 +776,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看组件状态"><span class="nav-text">查看组件状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看环境信息"><span class="nav-text">查看环境信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看-Node"><span class="nav-text">查看 Node</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看集群配置"><span class="nav-text">查看集群配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行容器"><span class="nav-text">运行容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#暴露服务"><span class="nav-text">暴露服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看命名空间"><span class="nav-text">查看命名空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建命名空间"><span class="nav-text">创建命名空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看容器"><span class="nav-text">查看容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看服务"><span class="nav-text">查看服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看详情"><span class="nav-text">查看详情</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看日志"><span class="nav-text">查看日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除容器和服务"><span class="nav-text">删除容器和服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置方式运行"><span class="nav-text">配置方式运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置方式删除"><span class="nav-text">配置方式删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看配置"><span class="nav-text">查看配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看-Ingress"><span class="nav-text">查看 Ingress</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看持久卷"><span class="nav-text">查看持久卷</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看持久卷消费者"><span class="nav-text">查看持久卷消费者</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看-ConfigMap"><span class="nav-text">查看 ConfigMap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改-ConfigMap"><span class="nav-text">修改 ConfigMap</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -690,6 +944,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -718,6 +976,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
