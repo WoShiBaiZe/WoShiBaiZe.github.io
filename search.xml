@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title></title>
+    <url>%2F2020%2F04%2F20%2F%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93%2F</url>
+    <content type="text"><![CDATA[工作中遇到一些问题，希望记录下来，以后方便查看 2020-04-20 所在项目组架构使用Dubbo+Zookeeper以及spingboot，mybatis，mybatis-plus，开发过程中，需要传递实体类并传递分页信息，以便根据实体类条件查询结果分页，查阅资料，都是在controller层，使用service接口调用mybatis-plus的page方法，但是，因为公司使用dubbo架构，会产生rpc调用，所以导致调用失败，MyBaits-Plus官网提示 ​ 选择在service层，服务提供者处，使用selectPage方法 实体类LocalDateTime 在项目中，序列化出现问题，导致异常（截取自网络）解决方法：更换数据类型 com.alibaba.dubbo.rpc.RpcException: Failed to invoke the method compositeQuery in the service com.wwwarehouse.xdw.resourcecenter.service.ImConsumeRealityService. Tried 3 times of the providers [192.168.72.158:20880] (1/1) from the registry 192.168.6.21:2181 on the consumer 192.168.72.158 using the dubbo version 2.8.4. Last error is: Failed to invoke remote method: compositeQuery, provider:]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[工欲善其事必先利其器]]></title>
+    <url>%2F2020%2F03%2F26%2F002%E5%B7%A5%E6%AC%B2%E5%96%84%E5%85%B6%E4%BA%8B%E5%BF%85%E5%85%88%E5%88%A9%E5%85%B6%E5%99%A8%2F002%E5%B7%A5%E6%AC%B2%E5%96%84%E5%85%B6%E4%BA%8B%E5%BF%85%E5%85%88%E5%88%A9%E5%85%B6%E5%99%A8%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[001为学]]></title>
     <url>%2F2020%2F03%2F26%2F001%E4%B8%BA%E5%AD%A6%2F001%E4%B8%BA%E5%AD%A6%2F</url>
     <content type="text"><![CDATA[《为学》清 彭端淑 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;天下事有难易乎？为之，则难者亦易矣；不为，则易者亦难矣。人之为学有难易乎？学之，则难者亦易矣；不学，则易者亦难矣。 吾资之昏，不逮人也，吾材之庸，不逮人也；旦旦而学之，久而不怠焉，迄乎成，而亦不知其昏与庸也。吾资之聪，倍人也，吾材之敏，倍人也；屏弃而不用，其与昏与庸无以异也。圣人之道，卒于鲁也传之。然则昏庸聪敏之用，岂有常哉？ 蜀之鄙有二僧：其一贫，其一富。贫者语于富者曰：“吾欲之南海，何如？”富者曰：“子何恃而往？”曰：“吾一瓶一钵足矣。”富者曰：“吾数年来欲买舟而下，犹未能也。子何恃而往！”越明年，贫者自南海还，以告富者，富者有惭色。 西蜀之去南海，不知几千里也，僧富者不能至而贫者至焉。人之立志，顾不如蜀鄙之僧哉?是故聪与敏，可恃而不可恃也；自恃其聪于敏而不学者，自败者也。昏与庸可限而不可限也；不自限其昏与庸，而力学不倦者，自力者也。 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;参加工作以来，每天忙于工作，很少学习，发现自己有些堕落了，以后每周要抽出时间给自己充充电，只有不停的学习，才能不被这个快速的社会淘汰，技术层出不穷，但是，终归还是要源于大学里学习的基础。万丈高楼起，盘龙卧虎高山齐。]]></content>
