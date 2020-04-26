@@ -77,6 +77,7 @@
 
 
 
+  <meta name="keywords" content="工作总结,">
 
 
 
@@ -86,16 +87,22 @@
 
 
 
-<meta name="description" content="Java从入门到放弃">
-<meta property="og:type" content="website">
-<meta property="og:title" content="个人博客">
-<meta property="og:url" content="https://woshibaize.github.io/archives/2020/index.html">
+
+<meta name="description" content="工作中遇到一些问题，希望记录下来，以后方便查看  2020-04-20  所在项目组架构使用Dubbo+Zookeeper以及spingboot，mybatis，mybatis-plus，开发过程中，需要传递实体类并传递分页信息，以便根据实体类条件查询结果分页，查阅资料，都是在controller层，使用service接口调用mybatis-plus的page方法，但是，因为公司使用dubbo架构">
+<meta name="keywords" content="工作总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="20200420">
+<meta property="og:url" content="https://woshibaize.github.io/2020/04/20/每日总结/20200420/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="Java从入门到放弃">
+<meta property="og:description" content="工作中遇到一些问题，希望记录下来，以后方便查看  2020-04-20  所在项目组架构使用Dubbo+Zookeeper以及spingboot，mybatis，mybatis-plus，开发过程中，需要传递实体类并传递分页信息，以便根据实体类条件查询结果分页，查阅资料，都是在controller层，使用service接口调用mybatis-plus的page方法，但是，因为公司使用dubbo架构">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/a3e7702c99de3b8eb94f0f1d65049ff6/xmlnote/5F231DEAA095434BAB2B31B4865CFEC6/131">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/a3e7702c99de3b8eb94f0f1d65049ff6/xmlnote/4BCD83DF8B5E40489F4586E212B7F2AC/130">
+<meta property="og:updated_time" content="2020-04-26T14:36:32.529Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="个人博客">
-<meta name="twitter:description" content="Java从入门到放弃">
+<meta name="twitter:title" content="20200420">
+<meta name="twitter:description" content="工作中遇到一些问题，希望记录下来，以后方便查看  2020-04-20  所在项目组架构使用Dubbo+Zookeeper以及spingboot，mybatis，mybatis-plus，开发过程中，需要传递实体类并传递分页信息，以便根据实体类条件查询结果分页，查阅资料，都是在controller层，使用service接口调用mybatis-plus的page方法，但是，因为公司使用dubbo架构">
+<meta name="twitter:image" content="https://note.youdao.com/yws/public/resource/a3e7702c99de3b8eb94f0f1d65049ff6/xmlnote/5F231DEAA095434BAB2B31B4865CFEC6/131">
 
 
 
@@ -125,7 +132,7 @@
 
 
 
-  <link rel="canonical" href="https://woshibaize.github.io/archives/2020/">
+  <link rel="canonical" href="https://woshibaize.github.io/2020/04/20/每日总结/20200420/">
 
 
 
@@ -150,7 +157,7 @@
 <!-- fontawesome5 -->
 <link href="/lib/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" type="text/css">
 
-  <title>文章 | 个人博客</title>
+  <title>20200420 | 个人博客</title>
   
 
 
@@ -169,7 +176,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband">
 	<a href="https://github.com/woshibaize" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="/images/headband/forkme_right_red.png" alt="Fork me on GitHub"></a>
     </div>
@@ -313,391 +320,273 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2020/04/20/每日总结/20200420/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BaiZe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h2 class="post-title" itemprop="name headline">20200420</h2>
         
+
+        <div class="post-meta">
+	  
+	  
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar-plus"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-20T22:03:56+08:00">
+                2020-04-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 24 篇日志。 继续努力。
-      </span>
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习反思/" itemprop="url" rel="index">
+                    <span itemprop="name">学习反思</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h2 class="archive-year" id="archive-year-2020">2020</h2>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/04/26/微服务-阿里巴巴/微服务-性能监控(Prometheus & Grafana)/" itemprop="url">
+          
+
+          
+            <div class="post-wordcount">
               
-                <span itemprop="name">未命名</span>
+                
+                <span class="post-meta-item-icon">
+                  <!--<i class="far fa-file-word"></i>-->
+		  <i class="fas fa-book-open"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文共计 &#58;</span>
+                
+                <span title="本文共计">
+                  240 字
+                </span>
               
-            </a>
-        
-      </h3>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-04-26T23:41:12+08:00" content="2020-04-26">
-          04-26
-        </time>
-      </div>
+              
+                <span class="post-meta-divider">|</span>
+              
 
-    </header>
-  </article>
+              
+                <span class="post-meta-item-icon">
+                  <i class="far fa-clock"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅文耗时 &asymp;</span>
+                
+                <span title="阅文耗时">
+                  1 min
+                </span>
+              
+            </div>
+          
 
+          
 
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/04/26/微服务-阿里巴巴/微服务-日志收集(EFK)/" itemprop="url">
-              
-                <span itemprop="name">未命名</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-04-26T23:40:53+08:00" content="2020-04-26">
-          04-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/04/26/微服务-阿里巴巴/微服务-日志收集(ELK)/" itemprop="url">
-              
-                <span itemprop="name">未命名</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-04-26T23:40:29+08:00" content="2020-04-26">
-          04-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p><center>工作中遇到一些问题，希望记录下来，以后方便查看</center></p>
+<ul>
+<li><p>2020-04-20</p>
+<ol>
+<li>所在项目组架构使用Dubbo+Zookeeper以及spingboot，mybatis，mybatis-plus，开发过程中，需要传递实体类并传递分页信息，以便根据实体类条件查询结果分页，查阅资料，都是在controller层，使用service接口调用mybatis-plus的page方法，但是，因为公司使用dubbo架构，会产生rpc调用，所以导致调用失败，MyBaits-Plus官网提示</li>
+</ol>
+<p><img src="https://note.youdao.com/yws/public/resource/a3e7702c99de3b8eb94f0f1d65049ff6/xmlnote/5F231DEAA095434BAB2B31B4865CFEC6/131" alt="image-20200420225834759"></p>
+<p>​        选择在service层，服务提供者处，使用selectPage方法</p>
+</li>
+</ul>
+<p><img src="https://note.youdao.com/yws/public/resource/a3e7702c99de3b8eb94f0f1d65049ff6/xmlnote/4BCD83DF8B5E40489F4586E212B7F2AC/130" alt="image-20200420230135837"></p>
+<ol start="2">
+<li>实体类LocalDateTime 在项目中，序列化出现问题，导致异常（截取自网络）解决方法：更换数据类型</li>
+</ol>
+<blockquote>
+<p>com.alibaba.dubbo.rpc.RpcException: Failed to invoke the method compositeQuery in the service com.wwwarehouse.xdw.resourcecenter.service.ImConsumeRealityService. Tried 3 times of the providers [192.168.72.158:20880] (1/1) from the registry 192.168.6.21:2181 on the consumer 192.168.72.158 using the dubbo version 2.8.4. Last error is: Failed to invoke remote method: compositeQuery, provider: </p>
+</blockquote>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/04/26/微服务-阿里巴巴/微服务-全文搜索(ElasticSearch)/" itemprop="url">
-              
-                <span itemprop="name">未命名</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-04-26T23:39:53+08:00" content="2020-04-26">
-          04-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/04/26/微服务-阿里巴巴/微服务-高性能存储(MongoDB)/" itemprop="url">
-              
-                <span itemprop="name">未命名</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-04-26T23:38:48+08:00" content="2020-04-26">
-          04-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/04/26/微服务-阿里巴巴/微服务-分布式事务(ApacheSeata)/" itemprop="url">
-              
-                <span itemprop="name">未命名</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-04-26T23:38:15+08:00" content="2020-04-26">
-          04-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/04/26/微服务-阿里巴巴/微服务-认证授权/" itemprop="url">
-              
-                <span itemprop="name">未命名</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-04-26T23:37:42+08:00" content="2020-04-26">
-          04-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/04/26/微服务-阿里巴巴/微服务-分库分表(ApacheShardingSphere)/" itemprop="url">
-              
-                <span itemprop="name">未命名</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-04-26T23:35:47+08:00" content="2020-04-26">
-          04-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/04/26/微服务-阿里巴巴/微服务-分布式主键(Leaf)/" itemprop="url">
-              
-                <span itemprop="name">未命名</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-04-26T23:35:17+08:00" content="2020-04-26">
-          04-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/04/26/微服务-阿里巴巴/微服务-分布式锁(Redisson)/" itemprop="url">
-              
-                <span itemprop="name">未命名</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-04-26T23:34:47+08:00" content="2020-04-26">
-          04-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wechat.jpg" alt="BaiZe wechat" style="width: 200px; max-width: 100%;">
+    <div>欢迎扫描二维码关注公众号一起成长~</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>觉得文章对您有帮助请我喝杯咖啡吧^_^</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="BaiZe 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/工作总结/" rel="tag"><i class="fas fa-tag"></i> 工作总结</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div>
+	  <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    BaiZe
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://woshibaize.github.io/2020/04/20/每日总结/20200420/" title="20200420">https://woshibaize.github.io/2020/04/20/每日总结/20200420/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章均采用 <a href rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议，转载请注明出处！
+  </li>
+</ul>
+
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/19/每日总结/20200419/" rel="next" title="工作总结">
+                <i class="fas fa-chevron-left"></i> 工作总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/04/22/每日总结/20200422/" rel="prev" title="20200422">
+                20200422 <i class="fas fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2020/page/2/">2</a><a class="page-number" href="/archives/2020/page/3/">3</a><a class="extend next" rel="next" href="/archives/2020/page/2/"><i class="fas fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -705,6 +594,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MzY0My8yMDE4Mg=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -1003,6 +901,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -1031,6 +933,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 

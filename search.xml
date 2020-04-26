@@ -2,23 +2,176 @@
 <search>
   <entry>
     <title></title>
-    <url>%2F2020%2F04%2F20%2F%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93%2F</url>
-    <content type="text"><![CDATA[工作中遇到一些问题，希望记录下来，以后方便查看 2020-04-20 所在项目组架构使用Dubbo+Zookeeper以及spingboot，mybatis，mybatis-plus，开发过程中，需要传递实体类并传递分页信息，以便根据实体类条件查询结果分页，查阅资料，都是在controller层，使用service接口调用mybatis-plus的page方法，但是，因为公司使用dubbo架构，会产生rpc调用，所以导致调用失败，MyBaits-Plus官网提示 ​ 选择在service层，服务提供者处，使用selectPage方法 实体类LocalDateTime 在项目中，序列化出现问题，导致异常（截取自网络）解决方法：更换数据类型 com.alibaba.dubbo.rpc.RpcException: Failed to invoke the method compositeQuery in the service com.wwwarehouse.xdw.resourcecenter.service.ImConsumeRealityService. Tried 3 times of the providers [192.168.72.158:20880] (1/1) from the registry 192.168.6.21:2181 on the consumer 192.168.72.158 using the dubbo version 2.8.4. Last error is: Failed to invoke remote method: compositeQuery, provider:]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[工欲善其事必先利其器]]></title>
-    <url>%2F2020%2F03%2F26%2F002%E5%B7%A5%E6%AC%B2%E5%96%84%E5%85%B6%E4%BA%8B%E5%BF%85%E5%85%88%E5%88%A9%E5%85%B6%E5%99%A8%2F002%E5%B7%A5%E6%AC%B2%E5%96%84%E5%85%B6%E4%BA%8B%E5%BF%85%E5%85%88%E5%88%A9%E5%85%B6%E5%99%A8%2F</url>
+    <url>%2F2020%2F04%2F26%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7(Prometheus%20%26%20Grafana)%2F</url>
     <content type="text"><![CDATA[]]></content>
   </entry>
   <entry>
-    <title><![CDATA[001为学]]></title>
-    <url>%2F2020%2F03%2F26%2F001%E4%B8%BA%E5%AD%A6%2F001%E4%B8%BA%E5%AD%A6%2F</url>
-    <content type="text"><![CDATA[《为学》清 彭端淑 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;天下事有难易乎？为之，则难者亦易矣；不为，则易者亦难矣。人之为学有难易乎？学之，则难者亦易矣；不学，则易者亦难矣。 吾资之昏，不逮人也，吾材之庸，不逮人也；旦旦而学之，久而不怠焉，迄乎成，而亦不知其昏与庸也。吾资之聪，倍人也，吾材之敏，倍人也；屏弃而不用，其与昏与庸无以异也。圣人之道，卒于鲁也传之。然则昏庸聪敏之用，岂有常哉？ 蜀之鄙有二僧：其一贫，其一富。贫者语于富者曰：“吾欲之南海，何如？”富者曰：“子何恃而往？”曰：“吾一瓶一钵足矣。”富者曰：“吾数年来欲买舟而下，犹未能也。子何恃而往！”越明年，贫者自南海还，以告富者，富者有惭色。 西蜀之去南海，不知几千里也，僧富者不能至而贫者至焉。人之立志，顾不如蜀鄙之僧哉?是故聪与敏，可恃而不可恃也；自恃其聪于敏而不学者，自败者也。昏与庸可限而不可限也；不自限其昏与庸，而力学不倦者，自力者也。 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;参加工作以来，每天忙于工作，很少学习，发现自己有些堕落了，以后每周要抽出时间给自己充充电，只有不停的学习，才能不被这个快速的社会淘汰，技术层出不穷，但是，终归还是要源于大学里学习的基础。万丈高楼起，盘龙卧虎高山齐。]]></content>
+    <title></title>
+    <url>%2F2020%2F04%2F26%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%97%A5%E5%BF%97%E6%94%B6%E9%9B%86(EFK)%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2020%2F04%2F26%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%97%A5%E5%BF%97%E6%94%B6%E9%9B%86(ELK)%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2020%2F04%2F26%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%85%A8%E6%96%87%E6%90%9C%E7%B4%A2(ElasticSearch)%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2020%2F04%2F26%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%AB%98%E6%80%A7%E8%83%BD%E5%AD%98%E5%82%A8(MongoDB)%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2020%2F04%2F26%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1(ApacheSeata)%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2020%2F04%2F26%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E8%AE%A4%E8%AF%81%E6%8E%88%E6%9D%83%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2020%2F04%2F26%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8(ApacheShardingSphere)%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2020%2F04%2F26%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%BB%E9%94%AE(Leaf)%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2020%2F04%2F26%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81(Redisson)%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2020%2F04%2F26%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98(Redis)%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2020%2F04%2F26%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97(ApacheKafaka)%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2020%2F04%2F26%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97(ApacheRocketMQ)%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2020%2F04%2F26%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2020%2F04%2F26%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[JDK新特性]]></title>
+    <url>%2F2020%2F04%2F26%2FJDK%E6%96%B0%E7%89%B9%E6%80%A7%2FJDK%E6%96%B0%E7%89%B9%E6%80%A7%2F</url>
+    <content type="text"><![CDATA[]]></content>
       <categories>
-        <category>生活记录</category>
+        <category>目录</category>
       </categories>
       <tags>
-        <tag>开篇之作</tag>
+        <tag>目录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[微服务-微服务治理]]></title>
+    <url>%2F2020%2F04%2F26%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>目录</category>
+      </categories>
+      <tags>
+        <tag>目录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[微服务-持续化交付]]></title>
+    <url>%2F2020%2F04%2F26%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%8C%81%E7%BB%AD%E5%8C%96%E4%BA%A4%E4%BB%98%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%8C%81%E7%BB%AD%E5%8C%96%E4%BA%A4%E4%BB%98%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>目录</category>
+      </categories>
+      <tags>
+        <tag>目录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[微服务-前后端分离]]></title>
+    <url>%2F2020%2F04%2F26%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>目录</category>
+      </categories>
+      <tags>
+        <tag>目录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[微服务-网飞Netflix]]></title>
+    <url>%2F2020%2F04%2F26%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E7%BD%91%E9%A3%9E%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E7%BD%91%E9%A3%9E%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>目录</category>
+      </categories>
+      <tags>
+        <tag>目录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[微服务-阿里巴巴]]></title>
+    <url>%2F2020%2F04%2F26%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F</url>
+    <content type="text"><![CDATA[SpringCloudAlibaba Spring官网 一、开始 1.Spring Cloud Alibaba 简介 2.Spring Cloud Alibaba 项目工程准备 3.Alibaba Nacos 服务注册中心 4.Alibaba Nacos 安装部署 5.Alibaba Nacos 服务提供者 6.Alibaba Nacos 服务消费者 7.Alibaba Nacos 使用 Feign 客户端 8.Alibaba Nacos 分布式配置中心 9.Alibaba Nacos 多环境配置 二、服务熔断 1.Alibaba Sentinel 分布式系统的流量防卫兵 2.Alibaba Sentinel 控制台 3.Alibaba Sentinel 客户端接入 三、链路追踪 1.Apache Skywalking 简介 2.Apache Skywalking 服务端配置 3.Apache Skywalking 客户端接入 4.Maven Assembly 插件协助打包 四、服务网关 1.Spring Cloud Gateway 简介 2.Spring Cloud Gateway 部署 3.Spring Cloud Gateway 路由 4.Spring Cloud Gateway 谓词过滤器 5.Spring Cloud Gateway 容错 6.Spring Cloud Gateway 跨域]]></content>
+      <categories>
+        <category>目录</category>
+      </categories>
+      <tags>
+        <tag>目录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[20200422]]></title>
+    <url>%2F2020%2F04%2F22%2F%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93%2F20200422%2F</url>
+    <content type="text"><![CDATA[工作中遇到一些问题，希望记录下来，以后方便查看 2020-04-22 前端请求415错误 @RequestParam主要来是于URL，例如百度的地址 https://www.baidu.com/s?wd=前端415@RequestBody主要来自表单信息，通过POST的方式把表单的信息传到后台。@RequestHeader求请的表单头。一般用来放浏览器信息，cookies等信息。 @RequestParam对应的是URL的参数。@RequestBody对应的 是Form 的值@RequestHeader 对应是 Head的参数 1234567891011121314151617181920function f_c() &#123; var url = "http://localhost:8080/test/paramTest?OperateType=add"; var opt = &#123; attr1: "a", attr2: "b", &#125;; $.ajax(&#123; type: "POST", url: url, headers: &#123; token:'key' &#125;, data: JSON.stringify(opt), contentType: "application/json", success: function (data) &#123; alert(data) &#125;, error: function (data) &#123; alert("error"); &#125; &#125;); &#125; 原文链接：https://richy.blog.csdn.net/article/details/104571682]]></content>
+      <categories>
+        <category>学习反思</category>
+      </categories>
+      <tags>
+        <tag>工作总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[20200420]]></title>
+    <url>%2F2020%2F04%2F20%2F%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93%2F20200420%2F</url>
+    <content type="text"><![CDATA[工作中遇到一些问题，希望记录下来，以后方便查看 2020-04-20 所在项目组架构使用Dubbo+Zookeeper以及spingboot，mybatis，mybatis-plus，开发过程中，需要传递实体类并传递分页信息，以便根据实体类条件查询结果分页，查阅资料，都是在controller层，使用service接口调用mybatis-plus的page方法，但是，因为公司使用dubbo架构，会产生rpc调用，所以导致调用失败，MyBaits-Plus官网提示 ​ 选择在service层，服务提供者处，使用selectPage方法 实体类LocalDateTime 在项目中，序列化出现问题，导致异常（截取自网络）解决方法：更换数据类型 com.alibaba.dubbo.rpc.RpcException: Failed to invoke the method compositeQuery in the service com.wwwarehouse.xdw.resourcecenter.service.ImConsumeRealityService. Tried 3 times of the providers [192.168.72.158:20880] (1/1) from the registry 192.168.6.21:2181 on the consumer 192.168.72.158 using the dubbo version 2.8.4. Last error is: Failed to invoke remote method: compositeQuery, provider:]]></content>
+      <categories>
+        <category>学习反思</category>
+      </categories>
+      <tags>
+        <tag>工作总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[工作总结]]></title>
+    <url>%2F2020%2F04%2F19%2F%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93%2F20200419%2F</url>
+    <content type="text"><![CDATA[1、20200420 dubbo与mybatisPlus dubbo序列化 2、20200422 前端415]]></content>
+      <categories>
+        <category>目录</category>
+      </categories>
+      <tags>
+        <tag>目录</tag>
       </tags>
   </entry>
 </search>
