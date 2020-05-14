@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[20200514]]></title>
+    <url>%2F2020%2F05%2F14%2F%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93%2F20200514%2F</url>
+    <content type="text"><![CDATA[工作中遇到一些问题，希望记录下来，以后方便查看 2020-05-14 jqGrid学习网站 jqGrid实例中文版 ​ 2.editRow 编辑行 //最后一行追加行 123456$("#productList").addRowData(rowid, josnData, "last");//调用方式jQuery("#grid_id").editRow(rowid, keys, oneditfunc, successfunc, url, extraparam, aftersavefunc,errorfunc, afterrestorefunc);//新版本调用方式jQuery("#grid_id").jqGrid('editRow',rowid, keys, oneditfunc, successfunc, url, extraparam, aftersavefunc,errorfunc, afterrestorefunc); editRow参数配置说明 grid_id ：已经构造过的jqGrid rowid：此数据行的id keys：设置为true可以使用 [Enter]保存数据或者[Esc] 取消编辑 oneditfunc：在行成功转为编辑模式下触发的事件，参数为此行数据id successfunc, url, extraparam, aftersavefunc,errorfunc 和 afterrestorefunc在下面的saveRow方法中介绍 拥有’not-editable-row’ 样式的行不可编辑，即使colModel中配置了某些列能编辑。 123456789101112131415//默认参数editparameters = &#123; "keys" : false, "oneditfunc" : null, "successfunc" : null, "url" : null, "extraparam" : &#123;&#125;, "aftersavefunc" : null, "errorfunc": null, "afterrestorefunc" : null, "restoreAfterError" : true, "mtype" : "POST"&#125; jQuery("#grid_id").jqGrid('editRow',rowid, parameters); //事件编辑行 123456onSelectRow: function (id) &#123; $("#productList").saveRow(id, false); $("#productList").jqGrid('restoreRow', id); $("#productList").jqGrid('editRow', id, true); lastrow = id;&#125; saveRow保存行 1 restoreRow还原数据行 1 inlineNav： 给行编辑添加导航操作按钮 1]]></content>
+      <categories>
+        <category>工作总结</category>
+      </categories>
+      <tags>
+        <tag>工作总结</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[图书推荐]]></title>
     <url>%2F2020%2F04%2F29%2F%E5%9B%BE%E4%B9%A6%E6%8E%A8%E8%8D%90%2F%E5%9B%BE%E4%B9%A6%E6%8E%A8%E8%8D%90%2F</url>
     <content type="text"><![CDATA[高清下载 图书下载]]></content>
@@ -24,9 +35,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[1.阿里巴巴]]></title>
-    <url>%2F2020%2F04%2F26%2F3.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F</url>
-    <content type="text"><![CDATA[SpringCloudAlibaba Spring官网 一、开始 1.Spring Cloud Alibaba 简介 2.Spring Cloud Alibaba 项目工程准备 3.Alibaba Nacos 服务注册中心 4.Alibaba Nacos 安装部署 5.Alibaba Nacos 服务提供者 6.Alibaba Nacos 服务消费者 7.Alibaba Nacos 使用 Feign 客户端 8.Alibaba Nacos 分布式配置中心 9.Alibaba Nacos 多环境配置 二、服务熔断 1.Alibaba Sentinel 分布式系统的流量防卫兵 2.Alibaba Sentinel 控制台 3.Alibaba Sentinel 客户端接入 三、链路追踪 1.Apache Skywalking 简介 2.Apache Skywalking 服务端配置 3.Apache Skywalking 客户端接入 4.Maven Assembly 插件协助打包 四、服务网关 1.Spring Cloud Gateway 简介 2.Spring Cloud Gateway 部署 3.Spring Cloud Gateway 路由 4.Spring Cloud Gateway 谓词过滤器 5.Spring Cloud Gateway 容错 6.Spring Cloud Gateway 跨域]]></content>
+    <title><![CDATA[3.健康检查]]></title>
+    <url>%2F2020%2F04%2F26%2F3.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5%2F</url>
+    <content type="text"><![CDATA[快速开始 Spring Boot Actuator 简介 Spring Boot Actuator 使用]]></content>
       <categories>
         <category>目录</category>
       </categories>
@@ -36,9 +47,21 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[2.消息队列RabbitMQ]]></title>
-    <url>%2F2020%2F04%2F25%2F2.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E7%BD%91%E9%A3%9E%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%2F</url>
-    <content type="text"><![CDATA[快速开始 消息队列的流派 Actor 模型 RabbitMQ 简介 RabbitMQ 部署 RabbitMQ 使用]]></content>
+    <title><![CDATA[2.远程调用]]></title>
+    <url>%2F2020%2F04%2F26%2F3.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[快速开始 Apache Dubbo 简介 Apache Dubbo 项目工程准备 Apache Dubbo 服务注册与发现 Apache Dubbo 负载均衡 Apache Dubbo 外部化配置 Apache Dubbo Sentinel 服务限流]]></content>
+      <categories>
+        <category>目录</category>
+      </categories>
+      <tags>
+        <tag>目录</tag>
+        <tag>二级</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[1.阿里巴巴]]></title>
+    <url>%2F2020%2F04%2F26%2F3.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F</url>
+    <content type="text"><![CDATA[SpringCloudAlibabaSpring官网 一、开始 1.Spring Cloud Alibaba 简介 2.Spring Cloud Alibaba 项目工程准备 3.Alibaba Nacos 服务注册中心 4.Alibaba Nacos 安装部署 5.Alibaba Nacos 服务提供者 6.Alibaba Nacos 服务消费者 7.Alibaba Nacos 使用 Feign 客户端 8.Alibaba Nacos 分布式配置中心 9.Alibaba Nacos 多环境配置 二、服务熔断 1.Alibaba Sentinel 分布式系统的流量防卫兵 2.Alibaba Sentinel 控制台 3.Alibaba Sentinel 客户端接入 三、链路追踪 1.Apache Skywalking 简介 2.Apache Skywalking 服务端配置 3.Apache Skywalking 客户端接入 4.Maven Assembly 插件协助打包 四、服务网关 1.Spring Cloud Gateway 简介 2.Spring Cloud Gateway 部署 3.Spring Cloud Gateway 路由 4.Spring Cloud Gateway 谓词过滤器 5.Spring Cloud Gateway 容错 6.Spring Cloud Gateway 跨域]]></content>
       <categories>
         <category>目录</category>
       </categories>
@@ -51,6 +74,18 @@
     <title><![CDATA[4.分布式事务LCN]]></title>
     <url>%2F2020%2F04%2F25%2F2.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E7%BD%91%E9%A3%9E%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%2F</url>
     <content type="text"><![CDATA[快速开始 LCN 简介 LCN 原理 LCN 使用 LCN 验证]]></content>
+      <categories>
+        <category>目录</category>
+      </categories>
+      <tags>
+        <tag>目录</tag>
+        <tag>二级</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2.消息队列RabbitMQ]]></title>
+    <url>%2F2020%2F04%2F25%2F2.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E7%BD%91%E9%A3%9E%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%2F</url>
+    <content type="text"><![CDATA[快速开始 消息队列的流派 Actor 模型 RabbitMQ 简介 RabbitMQ 部署 RabbitMQ 使用]]></content>
       <categories>
         <category>目录</category>
       </categories>
@@ -204,7 +239,7 @@
   <entry>
     <title><![CDATA[工作总结]]></title>
     <url>%2F2020%2F04%2F19%2F%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93%2F20200419%2F</url>
-    <content type="text"><![CDATA[1、20200420 dubbo与mybatis-plus dubbo序列化 2、20200422 前端415]]></content>
+    <content type="text"><![CDATA[1、20200420 dubbo与mybatis-plus dubbo序列化 2、20200422 前端415 3、20200514 jqGrid]]></content>
       <categories>
         <category>目录</category>
       </categories>
