@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="工作中遇到一些问题，希望记录下来，以后方便查看  2020-05-14   jqGrid学习网站  jqGrid实例中文版  ​    2.editRow 编辑行 //最后一行追加行 123456$(&quot;#productList&quot;).addRowData(rowid, josnData, &quot;last&quot;);//调用方式jQuery(&quot;#grid_id&quot;).editRow(rowid, keys, on">
+<meta name="description" content="工作中遇到一些问题，希望记录下来，以后方便查看  2020-05-14  ​    1.jqGrid学习网站 jqGrid实例中文版 jqGrid官网  ​    2.editRow 编辑行 //最后一行追加行 123456$(&quot;#productList&quot;).addRowData(rowid, josnData, &quot;last&quot;);//调用方式jQuery(&quot;#grid_id&quot;).editRow(r">
 <meta name="keywords" content="工作总结">
 <meta property="og:type" content="article">
 <meta property="og:title" content="20200514">
 <meta property="og:url" content="https://woshibaize.github.io/2020/05/14/每日总结/20200514/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="工作中遇到一些问题，希望记录下来，以后方便查看  2020-05-14   jqGrid学习网站  jqGrid实例中文版  ​    2.editRow 编辑行 //最后一行追加行 123456$(&quot;#productList&quot;).addRowData(rowid, josnData, &quot;last&quot;);//调用方式jQuery(&quot;#grid_id&quot;).editRow(rowid, keys, on">
+<meta property="og:description" content="工作中遇到一些问题，希望记录下来，以后方便查看  2020-05-14  ​    1.jqGrid学习网站 jqGrid实例中文版 jqGrid官网  ​    2.editRow 编辑行 //最后一行追加行 123456$(&quot;#productList&quot;).addRowData(rowid, josnData, &quot;last&quot;);//调用方式jQuery(&quot;#grid_id&quot;).editRow(r">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-05-14T13:41:09.123Z">
+<meta property="og:updated_time" content="2020-05-15T15:08:07.442Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="20200514">
-<meta name="twitter:description" content="工作中遇到一些问题，希望记录下来，以后方便查看  2020-05-14   jqGrid学习网站  jqGrid实例中文版  ​    2.editRow 编辑行 //最后一行追加行 123456$(&quot;#productList&quot;).addRowData(rowid, josnData, &quot;last&quot;);//调用方式jQuery(&quot;#grid_id&quot;).editRow(rowid, keys, on">
+<meta name="twitter:description" content="工作中遇到一些问题，希望记录下来，以后方便查看  2020-05-14  ​    1.jqGrid学习网站 jqGrid实例中文版 jqGrid官网  ​    2.editRow 编辑行 //最后一行追加行 123456$(&quot;#productList&quot;).addRowData(rowid, josnData, &quot;last&quot;);//调用方式jQuery(&quot;#grid_id&quot;).editRow(r">
 
 
 
@@ -417,7 +417,7 @@
                   <span class="post-meta-item-text">本文共计 &#58;</span>
                 
                 <span title="本文共计">
-                  285 字
+                  315 字
                 </span>
               
 
@@ -458,10 +458,9 @@
 <ul>
 <li><p>2020-05-14</p>
 </li>
-<li><ol>
-<li>jqGrid学习网站</li>
-</ol>
+<li><p>​    1.jqGrid学习网站</p>
 <p><a href="https://blog.mn886.net/jqGrid/" target="_blank" rel="noopener">jqGrid实例中文版</a></p>
+<p><a href="http://www.guriddo.net/demo/bootstrap/" target="_blank" rel="noopener">jqGrid官网</a></p>
 </li>
 <li><p>​    2.editRow 编辑行</p>
 <p>//最后一行追加行</p>
@@ -481,19 +480,23 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">onSelectRow: <span class="function"><span class="keyword">function</span> (<span class="params">id</span>) </span>&#123;</span><br><span class="line">	$(<span class="string">"#productList"</span>).saveRow(id, <span class="literal">false</span>);</span><br><span class="line">	$(<span class="string">"#productList"</span>).jqGrid(<span class="string">'restoreRow'</span>, id);</span><br><span class="line">	$(<span class="string">"#productList"</span>).jqGrid(<span class="string">'editRow'</span>, id, <span class="literal">true</span>);</span><br><span class="line">    lastrow = id;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>saveRow保存行</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#jqGrid"</span>).jqGrid(<span class="string">'saveRow'</span>,rowKey);</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <ul>
 <li><p>restoreRow还原数据行</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jQuery(<span class="string">"#grid_id"</span>).restoreRow(rowid, afterrestorefunc);</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <ul>
 <li><p>inlineNav： 给行编辑添加导航操作按钮</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jQuery(<span class="string">"#grid_id"</span>).navGrid(pagerid, &#123;...&#125;);</span><br><span class="line">jQuery(<span class="string">"#grid_id"</span>).inlineNav(pagerid, parameters);</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<ul>
+<li>delGridRow删除行</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#jqGrid"</span>).delGridRow(rowKey);</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -584,6 +587,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2020/05/15/每日总结/20200515/" rel="prev" title="20200515">
+                20200515 <i class="fas fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -658,7 +665,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -792,7 +799,7 @@
     
       <span class="post-meta-item-text">全站共计字数&#58;</span>
     
-    <span title="全站共计字数">2.1k</span>
+    <span title="全站共计字数">2.5k</span>
   
 </div>
 

@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[20200515]]></title>
+    <url>%2F2020%2F05%2F15%2F%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93%2F20200515%2F</url>
+    <content type="text"><![CDATA[工作中遇到一些问题，希望记录下来，以后方便查看 1.SVN版本冲突 这个冲突文件是同事写的代码，并不是我的，但是，我在更新代码的时候发生了代码冲突 解决步骤 1.选中冲突文件鼠标右键Edit conficts 2.虽然我没有修，改但是，我还是选择了第三个，合并到本地目录，保存我的和服务器的，再次更新代码就可以了 出现界面，分为”Theirs”、”Mine”和”Merged”3部分，表示”别人修改的内容”、 ”我修改的内容”和”合并后的结果”3部分。我们是要将”别人修改的内容”和”我修改的内容”有取舍地合并起来，形成”合并后的结果”。 合并一般分为4种情况： 1.保留”我的修改”,舍弃”别人的修改”。鼠标右键点击Mine框的相应行，点击”Use this text block”。 \2. 舍弃”我的修改”,保留”别人的修改”。鼠标右键点击Theirs框的相应行，点击”Use this text block”。 3.同时保留”我的修改”和”别人的修改”，并将”我的修改” 放在前面。鼠标右键点击Mine框的相应行，点击”Use text block from mine before theirs”。 \4. 同时保留”我的修改”和”别人的修改”，并将”别人的修改”放在前面。鼠标右键点击Mine框的相应行，点击”Use text block from theirs before mine”。]]></content>
+      <categories>
+        <category>工作总结</category>
+      </categories>
+      <tags>
+        <tag>工作总结</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[20200514]]></title>
     <url>%2F2020%2F05%2F14%2F%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93%2F20200514%2F</url>
-    <content type="text"><![CDATA[工作中遇到一些问题，希望记录下来，以后方便查看 2020-05-14 jqGrid学习网站 jqGrid实例中文版 ​ 2.editRow 编辑行 //最后一行追加行 123456$("#productList").addRowData(rowid, josnData, "last");//调用方式jQuery("#grid_id").editRow(rowid, keys, oneditfunc, successfunc, url, extraparam, aftersavefunc,errorfunc, afterrestorefunc);//新版本调用方式jQuery("#grid_id").jqGrid('editRow',rowid, keys, oneditfunc, successfunc, url, extraparam, aftersavefunc,errorfunc, afterrestorefunc); editRow参数配置说明 grid_id ：已经构造过的jqGrid rowid：此数据行的id keys：设置为true可以使用 [Enter]保存数据或者[Esc] 取消编辑 oneditfunc：在行成功转为编辑模式下触发的事件，参数为此行数据id successfunc, url, extraparam, aftersavefunc,errorfunc 和 afterrestorefunc在下面的saveRow方法中介绍 拥有’not-editable-row’ 样式的行不可编辑，即使colModel中配置了某些列能编辑。 123456789101112131415//默认参数editparameters = &#123; "keys" : false, "oneditfunc" : null, "successfunc" : null, "url" : null, "extraparam" : &#123;&#125;, "aftersavefunc" : null, "errorfunc": null, "afterrestorefunc" : null, "restoreAfterError" : true, "mtype" : "POST"&#125; jQuery("#grid_id").jqGrid('editRow',rowid, parameters); //事件编辑行 123456onSelectRow: function (id) &#123; $("#productList").saveRow(id, false); $("#productList").jqGrid('restoreRow', id); $("#productList").jqGrid('editRow', id, true); lastrow = id;&#125; saveRow保存行 1 restoreRow还原数据行 1 inlineNav： 给行编辑添加导航操作按钮 1]]></content>
+    <content type="text"><![CDATA[工作中遇到一些问题，希望记录下来，以后方便查看 2020-05-14 ​ 1.jqGrid学习网站 jqGrid实例中文版 jqGrid官网 ​ 2.editRow 编辑行 //最后一行追加行 123456$("#productList").addRowData(rowid, josnData, "last");//调用方式jQuery("#grid_id").editRow(rowid, keys, oneditfunc, successfunc, url, extraparam, aftersavefunc,errorfunc, afterrestorefunc);//新版本调用方式jQuery("#grid_id").jqGrid('editRow',rowid, keys, oneditfunc, successfunc, url, extraparam, aftersavefunc,errorfunc, afterrestorefunc); editRow参数配置说明 grid_id ：已经构造过的jqGrid rowid：此数据行的id keys：设置为true可以使用 [Enter]保存数据或者[Esc] 取消编辑 oneditfunc：在行成功转为编辑模式下触发的事件，参数为此行数据id successfunc, url, extraparam, aftersavefunc,errorfunc 和 afterrestorefunc在下面的saveRow方法中介绍 拥有’not-editable-row’ 样式的行不可编辑，即使colModel中配置了某些列能编辑。 123456789101112131415//默认参数editparameters = &#123; "keys" : false, "oneditfunc" : null, "successfunc" : null, "url" : null, "extraparam" : &#123;&#125;, "aftersavefunc" : null, "errorfunc": null, "afterrestorefunc" : null, "restoreAfterError" : true, "mtype" : "POST"&#125; jQuery("#grid_id").jqGrid('editRow',rowid, parameters); //事件编辑行 123456onSelectRow: function (id) &#123; $("#productList").saveRow(id, false); $("#productList").jqGrid('restoreRow', id); $("#productList").jqGrid('editRow', id, true); lastrow = id;&#125; saveRow保存行 1$("#jqGrid").jqGrid('saveRow',rowKey); restoreRow还原数据行 1jQuery("#grid_id").restoreRow(rowid, afterrestorefunc); inlineNav： 给行编辑添加导航操作按钮 12jQuery("#grid_id").navGrid(pagerid, &#123;...&#125;);jQuery("#grid_id").inlineNav(pagerid, parameters); delGridRow删除行 1$("#jqGrid").delGridRow(rowKey);]]></content>
       <categories>
         <category>工作总结</category>
       </categories>
@@ -71,9 +82,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[2.消息队列RabbitMQ]]></title>
-    <url>%2F2020%2F04%2F25%2F2.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E7%BD%91%E9%A3%9E%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%2F</url>
-    <content type="text"><![CDATA[快速开始 消息队列的流派 Actor 模型 RabbitMQ 简介 RabbitMQ 部署 RabbitMQ 使用]]></content>
+    <title><![CDATA[4.分布式事务LCN]]></title>
+    <url>%2F2020%2F04%2F25%2F2.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E7%BD%91%E9%A3%9E%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%2F</url>
+    <content type="text"><![CDATA[快速开始 LCN 简介 LCN 原理 LCN 使用 LCN 验证]]></content>
       <categories>
         <category>目录</category>
       </categories>
@@ -83,9 +94,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[4.分布式事务LCN]]></title>
-    <url>%2F2020%2F04%2F25%2F2.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E7%BD%91%E9%A3%9E%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%2F</url>
-    <content type="text"><![CDATA[快速开始 LCN 简介 LCN 原理 LCN 使用 LCN 验证]]></content>
+    <title><![CDATA[2.消息队列RabbitMQ]]></title>
+    <url>%2F2020%2F04%2F25%2F2.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E7%BD%91%E9%A3%9E%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%2F</url>
+    <content type="text"><![CDATA[快速开始 消息队列的流派 Actor 模型 RabbitMQ 简介 RabbitMQ 部署 RabbitMQ 使用]]></content>
       <categories>
         <category>目录</category>
       </categories>
@@ -227,7 +238,7 @@
   <entry>
     <title><![CDATA[工作总结]]></title>
     <url>%2F2020%2F04%2F19%2F%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93%2F20200419%2F</url>
-    <content type="text"><![CDATA[1、20200420 dubbo与mybatis-plus dubbo序列化 2、20200422 前端415 3、20200514 jqGrid]]></content>
+    <content type="text"><![CDATA[1、20200420 dubbo与mybatis-plus dubbo序列化 2、20200422 前端415 3、20200514 jqGrid 4、20200515 SVN代码冲突]]></content>
       <categories>
         <category>目录</category>
       </categories>
