@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[20200515]]></title>
     <url>%2F2020%2F05%2F15%2F%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93%2F20200515%2F</url>
-    <content type="text"><![CDATA[工作中遇到一些问题，希望记录下来，以后方便查看 1.SVN版本冲突 这个冲突文件是同事写的代码，并不是我的，但是，我在更新代码的时候发生了代码冲突 解决步骤 1.选中冲突文件鼠标右键Edit conficts 2.虽然我没有修，改但是，我还是选择了第三个，合并到本地目录，保存我的和服务器的，再次更新代码就可以了 出现界面，分为”Theirs”、”Mine”和”Merged”3部分，表示”别人修改的内容”、 ”我修改的内容”和”合并后的结果”3部分。我们是要将”别人修改的内容”和”我修改的内容”有取舍地合并起来，形成”合并后的结果”。 合并一般分为4种情况： 1.保留”我的修改”,舍弃”别人的修改”。鼠标右键点击Mine框的相应行，点击”Use this text block”。 \2. 舍弃”我的修改”,保留”别人的修改”。鼠标右键点击Theirs框的相应行，点击”Use this text block”。 3.同时保留”我的修改”和”别人的修改”，并将”我的修改” 放在前面。鼠标右键点击Mine框的相应行，点击”Use text block from mine before theirs”。 \4. 同时保留”我的修改”和”别人的修改”，并将”别人的修改”放在前面。鼠标右键点击Mine框的相应行，点击”Use text block from theirs before mine”。]]></content>
+    <content type="text"><![CDATA[工作中遇到一些问题，希望记录下来，以后方便查看 1.SVN版本冲突 这个冲突文件是同事写的代码，并不是我的，但是，我在更新代码的时候发生了代码冲突 解决步骤 ​ 1.选中冲突文件鼠标右键Edit conficts ​ 2.虽然我没有修，改但是，我还是选择了第三个，合并到本地目录，保存我的和服务器的，再次更新代码就可以了 出现界面，分为”Theirs”、”Mine”和”Merged”3部分，表示”别人修改的内容”、 ”我修改的内容”和”合并后的结果”3部分。我们是要将”别人修改的内容”和”我修改的内容”有取舍地合并起来，形成”合并后的结果”。 合并一般分为4种情况： 1.保留”我的修改”,舍弃”别人的修改”。鼠标右键点击Mine框的相应行，点击”Use this text block”。 舍弃”我的修改”,保留”别人的修改”。鼠标右键点击Theirs框的相应行，点击”Use this text block”。 同时保留”我的修改”和”别人的修改”，并将”我的修改” 放在前面。鼠标右键点击Mine框的相应行，点击”Use text block from mine before theirs”。 同时保留”我的修改”和”别人的修改”，并将”别人的修改”放在前面。鼠标右键点击Mine框的相应行，点击”Use text block from theirs before mine”。]]></content>
       <categories>
         <category>工作总结</category>
       </categories>
@@ -35,6 +35,126 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[16.性能监控]]></title>
+    <url>%2F2020%2F04%2F26%2F3.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7-Prometheus%20%26%20Grafana%2F</url>
+    <content type="text"><![CDATA[快速开始 Prometheus 简介 Grafana 简介 Spring Boot Metrics 集成 Prometheus &amp; Grafana]]></content>
+      <categories>
+        <category>目录</category>
+      </categories>
+      <tags>
+        <tag>目录</tag>
+        <tag>二级</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[15.日志收集]]></title>
+    <url>%2F2020%2F04%2F26%2F3.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%97%A5%E5%BF%97%E6%94%B6%E9%9B%862%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%97%A5%E5%BF%97%E6%94%B6%E9%9B%86-EFK%2F</url>
+    <content type="text"><![CDATA[快速开始 EFK 简介 EFK 部署 EFK 使用]]></content>
+      <categories>
+        <category>目录</category>
+      </categories>
+      <tags>
+        <tag>目录</tag>
+        <tag>二级</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[14.日志收集]]></title>
+    <url>%2F2020%2F04%2F26%2F3.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%97%A5%E5%BF%97%E6%94%B6%E9%9B%861%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%97%A5%E5%BF%97%E6%94%B6%E9%9B%86-ELK%2F</url>
+    <content type="text"><![CDATA[快速开始 ELK 简介 ELK 部署 ELK 使用]]></content>
+      <categories>
+        <category>目录</category>
+      </categories>
+      <tags>
+        <tag>目录</tag>
+        <tag>二级</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[13.全文搜索]]></title>
+    <url>%2F2020%2F04%2F26%2F3.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%85%A8%E6%96%87%E6%90%9C%E7%B4%A2%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%85%A8%E6%96%87%E6%90%9C%E7%B4%A2-ElasticSearch%2F</url>
+    <content type="text"><![CDATA[ElasticSearch 快速开始 Apache Lucene 简介 ElasticSearch 简介 ElasticSearch 部署 ElasticSearch 添加索引 Spring Boot 集成 ElasticSearch ElasticSearch 数据吞吐 ElasticSearch 文档概述 ElasticSearch 索引文档 ElasticSearch 检索文档 ElasticSearch 检查文档 ElasticSearch 更新文档 ElasticSearch 创建文档 ElasticSearch 删除文档 ElasticSearch 处理冲突 ElasticSearch 局部更新 ElasticSearch 检索多个文档 ElasticSearch 批量操作 ElasticSearch 中文分词 ElasticSearch 分析和分析器 ElasticSearch 默认分词 ElasticSearch 分词插件 ElasticSearch 分词效果 ElasticSearch 倒排索引 ElasticSearch 分布式索引 ElasticSearch 数据分片 ElasticSearch 路由索引]]></content>
+      <categories>
+        <category>目录</category>
+      </categories>
+      <tags>
+        <tag>目录</tag>
+        <tag>二级</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[12.高性能存储]]></title>
+    <url>%2F2020%2F04%2F26%2F3.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%AB%98%E6%80%A7%E8%83%BD%E5%AD%98%E5%82%A8%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%AB%98%E6%80%A7%E8%83%BD%E5%AD%98%E5%82%A8-MongoDB%2F</url>
+    <content type="text"><![CDATA[MongoDB 基础 MongoDB 简介 MongoDB 部署 MongoDB 基本概念 MongoDB 连接 MongoDB 创建数据库 MongoDB 删除数据库 MongoDB 插入文档 MongoDB 更新文档 MongoDB 删除文档 MongoDB 查询文档 MongoDB 条件操作符 MongoDB $type 条件操作符 MongoDB Limit 与 Skip 方法 MongoDB 排序 MongoDB 索引 MongoDB 聚合 MongoDB 复制 MongoDB 分片 MongoDB 监控 Spring Boot 集成 MongoDB MongoDB 高级 MongoDB 关系 MongoDB 数据库引用 MongoDB 覆盖索引查询 MongoDB 查询分析 MongoDB 原子操作 MongoDB 高级索引 MongoDB 索引限制 MongoDB ObjectId MongoDB 固定集合]]></content>
+      <categories>
+        <category>目录</category>
+      </categories>
+      <tags>
+        <tag>目录</tag>
+        <tag>二级</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[11.分布式事务]]></title>
+    <url>%2F2020%2F04%2F26%2F3.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1-AlibabaSeata%2F</url>
+    <content type="text"><![CDATA[快速开始 Alibaba Seta 简介 Alibaba Seta 实践 AT 模式]]></content>
+      <categories>
+        <category>目录</category>
+      </categories>
+      <tags>
+        <tag>目录</tag>
+        <tag>二级</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[10.分库分表]]></title>
+    <url>%2F2020%2F04%2F26%2F3.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8-ApacheShardingSphere%2F</url>
+    <content type="text"><![CDATA[快速开始 Apache ShardingSphere 简介 Apache ShardingSphere 快速开始]]></content>
+      <categories>
+        <category>目录</category>
+      </categories>
+      <tags>
+        <tag>目录</tag>
+        <tag>二级</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[9.分布式主键-Leaf]]></title>
+    <url>%2F2020%2F04%2F26%2F3.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%BB%E9%94%AE%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%BB%E9%94%AE-Leaf%2F</url>
+    <content type="text"><![CDATA[快速开始 分布式主键简介 Leaf 分布式主键方案 Leaf 使用 Docker 部署 Leaf 客户端接入]]></content>
+      <categories>
+        <category>目录</category>
+      </categories>
+      <tags>
+        <tag>目录</tag>
+        <tag>二级</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[8.认证授权]]></title>
+    <url>%2F2020%2F04%2F26%2F3.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E8%AE%A4%E8%AF%81%E6%8E%88%E6%9D%83%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E8%AE%A4%E8%AF%81%E6%8E%88%E6%9D%83%2F</url>
+    <content type="text"><![CDATA[快速开始 oAuth2 简介 oAuth2 应用场景 Spring Security oAuth2 授权模式 Spring Security oAuth2 项目工程准备 Spring Security oAuth2 认证服务器 Spring Security oAuth2 使用内存存储令牌 Spring Security oAuth2 使用 JDBC 存储令牌 Spring Security oAuth2 启用密码模式 Spring Security oAuth2 使用 Redis 存储令牌 基于角色的访问控制 Spring Security oAuth2 RBAC Spring Security oAuth2 自定义认证 Spring Security oAuth2 资源服务器 专题功能 Spring Security oAuth2 简单模式 Spring Security oAuth2 密码模式 Spring Security oAuth2 授权码模式 Spring Security oAuth2 客户端模式 Spring Security oAuth2 令牌的刷新]]></content>
+      <categories>
+        <category>目录</category>
+      </categories>
+      <tags>
+        <tag>目录</tag>
+        <tag>二级</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[7.分布式锁]]></title>
+    <url>%2F2020%2F04%2F26%2F3.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81-Redisson%2F</url>
+    <content type="text"><![CDATA[分布式协调 什么是分布式协调 什么是分布式锁 Redis 实现分布式锁 Zookeeper Zookeeper 简介 Zookeeper 的一致性 Zookeeper 的应用场景 Zookeeper 实现分布式锁 Redisson 实现分布式锁 Redisson 简介 Redisson 应用场景 Redisson 结构 Spring Boot 集成 Redisson Redisson RLock Redisson 可重入锁 Redisson 公平锁 Redisson 联锁 Redisson 红锁 Redisson 共享锁 Redisson 排他锁 Redisson 自定义注解]]></content>
+      <categories>
+        <category>目录</category>
+      </categories>
+      <tags>
+        <tag>目录</tag>
+        <tag>二级</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[JDK新特性]]></title>
     <url>%2F2020%2F04%2F26%2FJDK%E6%96%B0%E7%89%B9%E6%80%A7%2FJDK%E6%96%B0%E7%89%B9%E6%80%A7%2F</url>
     <content type="text"><![CDATA[]]></content>
@@ -43,6 +163,42 @@
       </categories>
       <tags>
         <tag>目录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[6.分布式缓存-Redis]]></title>
+    <url>%2F2020%2F04%2F26%2F3.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98-Redis%2F</url>
+    <content type="text"><![CDATA[Redis 快速开始 Redis 简介 Redis 集群 Spring Boot 集成 Redis Redis 数据操作 Redis Key Redis 字符串 Redis 列表 Redis 集合 Redis 有序集合 Redis 哈希 Redis HyperLog Redis 专题功能 Redis 排序 Redis 事务 Redis 流水线 Redis 发布订阅 Redis 设计规范 Redis 超时 Redis 内存 Redis 延迟 Redis 典型应用场景 Redis 部署运维 Redis 内存、CPU Redis 网卡设置 Redis 运维操作 Redis 持久化 Redis 备份恢复 Redis 数据迁移 Redis 数据分片]]></content>
+      <categories>
+        <category>目录</category>
+      </categories>
+      <tags>
+        <tag>目录</tag>
+        <tag>二级</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[5.消息队列-Kafka]]></title>
+    <url>%2F2020%2F04%2F26%2F3.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%972%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97-ApacheKafaka%2F</url>
+    <content type="text"><![CDATA[快速开始 Apache Kafka 简介 Apache Kafka 基础 Apache Kafka 集群架构 Apache Kafka 工作流程 Apache Kafka 部署 Apache Kafka 消息生产者 Apache Kafka 消息消费者 Apache Kafka 实时应用]]></content>
+      <categories>
+        <category>目录</category>
+      </categories>
+      <tags>
+        <tag>目录</tag>
+        <tag>二级</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[4.消息队列-RocketMQ]]></title>
+    <url>%2F2020%2F04%2F26%2F3.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%971%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97-ApacheRocketMQ%2F</url>
+    <content type="text"><![CDATA[快速开始 消息队列的流派 Apache RocketMQ 简介 Apache RocketMQ 部署 Apache RocketMQ 消息生产者 Apache RocketMQ 消息消费者 Apache RocketMQ 自定义Binding]]></content>
+      <categories>
+        <category>目录</category>
+      </categories>
+      <tags>
+        <tag>目录</tag>
+        <tag>二级</tag>
       </tags>
   </entry>
   <entry>
@@ -82,6 +238,18 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[3.分库分表MyCat]]></title>
+    <url>%2F2020%2F04%2F25%2F2.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E7%BD%91%E9%A3%9E%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%2F</url>
+    <content type="text"><![CDATA[快速开始 MyCat 简介 MyCat 原理 MyCat 使用 MyCat 验证]]></content>
+      <categories>
+        <category>目录</category>
+      </categories>
+      <tags>
+        <tag>目录</tag>
+        <tag>二级</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[4.分布式事务LCN]]></title>
     <url>%2F2020%2F04%2F25%2F2.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E7%BD%91%E9%A3%9E%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%2F</url>
     <content type="text"><![CDATA[快速开始 LCN 简介 LCN 原理 LCN 使用 LCN 验证]]></content>
@@ -97,18 +265,6 @@
     <title><![CDATA[2.消息队列RabbitMQ]]></title>
     <url>%2F2020%2F04%2F25%2F2.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E7%BD%91%E9%A3%9E%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%2F</url>
     <content type="text"><![CDATA[快速开始 消息队列的流派 Actor 模型 RabbitMQ 简介 RabbitMQ 部署 RabbitMQ 使用]]></content>
-      <categories>
-        <category>目录</category>
-      </categories>
-      <tags>
-        <tag>目录</tag>
-        <tag>二级</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[3.分库分表MyCat]]></title>
-    <url>%2F2020%2F04%2F25%2F2.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E7%BD%91%E9%A3%9E%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%2F</url>
-    <content type="text"><![CDATA[快速开始 MyCat 简介 MyCat 原理 MyCat 使用 MyCat 验证]]></content>
       <categories>
         <category>目录</category>
       </categories>
@@ -180,7 +336,7 @@
   <entry>
     <title><![CDATA[]]></title>
     <url>%2F2020%2F04%2F23%2F3.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F</url>
-    <content type="text"><![CDATA[导航 1.SpringCloudAlibaba]]></content>
+    <content type="text"><![CDATA[导航 1.SpringCloudAlibaba 2.远程调用 3.健康检查 4.消息队列1-Apache RocketMQ 5.消息队列2-Apache Kafka 6.分布式缓存-Redis 7.分布式锁-Redisson 8.认证授权-Spring Security oAuth2 9.分布式主键-Leaf 10.分库分表-Apache Sharding Sphere 11.分布式事务-Alibaba Seata 12.高性能存储-MongoDB 13.全文搜索-ElasticSearch 14.日志收集1-ELK 15.日志收集2-EFK 16.性能监控-Prometeus &amp; Grafana]]></content>
       <categories>
         <category>目录</category>
       </categories>
