@@ -79,11 +79,11 @@ jQuery(document).ready(function($) {
 
 /* 轮播背景图片 */
 $(function () {
-	// $.backstretch([
-	// 	  "/images/background/saber1.jpg",
-	// 	  "/images/background/saber2.jpg",
-	// 	  "/images/background/wlop.jpg"
-	// ], { duration: 60000, fade: 1500 });
+	$.backstretch([
+	 	  "/images/background/saber1.jpg",
+	 	  "/images/background/saber2.jpg",
+	 	  "/images/background/wlop.jpg"
+	 ], { duration: 60000, fade: 1500 });
 });
 
 /* 拉姆蕾姆回到顶部或底部按钮 */
