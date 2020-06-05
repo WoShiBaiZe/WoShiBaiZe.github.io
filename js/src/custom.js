@@ -80,20 +80,20 @@ jQuery(document).ready(function($) {
 /* 轮播背景图片 */
 $(function () {
 	$.backstretch([
-	 	  "/images/background/saber1.jpg",
-	 	  "/images/background/saber2.jpg",
-	 	  "/images/background/wlop.jpg"
-	 ], { duration: 60000, fade: 1500 });
+		  "/images/background/saber1.jpg",
+		  "/images/background/saber2.jpg",
+		  "/images/background/wlop.jpg"
+	], { duration: 60000, fade: 1500 });
 });
 
 /* 拉姆蕾姆回到顶部或底部按钮 */
 $(function() {
 	$("#lamu img").eq(0).click(function() {
-		$("body").animate({scrollTop:$(document).height()},800);
+		$("html,body").animate({scrollTop:$(document).height()},800);
 		return false;
 	});
 	$("#leimu img").eq(0).click(function() {
-		$("body").animate({scrollTop:0},800);
+		$("html,body").animate({scrollTop:0},800);
 		return false;
 	});
 });
