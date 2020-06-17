@@ -77,6 +77,7 @@
 
 
 
+  <meta name="keywords" content="JVM,">
 
 
 
@@ -86,16 +87,19 @@
 
 
 
-<meta name="description" content="Java从入门到放弃">
-<meta property="og:type" content="website">
-<meta property="og:title" content="个人博客">
-<meta property="og:url" content="https://woshibaize.github.io/categories/目录/page/2/index.html">
+
+<meta name="description" content="认识 JVM [TOC] 一、什么是JVM​        虚拟机，是Java的运行环境，是一种能够运行.class字节码文件的机器  JVM 基本结构  1.类加载器 ： 用来加载磁盘.class的JVM内存  2.运行时数据区(内存结构)： 内存结构，不同的数据存储到不同的区域  3.执行引擎：运行代码，输出执行结果 4.本地方法接口 5.本地方法库   类加载过程  1.加载：将磁盘中的.">
+<meta name="keywords" content="JVM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="认识JVM">
+<meta property="og:url" content="https://woshibaize.github.io/2020/06/13/JDK新特性/认识JVM/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="Java从入门到放弃">
+<meta property="og:description" content="认识 JVM [TOC] 一、什么是JVM​        虚拟机，是Java的运行环境，是一种能够运行.class字节码文件的机器  JVM 基本结构  1.类加载器 ： 用来加载磁盘.class的JVM内存  2.运行时数据区(内存结构)： 内存结构，不同的数据存储到不同的区域  3.执行引擎：运行代码，输出执行结果 4.本地方法接口 5.本地方法库   类加载过程  1.加载：将磁盘中的.">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-06-16T14:21:00.716Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="个人博客">
-<meta name="twitter:description" content="Java从入门到放弃">
+<meta name="twitter:title" content="认识JVM">
+<meta name="twitter:description" content="认识 JVM [TOC] 一、什么是JVM​        虚拟机，是Java的运行环境，是一种能够运行.class字节码文件的机器  JVM 基本结构  1.类加载器 ： 用来加载磁盘.class的JVM内存  2.运行时数据区(内存结构)： 内存结构，不同的数据存储到不同的区域  3.执行引擎：运行代码，输出执行结果 4.本地方法接口 5.本地方法库   类加载过程  1.加载：将磁盘中的.">
 
 
 
@@ -125,7 +129,7 @@
 
 
 
-  <link rel="canonical" href="https://woshibaize.github.io/categories/目录/page/2/">
+  <link rel="canonical" href="https://woshibaize.github.io/2020/06/13/JDK新特性/认识JVM/">
 
 
 
@@ -150,7 +154,7 @@
 <!-- fontawesome5 -->
 <link href="/lib/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" type="text/css">
 
-  <title>分类: 目录 | 个人博客</title>
+  <title>认识JVM | 个人博客</title>
   
 
 
@@ -169,7 +173,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband">
 	<a href="https://github.com/woshibaize" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="/images/headband/forkme_right_red.png" alt="Fork me on GitHub"></a>
     </div>
@@ -313,291 +317,423 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block category">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>目录<small>分类</small>
-        </h2>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2020/06/13/JDK新特性/认识JVM/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BaiZe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2020/04/26/3.微服务-阿里巴巴/微服务-分布式锁/微服务-分布式锁-Redisson/" itemprop="url">
-              
-                <span itemprop="name">7.分布式锁</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">认识JVM</h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-04-26T22:08:27+08:00" content="2020-04-26">
-          04-26
-        </time>
-      </div>
+        <div class="post-meta">
+	  
+	  
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar-plus"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-13T22:20:04+08:00">
+                2020-06-13
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JVM调优/" itemprop="url" rel="index">
+                    <span itemprop="name">JVM调优</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <!--<i class="far fa-file-word"></i>-->
+		  <i class="fas fa-book-open"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文共计 &#58;</span>
+                
+                <span title="本文共计">
+                  1.5k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="far fa-clock"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅文耗时 &asymp;</span>
+                
+                <span title="阅文耗时">
+                  5 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/04/26/JDK新特性/JDK新特性/" itemprop="url">
-              
-                <span itemprop="name">JDK新特性</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-04-26T22:07:27+08:00" content="2020-04-26">
-          04-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/04/26/3.微服务-阿里巴巴/微服务-分布式缓存/微服务-分布式缓存-Redis/" itemprop="url">
-              
-                <span itemprop="name">6.分布式缓存-Redis</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-04-26T22:07:27+08:00" content="2020-04-26">
-          04-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/04/26/3.微服务-阿里巴巴/微服务-消息队列2/微服务-消息队列-ApacheKafaka/" itemprop="url">
-              
-                <span itemprop="name">5.消息队列-Kafka</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-04-26T22:06:27+08:00" content="2020-04-26">
-          04-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/04/26/3.微服务-阿里巴巴/微服务-消息队列1/微服务-消息队列-ApacheRocketMQ/" itemprop="url">
-              
-                <span itemprop="name">4.消息队列-RocketMQ</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-04-26T22:05:27+08:00" content="2020-04-26">
-          04-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/04/26/3.微服务-阿里巴巴/微服务-健康检查/微服务-健康检查/" itemprop="url">
-              
-                <span itemprop="name">3.健康检查</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-04-26T22:04:27+08:00" content="2020-04-26">
-          04-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/04/26/3.微服务-阿里巴巴/微服务-远程调用/微服务-远程调用/" itemprop="url">
-              
-                <span itemprop="name">2.远程调用</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-04-26T22:03:27+08:00" content="2020-04-26">
-          04-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/04/26/3.微服务-阿里巴巴/微服务-阿里巴巴/微服务-阿里巴巴/" itemprop="url">
-              
-                <span itemprop="name">1.阿里巴巴</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-04-26T22:02:27+08:00" content="2020-04-26">
-          04-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/04/25/2.微服务-网飞/微服务-分布式事务/微服务-分布式事务/" itemprop="url">
-              
-                <span itemprop="name">4.分布式事务LCN</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-04-25T22:49:27+08:00" content="2020-04-25">
-          04-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/04/25/2.微服务-网飞/微服务-分库分表/微服务-分库分表/" itemprop="url">
-              
-                <span itemprop="name">3.分库分表MyCat</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-04-25T22:48:27+08:00" content="2020-04-25">
-          04-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <p><center> 认识 JVM</center></p>
+<p>[TOC]</p>
+<h5 id="一、什么是JVM"><a href="#一、什么是JVM" class="headerlink" title="一、什么是JVM"></a>一、什么是JVM</h5><p>​        虚拟机，是Java的运行环境，是一种能够运行.class字节码文件的机器</p>
+<ul>
+<li><p>JVM 基本结构</p>
+<ul>
+<li><p>1.类加载器 ： 用来加载磁盘.class的JVM内存</p>
+</li>
+<li><p>2.运行时数据区(内存结构)： 内存结构，不同的数据存储到不同的区域</p>
+</li>
+<li>3.执行引擎：运行代码，输出执行结果</li>
+<li>4.本地方法接口</li>
+<li>5.本地方法库</li>
+</ul>
+</li>
+<li><p>类加载过程</p>
+<ul>
+<li>1.加载：将磁盘中的.class文件读取到内存中</li>
+<li><p>2.连接：</p>
+<ul>
+<li>1.验证：验证.class文件是否正确性</li>
+<li>2.准备：给类的静态变量分配内存，并且给默认值(数据类型默认值)</li>
+<li>3.解析：将关联的类也装载到内存(A类，A类用B类，所以这步将B类也载入)</li>
+</ul>
+</li>
+<li><p>3.初始化</p>
+<ul>
+<li>给静态变量赋予真正的值。(涉及到类的初始化：父类的静态变量，父类的静态代码块，子类静态变量，子类静态代码块，父类变量，父类代码块，父类构造函数，子类变量，子类代码块，子类构造函数)</li>
+</ul>
+</li>
+<li><p>4.使用</p>
+</li>
+<li><p>5.卸载</p>
+</li>
+</ul>
+</li>
+<li><p>类加载器</p>
+<ul>
+<li>启动类加载器（C语言实现）<ul>
+<li>用来加载jre核心类库（rt.jar，charsets.jar…）</li>
+</ul>
+</li>
+<li>扩展类加载器（Java）<ul>
+<li>jre的扩展类库（ext目录）</li>
+</ul>
+</li>
+<li>系统类加载器（Java）<ul>
+<li>自定义的类</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>类加载机制：类加载的原理</p>
+<ul>
+<li>全盘负责委托机制<ul>
+<li>A类，B类，A类中引用B类</li>
+<li>A类是自定义的类，所以Jvm会使用系统类加载器，去加载A类，那么会使用哪个加载器去加载B类呢？？？判断有没有去手动指定类加载器去加载B类，如果没有手动指定类加载器，将使用A类的加载器去加载B类，如果手动指定了加载器，将使用指定的加载器去加载B类，会使用当前类加载器去加载关联类</li>
+</ul>
+</li>
+<li>双亲委派机制<ul>
+<li>启动类加载器<ul>
+<li>3.查看A类是否被加载，否：判断是否该自己加载</li>
+<li>4.不该自己加载，向下询问</li>
+</ul>
+</li>
+<li>扩展类加载器<ul>
+<li>2.查看A类是否被加载，否：向上询问</li>
+<li>5.判断是否该自己加载，否：向下询问</li>
+</ul>
+</li>
+<li>系统类加载器<ul>
+<li>1.查看A类是否被加载，否：向上询问</li>
+<li>6.自己加载</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>JVM内存</p>
+<ul>
+<li>Java虚拟机（1.7）<ul>
+<li>程序计数器：<ul>
+<li>线程私有的（每个线程都有自己的程序计数器）。是一个个指针，代码运行，执行命令，而每个命令都有行号。使用程序技术来记录命令执行到多少行了</li>
+</ul>
+</li>
+<li>Java虚拟机栈：<ul>
+<li>线程私有的（每个线程都有一个自己的Java虚拟机栈）。一个方法运行，就会给这个方法创建一个栈帧，栈帧入栈执行代码，执行完毕之后出栈(弹栈)</li>
+</ul>
+</li>
+<li>本地方法栈：<ul>
+<li>线程私有的（每个线程都有一个自己的本地方法栈）。和Java虚拟机栈类似，Java虚拟机栈加载的是普通方法。本地方法栈加载的是native修饰的方法</li>
+</ul>
+</li>
+<li>堆<ul>
+<li>线程共享的（所有线程共享一份），存放对象的，new的对象都存储这个区域</li>
+</ul>
+</li>
+<li>方法区<ul>
+<li>线程共享的（所有线程共享一份），存放.class的信息，类的信息，方法的定义，常量池，静态变量等。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Java虚拟机（1.8）<ul>
+<li>没有方法区，放到本地内存 元数据区（元空间）<ul>
+<li>存储.class信息，类的信息，方法的定义，静态变量等。而常量池放到堆里存储</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="二、什么是垃圾"><a href="#二、什么是垃圾" class="headerlink" title="二、什么是垃圾"></a>二、什么是垃圾</h5><ul>
+<li>什么是GC？<ul>
+<li>内存空间有限，程序运行时如何把不需要使用的对象(垃圾对象）清除而释放资源，这就是GC的功能</li>
+</ul>
+</li>
+<li>GC的操作区域<ul>
+<li>Java 虚拟机栈，本地方法栈，程序计数器是不需要GC，因为1这个都是线程私有的，线程私有的就会随着线程的产生而产生，随着线程的结束而销毁</li>
+<li>堆和方法区需要GC，需要GC来及时清理运行过程中产生的垃圾</li>
+</ul>
+</li>
+<li>GC的操作对象是什么<ul>
+<li>垃圾对象</li>
+</ul>
+</li>
+</ul>
+<h5 id="三、如何发现垃圾"><a href="#三、如何发现垃圾" class="headerlink" title="三、如何发现垃圾"></a>三、如何发现垃圾</h5><ul>
+<li>引用计数<ul>
+<li>给每个对象定义一个变量，存储引用数，就是通过引用计数是否为0来判断是否清理</li>
+</ul>
+</li>
+<li>可达性分析<ul>
+<li>会记录对象的引用链。如果一个对象没有引用链，就证明这个对象没有被使用，那么就会销毁</li>
+</ul>
+</li>
+<li>GC 的运行时机<ul>
+<li>1.手动调用 System.gc()可以触发GC操作</li>
+<li>2.系统本身自己出发：内存不足时就会触发</li>
+</ul>
+</li>
+<li>GC做了什么？<ul>
+<li>清理对象，整理内存</li>
+</ul>
+</li>
+</ul>
+<h5 id="四、GC-算法"><a href="#四、GC-算法" class="headerlink" title="四、GC 算法"></a>四、GC 算法</h5><ul>
+<li>标记清除：<ul>
+<li>给每个对象存储一个标记位，记录对象的状态（死/活），两个阶段，第一是标记阶段：检查对象的状态，判断对象是否死亡。第二是清理阶段：将死亡对象清理掉</li>
+</ul>
+</li>
+<li>标记压缩<ul>
+<li>是标记清除算法的改进版。两个阶段，第一是标记阶段：检查对象的状态，判断对象是否死亡。第二是将所有存活的对象整理放到另外一处内空间，把剩余的对象全部清除掉</li>
+</ul>
+</li>
+<li>复制算法<ul>
+<li>会将内存平均分两块，每次只使用其中的一块，当这块内存存满了，将这个内存中，存活的对象复制到另外一块内存中，将刚才那块儿内存清空</li>
+</ul>
+</li>
+<li>分代收集算法<ul>
+<li>堆如果细分还可以分为新生代，老年代。在新生代中对象存活的时间短，所以采用的算法是复制算法，老年代中的对象存活率高，所以使用标记压缩或标记清除算法</li>
+</ul>
+</li>
+</ul>
+<h5 id="五、Available-collectors"><a href="#五、Available-collectors" class="headerlink" title="五、Available collectors"></a>五、Available collectors</h5><p>​    </p>
 
       
     </div>
+    
+    
+    
 
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wechat.jpg" alt="BaiZe wechat" style="width: 200px; max-width: 100%;">
+    <div>欢迎扫描二维码关注公众号一起成长~</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>觉得文章对您有帮助请我喝杯咖啡吧^_^</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="BaiZe 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JVM/" rel="tag"><i class="fas fa-tag"></i> JVM</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div>
+	  <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    BaiZe
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://woshibaize.github.io/2020/06/13/JDK新特性/认识JVM/" title="认识JVM">https://woshibaize.github.io/2020/06/13/JDK新特性/认识JVM/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章均采用 <a href rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议，转载请注明出处！
+  </li>
+</ul>
+
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/06/06/每日总结/20200606/" rel="next" title="Java数据校验">
+                <i class="fas fa-chevron-left"></i> Java数据校验
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/06/17/每日总结/20200617/" rel="prev" title="20200617">
+                20200617 <i class="fas fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/categories/目录/"><i class="fas fa-angle-left"></i></a><a class="page-number" href="/categories/目录/">1</a><span class="page-number current">2</span><a class="page-number" href="/categories/目录/page/3/">3</a><a class="extend next" rel="next" href="/categories/目录/page/3/"><i class="fas fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -605,6 +741,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MzY0My8yMDE4Mg=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -625,8 +770,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -751,6 +905,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#一、什么是JVM"><span class="nav-text">一、什么是JVM</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二、什么是垃圾"><span class="nav-text">二、什么是垃圾</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三、如何发现垃圾"><span class="nav-text">三、如何发现垃圾</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#四、GC-算法"><span class="nav-text">四、GC 算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#五、Available-collectors"><span class="nav-text">五、Available collectors</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -903,6 +1073,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -931,6 +1105,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 

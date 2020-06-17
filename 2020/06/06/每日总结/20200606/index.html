@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="个人博客">
 <meta property="og:description" content="工作中遇到一些问题，希望记录下来，以后方便查看  Java数据校验   1.因为工作中有部分时间在写前端，没有怎么写后台，突然给到任务让写数据校验，就参考了一下以前的校验方式，感觉有些性能不好，而且作用不好，重新写一下校验  2.原来的校验方式：是通过查询所有数据，遍历数据，与输入数据进行比较，第一：性能不好，要查询所有数据，然后遍历。 第二：如果是自己本身数据没有改变，需要判断，代码感觉混乱，不">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-06-06T13:13:56.607Z">
+<meta property="og:updated_time" content="2020-06-17T14:04:06.382Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java数据校验">
 <meta name="twitter:description" content="工作中遇到一些问题，希望记录下来，以后方便查看  Java数据校验   1.因为工作中有部分时间在写前端，没有怎么写后台，突然给到任务让写数据校验，就参考了一下以前的校验方式，感觉有些性能不好，而且作用不好，重新写一下校验  2.原来的校验方式：是通过查询所有数据，遍历数据，与输入数据进行比较，第一：性能不好，要查询所有数据，然后遍历。 第二：如果是自己本身数据没有改变，需要判断，代码感觉混乱，不">
@@ -417,7 +417,7 @@
                   <span class="post-meta-item-text">本文共计 &#58;</span>
                 
                 <span title="本文共计">
-                  536 字
+                  541 字
                 </span>
               
 
@@ -475,7 +475,7 @@
 <li><p>2.编辑：</p>
 <ul>
 <li><p>和添加相同的道理，但是多了一个自己本身校验</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">//首先使用 mybatis-plus的selectById方法，返回查询结果的实体类</span></span><br><span class="line">  XXX val = mapper.selectById(XXX.getId());</span><br><span class="line">  QueryWrapper&lt;XXX&gt; wrapper = <span class="keyword">new</span> QueryWrapper&lt;XXX&gt;(); <span class="comment">//mybatis-plus条件构造器</span></span><br><span class="line">  wrapper.eq(<span class="string">"IS_ENABLE"</span>, <span class="number">1</span>); <span class="comment">//因为有伪删除，所以有这个字段</span></span><br><span class="line">  <span class="keyword">if</span> (StringUtils.isEmpty(XXX.getxxx()) == <span class="keyword">false</span>) &#123;</span><br><span class="line">              wrapper.eq(<span class="string">"数据库字段"</span>, XXX.getxxx());</span><br><span class="line">  &#125; <span class="comment">//需要校验的数据</span></span><br><span class="line">  Integer count = mapper.selectCount(wrapper);<span class="comment">//查询条数</span></span><br><span class="line">  <span class="keyword">if</span>(count&gt;<span class="number">1</span>)&#123;</span><br><span class="line">    <span class="comment">//数据库存在数据，重复，不可添加</span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span>(count == <span class="number">1</span>)&#123;</span><br><span class="line">      <span class="comment">//此时说明数据库中有一个数据与现在相同，但是，不知道是</span></span><br><span class="line">      <span class="keyword">if</span>(val.getxxx().equals(xxx.getxxx()...))&#123;</span><br><span class="line">       	<span class="comment">//不用操作，直接跳出，更新数据，此处通过id查询与传入数据相同，代表自己本身</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="comment">//不可操作，数据已存在</span></span><br><span class="line">      retrun <span class="keyword">false</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125; </span><br><span class="line">  mapper.updateById(xxx);<span class="comment">//更新数据</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">//首先使用 mybatis-plus的selectById方法，返回查询结果的实体类</span></span><br><span class="line">  XXX val = mapper.selectById(XXX.getId());</span><br><span class="line">  QueryWrapper&lt;XXX&gt; wrapper = <span class="keyword">new</span> QueryWrapper&lt;XXX&gt;(); <span class="comment">//mybatis-plus条件构造器</span></span><br><span class="line">  wrapper.eq(<span class="string">"IS_ENABLE"</span>, <span class="number">1</span>); <span class="comment">//因为有伪删除，所以有这个字段</span></span><br><span class="line">  <span class="keyword">if</span> (StringUtils.isEmpty(XXX.getxxx()) == <span class="keyword">false</span>) &#123;</span><br><span class="line">              wrapper.eq(<span class="string">"数据库字段"</span>, XXX.getxxx());</span><br><span class="line">  &#125; <span class="comment">//需要校验的数据</span></span><br><span class="line">  Integer count = mapper.selectCount(wrapper);<span class="comment">//查询条数</span></span><br><span class="line">  <span class="keyword">if</span>(count&gt;<span class="number">1</span>)&#123;</span><br><span class="line">    <span class="comment">//数据库存在数据，重复，不可添加</span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span>(count == <span class="number">1</span>)&#123;</span><br><span class="line">      <span class="comment">//此时说明数据库中有一个数据与现在相同，但是，不知道是是不是自己</span></span><br><span class="line">      <span class="keyword">if</span>(val.getxxx().equals(xxx.getxxx()...))&#123;</span><br><span class="line">       	<span class="comment">//不用操作，直接跳出，更新数据，此处通过id查询与传入数据相同，代表自己本身</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="comment">//不可操作，数据已存在</span></span><br><span class="line">      retrun <span class="keyword">false</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125; </span><br><span class="line">  mapper.updateById(xxx);<span class="comment">//更新数据</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -579,6 +579,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2020/06/13/JDK新特性/认识JVM/" rel="prev" title="认识JVM">
+                认识JVM <i class="fas fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -653,7 +657,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -664,7 +668,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -675,7 +679,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -787,7 +791,7 @@
     
       <span class="post-meta-item-text">全站共计字数&#58;</span>
     
-    <span title="全站共计字数">7.4k</span>
+    <span title="全站共计字数">9.7k</span>
   
 </div>
 

@@ -77,6 +77,7 @@
 
 
 
+  <meta name="keywords" content="工作总结,">
 
 
 
@@ -86,16 +87,19 @@
 
 
 
-<meta name="description" content="Java从入门到放弃">
-<meta property="og:type" content="website">
-<meta property="og:title" content="个人博客">
-<meta property="og:url" content="https://woshibaize.github.io/categories/目录/page/2/index.html">
+
+<meta name="description" content="工作中遇到一些问题，希望记录下来，以后方便查看  Dubbo的坑以及两个实体List的合并  工作中有导出功能，导出需要和页面展示的内容一致，但是，导出的数据Float型自动转成了Double型，日期多.0，很是奇怪，同事自己写的sql没有这些问题，因为公司框架中封装了mybatis-plus，我的页面有很多字段，图方便使用了mybatis-plus，出现这些问题，于是Debug代码，发现在ser">
+<meta name="keywords" content="工作总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="20200617">
+<meta property="og:url" content="https://woshibaize.github.io/2020/06/17/每日总结/20200617/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="Java从入门到放弃">
+<meta property="og:description" content="工作中遇到一些问题，希望记录下来，以后方便查看  Dubbo的坑以及两个实体List的合并  工作中有导出功能，导出需要和页面展示的内容一致，但是，导出的数据Float型自动转成了Double型，日期多.0，很是奇怪，同事自己写的sql没有这些问题，因为公司框架中封装了mybatis-plus，我的页面有很多字段，图方便使用了mybatis-plus，出现这些问题，于是Debug代码，发现在ser">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-06-17T14:41:41.896Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="个人博客">
-<meta name="twitter:description" content="Java从入门到放弃">
+<meta name="twitter:title" content="20200617">
+<meta name="twitter:description" content="工作中遇到一些问题，希望记录下来，以后方便查看  Dubbo的坑以及两个实体List的合并  工作中有导出功能，导出需要和页面展示的内容一致，但是，导出的数据Float型自动转成了Double型，日期多.0，很是奇怪，同事自己写的sql没有这些问题，因为公司框架中封装了mybatis-plus，我的页面有很多字段，图方便使用了mybatis-plus，出现这些问题，于是Debug代码，发现在ser">
 
 
 
@@ -125,7 +129,7 @@
 
 
 
-  <link rel="canonical" href="https://woshibaize.github.io/categories/目录/page/2/">
+  <link rel="canonical" href="https://woshibaize.github.io/2020/06/17/每日总结/20200617/">
 
 
 
@@ -150,7 +154,7 @@
 <!-- fontawesome5 -->
 <link href="/lib/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" type="text/css">
 
-  <title>分类: 目录 | 个人博客</title>
+  <title>20200617 | 个人博客</title>
   
 
 
@@ -169,7 +173,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband">
 	<a href="https://github.com/woshibaize" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="/images/headband/forkme_right_red.png" alt="Fork me on GitHub"></a>
     </div>
@@ -313,291 +317,266 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block category">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>目录<small>分类</small>
-        </h2>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2020/06/17/每日总结/20200617/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BaiZe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2020/04/26/3.微服务-阿里巴巴/微服务-分布式锁/微服务-分布式锁-Redisson/" itemprop="url">
-              
-                <span itemprop="name">7.分布式锁</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">20200617</h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-04-26T22:08:27+08:00" content="2020-04-26">
-          04-26
-        </time>
-      </div>
+        <div class="post-meta">
+	  
+	  
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar-plus"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-17T22:02:24+08:00">
+                2020-06-17
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工作总结/" itemprop="url" rel="index">
+                    <span itemprop="name">工作总结</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <!--<i class="far fa-file-word"></i>-->
+		  <i class="fas fa-book-open"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文共计 &#58;</span>
+                
+                <span title="本文共计">
+                  816 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="far fa-clock"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅文耗时 &asymp;</span>
+                
+                <span title="阅文耗时">
+                  3 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/04/26/JDK新特性/JDK新特性/" itemprop="url">
-              
-                <span itemprop="name">JDK新特性</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-04-26T22:07:27+08:00" content="2020-04-26">
-          04-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/04/26/3.微服务-阿里巴巴/微服务-分布式缓存/微服务-分布式缓存-Redis/" itemprop="url">
-              
-                <span itemprop="name">6.分布式缓存-Redis</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-04-26T22:07:27+08:00" content="2020-04-26">
-          04-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/04/26/3.微服务-阿里巴巴/微服务-消息队列2/微服务-消息队列-ApacheKafaka/" itemprop="url">
-              
-                <span itemprop="name">5.消息队列-Kafka</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-04-26T22:06:27+08:00" content="2020-04-26">
-          04-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/04/26/3.微服务-阿里巴巴/微服务-消息队列1/微服务-消息队列-ApacheRocketMQ/" itemprop="url">
-              
-                <span itemprop="name">4.消息队列-RocketMQ</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-04-26T22:05:27+08:00" content="2020-04-26">
-          04-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/04/26/3.微服务-阿里巴巴/微服务-健康检查/微服务-健康检查/" itemprop="url">
-              
-                <span itemprop="name">3.健康检查</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-04-26T22:04:27+08:00" content="2020-04-26">
-          04-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/04/26/3.微服务-阿里巴巴/微服务-远程调用/微服务-远程调用/" itemprop="url">
-              
-                <span itemprop="name">2.远程调用</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-04-26T22:03:27+08:00" content="2020-04-26">
-          04-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/04/26/3.微服务-阿里巴巴/微服务-阿里巴巴/微服务-阿里巴巴/" itemprop="url">
-              
-                <span itemprop="name">1.阿里巴巴</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-04-26T22:02:27+08:00" content="2020-04-26">
-          04-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/04/25/2.微服务-网飞/微服务-分布式事务/微服务-分布式事务/" itemprop="url">
-              
-                <span itemprop="name">4.分布式事务LCN</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-04-25T22:49:27+08:00" content="2020-04-25">
-          04-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/04/25/2.微服务-网飞/微服务-分库分表/微服务-分库分表/" itemprop="url">
-              
-                <span itemprop="name">3.分库分表MyCat</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-04-25T22:48:27+08:00" content="2020-04-25">
-          04-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <p><center>工作中遇到一些问题，希望记录下来，以后方便查看</center></p>
+<ul>
+<li><p>Dubbo的坑以及两个实体List的合并</p>
+</li>
+<li><p>工作中有导出功能，导出需要和页面展示的内容一致，但是，导出的数据Float型自动转成了Double型，日期多.0，很是奇怪，同事自己写的sql没有这些问题，因为公司框架中封装了mybatis-plus，我的页面有很多字段，图方便使用了mybatis-plus，出现这些问题，于是Debug代码，发现在service层，没有查询出的数据格式，与页面相同，但是到了controller层就变得Double，.0等问题了，回想了一下执行流程发现，自己写的sql，会通过实体类，实体类中有实现序列化，所以没有问题，而自己使用mybatis-plus的方法，直接封装了结果，中间没有序列化，导致数据传输错误，以上是我认为的，后续还要验证，究竟是什么原因导致的自动变成了Double</p>
+</li>
+<li>因为还有一个需求，通过两次查询结果，合并成一个结果返回前端，数据需要将相同的合并，不同的保留，起初的写法只是双重for循环＋if判断，可以把相同的数据合并，并保留外层数据的不同值，但是，内层循环的不同数据就丢失了。后面想到相同添加，同时删除内层数据，最后再加上内层剩余数据就可以完成了，实现过程中出现了异常，最后换了一个方式。将一个list的匹配字段放入hashmap中当key，剩下实体当value，另一个list遍历，添加，最后实现了</li>
+<li>失败的方法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//第一个实体类集合</span></span><br><span class="line">List&lt;Entity&gt; entity = mapper.select();</span><br><span class="line"><span class="comment">//第二个实体类集合</span></span><br><span class="line">List&lt;Entity&gt; entity1 = mapper.select();</span><br><span class="line"><span class="keyword">for</span>(Entity en : entity)&#123;</span><br><span class="line">    <span class="keyword">for</span>(Entity en2 : entity1)&#123;</span><br><span class="line">        <span class="keyword">if</span>(en.getxxx().equals(en2.getxx))&#123;</span><br><span class="line">            en.setxx(en2.setxxx);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">例如：</span><br><span class="line">    第一个实体结果：<span class="number">1</span>，<span class="number">2</span>，<span class="number">3</span>，<span class="number">4</span>，<span class="number">5</span>，<span class="number">6</span>，<span class="number">7</span></span><br><span class="line">    第二个实体结果：<span class="number">1</span>，<span class="number">2</span>，<span class="number">4</span>，<span class="number">5</span>，<span class="number">6</span>，<span class="number">7</span>，<span class="number">8</span></span><br><span class="line">    上面的写法只会拿到：<span class="number">1</span>，<span class="number">2</span>，<span class="number">3</span>，<span class="number">4</span>，<span class="number">5</span>，<span class="number">6</span>，<span class="number">7</span>，  丢失第<span class="number">8</span>个数字</span><br></pre></td></tr></table></figure>
+<ul>
+<li>成功的方法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//第一个实体类集合</span></span><br><span class="line">List&lt;Entity&gt; entity = mapper.select();</span><br><span class="line"><span class="comment">//第二个实体类集合</span></span><br><span class="line">List&lt;Entity&gt; entity1 = mapper.select();</span><br><span class="line"><span class="comment">//创建一个HashMap，key放判断是否相同的字段，Value放整个数据</span></span><br><span class="line">Map&lt;String, Entity&gt; target = <span class="keyword">new</span> HashMap&lt;String, Entity&gt;();</span><br><span class="line"><span class="comment">//判断是否为空</span></span><br><span class="line"><span class="keyword">if</span> (CollectionUtils.isNotEmpty(entity) &amp;&amp; CollectionUtils.isNotEmpty(entity1)) &#123;</span><br><span class="line"><span class="comment">//遍历第一个实体类集合，放入map中</span></span><br><span class="line"><span class="keyword">for</span> (Entity ent : entity) &#123;</span><br><span class="line">   target.put(ent.getXXX(), ent);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//遍历第二个集合</span></span><br><span class="line"><span class="keyword">for</span> (Entity en : entity1) &#123;</span><br><span class="line">   <span class="comment">//获取第一个实体类中的key值</span></span><br><span class="line">   String a = en.getA();</span><br><span class="line">   <span class="comment">//如果第一个实体类集合中包含第二个实体类集合中的值</span></span><br><span class="line"><span class="keyword">if</span> (target.containsKey(a)) &#123;</span><br><span class="line">   <span class="comment">//获取第一个实体类的所有值</span></span><br><span class="line">   Entity temp = target.get(a);</span><br><span class="line">   <span class="comment">//设置自己想要添加的数据</span></span><br><span class="line">   temp.setXxxx(en.getXXX());</span><br><span class="line">   <span class="comment">//重新将数据放回</span></span><br><span class="line">   target.put(a, temp);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">   <span class="comment">//不同时候将第二个实体类中，与第一个实体类不想同的数据放入Map中</span></span><br><span class="line">   target.put(a, en);</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">这个方法会拿到：<span class="number">1</span>，<span class="number">2</span>，<span class="number">3</span>，<span class="number">4</span>，<span class="number">5</span>，<span class="number">6</span>，<span class="number">7</span>，<span class="number">8</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
+    
+    
+    
 
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wechat.jpg" alt="BaiZe wechat" style="width: 200px; max-width: 100%;">
+    <div>欢迎扫描二维码关注公众号一起成长~</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>觉得文章对您有帮助请我喝杯咖啡吧^_^</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="BaiZe 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/工作总结/" rel="tag"><i class="fas fa-tag"></i> 工作总结</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div>
+	  <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    BaiZe
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://woshibaize.github.io/2020/06/17/每日总结/20200617/" title="20200617">https://woshibaize.github.io/2020/06/17/每日总结/20200617/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章均采用 <a href rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议，转载请注明出处！
+  </li>
+</ul>
+
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/06/13/JDK新特性/认识JVM/" rel="next" title="认识JVM">
+                <i class="fas fa-chevron-left"></i> 认识JVM
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/categories/目录/"><i class="fas fa-angle-left"></i></a><a class="page-number" href="/categories/目录/">1</a><span class="page-number current">2</span><a class="page-number" href="/categories/目录/page/3/">3</a><a class="extend next" rel="next" href="/categories/目录/page/3/"><i class="fas fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -605,6 +584,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MzY0My8yMDE4Mg=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -903,6 +891,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -931,6 +923,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 

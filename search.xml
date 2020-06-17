@@ -1,9 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[20200617]]></title>
+    <url>%2F2020%2F06%2F17%2F%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93%2F20200617%2F</url>
+    <content type="text"><![CDATA[工作中遇到一些问题，希望记录下来，以后方便查看 Dubbo的坑以及两个实体List的合并 工作中有导出功能，导出需要和页面展示的内容一致，但是，导出的数据Float型自动转成了Double型，日期多.0，很是奇怪，同事自己写的sql没有这些问题，因为公司框架中封装了mybatis-plus，我的页面有很多字段，图方便使用了mybatis-plus，出现这些问题，于是Debug代码，发现在service层，没有查询出的数据格式，与页面相同，但是到了controller层就变得Double，.0等问题了，回想了一下执行流程发现，自己写的sql，会通过实体类，实体类中有实现序列化，所以没有问题，而自己使用mybatis-plus的方法，直接封装了结果，中间没有序列化，导致数据传输错误，以上是我认为的，后续还要验证，究竟是什么原因导致的自动变成了Double 因为还有一个需求，通过两次查询结果，合并成一个结果返回前端，数据需要将相同的合并，不同的保留，起初的写法只是双重for循环＋if判断，可以把相同的数据合并，并保留外层数据的不同值，但是，内层循环的不同数据就丢失了。后面想到相同添加，同时删除内层数据，最后再加上内层剩余数据就可以完成了，实现过程中出现了异常，最后换了一个方式。将一个list的匹配字段放入hashmap中当key，剩下实体当value，另一个list遍历，添加，最后实现了 失败的方法 123456789101112131415//第一个实体类集合List&lt;Entity&gt; entity = mapper.select();//第二个实体类集合List&lt;Entity&gt; entity1 = mapper.select();for(Entity en : entity)&#123; for(Entity en2 : entity1)&#123; if(en.getxxx().equals(en2.getxx))&#123; en.setxx(en2.setxxx); &#125; &#125;&#125;例如： 第一个实体结果：1，2，3，4，5，6，7 第二个实体结果：1，2，4，5，6，7，8 上面的写法只会拿到：1，2，3，4，5，6，7， 丢失第8个数字 成功的方法 1234567891011121314151617181920212223242526272829303132//第一个实体类集合List&lt;Entity&gt; entity = mapper.select();//第二个实体类集合List&lt;Entity&gt; entity1 = mapper.select();//创建一个HashMap，key放判断是否相同的字段，Value放整个数据Map&lt;String, Entity&gt; target = new HashMap&lt;String, Entity&gt;();//判断是否为空if (CollectionUtils.isNotEmpty(entity) &amp;&amp; CollectionUtils.isNotEmpty(entity1)) &#123;//遍历第一个实体类集合，放入map中for (Entity ent : entity) &#123; target.put(ent.getXXX(), ent);&#125;//遍历第二个集合for (Entity en : entity1) &#123; //获取第一个实体类中的key值 String a = en.getA(); //如果第一个实体类集合中包含第二个实体类集合中的值if (target.containsKey(a)) &#123; //获取第一个实体类的所有值 Entity temp = target.get(a); //设置自己想要添加的数据 temp.setXxxx(en.getXXX()); //重新将数据放回 target.put(a, temp);&#125; else &#123; //不同时候将第二个实体类中，与第一个实体类不想同的数据放入Map中 target.put(a, en); &#125; &#125;&#125;这个方法会拿到：1，2，3，4，5，6，7，8]]></content>
+      <categories>
+        <category>工作总结</category>
+      </categories>
+      <tags>
+        <tag>工作总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[认识JVM]]></title>
+    <url>%2F2020%2F06%2F13%2FJDK%E6%96%B0%E7%89%B9%E6%80%A7%2F%E8%AE%A4%E8%AF%86JVM%2F</url>
+    <content type="text"><![CDATA[认识 JVM [TOC] 一、什么是JVM​ 虚拟机，是Java的运行环境，是一种能够运行.class字节码文件的机器 JVM 基本结构 1.类加载器 ： 用来加载磁盘.class的JVM内存 2.运行时数据区(内存结构)： 内存结构，不同的数据存储到不同的区域 3.执行引擎：运行代码，输出执行结果 4.本地方法接口 5.本地方法库 类加载过程 1.加载：将磁盘中的.class文件读取到内存中 2.连接： 1.验证：验证.class文件是否正确性 2.准备：给类的静态变量分配内存，并且给默认值(数据类型默认值) 3.解析：将关联的类也装载到内存(A类，A类用B类，所以这步将B类也载入) 3.初始化 给静态变量赋予真正的值。(涉及到类的初始化：父类的静态变量，父类的静态代码块，子类静态变量，子类静态代码块，父类变量，父类代码块，父类构造函数，子类变量，子类代码块，子类构造函数) 4.使用 5.卸载 类加载器 启动类加载器（C语言实现） 用来加载jre核心类库（rt.jar，charsets.jar…） 扩展类加载器（Java） jre的扩展类库（ext目录） 系统类加载器（Java） 自定义的类 类加载机制：类加载的原理 全盘负责委托机制 A类，B类，A类中引用B类 A类是自定义的类，所以Jvm会使用系统类加载器，去加载A类，那么会使用哪个加载器去加载B类呢？？？判断有没有去手动指定类加载器去加载B类，如果没有手动指定类加载器，将使用A类的加载器去加载B类，如果手动指定了加载器，将使用指定的加载器去加载B类，会使用当前类加载器去加载关联类 双亲委派机制 启动类加载器 3.查看A类是否被加载，否：判断是否该自己加载 4.不该自己加载，向下询问 扩展类加载器 2.查看A类是否被加载，否：向上询问 5.判断是否该自己加载，否：向下询问 系统类加载器 1.查看A类是否被加载，否：向上询问 6.自己加载 JVM内存 Java虚拟机（1.7） 程序计数器： 线程私有的（每个线程都有自己的程序计数器）。是一个个指针，代码运行，执行命令，而每个命令都有行号。使用程序技术来记录命令执行到多少行了 Java虚拟机栈： 线程私有的（每个线程都有一个自己的Java虚拟机栈）。一个方法运行，就会给这个方法创建一个栈帧，栈帧入栈执行代码，执行完毕之后出栈(弹栈) 本地方法栈： 线程私有的（每个线程都有一个自己的本地方法栈）。和Java虚拟机栈类似，Java虚拟机栈加载的是普通方法。本地方法栈加载的是native修饰的方法 堆 线程共享的（所有线程共享一份），存放对象的，new的对象都存储这个区域 方法区 线程共享的（所有线程共享一份），存放.class的信息，类的信息，方法的定义，常量池，静态变量等。 Java虚拟机（1.8） 没有方法区，放到本地内存 元数据区（元空间） 存储.class信息，类的信息，方法的定义，静态变量等。而常量池放到堆里存储 二、什么是垃圾 什么是GC？ 内存空间有限，程序运行时如何把不需要使用的对象(垃圾对象）清除而释放资源，这就是GC的功能 GC的操作区域 Java 虚拟机栈，本地方法栈，程序计数器是不需要GC，因为1这个都是线程私有的，线程私有的就会随着线程的产生而产生，随着线程的结束而销毁 堆和方法区需要GC，需要GC来及时清理运行过程中产生的垃圾 GC的操作对象是什么 垃圾对象 三、如何发现垃圾 引用计数 给每个对象定义一个变量，存储引用数，就是通过引用计数是否为0来判断是否清理 可达性分析 会记录对象的引用链。如果一个对象没有引用链，就证明这个对象没有被使用，那么就会销毁 GC 的运行时机 1.手动调用 System.gc()可以触发GC操作 2.系统本身自己出发：内存不足时就会触发 GC做了什么？ 清理对象，整理内存 四、GC 算法 标记清除： 给每个对象存储一个标记位，记录对象的状态（死/活），两个阶段，第一是标记阶段：检查对象的状态，判断对象是否死亡。第二是清理阶段：将死亡对象清理掉 标记压缩 是标记清除算法的改进版。两个阶段，第一是标记阶段：检查对象的状态，判断对象是否死亡。第二是将所有存活的对象整理放到另外一处内空间，把剩余的对象全部清除掉 复制算法 会将内存平均分两块，每次只使用其中的一块，当这块内存存满了，将这个内存中，存活的对象复制到另外一块内存中，将刚才那块儿内存清空 分代收集算法 堆如果细分还可以分为新生代，老年代。在新生代中对象存活的时间短，所以采用的算法是复制算法，老年代中的对象存活率高，所以使用标记压缩或标记清除算法 五、Available collectors​]]></content>
+      <categories>
+        <category>JVM调优</category>
+      </categories>
+      <tags>
+        <tag>JVM</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Java数据校验]]></title>
     <url>%2F2020%2F06%2F06%2F%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93%2F20200606%2F</url>
-    <content type="text"><![CDATA[工作中遇到一些问题，希望记录下来，以后方便查看 Java数据校验 1.因为工作中有部分时间在写前端，没有怎么写后台，突然给到任务让写数据校验，就参考了一下以前的校验方式，感觉有些性能不好，而且作用不好，重新写一下校验 2.原来的校验方式：是通过查询所有数据，遍历数据，与输入数据进行比较，第一：性能不好，要查询所有数据，然后遍历。 第二：如果是自己本身数据没有改变，需要判断，代码感觉混乱，不容易维护 3.我的想法： 1.添加： 根据传入数据，使用mybatis-plus的selectCount方式查询数据有几条？ 123456789QueryWrapper&lt;XXX&gt; wrapper = new QueryWrapper&lt;XXX&gt;(); //mybatis-plus条件构造器wrapper.eq("IS_ENABLE", 1); //因为有伪删除，所以有这个字段if (StringUtils.isEmpty(XXX.getxxx()) == false) &#123; wrapper.eq("数据库字段", XXX.getxxx());&#125; //需要校验的数据Integer count = mapper.selectCount(wrapper);//查询条数if(count&gt;0)&#123; //数据库存在数据，重复，不可添加&#125; 2.编辑： 和添加相同的道理，但是多了一个自己本身校验 1234567891011121314151617181920 //首先使用 mybatis-plus的selectById方法，返回查询结果的实体类 XXX val = mapper.selectById(XXX.getId()); QueryWrapper&lt;XXX&gt; wrapper = new QueryWrapper&lt;XXX&gt;(); //mybatis-plus条件构造器 wrapper.eq("IS_ENABLE", 1); //因为有伪删除，所以有这个字段 if (StringUtils.isEmpty(XXX.getxxx()) == false) &#123; wrapper.eq("数据库字段", XXX.getxxx()); &#125; //需要校验的数据 Integer count = mapper.selectCount(wrapper);//查询条数 if(count&gt;1)&#123; //数据库存在数据，重复，不可添加 &#125; else if(count == 1)&#123; //此时说明数据库中有一个数据与现在相同，但是，不知道是 if(val.getxxx().equals(xxx.getxxx()...))&#123; //不用操作，直接跳出，更新数据，此处通过id查询与传入数据相同，代表自己本身&#125; else &#123; //不可操作，数据已存在 retrun false; &#125; &#125; mapper.updateById(xxx);//更新数据 3.上传 思路和添加相同，总体就是判断count，大于0失败，数据存在]]></content>
+    <content type="text"><![CDATA[工作中遇到一些问题，希望记录下来，以后方便查看 Java数据校验 1.因为工作中有部分时间在写前端，没有怎么写后台，突然给到任务让写数据校验，就参考了一下以前的校验方式，感觉有些性能不好，而且作用不好，重新写一下校验 2.原来的校验方式：是通过查询所有数据，遍历数据，与输入数据进行比较，第一：性能不好，要查询所有数据，然后遍历。 第二：如果是自己本身数据没有改变，需要判断，代码感觉混乱，不容易维护 3.我的想法： 1.添加： 根据传入数据，使用mybatis-plus的selectCount方式查询数据有几条？ 123456789QueryWrapper&lt;XXX&gt; wrapper = new QueryWrapper&lt;XXX&gt;(); //mybatis-plus条件构造器wrapper.eq("IS_ENABLE", 1); //因为有伪删除，所以有这个字段if (StringUtils.isEmpty(XXX.getxxx()) == false) &#123; wrapper.eq("数据库字段", XXX.getxxx());&#125; //需要校验的数据Integer count = mapper.selectCount(wrapper);//查询条数if(count&gt;0)&#123; //数据库存在数据，重复，不可添加&#125; 2.编辑： 和添加相同的道理，但是多了一个自己本身校验 1234567891011121314151617181920 //首先使用 mybatis-plus的selectById方法，返回查询结果的实体类 XXX val = mapper.selectById(XXX.getId()); QueryWrapper&lt;XXX&gt; wrapper = new QueryWrapper&lt;XXX&gt;(); //mybatis-plus条件构造器 wrapper.eq("IS_ENABLE", 1); //因为有伪删除，所以有这个字段 if (StringUtils.isEmpty(XXX.getxxx()) == false) &#123; wrapper.eq("数据库字段", XXX.getxxx()); &#125; //需要校验的数据 Integer count = mapper.selectCount(wrapper);//查询条数 if(count&gt;1)&#123; //数据库存在数据，重复，不可添加 &#125; else if(count == 1)&#123; //此时说明数据库中有一个数据与现在相同，但是，不知道是是不是自己 if(val.getxxx().equals(xxx.getxxx()...))&#123; //不用操作，直接跳出，更新数据，此处通过id查询与传入数据相同，代表自己本身&#125; else &#123; //不可操作，数据已存在 retrun false; &#125; &#125; mapper.updateById(xxx);//更新数据 3.上传 思路和添加相同，总体就是判断count，大于0失败，数据存在]]></content>
       <categories>
         <category>工作总结</category>
       </categories>
@@ -425,7 +447,7 @@
   <entry>
     <title><![CDATA[工作总结]]></title>
     <url>%2F2020%2F04%2F19%2F%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93%2F20200419%2F</url>
-    <content type="text"><![CDATA[1、20200420 dubbo与mybatis-plus dubbo序列化 2、20200422 前端415 3、20200514 jqGrid 4、20200515 SVN代码冲突 5、20200606]]></content>
+    <content type="text"><![CDATA[1、20200420 dubbo与mybatis-plus dubbo序列化 2、20200422 前端415 3、20200514 jqGrid 4、20200515 SVN代码冲突 5、20200606 两个list集合整合与Dubbo序列化 6、20200617]]></content>
       <categories>
         <category>目录</category>
       </categories>
