@@ -329,7 +329,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2020/04/24/1.微服务-架构编程思想/微服务-开箱即用/微服务-开箱即用/">
+    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2020/04/26/3.微服务-阿里巴巴/微服务-日志收集2/微服务-日志收集-EFK/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="BaiZe">
@@ -348,7 +348,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/04/24/1.微服务-架构编程思想/微服务-开箱即用/微服务-开箱即用/" itemprop="url">2.开箱即用</a></h2>
+                <a class="post-title-link" href="/2020/04/26/3.微服务-阿里巴巴/微服务-日志收集2/微服务-日志收集-EFK/" itemprop="url">15.日志收集</a></h2>
         
 
         <div class="post-meta">
@@ -362,8 +362,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-24T21:31:27+08:00">
-                2020-04-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-26T22:16:27+08:00">
+                2020-04-26
               </time>
             
 
@@ -417,7 +417,7 @@
                   <span class="post-meta-item-text">本文共计 &#58;</span>
                 
                 <span title="本文共计">
-                  172 字
+                  13 字
                 </span>
               
 
@@ -457,28 +457,425 @@
         
           
           
-Spring Boot入门
-Spring 简史
-Spring Boot 简介
-Spring Boot 应用程序
-Spirng Boot 单元测试
-Spirng Boot 常用配置
+快速开始
+EFK 简介
+EFK 部署
+EFK 使用
 
 
-Spirng Boot 分层架构
-理解微服务的分层架构
-通用依赖
-持久层
-服务层
-网关层
-展示层
-中间件层
-认证与授权
 
 
-Spirng Boot 文档生成
-Spirng Boot 集成 Restdocs
-Spir
+          
+	  <!--noindex-->
+	  <div class="post-footer-index">
+	    
+	      <div class="post-tags">
+		
+		  <a href="/tags/目录/" rel="tag"><i class="fas fa-tag"></i> 目录</a>
+		
+		  <a href="/tags/二级/" rel="tag"><i class="fas fa-tag"></i> 二级</a>
+		
+	      </div>
+	    
+            <div class="post-button text-center">
+              <a class="btn" target="_blank" href="/2020/04/26/3.微服务-阿里巴巴/微服务-日志收集2/微服务-日志收集-EFK/" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+	  </div>
+	  <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+        
+    
+        
+            
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2020/04/26/3.微服务-阿里巴巴/微服务-日志收集1/微服务-日志收集-ELK/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BaiZe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/04/26/3.微服务-阿里巴巴/微服务-日志收集1/微服务-日志收集-ELK/" itemprop="url">14.日志收集</a></h2>
+        
+
+        <div class="post-meta">
+	  
+	  
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar-plus"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-26T22:15:27+08:00">
+                2020-04-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/目录/" itemprop="url" rel="index">
+                    <span itemprop="name">目录</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <!--<i class="far fa-file-word"></i>-->
+		  <i class="fas fa-book-open"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文共计 &#58;</span>
+                
+                <span title="本文共计">
+                  13 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="far fa-clock"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅文耗时 &asymp;</span>
+                
+                <span title="阅文耗时">
+                  1 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+快速开始
+ELK 简介
+ELK 部署
+ELK 使用
+
+
+
+
+          
+	  <!--noindex-->
+	  <div class="post-footer-index">
+	    
+	      <div class="post-tags">
+		
+		  <a href="/tags/目录/" rel="tag"><i class="fas fa-tag"></i> 目录</a>
+		
+		  <a href="/tags/二级/" rel="tag"><i class="fas fa-tag"></i> 二级</a>
+		
+	      </div>
+	    
+            <div class="post-button text-center">
+              <a class="btn" target="_blank" href="/2020/04/26/3.微服务-阿里巴巴/微服务-日志收集1/微服务-日志收集-ELK/" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+	  </div>
+	  <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+        
+    
+        
+            
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2020/04/26/3.微服务-阿里巴巴/微服务-全文搜索/微服务-全文搜索-ElasticSearch/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BaiZe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/04/26/3.微服务-阿里巴巴/微服务-全文搜索/微服务-全文搜索-ElasticSearch/" itemprop="url">13.全文搜索</a></h2>
+        
+
+        <div class="post-meta">
+	  
+	  
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar-plus"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-26T22:14:27+08:00">
+                2020-04-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/目录/" itemprop="url" rel="index">
+                    <span itemprop="name">目录</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <!--<i class="far fa-file-word"></i>-->
+		  <i class="fas fa-book-open"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文共计 &#58;</span>
+                
+                <span title="本文共计">
+                  135 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="far fa-clock"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅文耗时 &asymp;</span>
+                
+                <span title="阅文耗时">
+                  1 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+ElasticSearch 快速开始
+Apache Lucene 简介
+ElasticSearch 简介
+ElasticSearch 部署
+ElasticSearch 添加索引
+Spring Boot 集成 ElasticSearch 
+
+
+ElasticSearch 数据吞吐
+ElasticSearch 文档概述
+ElasticSearch 索引文档
+ElasticSearch 检索文档
+El
           ...
 	  <!--noindex-->
 	  <div class="post-footer-index">
@@ -492,7 +889,7 @@ Spir
 	      </div>
 	    
             <div class="post-button text-center">
-              <a class="btn" target="_blank" href="/2020/04/24/1.微服务-架构编程思想/微服务-开箱即用/微服务-开箱即用/" rel="contents">
+              <a class="btn" target="_blank" href="/2020/04/26/3.微服务-阿里巴巴/微服务-全文搜索/微服务-全文搜索-ElasticSearch/" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -546,7 +943,7 @@ Spir
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2020/04/24/1.微服务-架构编程思想/微服务-编程思想/微服务-编程思想/">
+    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2020/04/26/3.微服务-阿里巴巴/微服务-高性能存储/微服务-高性能存储-MongoDB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="BaiZe">
@@ -565,7 +962,7 @@ Spir
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/04/24/1.微服务-架构编程思想/微服务-编程思想/微服务-编程思想/" itemprop="url">1.编程思想</a></h2>
+                <a class="post-title-link" href="/2020/04/26/3.微服务-阿里巴巴/微服务-高性能存储/微服务-高性能存储-MongoDB/" itemprop="url">12.高性能存储</a></h2>
         
 
         <div class="post-meta">
@@ -579,8 +976,8 @@ Spir
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-24T21:30:27+08:00">
-                2020-04-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-26T22:13:27+08:00">
+                2020-04-26
               </time>
             
 
@@ -634,7 +1031,7 @@ Spir
                   <span class="post-meta-item-text">本文共计 &#58;</span>
                 
                 <span title="本文共计">
-                  251 字
+                  137 字
                 </span>
               
 
@@ -674,44 +1071,20 @@ Spir
         
           
           
-什么是微服务架构
-
-微服务简介
-使用API网关
-进程间通信
-服务发现
-事件驱动数据管理
-选择部署策略
-重构单体为微服务
-
-
-微服务架构设计模式
-
-构建原则
-拆分模式
-集成模式
-数据库模式
-观察模型
-跨领域模式
-
-
-微服务架构十二要素
-微服务十二要素宣言
-基准代码
-依赖
-配置
-后端服务
-构建，发布，运行
-进程
-端口绑定
-并发
-易处理
-开发环境与现上环境等价
-日志
-管理进程
-
-
-微服务架构与高并发
+MongoDB 基础
+MongoDB 简介
+MongoDB 部署
+MongoDB  基本概念
+MongoDB 连接
+MongoDB  创建数据库
+MongoDB  删除数据库
+MongoDB 插入文档
+MongoDB 更新文档
+MongoDB 删除文档
+MongoDB 查询文档
+MongoDB 条件操作符
+MongoDB $type 条件操作符
+MongoDB  Limit 与 Skip 方法
 
           ...
 	  <!--noindex-->
@@ -726,7 +1099,7 @@ Spir
 	      </div>
 	    
             <div class="post-button text-center">
-              <a class="btn" target="_blank" href="/2020/04/24/1.微服务-架构编程思想/微服务-编程思想/微服务-编程思想/" rel="contents">
+              <a class="btn" target="_blank" href="/2020/04/26/3.微服务-阿里巴巴/微服务-高性能存储/微服务-高性能存储-MongoDB/" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -780,7 +1153,7 @@ Spir
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2020/04/23/3.微服务-阿里巴巴/微服务-阿里巴巴/">
+    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2020/04/26/3.微服务-阿里巴巴/微服务-分布式事务/微服务-分布式事务-AlibabaSeata/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="BaiZe">
@@ -799,7 +1172,7 @@ Spir
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/04/23/3.微服务-阿里巴巴/微服务-阿里巴巴/" itemprop="url"><阿里巴巴></阿里巴巴></a></h2>
+                <a class="post-title-link" href="/2020/04/26/3.微服务-阿里巴巴/微服务-分布式事务/微服务-分布式事务-AlibabaSeata/" itemprop="url">11.分布式事务</a></h2>
         
 
         <div class="post-meta">
@@ -813,8 +1186,8 @@ Spir
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-23T22:02:27+08:00">
-                2020-04-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-26T22:12:27+08:00">
+                2020-04-26
               </time>
             
 
@@ -868,7 +1241,7 @@ Spir
                   <span class="post-meta-item-text">本文共计 &#58;</span>
                 
                 <span title="本文共计">
-                  109 字
+                  15 字
                 </span>
               
 
@@ -908,18 +1281,623 @@ Spir
         
           
           
-导航
-1.SpringCloudAlibaba
-2.远程调用
-3.健康检查
-4.消息队列1-Apache RocketMQ
-5.消息队列2-Apache Kafka
-6.分布式缓存-Redis
-7.分布式锁-Redisson
-8.认证授权-Spring Security oAuth2
-9.分布式主键-Leaf
-10.分库分表-Apache Sharding Sphere
-11.分布式事务-Ali
+快速开始
+Alibaba Seta 简介
+Alibaba Seta 实践 AT 模式
+
+
+
+
+          
+	  <!--noindex-->
+	  <div class="post-footer-index">
+	    
+	      <div class="post-tags">
+		
+		  <a href="/tags/目录/" rel="tag"><i class="fas fa-tag"></i> 目录</a>
+		
+		  <a href="/tags/二级/" rel="tag"><i class="fas fa-tag"></i> 二级</a>
+		
+	      </div>
+	    
+            <div class="post-button text-center">
+              <a class="btn" target="_blank" href="/2020/04/26/3.微服务-阿里巴巴/微服务-分布式事务/微服务-分布式事务-AlibabaSeata/" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+	  </div>
+	  <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+        
+    
+        
+            
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2020/04/26/3.微服务-阿里巴巴/微服务-分库分表/微服务-分库分表-ApacheShardingSphere/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BaiZe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/04/26/3.微服务-阿里巴巴/微服务-分库分表/微服务-分库分表-ApacheShardingSphere/" itemprop="url">10.分库分表</a></h2>
+        
+
+        <div class="post-meta">
+	  
+	  
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar-plus"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-26T22:11:27+08:00">
+                2020-04-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/目录/" itemprop="url" rel="index">
+                    <span itemprop="name">目录</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <!--<i class="far fa-file-word"></i>-->
+		  <i class="fas fa-book-open"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文共计 &#58;</span>
+                
+                <span title="本文共计">
+                  14 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="far fa-clock"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅文耗时 &asymp;</span>
+                
+                <span title="阅文耗时">
+                  1 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+快速开始
+Apache ShardingSphere 简介
+Apache ShardingSphere 快速开始
+
+
+
+
+          
+	  <!--noindex-->
+	  <div class="post-footer-index">
+	    
+	      <div class="post-tags">
+		
+		  <a href="/tags/目录/" rel="tag"><i class="fas fa-tag"></i> 目录</a>
+		
+		  <a href="/tags/二级/" rel="tag"><i class="fas fa-tag"></i> 二级</a>
+		
+	      </div>
+	    
+            <div class="post-button text-center">
+              <a class="btn" target="_blank" href="/2020/04/26/3.微服务-阿里巴巴/微服务-分库分表/微服务-分库分表-ApacheShardingSphere/" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+	  </div>
+	  <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+        
+    
+        
+            
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2020/04/26/3.微服务-阿里巴巴/微服务-分布式主键/微服务-分布式主键-Leaf/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BaiZe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/04/26/3.微服务-阿里巴巴/微服务-分布式主键/微服务-分布式主键-Leaf/" itemprop="url">9.分布式主键-Leaf</a></h2>
+        
+
+        <div class="post-meta">
+	  
+	  
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar-plus"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-26T22:10:27+08:00">
+                2020-04-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/目录/" itemprop="url" rel="index">
+                    <span itemprop="name">目录</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <!--<i class="far fa-file-word"></i>-->
+		  <i class="fas fa-book-open"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文共计 &#58;</span>
+                
+                <span title="本文共计">
+                  31 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="far fa-clock"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅文耗时 &asymp;</span>
+                
+                <span title="阅文耗时">
+                  1 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+快速开始
+分布式主键简介
+Leaf 分布式主键方案
+Leaf 使用 Docker 部署
+Leaf 客户端接入
+
+
+
+
+          
+	  <!--noindex-->
+	  <div class="post-footer-index">
+	    
+	      <div class="post-tags">
+		
+		  <a href="/tags/目录/" rel="tag"><i class="fas fa-tag"></i> 目录</a>
+		
+		  <a href="/tags/二级/" rel="tag"><i class="fas fa-tag"></i> 二级</a>
+		
+	      </div>
+	    
+            <div class="post-button text-center">
+              <a class="btn" target="_blank" href="/2020/04/26/3.微服务-阿里巴巴/微服务-分布式主键/微服务-分布式主键-Leaf/" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+	  </div>
+	  <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+        
+    
+        
+            
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2020/04/26/3.微服务-阿里巴巴/微服务-认证授权/微服务-认证授权/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BaiZe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/04/26/3.微服务-阿里巴巴/微服务-认证授权/微服务-认证授权/" itemprop="url">8.认证授权</a></h2>
+        
+
+        <div class="post-meta">
+	  
+	  
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar-plus"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-26T22:09:27+08:00">
+                2020-04-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/目录/" itemprop="url" rel="index">
+                    <span itemprop="name">目录</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <!--<i class="far fa-file-word"></i>-->
+		  <i class="fas fa-book-open"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文共计 &#58;</span>
+                
+                <span title="本文共计">
+                  147 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="far fa-clock"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅文耗时 &asymp;</span>
+                
+                <span title="阅文耗时">
+                  1 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+快速开始
+oAuth2 简介
+oAuth2 应用场景
+Spring Security oAuth2  授权模式
+Spring Security oAuth2  项目工程准备
+Spring Security oAuth2  认证服务器
+Spring Security oAuth2  使用内存存储令牌
+Spring Security oAuth2  使用 JDBC 存储令牌
+Spring Secur
           ...
 	  <!--noindex-->
 	  <div class="post-footer-index">
@@ -928,12 +1906,12 @@ Spir
 		
 		  <a href="/tags/目录/" rel="tag"><i class="fas fa-tag"></i> 目录</a>
 		
-		  <a href="/tags/一级/" rel="tag"><i class="fas fa-tag"></i> 一级</a>
+		  <a href="/tags/二级/" rel="tag"><i class="fas fa-tag"></i> 二级</a>
 		
 	      </div>
 	    
             <div class="post-button text-center">
-              <a class="btn" target="_blank" href="/2020/04/23/3.微服务-阿里巴巴/微服务-阿里巴巴/" rel="contents">
+              <a class="btn" target="_blank" href="/2020/04/26/3.微服务-阿里巴巴/微服务-认证授权/微服务-认证授权/" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -987,7 +1965,7 @@ Spir
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2020/04/23/2.微服务-网飞/微服务-网飞/">
+    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2020/04/26/3.微服务-阿里巴巴/微服务-分布式锁/微服务-分布式锁-Redisson/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="BaiZe">
@@ -1006,7 +1984,7 @@ Spir
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/04/23/2.微服务-网飞/微服务-网飞/" itemprop="url"><网飞></网飞></a></h2>
+                <a class="post-title-link" href="/2020/04/26/3.微服务-阿里巴巴/微服务-分布式锁/微服务-分布式锁-Redisson/" itemprop="url">7.分布式锁</a></h2>
         
 
         <div class="post-meta">
@@ -1020,8 +1998,8 @@ Spir
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-23T22:01:27+08:00">
-                2020-04-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-26T22:08:27+08:00">
+                2020-04-26
               </time>
             
 
@@ -1075,7 +2053,7 @@ Spir
                   <span class="post-meta-item-text">本文共计 &#58;</span>
                 
                 <span title="本文共计">
-                  24 字
+                  103 字
                 </span>
               
 
@@ -1115,436 +2093,39 @@ Spir
         
           
           
-导航
-1.网飞
-2.消息队列(RabbitMQ)
-3.分库分表(MyCat)
-4.分布式事务(LCN)
-
-
-
-
-          
-	  <!--noindex-->
-	  <div class="post-footer-index">
-	    
-	      <div class="post-tags">
-		
-		  <a href="/tags/目录/" rel="tag"><i class="fas fa-tag"></i> 目录</a>
-		
-		  <a href="/tags/一级/" rel="tag"><i class="fas fa-tag"></i> 一级</a>
-		
-	      </div>
-	    
-            <div class="post-button text-center">
-              <a class="btn" target="_blank" href="/2020/04/23/2.微服务-网飞/微服务-网飞/" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-	  </div>
-	  <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-        
-    
-        
-            
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2020/04/23/1.微服务-架构编程思想/微服务-编程思想/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="BaiZe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/04/23/1.微服务-架构编程思想/微服务-编程思想/" itemprop="url"><编程思想></编程思想></a></h2>
-        
-
-        <div class="post-meta">
-	  
-	  
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar-plus"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-23T21:28:27+08:00">
-                2020-04-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/目录/" itemprop="url" rel="index">
-                    <span itemprop="name">目录</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <!--<i class="far fa-file-word"></i>-->
-		  <i class="fas fa-book-open"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文共计 &#58;</span>
-                
-                <span title="本文共计">
-                  23 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="far fa-clock"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅文耗时 &asymp;</span>
-                
-                <span title="阅文耗时">
-                  1 min
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-导航
-1.编程思想
-2.开箱即用
-3.生产环境
-4.容器化引擎
-
-
-
-
-          
-	  <!--noindex-->
-	  <div class="post-footer-index">
-	    
-	      <div class="post-tags">
-		
-		  <a href="/tags/目录/" rel="tag"><i class="fas fa-tag"></i> 目录</a>
-		
-		  <a href="/tags/一级/" rel="tag"><i class="fas fa-tag"></i> 一级</a>
-		
-	      </div>
-	    
-            <div class="post-button text-center">
-              <a class="btn" target="_blank" href="/2020/04/23/1.微服务-架构编程思想/微服务-编程思想/" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-	  </div>
-	  <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-        
-    
-        
-            
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2020/04/22/每日总结/20200422/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="BaiZe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/04/22/每日总结/20200422/" itemprop="url">20200422</a></h2>
-        
-
-        <div class="post-meta">
-	  
-	  
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar-plus"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-22T22:03:56+08:00">
-                2020-04-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工作总结/" itemprop="url" rel="index">
-                    <span itemprop="name">工作总结</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <!--<i class="far fa-file-word"></i>-->
-		  <i class="fas fa-book-open"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文共计 &#58;</span>
-                
-                <span title="本文共计">
-                  189 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="far fa-clock"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅文耗时 &asymp;</span>
-                
-                <span title="阅文耗时">
-                  1 min
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          工作中遇到一些问题，希望记录下来，以后方便查看
-
-请求头
-
-前端请求415错误
-
-
-@RequestParam主要来是于URL，例如百度的地址 https://www.baidu.com/s?wd=前端415@RequestBody主要来自表单信息，通过POST的方式把表单的信息传到后台。@RequestHeader求请的表单头。一般用来放浏览器信息，cookies等信息。
-
-
-@RequestP
+分布式协调
+什么是分布式协调
+什么是分布式锁
+Redis 实现分布式锁
+
+
+Zookeeper
+Zookeeper 简介
+Zookeeper 的一致性
+Zookeeper 的应用场景
+Zookeeper 实现分布式锁
+
+
+Redisson 实现分布式锁
+Redisson 简介
+Redisson 应用场景
+Redisson 结构
+Spring Boot 集成 Redisson
+Redisson R
           ...
 	  <!--noindex-->
 	  <div class="post-footer-index">
 	    
 	      <div class="post-tags">
 		
-		  <a href="/tags/工作总结/" rel="tag"><i class="fas fa-tag"></i> 工作总结</a>
+		  <a href="/tags/目录/" rel="tag"><i class="fas fa-tag"></i> 目录</a>
+		
+		  <a href="/tags/二级/" rel="tag"><i class="fas fa-tag"></i> 二级</a>
 		
 	      </div>
 	    
             <div class="post-button text-center">
-              <a class="btn" target="_blank" href="/2020/04/22/每日总结/20200422/" rel="contents">
+              <a class="btn" target="_blank" href="/2020/04/26/3.微服务-阿里巴巴/微服务-分布式锁/微服务-分布式锁-Redisson/" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1598,7 +2179,7 @@ Spir
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2020/04/20/每日总结/20200420/">
+    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2020/04/26/JDK新特性/JDK新特性/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="BaiZe">
@@ -1617,7 +2198,7 @@ Spir
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/04/20/每日总结/20200420/" itemprop="url">20200420</a></h2>
+                <a class="post-title-link" href="/2020/04/26/JDK新特性/JDK新特性/" itemprop="url">JDK新特性</a></h2>
         
 
         <div class="post-meta">
@@ -1631,419 +2212,8 @@ Spir
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-20T22:03:56+08:00">
-                2020-04-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工作总结/" itemprop="url" rel="index">
-                    <span itemprop="name">工作总结</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <!--<i class="far fa-file-word"></i>-->
-		  <i class="fas fa-book-open"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文共计 &#58;</span>
-                
-                <span title="本文共计">
-                  243 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="far fa-clock"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅文耗时 &asymp;</span>
-                
-                <span title="阅文耗时">
-                  1 min
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          工作中遇到一些问题，希望记录下来，以后方便查看 - Dubbo/Zookeeper
-
-2020-04-20
-
-所在项目组架构使用Dubbo+Zookeeper以及spingboot，mybatis，mybatis-plus，开发过程中，需要传递实体类并传递分页信息，以便根据实体类条件查询结果分页，查阅资料，都是在controller层，使用service接口调用mybatis-plus的page方
-          ...
-	  <!--noindex-->
-	  <div class="post-footer-index">
-	    
-	      <div class="post-tags">
-		
-		  <a href="/tags/工作总结/" rel="tag"><i class="fas fa-tag"></i> 工作总结</a>
-		
-	      </div>
-	    
-            <div class="post-button text-center">
-              <a class="btn" target="_blank" href="/2020/04/20/每日总结/20200420/" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-	  </div>
-	  <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-        
-    
-        
-            
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2020/04/19/开发工具/1.IDEA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="BaiZe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/04/19/开发工具/1.IDEA/" itemprop="url">IDEA</a></h2>
-        
-
-        <div class="post-meta">
-	  
-	  
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar-plus"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-19T22:07:27+08:00">
-                2020-04-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/开发工具/" itemprop="url" rel="index">
-                    <span itemprop="name">开发工具</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <!--<i class="far fa-file-word"></i>-->
-		  <i class="fas fa-book-open"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文共计 &#58;</span>
-                
-                <span title="本文共计">
-                  27 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="far fa-clock"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅文耗时 &asymp;</span>
-                
-                <span title="阅文耗时">
-                  1 min
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          一、安装（略）
-二、使用
-
-关闭自动更新
-
-
-
-安装插件
-
-
-
-
-设置字体
-
-
-
-设置版本控制
-
-
-
-          
-	  <!--noindex-->
-	  <div class="post-footer-index">
-	    
-	      <div class="post-tags">
-		
-		  <a href="/tags/开发工具/" rel="tag"><i class="fas fa-tag"></i> 开发工具</a>
-		
-		  <a href="/tags/IDEA/" rel="tag"><i class="fas fa-tag"></i> IDEA</a>
-		
-	      </div>
-	    
-            <div class="post-button text-center">
-              <a class="btn" target="_blank" href="/2020/04/19/开发工具/1.IDEA/" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-	  </div>
-	  <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-        
-    
-        
-            
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2020/04/19/每日总结/20200419/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="BaiZe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/04/19/每日总结/20200419/" itemprop="url">工作总结</a></h2>
-        
-
-        <div class="post-meta">
-	  
-	  
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar-plus"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-19T22:07:27+08:00">
-                2020-04-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-26T22:07:27+08:00">
+                2020-04-26
               </time>
             
 
@@ -2097,7 +2267,7 @@ Spir
                   <span class="post-meta-item-text">本文共计 &#58;</span>
                 
                 <span title="本文共计">
-                  39 字
+                  391 字
                 </span>
               
 
@@ -2136,31 +2306,8 @@ Spir
       
         
           
-          
-1、20200420
-
-dubbo与mybatis-plus
-dubbo序列化
-
-2、20200422
-
-前端415
-
-3、20200514
-
-jqGrid
-
-4、20200515
-
-SVN代码冲突
-
-5、20200606
-
-两个list集合整合与Dubbo序列化
-
-6、20200617
-
-          
+          1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950@FunctionalInterfaceinterface Foo&#123;    //函数式接口有且只有一个方法    //public void sayHello();    public int add(int
+          ...
 	  <!--noindex-->
 	  <div class="post-footer-index">
 	    
@@ -2171,7 +2318,7 @@ SVN代码冲突
 	      </div>
 	    
             <div class="post-button text-center">
-              <a class="btn" target="_blank" href="/2020/04/19/每日总结/20200419/" rel="contents">
+              <a class="btn" target="_blank" href="/2020/04/26/JDK新特性/JDK新特性/" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -2215,7 +2362,7 @@ SVN代码冲突
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fas fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fas fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/"><i class="fas fa-angle-right"></i></a>
   </nav>
 
 
@@ -2264,7 +2411,7 @@ SVN代码冲突
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">64</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2275,7 +2422,7 @@ SVN代码冲突
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2286,7 +2433,7 @@ SVN代码冲突
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2398,7 +2545,7 @@ SVN代码冲突
     
       <span class="post-meta-item-text">全站共计字数&#58;</span>
     
-    <span title="全站共计字数">9.7k</span>
+    <span title="全站共计字数">12k</span>
   
 </div>
 

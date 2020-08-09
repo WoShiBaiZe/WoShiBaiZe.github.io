@@ -1,6 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title></title>
+    <url>%2F2020%2F08%2F03%2F%E6%88%91%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%2F%E6%88%91%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83-Docker%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[20200803-Inner Join与LEFT JOIN]]></title>
+    <url>%2F2020%2F08%2F03%2F%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93%2F20200803-Inner%20Join%20%E4%B8%8ELEFT%20JOIN%2F</url>
+    <content type="text"><![CDATA[inner join与left join的区别 INNER JOIN 产生的结果是AB的交集 SELECT * FROM TableA INNER JOIN TableB ON TableA.id = TableB.rec_id LEFT (OUTER) JOIN 产生表A的完全集，而表B中匹配的则有值，没有匹配的则以null值取代. SELECT * FROM TableA LEFT OUTER JOIN TableB ON TableA.id = TableB.rec_id; 3.RIGHT（OUTER） JOIN 产生表B的完全集，而表A中匹配的则有值，没有匹配的则以null值取代 SELECT * FROM TableA RIGHT OUTER JOIN TableB ON TAbleA.id = TableB.rec_id FULL (OUTER) JOIN 产生A和B的并集，对于没有匹配的记录，以null值做为值 SELECT * FROM TableA FULL OUTER JOIN TableB ON TableA .name = TableB.name 可以通过is null将 没有匹配的值找出来； SELECT * FROM TableA FULL OUTER JOIN TableB ON TableA.name = TableB.name WHERE TableA.id is null OR TableB.id is null]]></content>
+      <categories>
+        <category>工作总结</category>
+      </categories>
+      <tags>
+        <tag>工作总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[20200722-MybatisPlus默认更新策略]]></title>
+    <url>%2F2020%2F07%2F22%2F%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93%2F20200722-MybatisPlus%E9%BB%98%E8%AE%A4%E6%9B%B4%E6%96%B0%E7%AD%96%E7%95%A5%2F</url>
+    <content type="text"><![CDATA[问题实际项目中，难免更新的时候,有可能会把已有的值更新成空字符串或者null,但是当你使用updateById()方法的时候，会发现根本不生效。这其实是MyBatis-Plus对字段的验证策略导致的，MyBatis-Plus默认进行了不是全量更新的策略 解决方案 1234567field-strategy字段更新插入策略属性说明： IGNORED(0): "忽略判断", 所有字段都更新和插入 NOT_NULL(1): "非 NULL 判断", 只更新和插入非NULL值 NOT_EMPTY(2): "非空判断", 只更新和插入非NULL值且非空字符串 DEFAULT：默认NOT_NULL]]></content>
+      <categories>
+        <category>工作总结</category>
+      </categories>
+      <tags>
+        <tag>工作总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[认识JUC]]></title>
+    <url>%2F2020%2F07%2F08%2FJUC%2FJUC%2F</url>
+    <content type="text"><![CDATA[JUC (java.until.concurrent) 1.1 进程/线程 1.2 并发/并行 三个包 java.util.concurrent java.util.concurrent.atomic java.util.concurrent.locks 锁 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102class Ticket //资源类 = 实例变量 + 实例方法&#123; private int number = 30; // List list = new ArrayList(); //Lock接口 ReentrantLock可重入锁 Lock lock = new ReentrantLock(); //同步方法 //public synchronized void sale() public void sale() &#123; // synchronized(this) 同步代码块 // 快捷键 trylock 回车 lock.lock(); try&#123; if(number &gt; 0) &#123; //快捷键 mycurr 回车 System.out.println(Thread.currentThread().getName() + "\t卖出第:"+(number--)+"\t 还剩下:" + number); &#125; &#125;catch(Exception e)&#123; e.printStackTrace(); &#125;finally&#123; lock.unlock(); &#125; &#125;&#125;/** * 1.三个售票员 卖出 30张票 * 如何编写企业级的多线程代码 * 固定的变成套路＋模板是什么？ * * 在高内聚低耦合的前提下，线程 操作 资源类 */public class SaleTicketDemo01&#123; public static void main(String[] args) //主线程，一切程序的入口 &#123; Ticket ticket = new Ticket(); //Thread t1 = new Thread(); //Thread t2 = new Thread(); //Thread t3 = new Thread(); //Thread(Runnable target, String name) Allocates a new Thread object new Thread(()-&gt;&#123;for(int i = 1; i&lt;=40;i++ ) ticket.sale();&#125;,"A").start(); new Thread(()-&gt;&#123;for(int i = 1; i&lt;=40;i++ ) ticket.sale();&#125;,"B").start(); new Thread(()-&gt;&#123;for(int i = 1; i&lt;=40;i++ ) ticket.sale();&#125;,"C").start(); //函数式接口 //@FunctionalInterface //public interface Runnable&#123; // public abstract void run(); //&#125; //匿名内部类方法 /* new Thread(new Runable() &#123; @Override public void run() &#123; for(int i = 1; i &lt;=40; i++) &#123; //Thread.state 多线程状态 //1.新建状态 NEW //2.运行状态 RUNABLE //3.阻塞状态 BLOCK //4.死等待 WAITING //5.时间限制等待 TIME_WAITING //6.TERMINATED ticket.sale(); &#125; &#125; &#125;,"A").start(); new Thread(new Runable() &#123; @Override public void run() &#123; for(int i = 1; i &lt;=40; i++) &#123; ticket.sale(); &#125; &#125; &#125;,"B").start(); new Thread(new Runable() &#123; @Override public void run() &#123; for(int i = 1; i &lt;=40; i++) &#123; ticket.sale(); &#125; &#125; &#125;,"C").start(); */ &#125;&#125; 3.ArrayList线程不安全 123456789101112131415161718192021222324252627282930313233343536373839/** * 1.故障现象 * java.util.ConcurrentModificationException * 2.导致原因 多线程争抢资源没有加索 * 3.解决方法 * 3.1 new Vector(); * 3.2 Collections.synchronizedList(new ArrayList&lt;&gt;); * 3.3 new CopyOnWriteArrayList(); * 4.优化建议(同样的错误不犯第2次) * * */public class NotSafe&#123; public static void main(String[] args) &#123; //Vector线程安全，重锁 synchronized修饰 List&lt;String&gt; list = new CopyOnWriteArrayList();//Collections.synchronizedList(new ArrayList&lt;&gt;);//new Vector(); //new ArrayList(); /* list.add("a"); list.add("a"); list.add("a"); //4大函数 //Predicate&lt;T&gt; 断言型 有参数，有返回值 返回值为boolean类型 boolean test(T t) //Functaion&lt;T,R&gt; 函数型接口，有参数，有返回值 R apply(T t) //Supplier&lt;T&gt; 供给型函数接口，没有参数，有返回值 T get(); //Consumer&lt;T&gt; 消费型接口 有参数，无返回值 void accept(T t) list.forEach(System.out::println); */ for(int i=0;i&lt;=3;i++) &#123; new Thread(()-&gt;&#123; list.add(UUID.randomUUID().toString().substring(0,8)); System.out.println(list); &#125;,String.valueOf(i)).start(); &#125; &#125;&#125; 123456789101112131415161718192021/** * CopyOnWriteArrayList add方法底层 * Appends the specified element to the end of this list. * * @param e element to be appended to this list * @return &#123;@code true&#125; (as specified by &#123;@link Collection#add&#125;) */ public boolean add(E e) &#123; final ReentrantLock lock = this.lock; //可重用锁 lock.lock(); //加锁 try &#123; Object[] elements = getArray(); //获取原数组 int len = elements.length; //获取原数组长度 Object[] newElements = Arrays.copyOf(elements, len + 1); //复制新的数组，长度加1 newElements[len] = e; //新的数据加入新的数组中 setArray(newElements); //将数据加入新的数组中 return true; // 返回正确 &#125; finally &#123; lock.unlock(); &#125; &#125; 12345678910111213141516171819202122/** * HashSet线程不安全，底层使用HashMap */ public class NotSafeDemo &#123; public static void main(String[] args) &#123; setNotSafe(); &#125; public static void setNoteSafe() &#123; set&lt;String&gt; set = new CopyOnWriteArraySet&lt;&gt;(); for(int i = 1; i&lt;=30;i++) &#123; new Thread(()-&gt;&#123; set.add(UUID.randomUUID().toString().substring(0,8)); System.out.println(set); &#125;,String.valueOf(i)).start(); &#125; &#125; &#125; 123456789101112131415161718/** * Map线程不安全 */public class NotSafeDemo1&#123; public static void main(String[] args) &#123; //HashMap线程不安全 Map&lt;String,String&gt; map = new ConcurrentHashMap&lt;&gt;(); for(int i=0;i&lt;=30;i++) &#123; new Thread(()-&gt;&#123; map.put(Thread.currentThread().getName(),UUID.randomUUID().toString().substring(0,8)); System.out.println(map); &#125;,String.valueOf(i)).start(); &#125; &#125;&#125; 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485class Phone&#123; //8.5 public static synchronized void sentEmail() thrwos Exception &#123; //8.2 //Thread.sleep(4000); TimeUnit.SECONDS.sleep(4); System.out.println("*********sendEmail"); &#125; //8.5 //public static synchronized void sendSMS() throws Exception //8.6 public synchronized void sendSMS() throws Exception &#123; System.out.println("*********sendSMS"); &#125; public void sayHello() throws Exception &#123; System.out.println("*********sayHello"); &#125;&#125;/** * 8 lock * 8.1 标准访问 请问先打印邮件还是短信 邮件 * 8.2 暂停4秒钟再邮件方法，请问先打印邮件还是短信 邮件 * 8.3 新增普通sayHello方法，请问先打印邮件还是sayHello sayHello * 8.4 2部手机 请问先打印邮件还是短信 短信 * 8.5 2个静态同步方法，同一部手机 请问先打印邮件还是短信 邮件 * 8.6 2个静态同步方法，2部手机 请问先打印邮件还是短信 邮件 * 8.7 1个静态同步方法，1个普通同步方法，同一部手机 短信 * 8.8 1个静态同步方法，1个普通同步方法，2部手机 短信 * * * 一个对象里面如果有多个synchronized方法，某一个时刻内，只要一个线程去调用其中的一个synchronized方法了， *其它的线程都只能等待，换句话说，某一个时刻内，只能有唯一一个线程去访问这些synchronized方法 * *锁的是当前对象this，被锁定后，其它的线程都不能进入到当前对象的其它的synchronized方法 * *加个普通方法后发现和同步锁无关 * *换成两个对象后，不是同一把锁了，情况立刻变化。 * *synchronized实现同步的基础：Java中的每一个对象都可以作为锁。 *具体表现为以下3种形式。 *对于普通同步方法，锁是当前实例对象,锁的是当前对象this， *对于同步方法块，锁是Synchonized括号里配置的对象。 * *对于静态同步方法，锁是当前类的Class对象。 */public class Lock8&#123; public static void main(String[] args) throws InterruptedException &#123; Phone phone = new Phone(); Phone phone2 = new Phone(); new Thread(()-&gt;&#123; try&#123; phone.sendEmail(); &#125;catch(Exception e) &#123; e.printStackTrace(); &#125; &#125;,"A").start(); Thread.sleep(100); new Thread(()-&gt;&#123; try&#123; //8.3 //phone.sendSMS(); //phone.sayHello(); //8.4 //phone2.sendSMS(); //8.5 //phone.sendSMS(); //8.6 phone2.sendSMS(); &#125;catch(Exception e) &#123; e.printStackTrace(); &#125; &#125;,"B").start(); &#125;&#125;]]></content>
+      <categories>
+        <category>JUC</category>
+      </categories>
+      <tags>
+        <tag>JUC</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[20200617]]></title>
     <url>%2F2020%2F06%2F17%2F%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93%2F20200617%2F</url>
     <content type="text"><![CDATA[工作中遇到一些问题，希望记录下来，以后方便查看 Dubbo的坑以及两个实体List的合并 工作中有导出功能，导出需要和页面展示的内容一致，但是，导出的数据Float型自动转成了Double型，日期多.0，很是奇怪，同事自己写的sql没有这些问题，因为公司框架中封装了mybatis-plus，我的页面有很多字段，图方便使用了mybatis-plus，出现这些问题，于是Debug代码，发现在service层，没有查询出的数据格式，与页面相同，但是到了controller层就变得Double，.0等问题了，回想了一下执行流程发现，自己写的sql，会通过实体类，实体类中有实现序列化，所以没有问题，而自己使用mybatis-plus的方法，直接封装了结果，中间没有序列化，导致数据传输错误，以上是我认为的，后续还要验证，究竟是什么原因导致的自动变成了Double 因为还有一个需求，通过两次查询结果，合并成一个结果返回前端，数据需要将相同的合并，不同的保留，起初的写法只是双重for循环＋if判断，可以把相同的数据合并，并保留外层数据的不同值，但是，内层循环的不同数据就丢失了。后面想到相同添加，同时删除内层数据，最后再加上内层剩余数据就可以完成了，实现过程中出现了异常，最后换了一个方式。将一个list的匹配字段放入hashmap中当key，剩下实体当value，另一个list遍历，添加，最后实现了 失败的方法 123456789101112131415//第一个实体类集合List&lt;Entity&gt; entity = mapper.select();//第二个实体类集合List&lt;Entity&gt; entity1 = mapper.select();for(Entity en : entity)&#123; for(Entity en2 : entity1)&#123; if(en.getxxx().equals(en2.getxx))&#123; en.setxx(en2.setxxx); &#125; &#125;&#125;例如： 第一个实体结果：1，2，3，4，5，6，7 第二个实体结果：1，2，4，5，6，7，8 上面的写法只会拿到：1，2，3，4，5，6，7， 丢失第8个数字 成功的方法 1234567891011121314151617181920212223242526272829303132//第一个实体类集合List&lt;Entity&gt; entity = mapper.select();//第二个实体类集合List&lt;Entity&gt; entity1 = mapper.select();//创建一个HashMap，key放判断是否相同的字段，Value放整个数据Map&lt;String, Entity&gt; target = new HashMap&lt;String, Entity&gt;();//判断是否为空if (CollectionUtils.isNotEmpty(entity) &amp;&amp; CollectionUtils.isNotEmpty(entity1)) &#123;//遍历第一个实体类集合，放入map中for (Entity ent : entity) &#123; target.put(ent.getXXX(), ent);&#125;//遍历第二个集合for (Entity en : entity1) &#123; //获取第一个实体类中的key值 String a = en.getA(); //如果第一个实体类集合中包含第二个实体类集合中的值if (target.containsKey(a)) &#123; //获取第一个实体类的所有值 Entity temp = target.get(a); //设置自己想要添加的数据 temp.setXxxx(en.getXXX()); //重新将数据放回 target.put(a, temp);&#125; else &#123; //不同时候将第二个实体类中，与第一个实体类不想同的数据放入Map中 target.put(a, en); &#125; &#125;&#125;这个方法会拿到：1，2，3，4，5，6，7，8]]></content>
@@ -35,7 +73,7 @@
   </entry>
   <entry>
     <title><![CDATA[我的学习环境]]></title>
-    <url>%2F2020%2F06%2F05%2F%E6%88%91%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%2F%E6%88%91%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%2F</url>
+    <url>%2F2020%2F06%2F05%2F%E6%88%91%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%2F%E6%88%91%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83-K8S%2F</url>
     <content type="text"><![CDATA[Kubernetes（K8S） 因为前几天电脑坏了，自己的环境都没有了，打算重新装一下K8S，记录一下，因为明天还要加班，争取今天晚上搞定 1.本机硬件：24G内存＋i7-5代，为了不影响开发，打算搭建1主3从外加一个数据卷 2.系统使用Ubuntu Server X64 18.04LTS 长期支持版 3.节点规划: | 主机名 | IP | 角色 | 系统 | CPU/内存 | 磁盘 || —————— | ————— | —— | ——————- | ——– | —- || kubernetes-master | 192.168.xxx.110 | Master | Ubuntu Server 18.04 | 2 核 3G | ?G || kubernetes-node-01 | 192.168.xxx.120 | Node | Ubuntu Server 18.04 | 2 核 3G | ?G || kubernetes-node-02 | 192.168.xxx.121 | Node | Ubuntu Server 18.04 | 2 核 3G | ?G || kubernetes-node-03 | 192.168.xxx.122 | Node | Ubuntu Server 18.04 | 2 核 3G | ?G || kubernetes-volumes | 192.168.xxx.140 | NFS | Ubuntu Server 18.04 | 2 核 3G | ?G | 1.基础准备 关闭交换空间 1swapoff -a 避免开机启动交换空间 12# 注释 swap 开头的行vi /etc/fstab 关闭防火墙 1ufw disable 配置DNS 12# 取消 DNS 行注释，并增加 DNS 配置如：114.114.114.114，修改后重启下计算机vi /etc/systemd/resolved.conf 安装 Docker 12sudo apt-get updatesudo apt install docker.io 配置 Docker 建议使用阿里云 通过修改 daemon 配置文件 /etc/docker/daemon.json 来使用加速器 1234567891011&#123; "exec-opts": [""], "log-driver": "", "log-opts": &#123; "max-size": "" &#125;, "registry-mirrors": [ ], "storage-driver": ""&#125; 重启 Docker 12systemctl daemon-reloadsystemctl restart docker 安装 Kubernetes 必备工具 安装三个 Kubernetes 必备工具，分别为 kubeadm，kubelet，kubectl 12345678910111213# 安装系统工具apt-get update &amp;&amp; apt-get install -y apt-transport-https# 安装 GPG 证书curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add -# 写入软件源；注意：我们用系统代号为 bionic，但目前阿里云不支持，所以沿用 16.04 的 xenialcat &lt;&lt; EOF &gt;/etc/apt/sources.list.d/kubernetes.listdeb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial mainEOF# 安装apt-get update &amp;&amp; apt-get install -y kubelet kubeadm kubectl 同步时建 设置时区 1dpkg-reconfigure tzdata 时间同步 12345678# 安装 ntpdateapt-get install ntpdate# 设置系统时间与网络时间同步（cn.pool.ntp.org 位于中国的公共 NTP 服务器）ntpdate cn.pool.ntp.org# 将系统时间写入硬件时间hwclock --systohc 确认时间 1234date# 输出如下（自行对照与系统时间是否一致）Sun Feb 23 12:05:17 CST 2020 修改cloud.cfg 主要作用是防止重启后主机名还原 1234vi /etc/cloud/cloud.cfg# 该配置默认为 false，修改为 true 即可preserve_hostname: true 单独节点配置 注意： 为 Master 和 Node 节点单独配置对应的 IP 和 主机名 配置IP 编辑 vi /etc/netplan/50-cloud-init.yaml 配置文件，修改内容如下 12345678network: ethernets: ens33: addresses: [192.168.xxx.110/24] gateway4: 192.168.xxx.2 nameservers: addresses: [192.168.xxx.2] version: 2 使用 netplan apply 命令让配置生效 配置主机名 1234567# 修改主机名hostnamectl set-hostname kubernetes-master# 配置 hostscat &gt;&gt; /etc/hosts &lt;&lt; EOF192.168.xxx.110 kubernetes-masterEOF 2.安装集群 创建并修改配置 12# 导出配置文件kubeadm config print init-defaults --kubeconfig ClusterConfiguration &gt; kubeadm.yml 12345678910111213141516171819202122232425262728293031323334353637383940414243apiVersion: kubeadm.k8s.io/v1beta2bootstrapTokens:- groups: - system:bootstrappers:kubeadm:default-node-token token: abcdef.0123456789abcdef ttl: 24h0m0s usages: - signing - authenticationkind: InitConfigurationlocalAPIEndpoint: # 修改为主节点 IP advertiseAddress: 192.168.81.110 bindPort: 6443nodeRegistration: criSocket: /var/run/dockershim.sock name: kubernetes-master taints: - effect: NoSchedule key: node-role.kubernetes.io/master---apiServer: timeoutForControlPlane: 4m0sapiVersion: kubeadm.k8s.io/v1beta2certificatesDir: /etc/kubernetes/pkiclusterName: kubernetescontrollerManager: &#123;&#125;dns: type: CoreDNSetcd: local: dataDir: /var/lib/etcd# 国内不能访问 Google，修改为阿里云imageRepository: registry.aliyuncs.com/google_containerskind: ClusterConfiguration# 修改版本号kubernetesVersion: v1.17.3networking: dnsDomain: cluster.local # 配置 POD 所在网段为我们虚拟机不重叠的网段（这里用的是 Flannel 默认网段） podSubnet: "10.244.0.0/16" serviceSubnet: 10.96.0.0/12scheduler: &#123;&#125; 查看所需镜像 12345678910kubeadm config images list --config kubeadm.yml# 输出如下registry.aliyuncs.com/google_containers/kube-apiserver:v1.17.3registry.aliyuncs.com/google_containers/kube-controller-manager:v1.17.3registry.aliyuncs.com/google_containers/kube-scheduler:v1.17.3registry.aliyuncs.com/google_containers/kube-proxy:v1.17.3registry.aliyuncs.com/google_containers/pause:3.1registry.aliyuncs.com/google_containers/etcd:3.4.3-0registry.aliyuncs.com/google_containers/coredns:1.6.5 拉取所需镜像 12345678910kubeadm config images pull --config kubeadm.yml# 输出如下[config/images] Pulled registry.aliyuncs.com/google_containers/kube-apiserver:v1.17.3[config/images] Pulled registry.aliyuncs.com/google_containers/kube-controller-manager:v1.17.3[config/images] Pulled registry.aliyuncs.com/google_containers/kube-scheduler:v1.17.3[config/images] Pulled registry.aliyuncs.com/google_containers/kube-proxy:v1.17.3[config/images] Pulled registry.aliyuncs.com/google_containers/pause:3.1[config/images] Pulled registry.aliyuncs.com/google_containers/etcd:3.4.3-0[config/images] Pulled registry.aliyuncs.com/google_containers/coredns:1.6.5 安装主节点 执行以下命令初始化主节点，该命令指定了初始化时需要使用的配置文件，其中添加 --upload-certs 参数可以在后续执行加入节点时自动分发证书文件。追加的 tee kubeadm-init.log 用以输出日志。 注意： 如果安装 kubernetes 版本和下载的镜像版本不统一则会出现 timed out waiting for the condition 错误。中途失败或是想修改配置可以使用 kubeadm reset 命令重置配置，再做初始化操作即可。 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273kubeadm init --config=kubeadm.yml --upload-certs | tee kubeadm-init.log# 输出如下[init] Using Kubernetes version: v1.17.3[preflight] Running pre-flight checks[preflight] Pulling images required for setting up a Kubernetes cluster[preflight] This might take a minute or two, depending on the speed of your internet connection[preflight] You can also perform this action in beforehand using 'kubeadm config images pull'[kubelet-start] Writing kubelet environment file with flags to file "/var/lib/kubelet/kubeadm-flags.env"[kubelet-start] Writing kubelet configuration to file "/var/lib/kubelet/config.yaml"[kubelet-start] Starting the kubelet[certs] Using certificateDir folder "/etc/kubernetes/pki"[certs] Generating "ca" certificate and key[certs] Generating "apiserver" certificate and key[certs] apiserver serving cert is signed for DNS names [kubernetes-master kubernetes kubernetes.default kubernetes.default.svc kubernetes.default.svc.cluster.local] and IPs [10.96.0.1 192.168.81.110][certs] Generating "apiserver-kubelet-client" certificate and key[certs] Generating "front-proxy-ca" certificate and key[certs] Generating "front-proxy-client" certificate and key[certs] Generating "etcd/ca" certificate and key[certs] Generating "etcd/server" certificate and key[certs] etcd/server serving cert is signed for DNS names [kubernetes-master localhost] and IPs [192.168.81.110 127.0.0.1 ::1][certs] Generating "etcd/peer" certificate and key[certs] etcd/peer serving cert is signed for DNS names [kubernetes-master localhost] and IPs [192.168.81.110 127.0.0.1 ::1][certs] Generating "etcd/healthcheck-client" certificate and key[certs] Generating "apiserver-etcd-client" certificate and key[certs] Generating "sa" key and public key[kubeconfig] Using kubeconfig folder "/etc/kubernetes"[kubeconfig] Writing "admin.conf" kubeconfig file[kubeconfig] Writing "kubelet.conf" kubeconfig file[kubeconfig] Writing "controller-manager.conf" kubeconfig file[kubeconfig] Writing "scheduler.conf" kubeconfig file[control-plane] Using manifest folder "/etc/kubernetes/manifests"[control-plane] Creating static Pod manifest for "kube-apiserver"W0223 12:38:57.210893 9130 manifests.go:214] the default kube-apiserver authorization-mode is "Node,RBAC"; using "Node,RBAC"[control-plane] Creating static Pod manifest for "kube-controller-manager"[control-plane] Creating static Pod manifest for "kube-scheduler"W0223 12:38:57.214165 9130 manifests.go:214] the default kube-apiserver authorization-mode is "Node,RBAC"; using "Node,RBAC"[etcd] Creating static Pod manifest for local etcd in "/etc/kubernetes/manifests"[wait-control-plane] Waiting for the kubelet to boot up the control plane as static Pods from directory "/etc/kubernetes/manifests". This can take up to 4m0s[apiclient] All control plane components are healthy after 19.005825 seconds[upload-config] Storing the configuration used in ConfigMap "kubeadm-config" in the "kube-system" Namespace[kubelet] Creating a ConfigMap "kubelet-config-1.17" in namespace kube-system with the configuration for the kubelets in the cluster[upload-certs] Storing the certificates in Secret "kubeadm-certs" in the "kube-system" Namespace[upload-certs] Using certificate key:91f1d04e74abd60fbadf2afaae656a5c5bfc3761e5a4a69d6727e429c997165c[mark-control-plane] Marking the node kubernetes-master as control-plane by adding the label "node-role.kubernetes.io/master=''"[mark-control-plane] Marking the node kubernetes-master as control-plane by adding the taints [node-role.kubernetes.io/master:NoSchedule][bootstrap-token] Using token: abcdef.0123456789abcdef[bootstrap-token] Configuring bootstrap tokens, cluster-info ConfigMap, RBAC Roles[bootstrap-token] configured RBAC rules to allow Node Bootstrap tokens to post CSRs in order for nodes to get long term certificate credentials[bootstrap-token] configured RBAC rules to allow the csrapprover controller automatically approve CSRs from a Node Bootstrap Token[bootstrap-token] configured RBAC rules to allow certificate rotation for all node client certificates in the cluster[bootstrap-token] Creating the "cluster-info" ConfigMap in the "kube-public" namespace[kubelet-finalize] Updating "/etc/kubernetes/kubelet.conf" to point to a rotatable kubelet client certificate and key[addons] Applied essential addon: CoreDNS[addons] Applied essential addon: kube-proxyYour Kubernetes control-plane has initialized successfully!To start using your cluster, you need to run the following as a regular user: mkdir -p $HOME/.kube sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config sudo chown $(id -u):$(id -g) $HOME/.kube/configYou should now deploy a pod network to the cluster.Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at: https://kubernetes.io/docs/concepts/cluster-administration/addons/Then you can join any number of worker nodes by running the following on each as root:kubeadm join 192.168.xxx.110:6443 --token abcdef.0123456789abcdef \ --discovery-token-ca-cert-hash sha256:3eac1be34c9e324279ebd843087e7dd002b3102c7d14313aec490cd73b4138ad 配置Kubectl 12345mkdir -p $HOME/.kubecp -i /etc/kubernetes/admin.conf $HOME/.kube/config# 非 ROOT 用户执行chown $(id -u):$(id -g) $HOME/.kube/config 验证是否成功 12345kubectl get node# 输出如下NAME STATUS ROLES AGE VERSIONkubernetes-master NotReady master 115s v1.17.3 安装从节点 将 Node 节点加入到集群中很简单，只需要在 Node 服务器上安装 kubeadm，kubectl，kubelet 三个工具，然后使用 kubeadm join 命令加入即可 123456789101112kubeadm join 192.168.xxx.110:6443 --token abcdef.0123456789abcdef \ --discovery-token-ca-cert-hash sha256:3eac1be34c9e324279ebd843087e7dd002b3102c7d14313aec490cd73b4138ad # 输出如下[preflight] Running pre-flight checks[preflight] Reading configuration from the cluster...[preflight] FYI: You can look at this config file with 'kubectl -n kube-system get cm kubeadm-config -oyaml'[kubelet-start] Downloading configuration for the kubelet from the "kubelet-config-1.17" ConfigMap in the kube-system namespace[kubelet-start] Writing kubelet configuration to file "/var/lib/kubelet/config.yaml"[kubelet-start] Writing kubelet environment file with flags to file "/var/lib/kubelet/kubeadm-flags.env"[kubelet-start] Starting the kubelet[kubelet-start] Waiting for the kubelet to perform the TLS Bootstrap... 验证是否成功 回到 Master 主节点查看是否安装成功 注意： 如果 Node 节点加入 Master 时配置有问题可以在 Node 节点上使用 kubeadm reset 重置配置再使用 kubeadm join 命令重新加入即可。希望在 master 节点删除 node ，可以使用 kubeadm delete nodes &lt;NAME&gt; 删除。 12345678kubectl get nodes# 输出如下NAME STATUS ROLES AGE VERSIONkubernetes-master NotReady master 17m v1.17.3kubernetes-node1 NotReady &lt;none&gt; 24s v1.17.3kubernetes-node2 NotReady &lt;none&gt; 15s v1.17.3kubernetes-node3 NotReady &lt;none&gt; 7s v1.17.3 查看Pods状态 coredns 尚未运行，此时我们还需要安装网络插件 1234567891011121314watch kubectl get pods -n kube-system -o wide# 输出如下NAME READY STATUS RESTARTS AGE IP NODE NOMINATED NODE READINESS GATEScoredns-9d85f5447-czrdk 0/1 Pending 0 19m &lt;none&gt; &lt;none&gt; &lt;none&gt; &lt;none&gt;coredns-9d85f5447-zsf6f 0/1 Pending 0 19m &lt;none&gt; &lt;none&gt; &lt;none&gt; &lt;none&gt;etcd-kubernetes-master 1/1 Running 0 20m 192.168.81.110 kubernetes-master &lt;none&gt; &lt;none&gt;kube-apiserver-kubernetes-master 1/1 Running 0 20m 192.168.81.110 kubernetes-master &lt;none&gt; &lt;none&gt;kube-controller-manager-kubernetes-master 1/1 Running 0 20m 192.168.81.110 kubernetes-master &lt;none&gt; &lt;none&gt;kube-proxy-jf9jg 1/1 Running 0 3m19s 192.168.81.122 kubernetes-node3 &lt;none&gt; &lt;none&gt;kube-proxy-t2rz5 1/1 Running 0 3m27s 192.168.81.121 kubernetes-node2 &lt;none&gt; &lt;none&gt;kube-proxy-vszhp 1/1 Running 0 3m36s 192.168.81.120 kubernetes-node1 &lt;none&gt; &lt;none&gt;kube-proxy-zpjk2 1/1 Running 0 19m 192.168.81.110 kubernetes-master &lt;none&gt; &lt;none&gt;kube-scheduler-kubernetes-master 1/1 Running 0 20m 192.168.81.110 kubernetes-master &lt;none&gt; &lt;none&gt; kubeadm init 的执行过程 init： 指定版本进行初始化操作 preflight： 初始化前的检查和下载所需要的 Docker 镜像文件 kubelet-start： 生成 kubelet 的配置文件 var/lib/kubelet/config.yaml，没有这个文件 kubelet 无法启动，所以初始化之前的 kubelet 实际上启动不会成功 certificates： 生成 Kubernetes 使用的证书，存放在 /etc/kubernetes/pki 目录中 kubeconfig： 生成 KubeConfig 文件，存放在 /etc/kubernetes 目录中，组件之间通信需要使用对应文件 control-plane： 使用 /etc/kubernetes/manifest 目录下的 YAML 文件，安装 Master 组件 etcd： 使用 /etc/kubernetes/manifest/etcd.yaml 安装 Etcd 服务 wait-control-plane： 等待 control-plan 部署的 Master 组件启动 apiclient： 检查 Master 组件服务状态。 uploadconfig： 更新配置 kubelet： 使用 configMap 配置 kubelet patchnode： 更新 CNI 信息到 Node 上，通过注释的方式记录 mark-control-plane： 为当前节点打标签，打了角色 Master，和不可调度标签，这样默认就不会使用 Master 节点来运行 Pod bootstrap-token： 生成 token 记录下来，后边使用 kubeadm join 往集群中添加节点时会用到 addons： 安装附加组件 CoreDNS 和 kube-proxy 3.网络插件 下载Calico 配置文件并修改 123456wget https://docs.projectcalico.org/manifests/calico.yamlvi calico.yaml修改第 611 行，将 192.168.0.0/16 修改为 10.244.0.0/16，可以通过如下命令快速查找显示行号：:set number查找字符：/要查找的字符，输入小写 n 下一个匹配项，输入大写 N 上一个匹配项 安装网络插件 Calico 参考官方文档安装：https://docs.projectcalico.org/getting-started/kubernetes/quickstart 1234567891011121314151617181920212223242526kubectl apply -f calico.yaml# 输出如下configmap/calico-config createdcustomresourcedefinition.apiextensions.k8s.io/felixconfigurations.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/ipamblocks.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/blockaffinities.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/ipamhandles.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/ipamconfigs.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/bgppeers.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/bgpconfigurations.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/ippools.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/hostendpoints.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/clusterinformations.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/globalnetworkpolicies.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/globalnetworksets.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/networkpolicies.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/networksets.crd.projectcalico.org createdclusterrole.rbac.authorization.k8s.io/calico-kube-controllers createdclusterrolebinding.rbac.authorization.k8s.io/calico-kube-controllers createdclusterrole.rbac.authorization.k8s.io/calico-node createdclusterrolebinding.rbac.authorization.k8s.io/calico-node createddaemonset.apps/calico-node createdserviceaccount/calico-node createddeployment.apps/calico-kube-controllers createdserviceaccount/calico-kube-controllers created 验证是否成功 查看 Calico 网络插件处于 Running 状态即表示安装成功 12345678910111213141516171819watch kubectl get pods --all-namespaces# 输出如下NAMESPACE NAME READY STATUS RESTARTS AGEkube-system calico-kube-controllers-77c4b7448-vzsb7 1/1 Running 0 3m52skube-system calico-node-5gr6m 1/1 Running 0 3m53skube-system calico-node-5pwj6 1/1 Running 0 3m53skube-system calico-node-drp46 1/1 Running 0 3m53skube-system calico-node-npjpx 1/1 Running 0 3m53skube-system coredns-9d85f5447-czrdk 1/1 Running 0 32mkube-system coredns-9d85f5447-zsf6f 1/1 Running 0 32mkube-system etcd-kubernetes-master 1/1 Running 0 33mkube-system kube-apiserver-kubernetes-master 1/1 Running 0 33mkube-system kube-controller-manager-kubernetes-master 1/1 Running 0 33mkube-system kube-proxy-jf9jg 1/1 Running 0 16mkube-system kube-proxy-t2rz5 1/1 Running 0 16mkube-system kube-proxy-vszhp 1/1 Running 0 16mkube-system kube-proxy-zpjk2 1/1 Running 0 32mkube-system kube-scheduler-kubernetes-master 1/1 Running 0 33m 查看节点状态处于Ready 即表示安装成功 12345678kubectl get nodes# 输出如下NAME STATUS ROLES AGE VERSIONkubernetes-master Ready master 33m v1.17.3kubernetes-node1 Ready &lt;none&gt; 17m v1.17.3kubernetes-node2 Ready &lt;none&gt; 16m v1.17.3kubernetes-node3 Ready &lt;none&gt; 16m v1.17.3]]></content>
       <tags>
         <tag>K8S</tag>
@@ -64,6 +102,36 @@
       </tags>
   </entry>
   <entry>
+    <title></title>
+    <url>%2F2020%2F04%2F29%2F%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%2F9.FinalShell%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2020%2F04%2F29%2F%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%2F8.Postman%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2020%2F04%2F29%2F%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%2F7.PLSQL%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2020%2F04%2F29%2F%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%2F6.Navicat%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2020%2F04%2F29%2F%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%2F5.STS(eclipse)%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2020%2F04%2F29%2F%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%2F4.Axure%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[图书推荐]]></title>
     <url>%2F2020%2F04%2F29%2F%E5%9B%BE%E4%B9%A6%E6%8E%A8%E8%8D%90%2F%E5%9B%BE%E4%B9%A6%E6%8E%A8%E8%8D%90%2F</url>
     <content type="text"><![CDATA[高清下载 图书下载]]></content>
@@ -74,6 +142,66 @@
         <tag>图书推荐</tag>
         <tag>源码分析</tag>
       </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2020%2F04%2F29%2F%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%2F2.WebStorm%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2020%2F04%2F29%2F%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%2F3.VisualStudioCode%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2020%2F04%2F29%2F6.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%87%BD%E6%95%B0%E8%AE%A1%E7%AE%97%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2020%2F04%2F29%2F6.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%9C%8D%E5%8A%A1%E7%BD%91%E6%A0%BC%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2020%2F04%2F29%2F6.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%A4%A7%E8%A7%84%E6%A8%A1%E4%BA%A4%E4%BB%98%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2020%2F04%2F29%2F6.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%9B%86%E7%BE%A4%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2020%2F04%2F29%2F4.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB(Flutter)%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2020%2F04%2F29%2F4.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB(React)%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2020%2F04%2F29%2F4.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB(Vue%26Vuetify)%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2020%2F04%2F29%2F5.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%8C%81%E7%BB%AD%E5%8C%96%E4%BA%A4%E4%BB%98%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%8C%81%E7%BB%AD%E4%BA%A4%E4%BB%98%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2020%2F04%2F29%2F5.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%8C%81%E7%BB%AD%E5%8C%96%E4%BA%A4%E4%BB%98%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2020%2F04%2F29%2F5.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%8C%81%E7%BB%AD%E5%8C%96%E4%BA%A4%E4%BB%98%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%AE%B9%E5%99%A8%E5%8C%96%E9%83%A8%E7%BD%B2%2F</url>
+    <content type="text"><![CDATA[]]></content>
   </entry>
   <entry>
     <title><![CDATA[16.性能监控]]></title>
@@ -198,7 +326,7 @@
   <entry>
     <title><![CDATA[JDK新特性]]></title>
     <url>%2F2020%2F04%2F26%2FJDK%E6%96%B0%E7%89%B9%E6%80%A7%2FJDK%E6%96%B0%E7%89%B9%E6%80%A7%2F</url>
-    <content type="text"><![CDATA[]]></content>
+    <content type="text"><![CDATA[1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950@FunctionalInterfaceinterface Foo&#123; //函数式接口有且只有一个方法 //public void sayHello(); public int add(int x,int y); //default 可以定义一个 public default int mul(int x,int y) &#123; retrun x * y; &#125; // static 可以定义多个 public static int div(int x, int y) &#123; retrun x/y; &#125;&#125;/** * 函数式接口可以使用 Lambda * 1.拷贝中括号,写死右箭头，落地大括号 * 2.@FunctionalInterface * 3.default * 4.static */public clas LambdaExpresssDemo&#123; public static void main(String[] args) &#123; /*Foo foo = new Foo() &#123; @Override public void sayHello() &#123; System.out.println("****** hello"); &#125; foo.sayHello(); &#125;*/ //Foo foo = () -&gt; &#123;System.out.println("****** hello");&#125;; //foo.sayHello(); Foo foo = (int x, int y)&#123;System.out.println("come in math");return x+y;&#125;; System.out.println(foo.add(3,5)); System.out.println(foo.mul(3,5)); System.out.println(Foo.div(10,2)) &#125;&#125; ​ Stream 是对集合(Collection)对象功能的增强，它专注于对集合对象进行各种非常便利、高效的聚合操作，或者大批量数据操作。通常我们需要多行代码才能完成的操作，借助于Stream流式处理可以很简单的实现。 Stream 不是集合元素，它不是数据结构并不保存数据，它是有关算法和计算的，它更像一个高级版本的Iterator。同时Stream提供串行和并行两种模式进行汇聚操作。比如你的Stream里面有很多数据，Stream可以开多个线程每个线程处理一部分。最后把结果汇总起来。 在开始之前我们先用一个图来整体的概况下Stream。如下所示： https://blog.csdn.net/wuyuxing24/article/details/96560995 12]]></content>
       <categories>
         <category>目录</category>
       </categories>
@@ -216,6 +344,28 @@
       <tags>
         <tag>目录</tag>
         <tag>二级</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[微服务-微服务治理]]></title>
+    <url>%2F2020%2F04%2F26%2F6.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>目录</category>
+      </categories>
+      <tags>
+        <tag>目录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[微服务-持续化交付]]></title>
+    <url>%2F2020%2F04%2F26%2F5.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%8C%81%E7%BB%AD%E5%8C%96%E4%BA%A4%E4%BB%98%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%8C%81%E7%BB%AD%E5%8C%96%E4%BA%A4%E4%BB%98%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>目录</category>
+      </categories>
+      <tags>
+        <tag>目录</tag>
       </tags>
   </entry>
   <entry>
@@ -252,6 +402,17 @@
       <tags>
         <tag>目录</tag>
         <tag>二级</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[微服务-前后端分离]]></title>
+    <url>%2F2020%2F04%2F26%2F4.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>目录</category>
+      </categories>
+      <tags>
+        <tag>目录</tag>
       </tags>
   </entry>
   <entry>
