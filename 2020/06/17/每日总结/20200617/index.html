@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="工作中遇到一些问题，希望记录下来，以后方便查看  Dubbo的坑以及两个实体List的合并  工作中有导出功能，导出需要和页面展示的内容一致，但是，导出的数据Float型自动转成了Double型，日期多.0，很是奇怪，同事自己写的sql没有这些问题，因为公司框架中封装了mybatis-plus，我的页面有很多字段，图方便使用了mybatis-plus，出现这些问题，于是Debug代码，发现在ser">
+<meta name="description" content="工作中遇到一些问题，希望记录下来，以后方便查看  Dubbo以及两个实体List的合并  工作中有导出功能，导出需要和页面展示的内容一致，但是，导出的数据Float型自动转成了Double型，日期多.0，很是奇怪，同事自己写的sql没有这些问题，因为公司框架中封装了mybatis-plus，我的页面有很多字段，为了方便开发，使用了mybatis-plus，出现这些问题，于是Debug代码，发现在s">
 <meta name="keywords" content="工作总结">
 <meta property="og:type" content="article">
 <meta property="og:title" content="20200617">
 <meta property="og:url" content="https://woshibaize.github.io/2020/06/17/每日总结/20200617/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="工作中遇到一些问题，希望记录下来，以后方便查看  Dubbo的坑以及两个实体List的合并  工作中有导出功能，导出需要和页面展示的内容一致，但是，导出的数据Float型自动转成了Double型，日期多.0，很是奇怪，同事自己写的sql没有这些问题，因为公司框架中封装了mybatis-plus，我的页面有很多字段，图方便使用了mybatis-plus，出现这些问题，于是Debug代码，发现在ser">
+<meta property="og:description" content="工作中遇到一些问题，希望记录下来，以后方便查看  Dubbo以及两个实体List的合并  工作中有导出功能，导出需要和页面展示的内容一致，但是，导出的数据Float型自动转成了Double型，日期多.0，很是奇怪，同事自己写的sql没有这些问题，因为公司框架中封装了mybatis-plus，我的页面有很多字段，为了方便开发，使用了mybatis-plus，出现这些问题，于是Debug代码，发现在s">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-06-17T14:41:41.896Z">
+<meta property="og:updated_time" content="2020-08-17T10:47:07.674Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="20200617">
-<meta name="twitter:description" content="工作中遇到一些问题，希望记录下来，以后方便查看  Dubbo的坑以及两个实体List的合并  工作中有导出功能，导出需要和页面展示的内容一致，但是，导出的数据Float型自动转成了Double型，日期多.0，很是奇怪，同事自己写的sql没有这些问题，因为公司框架中封装了mybatis-plus，我的页面有很多字段，图方便使用了mybatis-plus，出现这些问题，于是Debug代码，发现在ser">
+<meta name="twitter:description" content="工作中遇到一些问题，希望记录下来，以后方便查看  Dubbo以及两个实体List的合并  工作中有导出功能，导出需要和页面展示的内容一致，但是，导出的数据Float型自动转成了Double型，日期多.0，很是奇怪，同事自己写的sql没有这些问题，因为公司框架中封装了mybatis-plus，我的页面有很多字段，为了方便开发，使用了mybatis-plus，出现这些问题，于是Debug代码，发现在s">
 
 
 
@@ -417,7 +417,7 @@
                   <span class="post-meta-item-text">本文共计 &#58;</span>
                 
                 <span title="本文共计">
-                  816 字
+                  817 字
                 </span>
               
 
@@ -456,9 +456,9 @@
       
         <p><center>工作中遇到一些问题，希望记录下来，以后方便查看</center></p>
 <ul>
-<li><p>Dubbo的坑以及两个实体List的合并</p>
+<li><p>Dubbo以及两个实体List的合并</p>
 </li>
-<li><p>工作中有导出功能，导出需要和页面展示的内容一致，但是，导出的数据Float型自动转成了Double型，日期多.0，很是奇怪，同事自己写的sql没有这些问题，因为公司框架中封装了mybatis-plus，我的页面有很多字段，图方便使用了mybatis-plus，出现这些问题，于是Debug代码，发现在service层，没有查询出的数据格式，与页面相同，但是到了controller层就变得Double，.0等问题了，回想了一下执行流程发现，自己写的sql，会通过实体类，实体类中有实现序列化，所以没有问题，而自己使用mybatis-plus的方法，直接封装了结果，中间没有序列化，导致数据传输错误，以上是我认为的，后续还要验证，究竟是什么原因导致的自动变成了Double</p>
+<li><p>工作中有导出功能，导出需要和页面展示的内容一致，但是，导出的数据Float型自动转成了Double型，日期多.0，很是奇怪，同事自己写的sql没有这些问题，因为公司框架中封装了mybatis-plus，我的页面有很多字段，为了方便开发，使用了mybatis-plus，出现这些问题，于是Debug代码，发现在service层，没有查询出的数据格式，与页面相同，但是到了controller层就变得Double，.0等问题了，回想了一下执行流程发现，自己写的sql，会通过实体类，实体类中有实现序列化，所以没有问题，而自己使用mybatis-plus的方法，直接封装了结果，中间没有序列化，导致数据传输错误，以上是我认为的，后续还要验证，究竟是什么原因导致的自动变成了Double</p>
 </li>
 <li>因为还有一个需求，通过两次查询结果，合并成一个结果返回前端，数据需要将相同的合并，不同的保留，起初的写法只是双重for循环＋if判断，可以把相同的数据合并，并保留外层数据的不同值，但是，内层循环的不同数据就丢失了。后面想到相同添加，同时删除内层数据，最后再加上内层剩余数据就可以完成了，实现过程中出现了异常，最后换了一个方式。将一个list的匹配字段放入hashmap中当key，剩下实体当value，另一个list遍历，添加，最后实现了</li>
 <li>失败的方法</li>
@@ -636,7 +636,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">64</span>
+                  <span class="site-state-item-count">75</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -658,7 +658,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -770,7 +770,7 @@
     
       <span class="post-meta-item-text">全站共计字数&#58;</span>
     
-    <span title="全站共计字数">12k</span>
+    <span title="全站共计字数">21.5k</span>
   
 </div>
 
