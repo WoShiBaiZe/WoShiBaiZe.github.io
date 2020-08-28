@@ -91,14 +91,14 @@
 <meta name="description" content="排序（指定字段升序排列后返回）  123list.sort((s1, s2) -&amp;gt; &amp;#123;     return s1.getSumaryDate().compareTo(s2.getSumaryDate());&amp;#125;);  降序-字符串反转排序  12345678910111213141516171819202122232425// 方法1public static Stri">
 <meta name="keywords" content="工作总结">
 <meta property="og:type" content="article">
-<meta property="og:title" content="20200813-数据排序">
+<meta property="og:title" content="数据排序">
 <meta property="og:url" content="https://woshibaize.github.io/2020/08/13/每日总结/20200813/index.html">
 <meta property="og:site_name" content="个人博客">
 <meta property="og:description" content="排序（指定字段升序排列后返回）  123list.sort((s1, s2) -&amp;gt; &amp;#123;     return s1.getSumaryDate().compareTo(s2.getSumaryDate());&amp;#125;);  降序-字符串反转排序  12345678910111213141516171819202122232425// 方法1public static Stri">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-08-13T12:06:57.222Z">
+<meta property="og:updated_time" content="2020-08-28T04:10:47.697Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="20200813-数据排序">
+<meta name="twitter:title" content="数据排序">
 <meta name="twitter:description" content="排序（指定字段升序排列后返回）  123list.sort((s1, s2) -&amp;gt; &amp;#123;     return s1.getSumaryDate().compareTo(s2.getSumaryDate());&amp;#125;);  降序-字符串反转排序  12345678910111213141516171819202122232425// 方法1public static Stri">
 
 
@@ -154,7 +154,7 @@
 <!-- fontawesome5 -->
 <link href="/lib/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" type="text/css">
 
-  <title>20200813-数据排序 | 个人博客</title>
+  <title>数据排序 | 个人博客</title>
   
 
 
@@ -348,7 +348,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">20200813-数据排序</h2>
+          <h2 class="post-title" itemprop="name headline">数据排序</h2>
         
 
         <div class="post-meta">
@@ -417,7 +417,7 @@
                   <span class="post-meta-item-text">本文共计 &#58;</span>
                 
                 <span title="本文共计">
-                  314 字
+                  335 字
                 </span>
               
 
@@ -466,7 +466,10 @@
 <li>降序-List反转</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方法一：使用Collections.reverse(list)方法反转</span></span><br><span class="line"><span class="comment">//方法二：自己迭代list实现反转</span></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Collections;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            list.add(i + <span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        Test test = <span class="keyword">new</span> Test();</span><br><span class="line">        test.print(list);</span><br><span class="line">        <span class="comment">//反转</span></span><br><span class="line">        test.reverseList1(list);</span><br><span class="line">        test.reverseList2(list);</span><br><span class="line"></span><br><span class="line">        test.print(list);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reverseList1</span><span class="params">(List&lt;String&gt; list)</span> </span>&#123;</span><br><span class="line">        Collections.reverse(list);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reverseList2</span><span class="params">(List&lt;String&gt; list)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; tmpList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = list.size() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            tmpList.add(list.get(i));</span><br><span class="line">        &#125;</span><br><span class="line">        list.clear();</span><br><span class="line">        list.addAll(tmpList);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">(List&lt;String&gt; list)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.size(); i++) &#123;</span><br><span class="line">            System.out.print((list.get(i)));</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>- </p>
+<ul>
+<li>除此之外还有JDK8新特性Stream流</li>
+<li>sql语句排序，order by … desc/asc等</li>
+</ul>
 
       
     </div>
@@ -532,7 +535,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://woshibaize.github.io/2020/08/13/每日总结/20200813/" title="20200813-数据排序">https://woshibaize.github.io/2020/08/13/每日总结/20200813/</a>
+    <a href="https://woshibaize.github.io/2020/08/13/每日总结/20200813/" title="数据排序">https://woshibaize.github.io/2020/08/13/每日总结/20200813/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -547,8 +550,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/08/13/其它/excel宏-sheet合并/" rel="next" title="excel宏-sheet合并">
-                <i class="fas fa-chevron-left"></i> excel宏-sheet合并
+              <a href="/2020/08/13/其它/webservice学习/" rel="next" title="webService学习">
+                <i class="fas fa-chevron-left"></i> webService学习
               </a>
             
           </div>
@@ -557,8 +560,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/08/14/每日总结/20200814/" rel="prev" title="20200814-百万数据导出">
-                20200814-百万数据导出 <i class="fas fa-chevron-right"></i>
+              <a href="/2020/08/14/每日总结/20200814/" rel="prev" title="百万数据导出">
+                百万数据导出 <i class="fas fa-chevron-right"></i>
               </a>
             
           </div>
@@ -635,7 +638,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">78</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -657,7 +660,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -769,7 +772,7 @@
     
       <span class="post-meta-item-text">全站共计字数&#58;</span>
     
-    <span title="全站共计字数">32.8k</span>
+    <span title="全站共计字数">30.3k</span>
   
 </div>
 

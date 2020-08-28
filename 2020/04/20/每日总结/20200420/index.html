@@ -88,20 +88,20 @@
 
 
 
-<meta name="description" content="工作中遇到一些问题，希望记录下来，以后方便查看 - Dubbo/Zookeeper  2020-04-20  所在项目组架构使用Dubbo+Zookeeper以及spingboot，mybatis，mybatis-plus，开发过程中，需要传递实体类并传递分页信息，以便根据实体类条件查询结果分页，查阅资料，都是在controller层，使用service接口调用mybatis-plus的page方">
+<meta name="description" content="Dubbo+Zookeeper中MyBatis-PLUS分页使用  2020-04-20  所在项目组架构使用Dubbo+Zookeeper以及spingboot，mybatis，mybatis-plus，开发过程中，需要传递实体类并传递分页信息，以便根据实体类条件查询结果分页，查阅资料，都是在controller层，使用service接口调用mybatis-plus的page方法，但是，因为公司">
 <meta name="keywords" content="工作总结">
 <meta property="og:type" content="article">
-<meta property="og:title" content="20200420">
+<meta property="og:title" content="Dubbo+Zookeeper中MyBatis-PLUS分页使用">
 <meta property="og:url" content="https://woshibaize.github.io/2020/04/20/每日总结/20200420/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="工作中遇到一些问题，希望记录下来，以后方便查看 - Dubbo/Zookeeper  2020-04-20  所在项目组架构使用Dubbo+Zookeeper以及spingboot，mybatis，mybatis-plus，开发过程中，需要传递实体类并传递分页信息，以便根据实体类条件查询结果分页，查阅资料，都是在controller层，使用service接口调用mybatis-plus的page方">
+<meta property="og:description" content="Dubbo+Zookeeper中MyBatis-PLUS分页使用  2020-04-20  所在项目组架构使用Dubbo+Zookeeper以及spingboot，mybatis，mybatis-plus，开发过程中，需要传递实体类并传递分页信息，以便根据实体类条件查询结果分页，查阅资料，都是在controller层，使用service接口调用mybatis-plus的page方法，但是，因为公司">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://note.youdao.com/yws/public/resource/a3e7702c99de3b8eb94f0f1d65049ff6/xmlnote/5F231DEAA095434BAB2B31B4865CFEC6/131">
 <meta property="og:image" content="https://note.youdao.com/yws/public/resource/a3e7702c99de3b8eb94f0f1d65049ff6/xmlnote/4BCD83DF8B5E40489F4586E212B7F2AC/130">
-<meta property="og:updated_time" content="2020-06-06T02:21:17.177Z">
+<meta property="og:updated_time" content="2020-08-28T04:02:25.939Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="20200420">
-<meta name="twitter:description" content="工作中遇到一些问题，希望记录下来，以后方便查看 - Dubbo/Zookeeper  2020-04-20  所在项目组架构使用Dubbo+Zookeeper以及spingboot，mybatis，mybatis-plus，开发过程中，需要传递实体类并传递分页信息，以便根据实体类条件查询结果分页，查阅资料，都是在controller层，使用service接口调用mybatis-plus的page方">
+<meta name="twitter:title" content="Dubbo+Zookeeper中MyBatis-PLUS分页使用">
+<meta name="twitter:description" content="Dubbo+Zookeeper中MyBatis-PLUS分页使用  2020-04-20  所在项目组架构使用Dubbo+Zookeeper以及spingboot，mybatis，mybatis-plus，开发过程中，需要传递实体类并传递分页信息，以便根据实体类条件查询结果分页，查阅资料，都是在controller层，使用service接口调用mybatis-plus的page方法，但是，因为公司">
 <meta name="twitter:image" content="https://note.youdao.com/yws/public/resource/a3e7702c99de3b8eb94f0f1d65049ff6/xmlnote/5F231DEAA095434BAB2B31B4865CFEC6/131">
 
 
@@ -157,7 +157,7 @@
 <!-- fontawesome5 -->
 <link href="/lib/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" type="text/css">
 
-  <title>20200420 | 个人博客</title>
+  <title>Dubbo+Zookeeper中MyBatis-PLUS分页使用 | 个人博客</title>
   
 
 
@@ -351,7 +351,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">20200420</h2>
+          <h2 class="post-title" itemprop="name headline">Dubbo+Zookeeper中MyBatis-PLUS分页使用</h2>
         
 
         <div class="post-meta">
@@ -420,7 +420,7 @@
                   <span class="post-meta-item-text">本文共计 &#58;</span>
                 
                 <span title="本文共计">
-                  243 字
+                  228 字
                 </span>
               
 
@@ -457,7 +457,7 @@
       
 
       
-        <p><center>工作中遇到一些问题，希望记录下来，以后方便查看 - Dubbo/Zookeeper</center></p>
+        <p><center>Dubbo+Zookeeper中MyBatis-PLUS分页使用</center></p>
 <ul>
 <li><p>2020-04-20</p>
 <ol>
@@ -537,7 +537,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://woshibaize.github.io/2020/04/20/每日总结/20200420/" title="20200420">https://woshibaize.github.io/2020/04/20/每日总结/20200420/</a>
+    <a href="https://woshibaize.github.io/2020/04/20/每日总结/20200420/" title="Dubbo+Zookeeper中MyBatis-PLUS分页使用">https://woshibaize.github.io/2020/04/20/每日总结/20200420/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -562,8 +562,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/04/22/每日总结/20200422/" rel="prev" title="20200422">
-                20200422 <i class="fas fa-chevron-right"></i>
+              <a href="/2020/04/22/每日总结/20200422/" rel="prev" title="请求头">
+                请求头 <i class="fas fa-chevron-right"></i>
               </a>
             
           </div>
@@ -640,7 +640,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">78</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -662,7 +662,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -774,7 +774,7 @@
     
       <span class="post-meta-item-text">全站共计字数&#58;</span>
     
-    <span title="全站共计字数">32.8k</span>
+    <span title="全站共计字数">30.3k</span>
   
 </div>
 

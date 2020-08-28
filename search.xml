@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[1.Vue & Vuetify]]></title>
-    <url>%2F2020%2F08%2F20%2F4.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB(Vue%26Vuetify)%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB(Vue%26Vuetify)%2F</url>
-    <content type="text"><![CDATA[Vue Element Admin Vue Element Admin 简介 Vue Element Admin 初始化 Vue Element Admin 基本配置 Vue Element Admin 表格演示 Vuetify Vuetify 简介 Vuetify 初始化 Vuetify 基本配置 Vuetify 布局 Vuetify 登录功能演示 Vuetify 注册功能演示]]></content>
-      <categories>
-        <category>目录</category>
-      </categories>
-      <tags>
-        <tag>目录</tag>
-        <tag>二级</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[20200816-ztree数据格式]]></title>
+    <title><![CDATA[ztree数据格式]]></title>
     <url>%2F2020%2F08%2F16%2F%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93%2F20200816%2F</url>
     <content type="text"><![CDATA[ztree数据格式 1.ztree官网 2.ztree的两种数据格式 标准的 JSON 数据需要嵌套表示节点的父子包含关系 123456var nodes = [ &#123;name: "父节点1", children: [ &#123;name: "子节点1"&#125;, &#123;name: "子节点2"&#125; ]&#125;]; 简单模式的 JSON 数据需要使用 id / pId 表示节点的父子包含关系 12345var nodes = [ &#123;id:1, pId:0, name: "父节点1"&#125;, &#123;id:11, pId:1, name: "子节点1"&#125;, &#123;id:12, pId:1, name: "子节点2"&#125;]; 3.Java后台实现 3.1 标准的JSON数据格式- 省市区联动 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117//controller@PostMapping(value = "/getCity")@ApiOperation(httpMethod = "POST",value = "查看地址")public R&lt;List&lt;TreeNode&gt;&gt; getCity()&#123; logger.info("getCity - 获取地址"); List&lt;TreeNode&gt; treeNodeList = addressService.getCity(); return new R&lt;&gt;(treeNodeList);&#125;//service@Override@Cacheable(cacheNames = "",keyGenerator = "")public List&lt;TreeNode&gt; getCity()&#123; List&lt;Address&gt; address = addressMapper.selectList(new EntityWrapper&lt;&gt;()); List&lt;TreeNode&gt; treeNodeList = buildGroupTree(addresses); return treeNodeList;&#125;//utilsprivate List&lt;TreeNode&gt; bulidGroupList(List&lt;Address&gt; addressesList)&#123; List&lt;TreeNode&gt; list = Lists.newArrayList(); TreeNode node; for(Address group : addressesList)&#123; node = new TreeNode(); node.setId(group.getId()); node.setPid(group.getPid); node.setNodeCode(group.getAdCode()); node.setNodeName(group.getName()); list.add(node); &#125; return RecursionTreeUtil.getChildTreeNodes(list,xxxxxL);&#125;public class RecursionTreeUtil&#123; public static List&lt;TreeNode&gt; getChildTreeNodes(List&lt;TreeNode&gt; list,Long parentId)&#123; List&lt;TreeNode&gt; returnList = new ArrayList&lt;&gt;(); for(TreeNode treeNode : list)&#123; if(treeNode.getPid() == null)&#123; continue; &#125; if(Objects.equals(treeNode.getPid(),parentId))&#123; recursion(list,treeNode); returnList.add(treeNode); &#125; &#125; &#125;&#125;private static void recursionFn(List&lt;TreeNode&gt; list,TreeNode node)&#123; List&lt;TreeNode&gt; childList = getChildlist(list,node); if(PublicUtil.isEmpty(childList))&#123; return; &#125; node.setChildren(childList); for(TreeNode tChild : childList)&#123; recursionFn(list, tChild); &#125;&#125;public class PublicUtil &#123; public static boolean isEmpty(Object pObj) &#123; if (pObj == null) &#123; return true; &#125; if (pObj == "") &#123; return true; &#125; if (pObj instanceof String) &#123; return ((String) pObj).length() == 0; &#125; else if (pObj instanceof Collection) &#123; return ((Collection) pObj).isEmpty(); &#125; else if (pObj instanceof Map) &#123; return ((Map) pObj).size() == 0; &#125; return false; &#125; public static boolean isNotEmpty(Object pObj) &#123; if (pObj == null) &#123; return false; &#125; if (pObj == "") &#123; return false; &#125; if (pObj instanceof String) &#123; return ((String) pObj).length() != 0; &#125; else if (pObj instanceof Collection) &#123; return !((Collection) pObj).isEmpty(); &#125; else if (pObj instanceof Map) &#123; return ((Map) pObj).size() != 0; &#125; return true; &#125; public static boolean isEquals(Integer i1,Integer i2) &#123; if(i1 == null &amp;&amp; i2 == null)&#123; return true ; &#125; if(i1 != null &amp;&amp; i2 != null)&#123; return i1.equals(i2); &#125; return false; &#125;&#125;//iDaoList&lt;T&gt; selectList(@Param("ew") Wrapper&lt;T&gt; wrapper);//entity@Datapublic class TreeNode implements Serializable&#123; private String nodeCode; private String nodeName; private Long id; private Long pid; private List&lt;TreeNode&gt; childeren;&#125; 3.2 简单模式的 JSON 数据 123456789101112131415161718192021222324252627282930313233343536数据结构：var nodes = [ &#123;id:1, pId:0, name: "父节点1"&#125;, &#123;id:11, pId:1, name: "子节点1"&#125;, &#123;id:12, pId:1, name: "子节点2"&#125;];// 获取简单JSON数据public static List&lt;Map&lt;String, Object&gt;&gt; getStandardJSON() &#123; // 根据不同框架获取对应的List数据 List&lt;Map&lt;String, Object&gt;&gt; queryList = query.find(); List&lt;Map&lt;String, Object&gt;&gt; list = Lists.newArrayList(); treeList = getChild(queryList.get(0).get("id") , queryList , list ); return list;&#125;public static List&lt;Map&lt;String, Object&gt;&gt; getChild(String id, List&lt;Map&lt;String, Object&gt;&gt; allList, List&lt;Map&lt;String, Object&gt;&gt; simpleList) &#123; // 子节点 List&lt;Map&lt;String, Object&gt;&gt; childList = Lists.newArrayList(); for (Map&lt;String, Object&gt; map : allList) &#123; // 遍历所有节点，将父节点id与传过来的id比较 if (!ParamValidUtils.isEmpty(map.get("parent_id"))) &#123; if (map.get("parent_id").toString().equals(id)) &#123; simpleList.add(map); childList.add(map); &#125; &#125; &#125; // 把子节点的子节点再循环一遍 for (Map&lt;String, Object&gt; map : childList) &#123; getChild(map.get("id").toString(), allList, simpleList); &#125; // 递归退出条件 if (childList.size() == 0) &#123; return simpleList; &#125; return simpleList;]]></content>
       <categories>
@@ -24,7 +12,7 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[20200814-百万数据导出]]></title>
+    <title><![CDATA[百万数据导出]]></title>
     <url>%2F2020%2F08%2F14%2F%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93%2F20200814%2F</url>
     <content type="text"><![CDATA[百万数据导出 背景：因为客户需要5年系统维护，我们根据现有数据增长量，预测客户数据可能达到100w左右，同时，根据用户要求，可以导出数据库所有数据，现有的开发测试数据仅有9w左右，而且网上一些不负责任的博客，经过尝试，都不符合要求，导出的表有20多列字段，出现各种问题，所以最终自己实现。实现结果还算满意，需求符合了，在规定时间内返回结果了，但是，还是有很多值得提升的点，因为一些个人原因，只能后续 闲暇时候再研究了，应该不会再遇到这种导出100w左右的需求了，事情也不能说的太绝对了，特此记录一下。最终50w数据3.9分钟，100w数据13分钟。 1.导数据 1因为本身数据库中没有那么多数据，又要根据业务需要，所以我们没有采用批量生成方法，而是把现有数据重复导入，关闭主键ID，使用ID可以重复，使用navicat 将数据导出到excel中，再次导入，重复操作，最终数据达到100多w。注：不要使用生成sql，一条条插入，会怀疑人生，同事亲身试验，卡到爆 2.整理导出功能思路 1相信大家都做过导出功能，我们一开始设置每次也就只有1w条左右，没有发现问题，那时数据也没有那么多，只有几千条，但是，数据一多就会发现问题，第一：导出OOM，第二：效率低下，导出功能实现其实也很简单，就是查询，写入excel（这是我们的需求） 3.写查询 1更改现有查询sql，并且将查询数量从原先的1w改为100w，有意思的事情就发生了，有请求超时问题，超出存放范围溢出问题等等，最后我使用了多线程分段查询解决了查询慢的问题，但是，数据要合并，每次查询哪个线程快慢无法决定，所以使用了CopyOnWriteArrayList，写时复制底层使用了lock锁，读数据时候可以多线程，但是，写的时候保证每次只有一个线程在写，废话太多了，直接上代码吧 1234567891011121314151617181920212223242526final CountDownLatch latch = new CountDownLatch(10);CopyOnWriteArrayList&lt;&gt; arr = new CopyOnWriteArrayList&lt;&gt;();for(int i=1;i&lt;=10;i++)&#123; Page&lt;XX&gt; page = new Page&lt;&gt;(i,pageSize/10); new Thread(()-&gt;&#123; Date xxx =null; try &#123; if(StringUtils.isEmpty(xx) == false)&#123; xxx = DateUtils.formatDate(xx); &#125; //调用查询接口 arr.add(service.select(page,xxx....)); &#125;catch(Exception e)&#123; e.printStack(); &#125; latch.countDown(); System.out.println("剩下" + latch.getCount()+"个未完成"); &#125;).start();&#125; //等待线程收集齐数据try &#123; latch.await();&#125; catch (InterruptedException e) &#123; e.printStackTrace();&#125; 4.写入Excel 1使用POI，只要注意OOM内存溢出问题就可以了，这里省略，使用XSSFWorkbook就可以了 5.优化思考 1任务虽然完成了，对于测试过程中也发现一些问题，查询慢，查询返回不回结果的问题解决了，但是，最大的问题又出现了，写入excel特别慢，因为只是使用了一个sheet存放100w数据，我现在的优化想法是使用多线程查询出的结果，直接用多线程再次写入每个sheet，同时进行，不阻塞数据，应该会有很大效率提升，因为暂时没有需求，加之近期又主动离职，暂时只能这样了，后续有实现，再次记录]]></content>
       <categories>
@@ -35,22 +23,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[20200813-数据排序]]></title>
+    <title><![CDATA[数据排序]]></title>
     <url>%2F2020%2F08%2F13%2F%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93%2F20200813%2F</url>
-    <content type="text"><![CDATA[排序（指定字段升序排列后返回） 123list.sort((s1, s2) -&gt; &#123; return s1.getSumaryDate().compareTo(s2.getSumaryDate());&#125;); 降序-字符串反转排序 12345678910111213141516171819202122232425// 方法1public static String reverse1(String str)&#123; return new StringBuffer(str).reverse().toString();&#125; // 方法2public static String reverse3(String s)&#123; char[] array = s.toCharArray(); String reverse = ""; for (int i = array.length - 1; i &gt;= 0; i--)&#123; reverse += array[i]; &#125; return reverse; &#125; //方法3 public static String reverse2(String s)&#123; int length = s.length(); String reverse = ""; for (int i = 0; i &lt; length; i++)&#123; //在新字符串前面添加读取字符，实现翻转 reverse = s.charAt(i) + reverse; &#125; return reverse; &#125; 降序-List反转 1234567891011121314151617181920212223242526272829303132333435363738394041//方法一：使用Collections.reverse(list)方法反转//方法二：自己迭代list实现反转import java.util.ArrayList;import java.util.Collections;import java.util.List;public class Test &#123; public static void main(String[] args) &#123; List&lt;String&gt; list = new ArrayList&lt;&gt;(); for (int i = 0; i &lt; 10; i++) &#123; list.add(i + " "); &#125; Test test = new Test(); test.print(list); //反转 test.reverseList1(list); test.reverseList2(list); test.print(list); &#125; public void reverseList1(List&lt;String&gt; list) &#123; Collections.reverse(list); &#125; public void reverseList2(List&lt;String&gt; list) &#123; List&lt;String&gt; tmpList = new ArrayList&lt;&gt;(); for (int i = list.size() - 1; i &gt;= 0; i--) &#123; tmpList.add(list.get(i)); &#125; list.clear(); list.addAll(tmpList); &#125; public void print(List&lt;String&gt; list) &#123; for (int i = 0; i &lt; list.size(); i++) &#123; System.out.print((list.get(i))); &#125; System.out.println(); &#125;&#125; -]]></content>
+    <content type="text"><![CDATA[排序（指定字段升序排列后返回） 123list.sort((s1, s2) -&gt; &#123; return s1.getSumaryDate().compareTo(s2.getSumaryDate());&#125;); 降序-字符串反转排序 12345678910111213141516171819202122232425// 方法1public static String reverse1(String str)&#123; return new StringBuffer(str).reverse().toString();&#125; // 方法2public static String reverse3(String s)&#123; char[] array = s.toCharArray(); String reverse = ""; for (int i = array.length - 1; i &gt;= 0; i--)&#123; reverse += array[i]; &#125; return reverse; &#125; //方法3 public static String reverse2(String s)&#123; int length = s.length(); String reverse = ""; for (int i = 0; i &lt; length; i++)&#123; //在新字符串前面添加读取字符，实现翻转 reverse = s.charAt(i) + reverse; &#125; return reverse; &#125; 降序-List反转 1234567891011121314151617181920212223242526272829303132333435363738394041//方法一：使用Collections.reverse(list)方法反转//方法二：自己迭代list实现反转import java.util.ArrayList;import java.util.Collections;import java.util.List;public class Test &#123; public static void main(String[] args) &#123; List&lt;String&gt; list = new ArrayList&lt;&gt;(); for (int i = 0; i &lt; 10; i++) &#123; list.add(i + " "); &#125; Test test = new Test(); test.print(list); //反转 test.reverseList1(list); test.reverseList2(list); test.print(list); &#125; public void reverseList1(List&lt;String&gt; list) &#123; Collections.reverse(list); &#125; public void reverseList2(List&lt;String&gt; list) &#123; List&lt;String&gt; tmpList = new ArrayList&lt;&gt;(); for (int i = list.size() - 1; i &gt;= 0; i--) &#123; tmpList.add(list.get(i)); &#125; list.clear(); list.addAll(tmpList); &#125; public void print(List&lt;String&gt; list) &#123; for (int i = 0; i &lt; list.size(); i++) &#123; System.out.print((list.get(i))); &#125; System.out.println(); &#125;&#125; 除此之外还有JDK8新特性Stream流 sql语句排序，order by … desc/asc等]]></content>
       <categories>
         <category>工作总结</category>
       </categories>
       <tags>
         <tag>工作总结</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[excel宏-sheet合并]]></title>
-    <url>%2F2020%2F08%2F13%2F%E5%85%B6%E5%AE%83%2Fexcel%E5%AE%8F-sheet%E5%90%88%E5%B9%B6%2F</url>
-    <content type="text"><![CDATA[和同事合作写产品文档，但是写完后发现两个人没法合并，然后百度查到excel宏可以解决这个问题，以下是宏合并脚本 123456789101112131415161718192021222324Sub CombineWorkbooks()Dim FilesToOpen, ftDim x As IntegerApplication.ScreenUpdating = FalseOn Error GoTo errhandlerFilesToOpen = Application.GetOpenFilename _(FileFilter:=&quot;Micrsofe Excel文件(*.xls), *.xls&quot;, _MultiSelect:=True, Title:=&quot;要合并的文件&quot;)If TypeName(FilesToOpen) = &quot;boolean&quot; ThenMsgBox &quot;没有选定文件&quot;&apos;GoTo errhandlerEnd Ifx = 1While x &lt;= UBound(FilesToOpen)Set wk = Workbooks.Open(Filename:=FilesToOpen(x))wk.Sheets().Move after:=ThisWorkbook.Sheets _(ThisWorkbook.Sheets.Count)x = x + 1WendMsgBox &quot;合并成功完成！&quot;errhandler:&apos;MsgBox Err.Description&apos;Resume errhandlerEnd Sub]]></content>
-      <tags>
-        <tag>其它</tag>
       </tags>
   </entry>
   <entry>
@@ -62,7 +42,15 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[20200811-多线程线程池]]></title>
+    <title><![CDATA[excel宏-sheet合并]]></title>
+    <url>%2F2020%2F08%2F13%2F%E5%85%B6%E5%AE%83%2Fexcel%E5%AE%8F-sheet%E5%90%88%E5%B9%B6%2F</url>
+    <content type="text"><![CDATA[和同事合作写产品文档，但是写完后发现两个人没法合并，然后百度查到excel宏可以解决这个问题，以下是宏合并脚本 123456789101112131415161718192021222324Sub CombineWorkbooks()Dim FilesToOpen, ftDim x As IntegerApplication.ScreenUpdating = FalseOn Error GoTo errhandlerFilesToOpen = Application.GetOpenFilename _(FileFilter:=&quot;Micrsofe Excel文件(*.xls), *.xls&quot;, _MultiSelect:=True, Title:=&quot;要合并的文件&quot;)If TypeName(FilesToOpen) = &quot;boolean&quot; ThenMsgBox &quot;没有选定文件&quot;&apos;GoTo errhandlerEnd Ifx = 1While x &lt;= UBound(FilesToOpen)Set wk = Workbooks.Open(Filename:=FilesToOpen(x))wk.Sheets().Move after:=ThisWorkbook.Sheets _(ThisWorkbook.Sheets.Count)x = x + 1WendMsgBox &quot;合并成功完成！&quot;errhandler:&apos;MsgBox Err.Description&apos;Resume errhandlerEnd Sub]]></content>
+      <tags>
+        <tag>其它</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[多线程与线程池]]></title>
     <url>%2F2020%2F08%2F11%2F%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93%2F20200811%2F</url>
     <content type="text"><![CDATA[1.new Thread的弊端//平时我常用的写法-SonarLint经常提示使用线程池方式123new Thread(()-&gt;&#123; &#125;).start(); 1234567a. 每次new Thread新建对象性能差。b. 线程缺乏统一管理，可能无限制新建线程，相互之间竞争，及可能占用过多系统资源导致死机或oom。c. 缺乏更多功能，如定时执行、定期执行、线程中断。相比new Thread，Java提供的四种线程池的好处在于：a. 重用存在的线程，减少对象创建、消亡的开销，性能佳。b. 可有效控制最大并发线程数，提高系统资源的使用率，同时避免过多资源竞争，避免堵塞。c. 提供定时执行、定期执行、单线程、并发数控制等功能。 2.Executors提供四种线程池1234newCachedThreadPool创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程，若无可回收，则新建线程。线程池的规模不存在限制。newFixedThreadPool 创建一个固定长度线程池，可控制线程最大并发数，超出的线程会在队列中等待。newScheduledThreadPool 创建一个固定长度线程池，支持定时及周期性任务执行。newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺序(FIFO, LIFO, 优先级)执行。 (1). newCachedThreadPool 1234567891011121314151617ExecutorService cachedThreadPool = Executors.newCachedThreadPool();for (int i = 0; i &lt; 10; i++) &#123; final int index = i; try &#123; Thread.sleep(index * 1000); &#125; catch (InterruptedException e) &#123; e.printStackTrace(); &#125; cachedThreadPool.execute(new Runnable() &#123; @Override public void run() &#123; System.out.println(index); &#125; &#125;);&#125; 线程池为无限大，当执行第二个任务时第一个任务已经完成，会复用执行第一个任务的线程，而不用每次新建线程。 (2). newFixedThreadPool创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待。示例代码如下： 1234567891011121314151617ExecutorService fixedThreadPool = Executors.newFixedThreadPool(3);for (int i = 0; i &lt; 10; i++) &#123; final int index = i; fixedThreadPool.execute(new Runnable() &#123; @Override public void run() &#123; try &#123; System.out.println(index); Thread.sleep(2000); &#125; catch (InterruptedException e) &#123; // TODO Auto-generated catch block e.printStackTrace(); &#125; &#125; &#125;);&#125; (3) newScheduledThreadPool创建一个定长线程池，支持定时及周期性任务执行。延迟执行示例代码如下： 12345678ScheduledExecutorService scheduledThreadPool = Executors.newScheduledThreadPool(5);scheduledThreadPool.schedule(new Runnable() &#123; @Override public void run() &#123; System.out.println("delay 3 seconds"); &#125;&#125;, 3, TimeUnit.SECONDS); 表示延迟3秒执行。定期执行示例代码如下：1234567scheduledThreadPool.scheduleAtFixedRate(new Runnable() &#123; @Override public void run() &#123; System.out.println("delay 1 seconds, and excute every 3 seconds"); &#125;&#125;, 1, 3, TimeUnit.SECONDS); 表示延迟1秒后每3秒执行一次。ScheduledExecutorService比Timer更安全，功能更强大。 (4)、newSingleThreadExecutor创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺序(FIFO, LIFO, 优先级)执行。示例代码如下： 1234567891011121314151617ExecutorService singleThreadExecutor = Executors.newSingleThreadExecutor();for (int i = 0; i &lt; 10; i++) &#123; final int index = i; singleThreadExecutor.execute(new Runnable() &#123; @Override public void run() &#123; try &#123; System.out.println(index); Thread.sleep(2000); &#125; catch (InterruptedException e) &#123; // TODO Auto-generated catch block e.printStackTrace(); &#125; &#125; &#125;);&#125; 结果依次输出，相当于顺序执行各个任务。 3.ExecutorService中submit和execute的区别以下这是submit 的源码：1234567891011121314151617181920212223242526272829303132public abstract class AbstractExecutorService implements ExecutorService &#123; protected &lt;T&gt; RunnableFuture&lt;T&gt; newTaskFor(Runnable runnable, T value) &#123; return new FutureTask&lt;T&gt;(runnable, value); &#125; protected &lt;T&gt; RunnableFuture&lt;T&gt; newTaskFor(Callable&lt;T&gt; callable) &#123; return new FutureTask&lt;T&gt;(callable); &#125; public Future&lt;?&gt; submit(Runnable task) &#123; if (task == null) throw new NullPointerException(); RunnableFuture&lt;Void&gt; ftask = newTaskFor(task, null); execute(ftask); return ftask; &#125; public &lt;T&gt; Future&lt;T&gt; submit(Runnable task, T result) &#123; if (task == null) throw new NullPointerException(); RunnableFuture&lt;T&gt; ftask = newTaskFor(task, result); execute(ftask); return ftask; &#125; public &lt;T&gt; Future&lt;T&gt; submit(Callable&lt;T&gt; task) &#123; if (task == null) throw new NullPointerException(); RunnableFuture&lt;T&gt; ftask = newTaskFor(task); execute(ftask); return ftask; &#125; //....&#125; 可以看出submit最终返回的是FutureTask对象，而execute:123public interface Executor &#123; void execute(Runnable command);&#125; 具体的实现在ThreadPoolExecutor类中1234567891011121314151617181920public void execute(Runnable command) &#123; if (command == null) throw new NullPointerException(); int c = ctl.get(); if (workerCountOf(c) &lt; corePoolSize) &#123; if (addWorker(command, true)) return; c = ctl.get(); &#125; if (isRunning(c) &amp;&amp; workQueue.offer(command)) &#123; int recheck = ctl.get(); if (! isRunning(recheck) &amp;&amp; remove(command)) reject(command); else if (workerCountOf(recheck) == 0) addWorker(null, false); &#125; else if (!addWorker(command, false)) reject(command); &#125; 所以，submit内部调用execute，且submit有返回值，方便exception处理。submit Demo:123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566import java.util.ArrayList;import java.util.List;import java.util.Random;import java.util.concurrent.Callable;import java.util.concurrent.ExecutionException;import java.util.concurrent.ExecutorService;import java.util.concurrent.Executors;import java.util.concurrent.Future;public class Main &#123; public static void main(String[] args) &#123; ExecutorService executorService = Executors.newCachedThreadPool(); List&lt;Future&lt;String&gt;&gt; resultList = new ArrayList&lt;Future&lt;String&gt;&gt;(); // 创建10个任务并执行 for (int i = 0; i &lt; 10; i++) &#123; // 使用ExecutorService执行Callable类型的任务，并将结果保存在future变量中 Future&lt;String&gt; future = executorService.submit(new TaskWithResult(i)); // 将任务执行结果存储到List中 resultList.add(future); &#125; executorService.shutdown(); // 遍历任务的结果 for (Future&lt;String&gt; fs : resultList) &#123; try &#123; System.out.println(fs.get()); // 打印各个线程（任务）执行的结果 &#125; catch (InterruptedException e) &#123; e.printStackTrace(); &#125; catch (ExecutionException e) &#123; executorService.shutdownNow(); e.printStackTrace(); return; &#125; &#125; &#125;&#125;class TaskWithResult implements Callable&lt;String&gt; &#123; private int id; public TaskWithResult(int id) &#123; this.id = id; &#125; /** * 任务的具体过程，一旦任务传给ExecutorService的submit方法，则该方法自动在一个线程上执行。 * * @return * @throws Exception */ public String call() throws Exception &#123; System.out.println("call()方法被自动调用,干活！！！ " + Thread.currentThread().getName()); if (new Random().nextBoolean()) throw new TaskException("Meet error in task." + Thread.currentThread().getName()); // 一个模拟耗时的操作 for (int i =9; i &gt; 0; i--) ; return "call()方法被自动调用，任务的结果是：" + id + " " + Thread.currentThread().getName(); &#125;&#125;class TaskException extends Exception &#123; public TaskException(String message) &#123; super(message); &#125;&#125; Runnable和Callable的区别是，(1)Callable规定的方法是call(),Runnable规定的方法是run().(2)Callable的任务执行后可返回值，而Runnable的任务是不能返回值得(3)call方法可以抛出异常，run方法不可以(4)运行Callable任务可以拿到一个Future对象，表示异步计算的结果。它提供了检查计算是否完成的方法，以等待计算的完成，并检索计算的结果。通过Future对象可以了解任务执行情况，可取消任务的执行，还可获取执行结果。]]></content>
       <categories>
@@ -73,8 +61,16 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[我的学习环境-K8S]]></title>
+    <url>%2F2020%2F08%2F10%2F%E6%88%91%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%2F%E6%88%91%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83-K8S%2F</url>
+    <content type="text"><![CDATA[Kubernetes（K8S） 因为前几天电脑坏了，自己的环境都没有了，打算重新装一下K8S，记录一下，因为明天还要加班，争取今天晚上搞定 1.本机硬件：24G内存＋i7-5代，为了不影响开发，打算搭建1主3从外加一个数据卷 2.系统使用Ubuntu Server X64 18.04LTS 长期支持版 3.节点规划: | 主机名 | IP | 角色 | 系统 | CPU/内存 | 磁盘 || —————— | ————— | —— | ——————- | ——– | —- || kubernetes-master | 192.168.xxx.110 | Master | Ubuntu Server 18.04 | 2 核 3G | 20G || kubernetes-node-01 | 192.168.xxx.120 | Node | Ubuntu Server 18.04 | 2 核 3G | 20G || kubernetes-node-02 | 192.168.xxx.121 | Node | Ubuntu Server 18.04 | 2 核 3G | 20G || kubernetes-node-03 | 192.168.xxx.122 | Node | Ubuntu Server 18.04 | 2 核 3G | 20G || kubernetes-volumes | 192.168.xxx.140 | NFS | Ubuntu Server 18.04 | 2 核 3G | 20G | 1.基础准备 关闭交换空间 1swapoff -a 避免开机启动交换空间 12# 注释 swap 开头的行vi /etc/fstab 关闭防火墙 1ufw disable 配置DNS 12# 取消 DNS 行注释，并增加 DNS 配置如：114.114.114.114，修改后重启下计算机vi /etc/systemd/resolved.conf 安装 Docker 12sudo apt-get updatesudo apt install docker.io 配置 Docker 建议使用阿里云 通过修改 daemon 配置文件 /etc/docker/daemon.json 来使用加速器 1234567891011&#123; "exec-opts": [""], "log-driver": "", "log-opts": &#123; "max-size": "" &#125;, "registry-mirrors": [ ], "storage-driver": ""&#125; 重启 Docker 12systemctl daemon-reloadsystemctl restart docker 安装 Kubernetes 必备工具 安装三个 Kubernetes 必备工具，分别为 kubeadm，kubelet，kubectl 12345678910111213# 安装系统工具apt-get update &amp;&amp; apt-get install -y apt-transport-https# 安装 GPG 证书curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add -# 写入软件源；注意：我们用系统代号为 bionic，但目前阿里云不支持，所以沿用 16.04 的 xenialcat &lt;&lt; EOF &gt;/etc/apt/sources.list.d/kubernetes.listdeb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial mainEOF# 安装apt-get update &amp;&amp; apt-get install -y kubelet kubeadm kubectl 同步时间 设置时区 1dpkg-reconfigure tzdata 时间同步 12345678# 安装 ntpdateapt-get install ntpdate# 设置系统时间与网络时间同步（cn.pool.ntp.org 位于中国的公共 NTP 服务器）ntpdate cn.pool.ntp.org# 将系统时间写入硬件时间hwclock --systohc 确认时间 1234date# 输出如下（自行对照与系统时间是否一致）Sun Feb 23 12:05:17 CST 2020 修改cloud.cfg 主要作用是防止重启后主机名还原 1234vi /etc/cloud/cloud.cfg# 该配置默认为 false，修改为 true 即可preserve_hostname: true 单独节点配置 注意： 为 Master 和 Node 节点单独配置对应的 IP 和 主机名 配置IP 编辑 vi /etc/netplan/50-cloud-init.yaml 配置文件，修改内容如下 12345678network: ethernets: ens33: addresses: [192.168.xxx.110/24] gateway4: 192.168.xxx.2 nameservers: addresses: [192.168.xxx.2] version: 2 使用 netplan apply 命令让配置生效 配置主机名 1234567# 修改主机名hostnamectl set-hostname kubernetes-master# 配置 hostscat &gt;&gt; /etc/hosts &lt;&lt; EOF192.168.xxx.110 kubernetes-masterEOF 2.安装集群 创建并修改配置 12# 导出配置文件kubeadm config print init-defaults --kubeconfig ClusterConfiguration &gt; kubeadm.yml 12345678910111213141516171819202122232425262728293031323334353637383940414243apiVersion: kubeadm.k8s.io/v1beta2bootstrapTokens:- groups: - system:bootstrappers:kubeadm:default-node-token token: abcdef.0123456789abcdef ttl: 24h0m0s usages: - signing - authenticationkind: InitConfigurationlocalAPIEndpoint: # 修改为主节点 IP advertiseAddress: 192.168.81.110 bindPort: 6443nodeRegistration: criSocket: /var/run/dockershim.sock name: kubernetes-master taints: - effect: NoSchedule key: node-role.kubernetes.io/master---apiServer: timeoutForControlPlane: 4m0sapiVersion: kubeadm.k8s.io/v1beta2certificatesDir: /etc/kubernetes/pkiclusterName: kubernetescontrollerManager: &#123;&#125;dns: type: CoreDNSetcd: local: dataDir: /var/lib/etcd# 国内不能访问 Google，修改为阿里云imageRepository: registry.aliyuncs.com/google_containerskind: ClusterConfiguration# 修改版本号kubernetesVersion: v1.17.3networking: dnsDomain: cluster.local # 配置 POD 所在网段为我们虚拟机不重叠的网段（这里用的是 Flannel 默认网段） podSubnet: "10.244.0.0/16" serviceSubnet: 10.96.0.0/12scheduler: &#123;&#125; 查看所需镜像 12345678910kubeadm config images list --config kubeadm.yml# 输出如下registry.aliyuncs.com/google_containers/kube-apiserver:v1.17.3registry.aliyuncs.com/google_containers/kube-controller-manager:v1.17.3registry.aliyuncs.com/google_containers/kube-scheduler:v1.17.3registry.aliyuncs.com/google_containers/kube-proxy:v1.17.3registry.aliyuncs.com/google_containers/pause:3.1registry.aliyuncs.com/google_containers/etcd:3.4.3-0registry.aliyuncs.com/google_containers/coredns:1.6.5 拉取所需镜像 12345678910kubeadm config images pull --config kubeadm.yml# 输出如下[config/images] Pulled registry.aliyuncs.com/google_containers/kube-apiserver:v1.17.3[config/images] Pulled registry.aliyuncs.com/google_containers/kube-controller-manager:v1.17.3[config/images] Pulled registry.aliyuncs.com/google_containers/kube-scheduler:v1.17.3[config/images] Pulled registry.aliyuncs.com/google_containers/kube-proxy:v1.17.3[config/images] Pulled registry.aliyuncs.com/google_containers/pause:3.1[config/images] Pulled registry.aliyuncs.com/google_containers/etcd:3.4.3-0[config/images] Pulled registry.aliyuncs.com/google_containers/coredns:1.6.5 安装主节点 执行以下命令初始化主节点，该命令指定了初始化时需要使用的配置文件，其中添加 --upload-certs 参数可以在后续执行加入节点时自动分发证书文件。追加的 tee kubeadm-init.log 用以输出日志。 注意： 如果安装 kubernetes 版本和下载的镜像版本不统一则会出现 timed out waiting for the condition 错误。中途失败或是想修改配置可以使用 kubeadm reset 命令重置配置，再做初始化操作即可。 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273kubeadm init --config=kubeadm.yml --upload-certs | tee kubeadm-init.log# 输出如下[init] Using Kubernetes version: v1.17.3[preflight] Running pre-flight checks[preflight] Pulling images required for setting up a Kubernetes cluster[preflight] This might take a minute or two, depending on the speed of your internet connection[preflight] You can also perform this action in beforehand using 'kubeadm config images pull'[kubelet-start] Writing kubelet environment file with flags to file "/var/lib/kubelet/kubeadm-flags.env"[kubelet-start] Writing kubelet configuration to file "/var/lib/kubelet/config.yaml"[kubelet-start] Starting the kubelet[certs] Using certificateDir folder "/etc/kubernetes/pki"[certs] Generating "ca" certificate and key[certs] Generating "apiserver" certificate and key[certs] apiserver serving cert is signed for DNS names [kubernetes-master kubernetes kubernetes.default kubernetes.default.svc kubernetes.default.svc.cluster.local] and IPs [10.96.0.1 192.168.81.110][certs] Generating "apiserver-kubelet-client" certificate and key[certs] Generating "front-proxy-ca" certificate and key[certs] Generating "front-proxy-client" certificate and key[certs] Generating "etcd/ca" certificate and key[certs] Generating "etcd/server" certificate and key[certs] etcd/server serving cert is signed for DNS names [kubernetes-master localhost] and IPs [192.168.81.110 127.0.0.1 ::1][certs] Generating "etcd/peer" certificate and key[certs] etcd/peer serving cert is signed for DNS names [kubernetes-master localhost] and IPs [192.168.81.110 127.0.0.1 ::1][certs] Generating "etcd/healthcheck-client" certificate and key[certs] Generating "apiserver-etcd-client" certificate and key[certs] Generating "sa" key and public key[kubeconfig] Using kubeconfig folder "/etc/kubernetes"[kubeconfig] Writing "admin.conf" kubeconfig file[kubeconfig] Writing "kubelet.conf" kubeconfig file[kubeconfig] Writing "controller-manager.conf" kubeconfig file[kubeconfig] Writing "scheduler.conf" kubeconfig file[control-plane] Using manifest folder "/etc/kubernetes/manifests"[control-plane] Creating static Pod manifest for "kube-apiserver"W0223 12:38:57.210893 9130 manifests.go:214] the default kube-apiserver authorization-mode is "Node,RBAC"; using "Node,RBAC"[control-plane] Creating static Pod manifest for "kube-controller-manager"[control-plane] Creating static Pod manifest for "kube-scheduler"W0223 12:38:57.214165 9130 manifests.go:214] the default kube-apiserver authorization-mode is "Node,RBAC"; using "Node,RBAC"[etcd] Creating static Pod manifest for local etcd in "/etc/kubernetes/manifests"[wait-control-plane] Waiting for the kubelet to boot up the control plane as static Pods from directory "/etc/kubernetes/manifests". This can take up to 4m0s[apiclient] All control plane components are healthy after 19.005825 seconds[upload-config] Storing the configuration used in ConfigMap "kubeadm-config" in the "kube-system" Namespace[kubelet] Creating a ConfigMap "kubelet-config-1.17" in namespace kube-system with the configuration for the kubelets in the cluster[upload-certs] Storing the certificates in Secret "kubeadm-certs" in the "kube-system" Namespace[upload-certs] Using certificate key:91f1d04e74abd60fbadf2afaae656a5c5bfc3761e5a4a69d6727e429c997165c[mark-control-plane] Marking the node kubernetes-master as control-plane by adding the label "node-role.kubernetes.io/master=''"[mark-control-plane] Marking the node kubernetes-master as control-plane by adding the taints [node-role.kubernetes.io/master:NoSchedule][bootstrap-token] Using token: abcdef.0123456789abcdef[bootstrap-token] Configuring bootstrap tokens, cluster-info ConfigMap, RBAC Roles[bootstrap-token] configured RBAC rules to allow Node Bootstrap tokens to post CSRs in order for nodes to get long term certificate credentials[bootstrap-token] configured RBAC rules to allow the csrapprover controller automatically approve CSRs from a Node Bootstrap Token[bootstrap-token] configured RBAC rules to allow certificate rotation for all node client certificates in the cluster[bootstrap-token] Creating the "cluster-info" ConfigMap in the "kube-public" namespace[kubelet-finalize] Updating "/etc/kubernetes/kubelet.conf" to point to a rotatable kubelet client certificate and key[addons] Applied essential addon: CoreDNS[addons] Applied essential addon: kube-proxyYour Kubernetes control-plane has initialized successfully!To start using your cluster, you need to run the following as a regular user: mkdir -p $HOME/.kube sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config sudo chown $(id -u):$(id -g) $HOME/.kube/configYou should now deploy a pod network to the cluster.Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at: https://kubernetes.io/docs/concepts/cluster-administration/addons/Then you can join any number of worker nodes by running the following on each as root:kubeadm join 192.168.xxx.110:6443 --token abcdef.0123456789abcdef \ --discovery-token-ca-cert-hash sha256:3eac1be34c9e324279ebd843087e7dd002b3102c7d14313aec490cd73b4138ad 配置Kubectl 12345mkdir -p $HOME/.kubecp -i /etc/kubernetes/admin.conf $HOME/.kube/config# 非 ROOT 用户执行chown $(id -u):$(id -g) $HOME/.kube/config 验证是否成功 12345kubectl get node# 输出如下NAME STATUS ROLES AGE VERSIONkubernetes-master NotReady master 115s v1.17.3 安装从节点 将 Node 节点加入到集群中很简单，只需要在 Node 服务器上安装 kubeadm，kubectl，kubelet 三个工具，然后使用 kubeadm join 命令加入即可 123456789101112kubeadm join 192.168.xxx.110:6443 --token abcdef.0123456789abcdef \ --discovery-token-ca-cert-hash sha256:3eac1be34c9e324279ebd843087e7dd002b3102c7d14313aec490cd73b4138ad # 输出如下[preflight] Running pre-flight checks[preflight] Reading configuration from the cluster...[preflight] FYI: You can look at this config file with 'kubectl -n kube-system get cm kubeadm-config -oyaml'[kubelet-start] Downloading configuration for the kubelet from the "kubelet-config-1.17" ConfigMap in the kube-system namespace[kubelet-start] Writing kubelet configuration to file "/var/lib/kubelet/config.yaml"[kubelet-start] Writing kubelet environment file with flags to file "/var/lib/kubelet/kubeadm-flags.env"[kubelet-start] Starting the kubelet[kubelet-start] Waiting for the kubelet to perform the TLS Bootstrap... 验证是否成功 回到 Master 主节点查看是否安装成功 注意： 如果 Node 节点加入 Master 时配置有问题可以在 Node 节点上使用 kubeadm reset 重置配置再使用 kubeadm join 命令重新加入即可。希望在 master 节点删除 node ，可以使用 kubeadm delete nodes &lt;NAME&gt; 删除。 12345678kubectl get nodes# 输出如下NAME STATUS ROLES AGE VERSIONkubernetes-master NotReady master 17m v1.17.3kubernetes-node1 NotReady &lt;none&gt; 24s v1.17.3kubernetes-node2 NotReady &lt;none&gt; 15s v1.17.3kubernetes-node3 NotReady &lt;none&gt; 7s v1.17.3 查看Pods状态 coredns 尚未运行，此时我们还需要安装网络插件 1234567891011121314watch kubectl get pods -n kube-system -o wide# 输出如下NAME READY STATUS RESTARTS AGE IP NODE NOMINATED NODE READINESS GATEScoredns-9d85f5447-czrdk 0/1 Pending 0 19m &lt;none&gt; &lt;none&gt; &lt;none&gt; &lt;none&gt;coredns-9d85f5447-zsf6f 0/1 Pending 0 19m &lt;none&gt; &lt;none&gt; &lt;none&gt; &lt;none&gt;etcd-kubernetes-master 1/1 Running 0 20m 192.168.81.110 kubernetes-master &lt;none&gt; &lt;none&gt;kube-apiserver-kubernetes-master 1/1 Running 0 20m 192.168.81.110 kubernetes-master &lt;none&gt; &lt;none&gt;kube-controller-manager-kubernetes-master 1/1 Running 0 20m 192.168.81.110 kubernetes-master &lt;none&gt; &lt;none&gt;kube-proxy-jf9jg 1/1 Running 0 3m19s 192.168.81.122 kubernetes-node3 &lt;none&gt; &lt;none&gt;kube-proxy-t2rz5 1/1 Running 0 3m27s 192.168.81.121 kubernetes-node2 &lt;none&gt; &lt;none&gt;kube-proxy-vszhp 1/1 Running 0 3m36s 192.168.81.120 kubernetes-node1 &lt;none&gt; &lt;none&gt;kube-proxy-zpjk2 1/1 Running 0 19m 192.168.81.110 kubernetes-master &lt;none&gt; &lt;none&gt;kube-scheduler-kubernetes-master 1/1 Running 0 20m 192.168.81.110 kubernetes-master &lt;none&gt; &lt;none&gt; kubeadm init 的执行过程 init： 指定版本进行初始化操作 preflight： 初始化前的检查和下载所需要的 Docker 镜像文件 kubelet-start： 生成 kubelet 的配置文件 var/lib/kubelet/config.yaml，没有这个文件 kubelet 无法启动，所以初始化之前的 kubelet 实际上启动不会成功 certificates： 生成 Kubernetes 使用的证书，存放在 /etc/kubernetes/pki 目录中 kubeconfig： 生成 KubeConfig 文件，存放在 /etc/kubernetes 目录中，组件之间通信需要使用对应文件 control-plane： 使用 /etc/kubernetes/manifest 目录下的 YAML 文件，安装 Master 组件 etcd： 使用 /etc/kubernetes/manifest/etcd.yaml 安装 Etcd 服务 wait-control-plane： 等待 control-plan 部署的 Master 组件启动 apiclient： 检查 Master 组件服务状态。 uploadconfig： 更新配置 kubelet： 使用 configMap 配置 kubelet patchnode： 更新 CNI 信息到 Node 上，通过注释的方式记录 mark-control-plane： 为当前节点打标签，打了角色 Master，和不可调度标签，这样默认就不会使用 Master 节点来运行 Pod bootstrap-token： 生成 token 记录下来，后边使用 kubeadm join 往集群中添加节点时会用到 addons： 安装附加组件 CoreDNS 和 kube-proxy 3.网络插件 下载Calico 配置文件并修改 123456wget https://docs.projectcalico.org/manifests/calico.yamlvi calico.yaml修改第 611 行，将 192.168.0.0/16 修改为 10.244.0.0/16，可以通过如下命令快速查找显示行号：:set number查找字符：/要查找的字符，输入小写 n 下一个匹配项，输入大写 N 上一个匹配项 安装网络插件 Calico 参考官方文档安装：https://docs.projectcalico.org/getting-started/kubernetes/quickstart 1234567891011121314151617181920212223242526kubectl apply -f calico.yaml# 输出如下configmap/calico-config createdcustomresourcedefinition.apiextensions.k8s.io/felixconfigurations.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/ipamblocks.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/blockaffinities.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/ipamhandles.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/ipamconfigs.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/bgppeers.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/bgpconfigurations.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/ippools.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/hostendpoints.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/clusterinformations.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/globalnetworkpolicies.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/globalnetworksets.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/networkpolicies.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/networksets.crd.projectcalico.org createdclusterrole.rbac.authorization.k8s.io/calico-kube-controllers createdclusterrolebinding.rbac.authorization.k8s.io/calico-kube-controllers createdclusterrole.rbac.authorization.k8s.io/calico-node createdclusterrolebinding.rbac.authorization.k8s.io/calico-node createddaemonset.apps/calico-node createdserviceaccount/calico-node createddeployment.apps/calico-kube-controllers createdserviceaccount/calico-kube-controllers created 验证是否成功 查看 Calico 网络插件处于 Running 状态即表示安装成功 12345678910111213141516171819watch kubectl get pods --all-namespaces# 输出如下NAMESPACE NAME READY STATUS RESTARTS AGEkube-system calico-kube-controllers-77c4b7448-vzsb7 1/1 Running 0 3m52skube-system calico-node-5gr6m 1/1 Running 0 3m53skube-system calico-node-5pwj6 1/1 Running 0 3m53skube-system calico-node-drp46 1/1 Running 0 3m53skube-system calico-node-npjpx 1/1 Running 0 3m53skube-system coredns-9d85f5447-czrdk 1/1 Running 0 32mkube-system coredns-9d85f5447-zsf6f 1/1 Running 0 32mkube-system etcd-kubernetes-master 1/1 Running 0 33mkube-system kube-apiserver-kubernetes-master 1/1 Running 0 33mkube-system kube-controller-manager-kubernetes-master 1/1 Running 0 33mkube-system kube-proxy-jf9jg 1/1 Running 0 16mkube-system kube-proxy-t2rz5 1/1 Running 0 16mkube-system kube-proxy-vszhp 1/1 Running 0 16mkube-system kube-proxy-zpjk2 1/1 Running 0 32mkube-system kube-scheduler-kubernetes-master 1/1 Running 0 33m 查看节点状态处于Ready 即表示安装成功 12345678kubectl get nodes# 输出如下NAME STATUS ROLES AGE VERSIONkubernetes-master Ready master 33m v1.17.3kubernetes-node1 Ready &lt;none&gt; 17m v1.17.3kubernetes-node2 Ready &lt;none&gt; 16m v1.17.3kubernetes-node3 Ready &lt;none&gt; 16m v1.17.3]]></content>
+      <tags>
+        <tag>K8S</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[我的学习环境-容器服务]]></title>
-    <url>%2F2020%2F08%2F10%2F%E6%88%91%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%2F%E6%88%91%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83-%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1%2F</url>
+    <url>%2F2020%2F08%2F05%2F%E6%88%91%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%2F%E6%88%91%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83-%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1%2F</url>
     <content type="text"><![CDATA[容器服务 MySQL 12345678910111213141516171819version: '3.1'services: db: image: mysql:8.0.20 restart: always container_name: mysql environment: - TZ=Asia/Shanghai - MYSQL_ROOT_PASSWORD=123456 command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci --explicit_defaults_for_timestamp=true --lower_case_table_names=1 ports: - 3306:3306 volumes: - ./data:/var/lib/mysql GitLab 12345678910111213141516171819202122version: '3.1'services: web: image: 'twang2218/gitlab-ce-zh:11.1.4' restart: always hostname: 'gitlab.funtl.com' container_name: 'gitlab' environment: TZ: 'Asia/Shanghai' GITLAB_OMNIBUS_CONFIG: | external_url 'http://gitlab.funtl.com' gitlab_rails['gitlab_shell_ssh_port'] = 2222 unicorn['port'] = 8888 nginx['listen_port'] = 80 ports: - '80:80' - '443:443' - '2222:22' volumes: - ./config:/etc/gitlab - ./data:/var/opt/gitlab - ./logs:/var/log/gitlab Nexus 1234567891011121314mkdir /usr/local/docker/nexus/data &amp;&amp; chown -R 200 /usr/local/docker/nexus/dataversion: '3.5'services: nexus: restart: always image: sonatype/nexus3:3.23.0 container_name: nexus environment: INSTALL4J_ADD_VM_PARAMS: -XX:ActiveProcessorCount=4 ports: - 80:8081 volumes: - ./data:/nexus-data Jenkins 123456789101112131415version: '3.5'services: jenkins: restart: always image: jenkins/jenkins:lts container_name: jenkins environment: TZ: Asia/Shanghai ports: - 80:8080 - 50000:50000 volumes: - data:/var/jenkins_homevolumes: data:]]></content>
       <tags>
         <tag>Docker</tag>
@@ -91,7 +87,7 @@
   <entry>
     <title><![CDATA[20200803-Inner Join与LEFT JOIN]]></title>
     <url>%2F2020%2F08%2F03%2F%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93%2F20200803%2F</url>
-    <content type="text"><![CDATA[inner join与left join的区别 INNER JOIN 产生的结果是AB的交集 SELECT * FROM TableA INNER JOIN TableB ON TableA.id = TableB.rec_id LEFT (OUTER) JOIN 产生表A的完全集，而表B中匹配的则有值，没有匹配的则以null值取代. SELECT * FROM TableA LEFT OUTER JOIN TableB ON TableA.id = TableB.rec_id; 3.RIGHT（OUTER） JOIN 产生表B的完全集，而表A中匹配的则有值，没有匹配的则以null值取代 SELECT * FROM TableA RIGHT OUTER JOIN TableB ON TAbleA.id = TableB.rec_id FULL (OUTER) JOIN 产生A和B的并集，对于没有匹配的记录，以null值做为值 SELECT * FROM TableA FULL OUTER JOIN TableB ON TableA .name = TableB.name 可以通过is null将 没有匹配的值找出来； SELECT * FROM TableA FULL OUTER JOIN TableB ON TableA.name = TableB.name WHERE TableA.id is null OR TableB.id is null]]></content>
+    <content type="text"><![CDATA[inner join与left join的区别 INNER JOIN 产生的结果是AB的交集 SELECT * FROM TableA INNER JOIN TableB ON TableA.id = TableB.rec_id LEFT (OUTER) JOIN 产生表A的完全集，而表B中匹配的则有值，没有匹配的则以null值取代. SELECT * FROM TableA LEFT OUTER JOIN TableB ON TableA.id = TableB.rec_id; 3.RIGHT（OUTER） JOIN 产生表B的完全集，而表A中匹配的则有值，没有匹配的则以null值取代 ​ SELECT * FROM TableA RIGHT OUTER JOIN TableB ON TAbleA.id = TableB.rec_id ​ FULL (OUTER) JOIN 产生A和B的并集，对于没有匹配的记录，以null值做为值 SELECT * FROM TableA FULL OUTER JOIN TableB ON TableA .name = TableB.name 可以通过is null将 没有匹配的值找出来； SELECT * FROM TableA FULL OUTER JOIN TableB ON TableA.name = TableB.name WHERE TableA.id is null OR TableB.id is null]]></content>
       <categories>
         <category>工作总结</category>
       </categories>
@@ -100,7 +96,7 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[20200722-MybatisPlus默认更新策略]]></title>
+    <title><![CDATA[MybatisPlus默认更新策略]]></title>
     <url>%2F2020%2F07%2F22%2F%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93%2F20200722%2F</url>
     <content type="text"><![CDATA[问题实际项目中，难免更新的时候,有可能会把已有的值更新成空字符串或者null,但是当你使用updateById()方法的时候，会发现根本不生效。这其实是MyBatis-Plus对字段的验证策略导致的，MyBatis-Plus默认进行了不是全量更新的策略 解决方案 1234567field-strategy字段更新插入策略属性说明： IGNORED(0): "忽略判断", 所有字段都更新和插入 NOT_NULL(1): "非 NULL 判断", 只更新和插入非NULL值 NOT_EMPTY(2): "非空判断", 只更新和插入非NULL值且非空字符串 DEFAULT：默认NOT_NULL]]></content>
       <categories>
@@ -122,9 +118,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[20200617]]></title>
+    <title><![CDATA[Dubbo以及两个实体List的合并]]></title>
     <url>%2F2020%2F06%2F17%2F%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93%2F20200617%2F</url>
-    <content type="text"><![CDATA[工作中遇到一些问题，希望记录下来，以后方便查看 Dubbo以及两个实体List的合并 工作中有导出功能，导出需要和页面展示的内容一致，但是，导出的数据Float型自动转成了Double型，日期多.0，很是奇怪，同事自己写的sql没有这些问题，因为公司框架中封装了mybatis-plus，我的页面有很多字段，为了方便开发，使用了mybatis-plus，出现这些问题，于是Debug代码，发现在service层，没有查询出的数据格式，与页面相同，但是到了controller层就变得Double，.0等问题了，回想了一下执行流程发现，自己写的sql，会通过实体类，实体类中有实现序列化，所以没有问题，而自己使用mybatis-plus的方法，直接封装了结果，中间没有序列化，导致数据传输错误，以上是我认为的，后续还要验证，究竟是什么原因导致的自动变成了Double 因为还有一个需求，通过两次查询结果，合并成一个结果返回前端，数据需要将相同的合并，不同的保留，起初的写法只是双重for循环＋if判断，可以把相同的数据合并，并保留外层数据的不同值，但是，内层循环的不同数据就丢失了。后面想到相同添加，同时删除内层数据，最后再加上内层剩余数据就可以完成了，实现过程中出现了异常，最后换了一个方式。将一个list的匹配字段放入hashmap中当key，剩下实体当value，另一个list遍历，添加，最后实现了 失败的方法 123456789101112131415//第一个实体类集合List&lt;Entity&gt; entity = mapper.select();//第二个实体类集合List&lt;Entity&gt; entity1 = mapper.select();for(Entity en : entity)&#123; for(Entity en2 : entity1)&#123; if(en.getxxx().equals(en2.getxx))&#123; en.setxx(en2.setxxx); &#125; &#125;&#125;例如： 第一个实体结果：1，2，3，4，5，6，7 第二个实体结果：1，2，4，5，6，7，8 上面的写法只会拿到：1，2，3，4，5，6，7， 丢失第8个数字 成功的方法 1234567891011121314151617181920212223242526272829303132//第一个实体类集合List&lt;Entity&gt; entity = mapper.select();//第二个实体类集合List&lt;Entity&gt; entity1 = mapper.select();//创建一个HashMap，key放判断是否相同的字段，Value放整个数据Map&lt;String, Entity&gt; target = new HashMap&lt;String, Entity&gt;();//判断是否为空if (CollectionUtils.isNotEmpty(entity) &amp;&amp; CollectionUtils.isNotEmpty(entity1)) &#123;//遍历第一个实体类集合，放入map中for (Entity ent : entity) &#123; target.put(ent.getXXX(), ent);&#125;//遍历第二个集合for (Entity en : entity1) &#123; //获取第一个实体类中的key值 String a = en.getA(); //如果第一个实体类集合中包含第二个实体类集合中的值if (target.containsKey(a)) &#123; //获取第一个实体类的所有值 Entity temp = target.get(a); //设置自己想要添加的数据 temp.setXxxx(en.getXXX()); //重新将数据放回 target.put(a, temp);&#125; else &#123; //不同时候将第二个实体类中，与第一个实体类不想同的数据放入Map中 target.put(a, en); &#125; &#125;&#125;这个方法会拿到：1，2，3，4，5，6，7，8]]></content>
+    <content type="text"><![CDATA[Dubbo以及两个实体List的合并 工作中有导出功能，导出需要和页面展示的内容一致，但是，导出的数据Float型自动转成了Double型，日期多.0，很是奇怪，同事自己写的sql没有这些问题，因为公司框架中封装了mybatis-plus，我的页面有很多字段，为了方便开发，使用了mybatis-plus，出现这些问题，于是Debug代码，发现在service层，没有查询出的数据格式，与页面相同，但是到了controller层就变得Double，.0等问题了，回想了一下执行流程发现，自己写的sql，会通过实体类，实体类中有实现序列化，所以没有问题，而自己使用mybatis-plus的方法，直接封装了结果，中间没有序列化，导致数据传输错误，以上是我认为的，后续还要验证，究竟是什么原因导致的自动变成了Double 1 因为还有一个需求，通过两次查询结果，合并成一个结果返回前端，数据需要将相同的合并，不同的保留，起初的写法只是双重for循环＋if判断，可以把相同的数据合并，并保留外层数据的不同值，但是，内层循环的不同数据就丢失了。后面想到相同添加，同时删除内层数据，最后再加上内层剩余数据就可以完成了，实现过程中出现了异常，最后换了一个方式。将一个list的匹配字段放入hashmap中当key，剩下实体当value，另一个list遍历，添加，最后实现了 失败的方法 123456789101112131415//第一个实体类集合List&lt;Entity&gt; entity = mapper.select();//第二个实体类集合List&lt;Entity&gt; entity1 = mapper.select();for(Entity en : entity)&#123; for(Entity en2 : entity1)&#123; if(en.getxxx().equals(en2.getxx))&#123; en.setxx(en2.setxxx); &#125; &#125;&#125;例如： 第一个实体结果：1，2，3，4，5，6，7 第二个实体结果：1，2，4，5，6，7，8 上面的写法只会拿到：1，2，3，4，5，6，7， 丢失第8个数字 成功的方法 1234567891011121314151617181920212223242526272829303132//第一个实体类集合List&lt;Entity&gt; entity = mapper.select();//第二个实体类集合List&lt;Entity&gt; entity1 = mapper.select();//创建一个HashMap，key放判断是否相同的字段，Value放整个数据Map&lt;String, Entity&gt; target = new HashMap&lt;String, Entity&gt;();//判断是否为空if (CollectionUtils.isNotEmpty(entity) &amp;&amp; CollectionUtils.isNotEmpty(entity1)) &#123;//遍历第一个实体类集合，放入map中for (Entity ent : entity) &#123; target.put(ent.getXXX(), ent);&#125;//遍历第二个集合for (Entity en : entity1) &#123; //获取第一个实体类中的key值 String a = en.getA(); //如果第一个实体类集合中包含第二个实体类集合中的值if (target.containsKey(a)) &#123; //获取第一个实体类的所有值 Entity temp = target.get(a); //设置自己想要添加的数据 temp.setXxxx(en.getXXX()); //重新将数据放回 target.put(a, temp);&#125; else &#123; //不同时候将第二个实体类中，与第一个实体类不想同的数据放入Map中 target.put(a, en); &#125; &#125;&#125;这个方法会拿到：1，2，3，4，5，6，7，8]]></content>
       <categories>
         <category>工作总结</category>
       </categories>
@@ -146,7 +142,7 @@
   <entry>
     <title><![CDATA[Java数据校验]]></title>
     <url>%2F2020%2F06%2F06%2F%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93%2F20200606%2F</url>
-    <content type="text"><![CDATA[工作中遇到一些问题，希望记录下来，以后方便查看 Java数据校验 1.因为工作中有部分时间在写前端，没有怎么写后台，突然给到任务让写数据校验，就参考了一下以前的校验方式，感觉有些性能不好，而且作用不好，重新写一下校验 2.原来的校验方式：是通过查询所有数据，遍历数据，与输入数据进行比较，第一：性能不好，要查询所有数据，然后遍历。 第二：如果是自己本身数据没有改变，需要判断，代码感觉混乱，不容易维护 3.我的想法： 1.添加： 根据传入数据，使用mybatis-plus的selectCount方式查询数据有几条？ 123456789QueryWrapper&lt;XXX&gt; wrapper = new QueryWrapper&lt;XXX&gt;(); //mybatis-plus条件构造器wrapper.eq("IS_ENABLE", 1); //因为有伪删除，所以有这个字段if (StringUtils.isEmpty(XXX.getxxx()) == false) &#123; wrapper.eq("数据库字段", XXX.getxxx());&#125; //需要校验的数据Integer count = mapper.selectCount(wrapper);//查询条数if(count&gt;0)&#123; //数据库存在数据，重复，不可添加&#125; 2.编辑： 和添加相同的道理，但是多了一个自己本身校验 1234567891011121314151617181920 //首先使用 mybatis-plus的selectById方法，返回查询结果的实体类 XXX val = mapper.selectById(XXX.getId()); QueryWrapper&lt;XXX&gt; wrapper = new QueryWrapper&lt;XXX&gt;(); //mybatis-plus条件构造器 wrapper.eq("IS_ENABLE", 1); //因为有伪删除，所以有这个字段 if (StringUtils.isEmpty(XXX.getxxx()) == false) &#123; wrapper.eq("数据库字段", XXX.getxxx()); &#125; //需要校验的数据 Integer count = mapper.selectCount(wrapper);//查询条数 if(count&gt;1)&#123; //数据库存在数据，重复，不可添加 &#125; else if(count == 1)&#123; //此时说明数据库中有一个数据与现在相同，但是，不知道是是不是自己 if(val.getxxx().equals(xxx.getxxx()...))&#123; //不用操作，直接跳出，更新数据，此处通过id查询与传入数据相同，代表自己本身&#125; else &#123; //不可操作，数据已存在 retrun false; &#125; &#125; mapper.updateById(xxx);//更新数据 3.上传 思路和添加相同，总体就是判断count，大于0失败，数据存在]]></content>
+    <content type="text"><![CDATA[Java数据校验 1.因为工作中有部分时间在写前端，没有怎么写后台，突然给到任务让写数据校验，就参考了一下以前的校验方式，感觉有些性能不好，而且作用不好，重新写一下校验 2.原来的校验方式：是通过查询所有数据，遍历数据，与输入数据进行比较，第一：性能不好，要查询所有数据，然后遍历。 第二：如果是自己本身数据没有改变，需要判断，代码感觉混乱，不容易维护 3.我的想法： 1.添加： 根据传入数据，使用mybatis-plus的selectCount方式查询数据有几条？ 123456789QueryWrapper&lt;XXX&gt; wrapper = new QueryWrapper&lt;XXX&gt;(); //mybatis-plus条件构造器wrapper.eq("IS_ENABLE", 1); //因为有伪删除，所以有这个字段if (StringUtils.isEmpty(XXX.getxxx()) == false) &#123; wrapper.eq("数据库字段", XXX.getxxx());&#125; //需要校验的数据Integer count = mapper.selectCount(wrapper);//查询条数if(count&gt;0)&#123; //数据库存在数据，重复，不可添加&#125; 2.编辑： 和添加相同的道理，但是多了一个自己本身校验 1234567891011121314151617181920 //首先使用 mybatis-plus的selectById方法，返回查询结果的实体类 XXX val = mapper.selectById(XXX.getId()); QueryWrapper&lt;XXX&gt; wrapper = new QueryWrapper&lt;XXX&gt;(); //mybatis-plus条件构造器 wrapper.eq("IS_ENABLE", 1); //因为有伪删除，所以有这个字段 if (StringUtils.isEmpty(XXX.getxxx()) == false) &#123; wrapper.eq("数据库字段", XXX.getxxx()); &#125; //需要校验的数据 Integer count = mapper.selectCount(wrapper);//查询条数 if(count&gt;1)&#123; //数据库存在数据，重复，不可添加 &#125; else if(count == 1)&#123; //此时说明数据库中有一个数据与现在相同，但是，不知道是是不是自己 if(val.getxxx().equals(xxx.getxxx()...))&#123; //不用操作，直接跳出，更新数据，此处通过id查询与传入数据相同，代表自己本身&#125; else &#123; //不可操作，数据已存在 retrun false; &#125; &#125; mapper.updateById(xxx);//更新数据 3.上传 思路和添加相同，总体就是判断count，大于0失败，数据存在]]></content>
       <categories>
         <category>工作总结</category>
       </categories>
@@ -155,17 +151,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[我的学习环境-K8S]]></title>
-    <url>%2F2020%2F06%2F05%2F%E6%88%91%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%2F%E6%88%91%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83-K8S%2F</url>
-    <content type="text"><![CDATA[Kubernetes（K8S） 因为前几天电脑坏了，自己的环境都没有了，打算重新装一下K8S，记录一下，因为明天还要加班，争取今天晚上搞定 1.本机硬件：24G内存＋i7-5代，为了不影响开发，打算搭建1主3从外加一个数据卷 2.系统使用Ubuntu Server X64 18.04LTS 长期支持版 3.节点规划: | 主机名 | IP | 角色 | 系统 | CPU/内存 | 磁盘 || —————— | ————— | —— | ——————- | ——– | —- || kubernetes-master | 192.168.xxx.110 | Master | Ubuntu Server 18.04 | 2 核 3G | 20G || kubernetes-node-01 | 192.168.xxx.120 | Node | Ubuntu Server 18.04 | 2 核 3G | 20G || kubernetes-node-02 | 192.168.xxx.121 | Node | Ubuntu Server 18.04 | 2 核 3G | 20G || kubernetes-node-03 | 192.168.xxx.122 | Node | Ubuntu Server 18.04 | 2 核 3G | 20G || kubernetes-volumes | 192.168.xxx.140 | NFS | Ubuntu Server 18.04 | 2 核 3G | 20G | 1.基础准备 关闭交换空间 1swapoff -a 避免开机启动交换空间 12# 注释 swap 开头的行vi /etc/fstab 关闭防火墙 1ufw disable 配置DNS 12# 取消 DNS 行注释，并增加 DNS 配置如：114.114.114.114，修改后重启下计算机vi /etc/systemd/resolved.conf 安装 Docker 12sudo apt-get updatesudo apt install docker.io 配置 Docker 建议使用阿里云 通过修改 daemon 配置文件 /etc/docker/daemon.json 来使用加速器 1234567891011&#123; "exec-opts": [""], "log-driver": "", "log-opts": &#123; "max-size": "" &#125;, "registry-mirrors": [ ], "storage-driver": ""&#125; 重启 Docker 12systemctl daemon-reloadsystemctl restart docker 安装 Kubernetes 必备工具 安装三个 Kubernetes 必备工具，分别为 kubeadm，kubelet，kubectl 12345678910111213# 安装系统工具apt-get update &amp;&amp; apt-get install -y apt-transport-https# 安装 GPG 证书curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add -# 写入软件源；注意：我们用系统代号为 bionic，但目前阿里云不支持，所以沿用 16.04 的 xenialcat &lt;&lt; EOF &gt;/etc/apt/sources.list.d/kubernetes.listdeb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial mainEOF# 安装apt-get update &amp;&amp; apt-get install -y kubelet kubeadm kubectl 同步时间 设置时区 1dpkg-reconfigure tzdata 时间同步 12345678# 安装 ntpdateapt-get install ntpdate# 设置系统时间与网络时间同步（cn.pool.ntp.org 位于中国的公共 NTP 服务器）ntpdate cn.pool.ntp.org# 将系统时间写入硬件时间hwclock --systohc 确认时间 1234date# 输出如下（自行对照与系统时间是否一致）Sun Feb 23 12:05:17 CST 2020 修改cloud.cfg 主要作用是防止重启后主机名还原 1234vi /etc/cloud/cloud.cfg# 该配置默认为 false，修改为 true 即可preserve_hostname: true 单独节点配置 注意： 为 Master 和 Node 节点单独配置对应的 IP 和 主机名 配置IP 编辑 vi /etc/netplan/50-cloud-init.yaml 配置文件，修改内容如下 12345678network: ethernets: ens33: addresses: [192.168.xxx.110/24] gateway4: 192.168.xxx.2 nameservers: addresses: [192.168.xxx.2] version: 2 使用 netplan apply 命令让配置生效 配置主机名 1234567# 修改主机名hostnamectl set-hostname kubernetes-master# 配置 hostscat &gt;&gt; /etc/hosts &lt;&lt; EOF192.168.xxx.110 kubernetes-masterEOF 2.安装集群 创建并修改配置 12# 导出配置文件kubeadm config print init-defaults --kubeconfig ClusterConfiguration &gt; kubeadm.yml 12345678910111213141516171819202122232425262728293031323334353637383940414243apiVersion: kubeadm.k8s.io/v1beta2bootstrapTokens:- groups: - system:bootstrappers:kubeadm:default-node-token token: abcdef.0123456789abcdef ttl: 24h0m0s usages: - signing - authenticationkind: InitConfigurationlocalAPIEndpoint: # 修改为主节点 IP advertiseAddress: 192.168.81.110 bindPort: 6443nodeRegistration: criSocket: /var/run/dockershim.sock name: kubernetes-master taints: - effect: NoSchedule key: node-role.kubernetes.io/master---apiServer: timeoutForControlPlane: 4m0sapiVersion: kubeadm.k8s.io/v1beta2certificatesDir: /etc/kubernetes/pkiclusterName: kubernetescontrollerManager: &#123;&#125;dns: type: CoreDNSetcd: local: dataDir: /var/lib/etcd# 国内不能访问 Google，修改为阿里云imageRepository: registry.aliyuncs.com/google_containerskind: ClusterConfiguration# 修改版本号kubernetesVersion: v1.17.3networking: dnsDomain: cluster.local # 配置 POD 所在网段为我们虚拟机不重叠的网段（这里用的是 Flannel 默认网段） podSubnet: "10.244.0.0/16" serviceSubnet: 10.96.0.0/12scheduler: &#123;&#125; 查看所需镜像 12345678910kubeadm config images list --config kubeadm.yml# 输出如下registry.aliyuncs.com/google_containers/kube-apiserver:v1.17.3registry.aliyuncs.com/google_containers/kube-controller-manager:v1.17.3registry.aliyuncs.com/google_containers/kube-scheduler:v1.17.3registry.aliyuncs.com/google_containers/kube-proxy:v1.17.3registry.aliyuncs.com/google_containers/pause:3.1registry.aliyuncs.com/google_containers/etcd:3.4.3-0registry.aliyuncs.com/google_containers/coredns:1.6.5 拉取所需镜像 12345678910kubeadm config images pull --config kubeadm.yml# 输出如下[config/images] Pulled registry.aliyuncs.com/google_containers/kube-apiserver:v1.17.3[config/images] Pulled registry.aliyuncs.com/google_containers/kube-controller-manager:v1.17.3[config/images] Pulled registry.aliyuncs.com/google_containers/kube-scheduler:v1.17.3[config/images] Pulled registry.aliyuncs.com/google_containers/kube-proxy:v1.17.3[config/images] Pulled registry.aliyuncs.com/google_containers/pause:3.1[config/images] Pulled registry.aliyuncs.com/google_containers/etcd:3.4.3-0[config/images] Pulled registry.aliyuncs.com/google_containers/coredns:1.6.5 安装主节点 执行以下命令初始化主节点，该命令指定了初始化时需要使用的配置文件，其中添加 --upload-certs 参数可以在后续执行加入节点时自动分发证书文件。追加的 tee kubeadm-init.log 用以输出日志。 注意： 如果安装 kubernetes 版本和下载的镜像版本不统一则会出现 timed out waiting for the condition 错误。中途失败或是想修改配置可以使用 kubeadm reset 命令重置配置，再做初始化操作即可。 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273kubeadm init --config=kubeadm.yml --upload-certs | tee kubeadm-init.log# 输出如下[init] Using Kubernetes version: v1.17.3[preflight] Running pre-flight checks[preflight] Pulling images required for setting up a Kubernetes cluster[preflight] This might take a minute or two, depending on the speed of your internet connection[preflight] You can also perform this action in beforehand using 'kubeadm config images pull'[kubelet-start] Writing kubelet environment file with flags to file "/var/lib/kubelet/kubeadm-flags.env"[kubelet-start] Writing kubelet configuration to file "/var/lib/kubelet/config.yaml"[kubelet-start] Starting the kubelet[certs] Using certificateDir folder "/etc/kubernetes/pki"[certs] Generating "ca" certificate and key[certs] Generating "apiserver" certificate and key[certs] apiserver serving cert is signed for DNS names [kubernetes-master kubernetes kubernetes.default kubernetes.default.svc kubernetes.default.svc.cluster.local] and IPs [10.96.0.1 192.168.81.110][certs] Generating "apiserver-kubelet-client" certificate and key[certs] Generating "front-proxy-ca" certificate and key[certs] Generating "front-proxy-client" certificate and key[certs] Generating "etcd/ca" certificate and key[certs] Generating "etcd/server" certificate and key[certs] etcd/server serving cert is signed for DNS names [kubernetes-master localhost] and IPs [192.168.81.110 127.0.0.1 ::1][certs] Generating "etcd/peer" certificate and key[certs] etcd/peer serving cert is signed for DNS names [kubernetes-master localhost] and IPs [192.168.81.110 127.0.0.1 ::1][certs] Generating "etcd/healthcheck-client" certificate and key[certs] Generating "apiserver-etcd-client" certificate and key[certs] Generating "sa" key and public key[kubeconfig] Using kubeconfig folder "/etc/kubernetes"[kubeconfig] Writing "admin.conf" kubeconfig file[kubeconfig] Writing "kubelet.conf" kubeconfig file[kubeconfig] Writing "controller-manager.conf" kubeconfig file[kubeconfig] Writing "scheduler.conf" kubeconfig file[control-plane] Using manifest folder "/etc/kubernetes/manifests"[control-plane] Creating static Pod manifest for "kube-apiserver"W0223 12:38:57.210893 9130 manifests.go:214] the default kube-apiserver authorization-mode is "Node,RBAC"; using "Node,RBAC"[control-plane] Creating static Pod manifest for "kube-controller-manager"[control-plane] Creating static Pod manifest for "kube-scheduler"W0223 12:38:57.214165 9130 manifests.go:214] the default kube-apiserver authorization-mode is "Node,RBAC"; using "Node,RBAC"[etcd] Creating static Pod manifest for local etcd in "/etc/kubernetes/manifests"[wait-control-plane] Waiting for the kubelet to boot up the control plane as static Pods from directory "/etc/kubernetes/manifests". This can take up to 4m0s[apiclient] All control plane components are healthy after 19.005825 seconds[upload-config] Storing the configuration used in ConfigMap "kubeadm-config" in the "kube-system" Namespace[kubelet] Creating a ConfigMap "kubelet-config-1.17" in namespace kube-system with the configuration for the kubelets in the cluster[upload-certs] Storing the certificates in Secret "kubeadm-certs" in the "kube-system" Namespace[upload-certs] Using certificate key:91f1d04e74abd60fbadf2afaae656a5c5bfc3761e5a4a69d6727e429c997165c[mark-control-plane] Marking the node kubernetes-master as control-plane by adding the label "node-role.kubernetes.io/master=''"[mark-control-plane] Marking the node kubernetes-master as control-plane by adding the taints [node-role.kubernetes.io/master:NoSchedule][bootstrap-token] Using token: abcdef.0123456789abcdef[bootstrap-token] Configuring bootstrap tokens, cluster-info ConfigMap, RBAC Roles[bootstrap-token] configured RBAC rules to allow Node Bootstrap tokens to post CSRs in order for nodes to get long term certificate credentials[bootstrap-token] configured RBAC rules to allow the csrapprover controller automatically approve CSRs from a Node Bootstrap Token[bootstrap-token] configured RBAC rules to allow certificate rotation for all node client certificates in the cluster[bootstrap-token] Creating the "cluster-info" ConfigMap in the "kube-public" namespace[kubelet-finalize] Updating "/etc/kubernetes/kubelet.conf" to point to a rotatable kubelet client certificate and key[addons] Applied essential addon: CoreDNS[addons] Applied essential addon: kube-proxyYour Kubernetes control-plane has initialized successfully!To start using your cluster, you need to run the following as a regular user: mkdir -p $HOME/.kube sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config sudo chown $(id -u):$(id -g) $HOME/.kube/configYou should now deploy a pod network to the cluster.Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at: https://kubernetes.io/docs/concepts/cluster-administration/addons/Then you can join any number of worker nodes by running the following on each as root:kubeadm join 192.168.xxx.110:6443 --token abcdef.0123456789abcdef \ --discovery-token-ca-cert-hash sha256:3eac1be34c9e324279ebd843087e7dd002b3102c7d14313aec490cd73b4138ad 配置Kubectl 12345mkdir -p $HOME/.kubecp -i /etc/kubernetes/admin.conf $HOME/.kube/config# 非 ROOT 用户执行chown $(id -u):$(id -g) $HOME/.kube/config 验证是否成功 12345kubectl get node# 输出如下NAME STATUS ROLES AGE VERSIONkubernetes-master NotReady master 115s v1.17.3 安装从节点 将 Node 节点加入到集群中很简单，只需要在 Node 服务器上安装 kubeadm，kubectl，kubelet 三个工具，然后使用 kubeadm join 命令加入即可 123456789101112kubeadm join 192.168.xxx.110:6443 --token abcdef.0123456789abcdef \ --discovery-token-ca-cert-hash sha256:3eac1be34c9e324279ebd843087e7dd002b3102c7d14313aec490cd73b4138ad # 输出如下[preflight] Running pre-flight checks[preflight] Reading configuration from the cluster...[preflight] FYI: You can look at this config file with 'kubectl -n kube-system get cm kubeadm-config -oyaml'[kubelet-start] Downloading configuration for the kubelet from the "kubelet-config-1.17" ConfigMap in the kube-system namespace[kubelet-start] Writing kubelet configuration to file "/var/lib/kubelet/config.yaml"[kubelet-start] Writing kubelet environment file with flags to file "/var/lib/kubelet/kubeadm-flags.env"[kubelet-start] Starting the kubelet[kubelet-start] Waiting for the kubelet to perform the TLS Bootstrap... 验证是否成功 回到 Master 主节点查看是否安装成功 注意： 如果 Node 节点加入 Master 时配置有问题可以在 Node 节点上使用 kubeadm reset 重置配置再使用 kubeadm join 命令重新加入即可。希望在 master 节点删除 node ，可以使用 kubeadm delete nodes &lt;NAME&gt; 删除。 12345678kubectl get nodes# 输出如下NAME STATUS ROLES AGE VERSIONkubernetes-master NotReady master 17m v1.17.3kubernetes-node1 NotReady &lt;none&gt; 24s v1.17.3kubernetes-node2 NotReady &lt;none&gt; 15s v1.17.3kubernetes-node3 NotReady &lt;none&gt; 7s v1.17.3 查看Pods状态 coredns 尚未运行，此时我们还需要安装网络插件 1234567891011121314watch kubectl get pods -n kube-system -o wide# 输出如下NAME READY STATUS RESTARTS AGE IP NODE NOMINATED NODE READINESS GATEScoredns-9d85f5447-czrdk 0/1 Pending 0 19m &lt;none&gt; &lt;none&gt; &lt;none&gt; &lt;none&gt;coredns-9d85f5447-zsf6f 0/1 Pending 0 19m &lt;none&gt; &lt;none&gt; &lt;none&gt; &lt;none&gt;etcd-kubernetes-master 1/1 Running 0 20m 192.168.81.110 kubernetes-master &lt;none&gt; &lt;none&gt;kube-apiserver-kubernetes-master 1/1 Running 0 20m 192.168.81.110 kubernetes-master &lt;none&gt; &lt;none&gt;kube-controller-manager-kubernetes-master 1/1 Running 0 20m 192.168.81.110 kubernetes-master &lt;none&gt; &lt;none&gt;kube-proxy-jf9jg 1/1 Running 0 3m19s 192.168.81.122 kubernetes-node3 &lt;none&gt; &lt;none&gt;kube-proxy-t2rz5 1/1 Running 0 3m27s 192.168.81.121 kubernetes-node2 &lt;none&gt; &lt;none&gt;kube-proxy-vszhp 1/1 Running 0 3m36s 192.168.81.120 kubernetes-node1 &lt;none&gt; &lt;none&gt;kube-proxy-zpjk2 1/1 Running 0 19m 192.168.81.110 kubernetes-master &lt;none&gt; &lt;none&gt;kube-scheduler-kubernetes-master 1/1 Running 0 20m 192.168.81.110 kubernetes-master &lt;none&gt; &lt;none&gt; kubeadm init 的执行过程 init： 指定版本进行初始化操作 preflight： 初始化前的检查和下载所需要的 Docker 镜像文件 kubelet-start： 生成 kubelet 的配置文件 var/lib/kubelet/config.yaml，没有这个文件 kubelet 无法启动，所以初始化之前的 kubelet 实际上启动不会成功 certificates： 生成 Kubernetes 使用的证书，存放在 /etc/kubernetes/pki 目录中 kubeconfig： 生成 KubeConfig 文件，存放在 /etc/kubernetes 目录中，组件之间通信需要使用对应文件 control-plane： 使用 /etc/kubernetes/manifest 目录下的 YAML 文件，安装 Master 组件 etcd： 使用 /etc/kubernetes/manifest/etcd.yaml 安装 Etcd 服务 wait-control-plane： 等待 control-plan 部署的 Master 组件启动 apiclient： 检查 Master 组件服务状态。 uploadconfig： 更新配置 kubelet： 使用 configMap 配置 kubelet patchnode： 更新 CNI 信息到 Node 上，通过注释的方式记录 mark-control-plane： 为当前节点打标签，打了角色 Master，和不可调度标签，这样默认就不会使用 Master 节点来运行 Pod bootstrap-token： 生成 token 记录下来，后边使用 kubeadm join 往集群中添加节点时会用到 addons： 安装附加组件 CoreDNS 和 kube-proxy 3.网络插件 下载Calico 配置文件并修改 123456wget https://docs.projectcalico.org/manifests/calico.yamlvi calico.yaml修改第 611 行，将 192.168.0.0/16 修改为 10.244.0.0/16，可以通过如下命令快速查找显示行号：:set number查找字符：/要查找的字符，输入小写 n 下一个匹配项，输入大写 N 上一个匹配项 安装网络插件 Calico 参考官方文档安装：https://docs.projectcalico.org/getting-started/kubernetes/quickstart 1234567891011121314151617181920212223242526kubectl apply -f calico.yaml# 输出如下configmap/calico-config createdcustomresourcedefinition.apiextensions.k8s.io/felixconfigurations.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/ipamblocks.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/blockaffinities.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/ipamhandles.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/ipamconfigs.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/bgppeers.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/bgpconfigurations.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/ippools.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/hostendpoints.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/clusterinformations.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/globalnetworkpolicies.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/globalnetworksets.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/networkpolicies.crd.projectcalico.org createdcustomresourcedefinition.apiextensions.k8s.io/networksets.crd.projectcalico.org createdclusterrole.rbac.authorization.k8s.io/calico-kube-controllers createdclusterrolebinding.rbac.authorization.k8s.io/calico-kube-controllers createdclusterrole.rbac.authorization.k8s.io/calico-node createdclusterrolebinding.rbac.authorization.k8s.io/calico-node createddaemonset.apps/calico-node createdserviceaccount/calico-node createddeployment.apps/calico-kube-controllers createdserviceaccount/calico-kube-controllers created 验证是否成功 查看 Calico 网络插件处于 Running 状态即表示安装成功 12345678910111213141516171819watch kubectl get pods --all-namespaces# 输出如下NAMESPACE NAME READY STATUS RESTARTS AGEkube-system calico-kube-controllers-77c4b7448-vzsb7 1/1 Running 0 3m52skube-system calico-node-5gr6m 1/1 Running 0 3m53skube-system calico-node-5pwj6 1/1 Running 0 3m53skube-system calico-node-drp46 1/1 Running 0 3m53skube-system calico-node-npjpx 1/1 Running 0 3m53skube-system coredns-9d85f5447-czrdk 1/1 Running 0 32mkube-system coredns-9d85f5447-zsf6f 1/1 Running 0 32mkube-system etcd-kubernetes-master 1/1 Running 0 33mkube-system kube-apiserver-kubernetes-master 1/1 Running 0 33mkube-system kube-controller-manager-kubernetes-master 1/1 Running 0 33mkube-system kube-proxy-jf9jg 1/1 Running 0 16mkube-system kube-proxy-t2rz5 1/1 Running 0 16mkube-system kube-proxy-vszhp 1/1 Running 0 16mkube-system kube-proxy-zpjk2 1/1 Running 0 32mkube-system kube-scheduler-kubernetes-master 1/1 Running 0 33m 查看节点状态处于Ready 即表示安装成功 12345678kubectl get nodes# 输出如下NAME STATUS ROLES AGE VERSIONkubernetes-master Ready master 33m v1.17.3kubernetes-node1 Ready &lt;none&gt; 17m v1.17.3kubernetes-node2 Ready &lt;none&gt; 16m v1.17.3kubernetes-node3 Ready &lt;none&gt; 16m v1.17.3]]></content>
-      <tags>
-        <tag>K8S</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[20200515]]></title>
+    <title><![CDATA[SVN版本冲突]]></title>
     <url>%2F2020%2F05%2F15%2F%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93%2F20200515%2F</url>
-    <content type="text"><![CDATA[工作中遇到一些问题，希望记录下来，以后方便查看 SVN版本冲突 这个冲突文件是同事写的代码，并不是我的，但是，我在更新代码的时候发生了代码冲突 解决步骤 1.选中冲突文件鼠标右键Edit conficts 2.虽然我没有修改但是，我还是选择了第三个，合并到本地目录，保存我的和服务器的，再次更新代码就可以了 出现界面，分为”Theirs”、”Mine”和”Merged”3部分，表示”别人修改的内容”、 ”我修改的内容”和”合并后的结果”3部分。我们是要将”别人修改的内容”和”我修改的内容”有取舍地合并起来，形成”合并后的结果”。 合并一般分为4种情况： 1.保留”我的修改”,舍弃”别人的修改”。鼠标右键点击Mine框的相应行，点击”Use this text block”。 2.舍弃”我的修改”,保留”别人的修改”。鼠标右键点击Theirs框的相应行，点击”Use this text block”。 3.同时保留”我的修改”和”别人的修改”，并将”我的修改” 放在前面。鼠标右键点击Mine框的相应行，点击”Use text block from mine before theirs”。 4.同时保留”我的修改”和”别人的修改”，并将”别人的修改”放在前面。鼠标右键点击Mine框的相应行，点击”Use text block from theirs before mine”。]]></content>
+    <content type="text"><![CDATA[SVN版本冲突 这个冲突文件是同事写的代码，并不是我的，但是，我在更新代码的时候发生了代码冲突 解决步骤 1.选中冲突文件鼠标右键Edit conficts 2.虽然我没有修改但是，我还是选择了第三个，合并到本地目录，保存我的和服务器的，再次更新代码就可以了 出现界面，分为”Theirs”、”Mine”和”Merged”3部分，表示”别人修改的内容”、 ”我修改的内容”和”合并后的结果”3部分。我们是要将”别人修改的内容”和”我修改的内容”有取舍地合并起来，形成”合并后的结果”。 合并一般分为4种情况： 1.保留”我的修改”,舍弃”别人的修改”。鼠标右键点击Mine框的相应行，点击”Use this text block”。 2.舍弃”我的修改”,保留”别人的修改”。鼠标右键点击Theirs框的相应行，点击”Use this text block”。 3.同时保留”我的修改”和”别人的修改”，并将”我的修改” 放在前面。鼠标右键点击Mine框的相应行，点击”Use text block from mine before theirs”。 4.同时保留”我的修改”和”别人的修改”，并将”别人的修改”放在前面。鼠标右键点击Mine框的相应行，点击”Use text block from theirs before mine”。]]></content>
       <categories>
         <category>工作总结</category>
       </categories>
@@ -174,45 +162,15 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[20200514]]></title>
+    <title><![CDATA[JqGrid行编辑]]></title>
     <url>%2F2020%2F05%2F14%2F%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93%2F20200514%2F</url>
-    <content type="text"><![CDATA[工作中遇到一些问题，希望记录下来，以后方便查看 JqGrid行编辑 ​ 1.jqGrid学习网站 jqGrid实例中文版 jqGrid官网 ​ 2.editRow 编辑行 //最后一行追加行 123456$("#productList").addRowData(rowid, josnData, "last");//调用方式jQuery("#grid_id").editRow(rowid, keys, oneditfunc, successfunc, url, extraparam, aftersavefunc,errorfunc, afterrestorefunc);//新版本调用方式jQuery("#grid_id").jqGrid('editRow',rowid, keys, oneditfunc, successfunc, url, extraparam, aftersavefunc,errorfunc, afterrestorefunc); editRow参数配置说明 grid_id ：已经构造过的jqGrid rowid：此数据行的id keys：设置为true可以使用 [Enter]保存数据或者[Esc] 取消编辑 oneditfunc：在行成功转为编辑模式下触发的事件，参数为此行数据id successfunc, url, extraparam, aftersavefunc,errorfunc 和 afterrestorefunc在下面的saveRow方法中介绍 拥有’not-editable-row’ 样式的行不可编辑，即使colModel中配置了某些列能编辑。 123456789101112131415//默认参数editparameters = &#123; "keys" : false, "oneditfunc" : null, "successfunc" : null, "url" : null, "extraparam" : &#123;&#125;, "aftersavefunc" : null, "errorfunc": null, "afterrestorefunc" : null, "restoreAfterError" : true, "mtype" : "POST"&#125; jQuery("#grid_id").jqGrid('editRow',rowid, parameters); //事件编辑行 123456onSelectRow: function (id) &#123; $("#productList").saveRow(id, false); $("#productList").jqGrid('restoreRow', id); $("#productList").jqGrid('editRow', id, true); lastrow = id;&#125; saveRow保存行 1$("#jqGrid").jqGrid('saveRow',rowKey); restoreRow还原数据行 1jQuery("#grid_id").restoreRow(rowid, afterrestorefunc); inlineNav： 给行编辑添加导航操作按钮 12jQuery("#grid_id").navGrid(pagerid, &#123;...&#125;);jQuery("#grid_id").inlineNav(pagerid, parameters); 12345 - delGridRow删除行​```javascript$(&quot;#jqGrid&quot;).delGridRow(rowKey);]]></content>
+    <content type="text"><![CDATA[JqGrid行编辑 ​ 1.jqGrid学习网站 jqGrid实例中文版 jqGrid官网 ​ 2.editRow 编辑行 //最后一行追加行 123456$("#productList").addRowData(rowid, josnData, "last");//调用方式jQuery("#grid_id").editRow(rowid, keys, oneditfunc, successfunc, url, extraparam, aftersavefunc,errorfunc, afterrestorefunc);//新版本调用方式jQuery("#grid_id").jqGrid('editRow',rowid, keys, oneditfunc, successfunc, url, extraparam, aftersavefunc,errorfunc, afterrestorefunc); editRow参数配置说明 grid_id ：已经构造过的jqGrid rowid：此数据行的id keys：设置为true可以使用 [Enter]保存数据或者[Esc] 取消编辑 oneditfunc：在行成功转为编辑模式下触发的事件，参数为此行数据id successfunc, url, extraparam, aftersavefunc,errorfunc 和 afterrestorefunc在下面的saveRow方法中介绍 拥有’not-editable-row’ 样式的行不可编辑，即使colModel中配置了某些列能编辑。 123456789101112131415//默认参数editparameters = &#123; "keys" : false, "oneditfunc" : null, "successfunc" : null, "url" : null, "extraparam" : &#123;&#125;, "aftersavefunc" : null, "errorfunc": null, "afterrestorefunc" : null, "restoreAfterError" : true, "mtype" : "POST"&#125; jQuery("#grid_id").jqGrid('editRow',rowid, parameters); //事件编辑行 123456onSelectRow: function (id) &#123; $("#productList").saveRow(id, false); $("#productList").jqGrid('restoreRow', id); $("#productList").jqGrid('editRow', id, true); lastrow = id;&#125; saveRow保存行 1$("#jqGrid").jqGrid('saveRow',rowKey); restoreRow还原数据行 1jQuery("#grid_id").restoreRow(rowid, afterrestorefunc); inlineNav： 给行编辑添加导航操作按钮 12jQuery("#grid_id").navGrid(pagerid, &#123;...&#125;);jQuery("#grid_id").inlineNav(pagerid, parameters); 12345 - delGridRow删除行​```javascript$(&quot;#jqGrid&quot;).delGridRow(rowKey);]]></content>
       <categories>
         <category>工作总结</category>
       </categories>
       <tags>
         <tag>工作总结</tag>
       </tags>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2F2020%2F04%2F29%2F%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%2F9.FinalShell%2F</url>
-    <content type="text"><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2F2020%2F04%2F29%2F%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%2F8.Postman%2F</url>
-    <content type="text"><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2F2020%2F04%2F29%2F%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%2F7.PLSQL%2F</url>
-    <content type="text"><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2F2020%2F04%2F29%2F%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%2F6.Navicat%2F</url>
-    <content type="text"><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2F2020%2F04%2F29%2F%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%2F5.STS(eclipse)%2F</url>
-    <content type="text"><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2F2020%2F04%2F29%2F%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%2F4.Axure%2F</url>
-    <content type="text"><![CDATA[]]></content>
   </entry>
   <entry>
     <title><![CDATA[图书推荐]]></title>
@@ -227,181 +185,6 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>%2F2020%2F04%2F29%2F%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%2F2.WebStorm%2F</url>
-    <content type="text"><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2F2020%2F04%2F29%2F%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%2F3.VisualStudioCode%2F</url>
-    <content type="text"><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2F2020%2F04%2F29%2F6.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%87%BD%E6%95%B0%E8%AE%A1%E7%AE%97%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%87%BD%E6%95%B0%E8%AE%A1%E7%AE%97%2F</url>
-    <content type="text"><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2F2020%2F04%2F29%2F6.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%9C%8D%E5%8A%A1%E7%BD%91%E6%A0%BC%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%9C%8D%E5%8A%A1%E7%BD%91%E6%A0%BC%2F</url>
-    <content type="text"><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2F2020%2F04%2F29%2F6.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%A4%A7%E8%A7%84%E6%A8%A1%E4%BA%A4%E4%BB%98%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%A4%A7%E8%A7%84%E6%A8%A1%E4%BA%A4%E4%BB%98%2F</url>
-    <content type="text"><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2F2020%2F04%2F29%2F6.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%9B%86%E7%BE%A4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%9B%86%E7%BE%A4%2F</url>
-    <content type="text"><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2F2020%2F04%2F29%2F4.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB(Flutter)%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB(Flutter)%2F</url>
-    <content type="text"><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2F2020%2F04%2F29%2F4.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB(React)%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB(React)%2F</url>
-    <content type="text"><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2F2020%2F04%2F29%2F5.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%8C%81%E7%BB%AD%E5%8C%96%E4%BA%A4%E4%BB%98%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%AE%B9%E5%99%A8%E5%8C%96%E9%83%A8%E7%BD%B2%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%8C%81%E7%BB%AD%E4%BA%A4%E4%BB%98%2F</url>
-    <content type="text"><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2F2020%2F04%2F29%2F5.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%8C%81%E7%BB%AD%E5%8C%96%E4%BA%A4%E4%BB%98%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%2F</url>
-    <content type="text"><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2F2020%2F04%2F29%2F5.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%8C%81%E7%BB%AD%E5%8C%96%E4%BA%A4%E4%BB%98%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%AE%B9%E5%99%A8%E5%8C%96%E9%83%A8%E7%BD%B2%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%AE%B9%E5%99%A8%E5%8C%96%E9%83%A8%E7%BD%B2%2F</url>
-    <content type="text"><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[16.性能监控]]></title>
-    <url>%2F2020%2F04%2F26%2F3.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7-Prometheus%20%26%20Grafana%2F</url>
-    <content type="text"><![CDATA[快速开始 Prometheus 简介 Grafana 简介 Spring Boot Metrics 集成 Prometheus &amp; Grafana]]></content>
-      <categories>
-        <category>目录</category>
-      </categories>
-      <tags>
-        <tag>目录</tag>
-        <tag>二级</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[15.日志收集]]></title>
-    <url>%2F2020%2F04%2F26%2F3.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%97%A5%E5%BF%97%E6%94%B6%E9%9B%862%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%97%A5%E5%BF%97%E6%94%B6%E9%9B%86-EFK%2F</url>
-    <content type="text"><![CDATA[快速开始 EFK 简介 EFK 部署 EFK 使用]]></content>
-      <categories>
-        <category>目录</category>
-      </categories>
-      <tags>
-        <tag>目录</tag>
-        <tag>二级</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[14.日志收集]]></title>
-    <url>%2F2020%2F04%2F26%2F3.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%97%A5%E5%BF%97%E6%94%B6%E9%9B%861%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%97%A5%E5%BF%97%E6%94%B6%E9%9B%86-ELK%2F</url>
-    <content type="text"><![CDATA[快速开始 ELK 简介 ELK 部署 ELK 使用]]></content>
-      <categories>
-        <category>目录</category>
-      </categories>
-      <tags>
-        <tag>目录</tag>
-        <tag>二级</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[13.全文搜索]]></title>
-    <url>%2F2020%2F04%2F26%2F3.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%85%A8%E6%96%87%E6%90%9C%E7%B4%A2%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%85%A8%E6%96%87%E6%90%9C%E7%B4%A2-ElasticSearch%2F</url>
-    <content type="text"><![CDATA[ElasticSearch 快速开始 Apache Lucene 简介 ElasticSearch 简介 ElasticSearch 部署 ElasticSearch 添加索引 Spring Boot 集成 ElasticSearch ElasticSearch 数据吞吐 ElasticSearch 文档概述 ElasticSearch 索引文档 ElasticSearch 检索文档 ElasticSearch 检查文档 ElasticSearch 更新文档 ElasticSearch 创建文档 ElasticSearch 删除文档 ElasticSearch 处理冲突 ElasticSearch 局部更新 ElasticSearch 检索多个文档 ElasticSearch 批量操作 ElasticSearch 中文分词 ElasticSearch 分析和分析器 ElasticSearch 默认分词 ElasticSearch 分词插件 ElasticSearch 分词效果 ElasticSearch 倒排索引 ElasticSearch 分布式索引 ElasticSearch 数据分片 ElasticSearch 路由索引]]></content>
-      <categories>
-        <category>目录</category>
-      </categories>
-      <tags>
-        <tag>目录</tag>
-        <tag>二级</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[12.高性能存储]]></title>
-    <url>%2F2020%2F04%2F26%2F3.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%AB%98%E6%80%A7%E8%83%BD%E5%AD%98%E5%82%A8%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%AB%98%E6%80%A7%E8%83%BD%E5%AD%98%E5%82%A8-MongoDB%2F</url>
-    <content type="text"><![CDATA[MongoDB 基础 MongoDB 简介 MongoDB 部署 MongoDB 基本概念 MongoDB 连接 MongoDB 创建数据库 MongoDB 删除数据库 MongoDB 插入文档 MongoDB 更新文档 MongoDB 删除文档 MongoDB 查询文档 MongoDB 条件操作符 MongoDB $type 条件操作符 MongoDB Limit 与 Skip 方法 MongoDB 排序 MongoDB 索引 MongoDB 聚合 MongoDB 复制 MongoDB 分片 MongoDB 监控 Spring Boot 集成 MongoDB MongoDB 高级 MongoDB 关系 MongoDB 数据库引用 MongoDB 覆盖索引查询 MongoDB 查询分析 MongoDB 原子操作 MongoDB 高级索引 MongoDB 索引限制 MongoDB ObjectId MongoDB 固定集合]]></content>
-      <categories>
-        <category>目录</category>
-      </categories>
-      <tags>
-        <tag>目录</tag>
-        <tag>二级</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[11.分布式事务]]></title>
-    <url>%2F2020%2F04%2F26%2F3.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1-AlibabaSeata%2F</url>
-    <content type="text"><![CDATA[快速开始 Alibaba Seta 简介 Alibaba Seta 实践 AT 模式]]></content>
-      <categories>
-        <category>目录</category>
-      </categories>
-      <tags>
-        <tag>目录</tag>
-        <tag>二级</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[10.分库分表]]></title>
-    <url>%2F2020%2F04%2F26%2F3.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8-ApacheShardingSphere%2F</url>
-    <content type="text"><![CDATA[快速开始 Apache ShardingSphere 简介 Apache ShardingSphere 快速开始]]></content>
-      <categories>
-        <category>目录</category>
-      </categories>
-      <tags>
-        <tag>目录</tag>
-        <tag>二级</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[9.分布式主键-Leaf]]></title>
-    <url>%2F2020%2F04%2F26%2F3.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%BB%E9%94%AE%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%BB%E9%94%AE-Leaf%2F</url>
-    <content type="text"><![CDATA[快速开始 分布式主键简介 Leaf 分布式主键方案 Leaf 使用 Docker 部署 Leaf 客户端接入]]></content>
-      <categories>
-        <category>目录</category>
-      </categories>
-      <tags>
-        <tag>目录</tag>
-        <tag>二级</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[8.认证授权]]></title>
-    <url>%2F2020%2F04%2F26%2F3.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E8%AE%A4%E8%AF%81%E6%8E%88%E6%9D%83%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E8%AE%A4%E8%AF%81%E6%8E%88%E6%9D%83%2F</url>
-    <content type="text"><![CDATA[快速开始 oAuth2 简介 oAuth2 应用场景 Spring Security oAuth2 授权模式 Spring Security oAuth2 项目工程准备 Spring Security oAuth2 认证服务器 Spring Security oAuth2 使用内存存储令牌 Spring Security oAuth2 使用 JDBC 存储令牌 Spring Security oAuth2 启用密码模式 Spring Security oAuth2 使用 Redis 存储令牌 基于角色的访问控制 Spring Security oAuth2 RBAC Spring Security oAuth2 自定义认证 Spring Security oAuth2 资源服务器 专题功能 Spring Security oAuth2 简单模式 Spring Security oAuth2 密码模式 Spring Security oAuth2 授权码模式 Spring Security oAuth2 客户端模式 Spring Security oAuth2 令牌的刷新]]></content>
-      <categories>
-        <category>目录</category>
-      </categories>
-      <tags>
-        <tag>目录</tag>
-        <tag>二级</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[7.分布式锁]]></title>
-    <url>%2F2020%2F04%2F26%2F3.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81-Redisson%2F</url>
-    <content type="text"><![CDATA[分布式协调 什么是分布式协调 什么是分布式锁 Redis 实现分布式锁 Zookeeper Zookeeper 简介 Zookeeper 的一致性 Zookeeper 的应用场景 Zookeeper 实现分布式锁 Redisson 实现分布式锁 Redisson 简介 Redisson 应用场景 Redisson 结构 Spring Boot 集成 Redisson Redisson RLock Redisson 可重入锁 Redisson 公平锁 Redisson 联锁 Redisson 红锁 Redisson 共享锁 Redisson 排他锁 Redisson 自定义注解]]></content>
-      <categories>
-        <category>目录</category>
-      </categories>
-      <tags>
-        <tag>目录</tag>
-        <tag>二级</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[JDK新特性]]></title>
     <url>%2F2020%2F04%2F26%2FJDK%E6%96%B0%E7%89%B9%E6%80%A7%2FJDK%E6%96%B0%E7%89%B9%E6%80%A7%2F</url>
     <content type="text"><![CDATA[1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950@FunctionalInterfaceinterface Foo&#123; //函数式接口有且只有一个方法 //public void sayHello(); public int add(int x,int y); //default 可以定义一个 public default int mul(int x,int y) &#123; retrun x * y; &#125; // static 可以定义多个 public static int div(int x, int y) &#123; retrun x/y; &#125;&#125;/** * 函数式接口可以使用 Lambda * 1.拷贝中括号,写死右箭头，落地大括号 * 2.@FunctionalInterface * 3.default * 4.static */public clas LambdaExpresssDemo&#123; public static void main(String[] args) &#123; /*Foo foo = new Foo() &#123; @Override public void sayHello() &#123; System.out.println("****** hello"); &#125; foo.sayHello(); &#125;*/ //Foo foo = () -&gt; &#123;System.out.println("****** hello");&#125;; //foo.sayHello(); Foo foo = (int x, int y)&#123;System.out.println("come in math");return x+y;&#125;; System.out.println(foo.add(3,5)); System.out.println(foo.mul(3,5)); System.out.println(Foo.div(10,2)) &#125;&#125; ​ Stream 是对集合(Collection)对象功能的增强，它专注于对集合对象进行各种非常便利、高效的聚合操作，或者大批量数据操作。通常我们需要多行代码才能完成的操作，借助于Stream流式处理可以很简单的实现。 Stream 不是集合元素，它不是数据结构并不保存数据，它是有关算法和计算的，它更像一个高级版本的Iterator。同时Stream提供串行和并行两种模式进行汇聚操作。比如你的Stream里面有很多数据，Stream可以开多个线程每个线程处理一部分。最后把结果汇总起来。 在开始之前我们先用一个图来整体的概况下Stream。如下所示： https://blog.csdn.net/wuyuxing24/article/details/96560995 12]]></content>
@@ -413,246 +196,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[6.分布式缓存-Redis]]></title>
-    <url>%2F2020%2F04%2F26%2F3.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98-Redis%2F</url>
-    <content type="text"><![CDATA[Redis 快速开始 Redis 简介 Redis 集群 Spring Boot 集成 Redis Redis 数据操作 Redis Key Redis 字符串 Redis 列表 Redis 集合 Redis 有序集合 Redis 哈希 Redis HyperLog Redis 专题功能 Redis 排序 Redis 事务 Redis 流水线 Redis 发布订阅 Redis 设计规范 Redis 超时 Redis 内存 Redis 延迟 Redis 典型应用场景 Redis 部署运维 Redis 内存、CPU Redis 网卡设置 Redis 运维操作 Redis 持久化 Redis 备份恢复 Redis 数据迁移 Redis 数据分片]]></content>
-      <categories>
-        <category>目录</category>
-      </categories>
-      <tags>
-        <tag>目录</tag>
-        <tag>二级</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[微服务-微服务治理]]></title>
-    <url>%2F2020%2F04%2F26%2F6.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86%2F</url>
-    <content type="text"><![CDATA[]]></content>
-      <categories>
-        <category>目录</category>
-      </categories>
-      <tags>
-        <tag>目录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[微服务-持续化交付]]></title>
-    <url>%2F2020%2F04%2F26%2F5.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%8C%81%E7%BB%AD%E5%8C%96%E4%BA%A4%E4%BB%98%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%8C%81%E7%BB%AD%E5%8C%96%E4%BA%A4%2F</url>
-    <content type="text"><![CDATA[]]></content>
-      <categories>
-        <category>目录</category>
-      </categories>
-      <tags>
-        <tag>目录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[5.消息队列-Kafka]]></title>
-    <url>%2F2020%2F04%2F26%2F3.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%972%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97-ApacheKafaka%2F</url>
-    <content type="text"><![CDATA[快速开始 Apache Kafka 简介 Apache Kafka 基础 Apache Kafka 集群架构 Apache Kafka 工作流程 Apache Kafka 部署 Apache Kafka 消息生产者 Apache Kafka 消息消费者 Apache Kafka 实时应用]]></content>
-      <categories>
-        <category>目录</category>
-      </categories>
-      <tags>
-        <tag>目录</tag>
-        <tag>二级</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[4.消息队列-RocketMQ]]></title>
-    <url>%2F2020%2F04%2F26%2F3.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%971%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97-ApacheRocketMQ%2F</url>
-    <content type="text"><![CDATA[快速开始 消息队列的流派 Apache RocketMQ 简介 Apache RocketMQ 部署 Apache RocketMQ 消息生产者 Apache RocketMQ 消息消费者 Apache RocketMQ 自定义Binding]]></content>
-      <categories>
-        <category>目录</category>
-      </categories>
-      <tags>
-        <tag>目录</tag>
-        <tag>二级</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[3.健康检查]]></title>
-    <url>%2F2020%2F04%2F26%2F3.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5%2F</url>
-    <content type="text"><![CDATA[快速开始 Spring Boot Actuator 简介 Spring Boot Actuator 使用]]></content>
-      <categories>
-        <category>目录</category>
-      </categories>
-      <tags>
-        <tag>目录</tag>
-        <tag>二级</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[微服务-前后端分离]]></title>
-    <url>%2F2020%2F04%2F26%2F4.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%2F</url>
-    <content type="text"><![CDATA[]]></content>
-      <categories>
-        <category>目录</category>
-      </categories>
-      <tags>
-        <tag>目录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2.远程调用]]></title>
-    <url>%2F2020%2F04%2F26%2F3.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8%2F</url>
-    <content type="text"><![CDATA[快速开始 Apache Dubbo 简介 Apache Dubbo 项目工程准备 Apache Dubbo 服务注册与发现 Apache Dubbo 负载均衡 Apache Dubbo 外部化配置 Apache Dubbo Sentinel 服务限流]]></content>
-      <categories>
-        <category>目录</category>
-      </categories>
-      <tags>
-        <tag>目录</tag>
-        <tag>二级</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[1.阿里巴巴]]></title>
-    <url>%2F2020%2F04%2F26%2F3.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F</url>
-    <content type="text"><![CDATA[SpringCloudAlibabaSpring官网 一、开始 1.Spring Cloud Alibaba 简介 2.Spring Cloud Alibaba 项目工程准备 3.Alibaba Nacos 服务注册中心 4.Alibaba Nacos 安装部署 5.Alibaba Nacos 服务提供者 6.Alibaba Nacos 服务消费者 7.Alibaba Nacos 使用 Feign 客户端 8.Alibaba Nacos 分布式配置中心 9.Alibaba Nacos 多环境配置 二、服务熔断 1.Alibaba Sentinel 分布式系统的流量防卫兵 2.Alibaba Sentinel 控制台 3.Alibaba Sentinel 客户端接入 三、链路追踪 1.Apache Skywalking 简介 2.Apache Skywalking 服务端配置 3.Apache Skywalking 客户端接入 4.Maven Assembly 插件协助打包 四、服务网关 1.Spring Cloud Gateway 简介 2.Spring Cloud Gateway 部署 3.Spring Cloud Gateway 路由 4.Spring Cloud Gateway 谓词过滤器 5.Spring Cloud Gateway 容错 6.Spring Cloud Gateway 跨域]]></content>
-      <categories>
-        <category>目录</category>
-      </categories>
-      <tags>
-        <tag>目录</tag>
-        <tag>二级</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[4.分布式事务LCN]]></title>
-    <url>%2F2020%2F04%2F25%2F2.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E7%BD%91%E9%A3%9E%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%2F</url>
-    <content type="text"><![CDATA[快速开始 LCN 简介 LCN 原理 LCN 使用 LCN 验证]]></content>
-      <categories>
-        <category>目录</category>
-      </categories>
-      <tags>
-        <tag>目录</tag>
-        <tag>二级</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[3.分库分表MyCat]]></title>
-    <url>%2F2020%2F04%2F25%2F2.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E7%BD%91%E9%A3%9E%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%2F</url>
-    <content type="text"><![CDATA[快速开始 MyCat 简介 MyCat 原理 MyCat 使用 MyCat 验证]]></content>
-      <categories>
-        <category>目录</category>
-      </categories>
-      <tags>
-        <tag>目录</tag>
-        <tag>二级</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2.消息队列RabbitMQ]]></title>
-    <url>%2F2020%2F04%2F25%2F2.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E7%BD%91%E9%A3%9E%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%2F</url>
-    <content type="text"><![CDATA[快速开始 消息队列的流派 Actor 模型 RabbitMQ 简介 RabbitMQ 部署 RabbitMQ 使用]]></content>
-      <categories>
-        <category>目录</category>
-      </categories>
-      <tags>
-        <tag>目录</tag>
-        <tag>二级</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[1.网飞]]></title>
-    <url>%2F2020%2F04%2F25%2F2.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E7%BD%91%E9%A3%9E%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E7%BD%91%E9%A3%9E%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E7%BD%91%E9%A3%9E%2F</url>
-    <content type="text"><![CDATA[SpringCloudNetflix Spring官网 快速开始 项目已进入维护期 项目工程准备 服务注册中心 服务提供者 服务消费者 服务熔断 Netflix Hystrix Netflix Turbine Hystrix 相关说明 服务网关 Netflix Zuul 链路追踪 ZipKin 外部化配置 Spring Cloud Config]]></content>
-      <categories>
-        <category>目录</category>
-      </categories>
-      <tags>
-        <tag>目录</tag>
-        <tag>二级</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[4.容器化引擎]]></title>
-    <url>%2F2020%2F04%2F24%2F1.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%9E%B6%E6%9E%84%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%AE%B9%E5%99%A8%E5%8C%96%E5%BC%95%E6%93%8E%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%AE%B9%E5%99%A8%E5%8C%96%E5%BC%95%E6%93%8E%2F</url>
-    <content type="text"><![CDATA[Docker 简介 什么是Docker 为什么用Docker Docker 镜像 Docker 容器 Docker 仓库 Ubuntu 安装 Docker Docker 架构 Docker 镜像 Docker 获取镜像 Docker 列出镜像 Docker 创建镜像 Docker 载入镜像 Docker 移除镜像 Docker 镜像的实现原理 Docker 容器 Docker 进入容器 Docker 导出容器 Docker 删除容器 Docker 启动容器 Docker 守护态运行 Docker 终止容器 Docker 仓库 Docker Hub Docker 数据卷 Docker 创建数据卷 Docker 数据卷容器 Docker 备份、恢复、迁移数据卷 Docker 网络 Docker 容器互联 Docker 外部访问 Docker 网络命令 Docker 配置 DNS Docker 访问控制 Docker 端口映射 Docker 配置网桥 Docker 自定义网桥 Docker 安全 Docker 内核名字空间 Dokcer 控制组 Docker 服务端防护 Docker 内核机制 Docker 底层 Docker 基本架构 Docker 名字空间 Docker 控制组 Docker 联合文件系统 Docker Compose YAML 配置文件语言 Docker Compose 简介 Dokcer Compose 安装 Docker Compose 部署 Tomcat Docker Compose 部署 MySQL Docker Compose 自定义网络 Docker Compose &amp; Nginx Nginx 简介 Nginx 安装 Nginx 架构 Nginx 基础概念 Nginx 数据结构 Nginx 配置系统 Nginx 模块化体系结构 Nginx 请求处理 Nginx 虚拟主机 Nginx 反向代理 Nginx handler Nginx 模块基本结构 Nginx handler 模块基本结构 Nginx handler 模块挂载 Nginx 过滤 Nginx upstream Nginx 负载均衡 Nginx core Nginx event Nginx 配置文件 Docker Compose &amp; GitLab Gitlab 简介 Gitlab 安装 Gitlab 设置 Gitlab 创建账户 Gitlab 维护项目 Gitlab 管理组织 Gitlab 免密登录 SourceTree 简介 SourceTree 安装 SourceTree 设置 SourceTree 工作流 - 中央集中式 SourceTree 工作流 - 功能分支 SourceTree 工作流 - GitFlow SourceTree 工作流 - Forking Docker Compose &amp; Nexus Nexus 简介 Nexus 安装 Nexus 设置 Nexus Maven Nexus NPM 在项目中使用Nexus]]></content>
-      <categories>
-        <category>目录</category>
-      </categories>
-      <tags>
-        <tag>目录</tag>
-        <tag>二级</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[3.生产环境]]></title>
-    <url>%2F2020%2F04%2F24%2F1.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%9E%B6%E6%9E%84%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%2F</url>
-    <content type="text"><![CDATA[Linux入门 Linux 简介 安装Ubuntu 安装Centos Linux 远程控制管理 Linux 目录结构 Linux 命令 Linux 操作文件目录 Linux 系统管理命令 Linux 开关机命令 Linux 压缩命令 Linux Vim 编辑器 Linux 软件包管理 Linux 用户和组管理 Linux 文件权限管理 Ubuntu 修改 IP 和 DNS Linux LVM 磁盘扩容]]></content>
-      <categories>
-        <category>目录</category>
-      </categories>
-      <tags>
-        <tag>目录</tag>
-        <tag>二级</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2.开箱即用]]></title>
-    <url>%2F2020%2F04%2F24%2F1.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%9E%B6%E6%9E%84%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%BC%80%E7%AE%B1%E5%8D%B3%E7%94%A8%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E5%BC%80%E7%AE%B1%E5%8D%B3%E7%94%A8%2F</url>
-    <content type="text"><![CDATA[Spring Boot入门 Spring 简史 Spring Boot 简介 Spring Boot 应用程序 Spirng Boot 单元测试 Spirng Boot 常用配置 Spirng Boot 分层架构 理解微服务的分层架构 通用依赖 持久层 服务层 网关层 展示层 中间件层 认证与授权 Spirng Boot 文档生成 Spirng Boot 集成 Restdocs Spirng Boot 集成 Swagger2 Spirng Boot 集成 ApiDoc Spirng Boot 数据库 Spirng Boot Jdbc Template Spirng Boot 集成 JPA Spirng Boot 集成 BeetlSQL Spirng Boot 集成 MyBatisPlus Spirng Boot 声明式事务 Spirng Boot 缓存处理 Spirng Boot 集成 SpringCache Spirng Boot 网络编程 Spirng Boot RestTemplate Spirng Boot 发送邮件 Spirng Boot 上传文件 Spirng Boot 任务调度 Spirng Boot Scheduling Spirng Boot 表单验证 Spirng Boot Validator]]></content>
-      <categories>
-        <category>目录</category>
-      </categories>
-      <tags>
-        <tag>目录</tag>
-        <tag>二级</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[1.编程思想]]></title>
-    <url>%2F2020%2F04%2F24%2F1.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%9E%B6%E6%9E%84%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3%2F</url>
-    <content type="text"><![CDATA[什么是微服务架构 微服务简介 使用API网关 进程间通信 服务发现 事件驱动数据管理 选择部署策略 重构单体为微服务 微服务架构设计模式 构建原则 拆分模式 集成模式 数据库模式 观察模型 跨领域模式 微服务架构十二要素 微服务十二要素宣言 基准代码 依赖 配置 后端服务 构建，发布，运行 进程 端口绑定 并发 易处理 开发环境与现上环境等价 日志 管理进程 微服务架构与高并发 如何应对高并发 NoSQL数据库 什么是CAP定理 什么是BASE理论 微服务架构与敏捷开发 敏捷宣言 敏捷开发 极限编程 微服务架构与持续集成 什么是持续集成 什么是持续交付 微服务架构与无状态应用 什么是无状态应用 什么是轻应用]]></content>
-      <categories>
-        <category>目录</category>
-      </categories>
-      <tags>
-        <tag>目录</tag>
-        <tag>二级</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[]]></title>
-    <url>%2F2020%2F04%2F23%2F3.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%2F</url>
-    <content type="text"><![CDATA[导航 1.SpringCloudAlibaba 2.远程调用 3.健康检查 4.消息队列1-Apache RocketMQ 5.消息队列2-Apache Kafka 6.分布式缓存-Redis 7.分布式锁-Redisson 8.认证授权-Spring Security oAuth2 9.分布式主键-Leaf 10.分库分表-Apache Sharding Sphere 11.分布式事务-Alibaba Seata 12.高性能存储-MongoDB 13.全文搜索-ElasticSearch 14.日志收集1-ELK 15.日志收集2-EFK 16.性能监控-Prometeus &amp; Grafana]]></content>
-      <categories>
-        <category>目录</category>
-      </categories>
-      <tags>
-        <tag>目录</tag>
-        <tag>一级</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[]]></title>
-    <url>%2F2020%2F04%2F23%2F2.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E7%BD%91%E9%A3%9E%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E7%BD%91%E9%A3%9E%2F</url>
-    <content type="text"><![CDATA[导航 1.网飞 2.消息队列(RabbitMQ) 3.分库分表(MyCat) 4.分布式事务(LCN)]]></content>
-      <categories>
-        <category>目录</category>
-      </categories>
-      <tags>
-        <tag>目录</tag>
-        <tag>一级</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[]]></title>
-    <url>%2F2020%2F04%2F23%2F1.%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E6%9E%B6%E6%9E%84%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1-%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3%2F</url>
-    <content type="text"><![CDATA[导航 1.编程思想 2.开箱即用 3.生产环境 4.容器化引擎]]></content>
-      <categories>
-        <category>目录</category>
-      </categories>
-      <tags>
-        <tag>目录</tag>
-        <tag>一级</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[20200422]]></title>
+    <title><![CDATA[请求头]]></title>
     <url>%2F2020%2F04%2F22%2F%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93%2F20200422%2F</url>
-    <content type="text"><![CDATA[工作中遇到一些问题，希望记录下来，以后方便查看 请求头 前端请求415错误 @RequestParam主要来是于URL，例如百度的地址 https://www.baidu.com/s?wd=前端415@RequestBody主要来自表单信息，通过POST的方式把表单的信息传到后台。@RequestHeader求请的表单头。一般用来放浏览器信息，cookies等信息。 @RequestParam对应的是URL的参数。@RequestBody对应的 是Form 的值@RequestHeader 对应是 Head的参数 1234567891011121314151617181920function f_c() &#123; var url = "http://localhost:8080/test/paramTest?OperateType=add"; var opt = &#123; attr1: "a", attr2: "b", &#125;; $.ajax(&#123; type: "POST", url: url, headers: &#123; token:'key' &#125;, data: JSON.stringify(opt), contentType: "application/json", success: function (data) &#123; alert(data) &#125;, error: function (data) &#123; alert("error"); &#125; &#125;); &#125; 原文链接：https://richy.blog.csdn.net/article/details/104571682]]></content>
+    <content type="text"><![CDATA[请求头 前端请求415错误 @RequestParam主要来是于URL，例如百度的地址 https://www.baidu.com/s?wd=前端415@RequestBody主要来自表单信息，通过POST的方式把表单的信息传到后台。@RequestHeader求请的表单头。一般用来放浏览器信息，cookies等信息。 @RequestParam对应的是URL的参数。@RequestBody对应的 是Form 的值@RequestHeader 对应是 Head的参数 1234567891011121314151617181920function f_c() &#123; var url = "http://localhost:8080/test/paramTest?OperateType=add"; var opt = &#123; attr1: "a", attr2: "b", &#125;; $.ajax(&#123; type: "POST", url: url, headers: &#123; token:'key' &#125;, data: JSON.stringify(opt), contentType: "application/json", success: function (data) &#123; alert(data) &#125;, error: function (data) &#123; alert("error"); &#125; &#125;); &#125; 原文链接：https://richy.blog.csdn.net/article/details/104571682]]></content>
       <categories>
         <category>工作总结</category>
       </categories>
@@ -661,9 +207,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[20200420]]></title>
+    <title><![CDATA[Dubbo+Zookeeper中MyBatis-PLUS分页使用]]></title>
     <url>%2F2020%2F04%2F20%2F%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93%2F20200420%2F</url>
-    <content type="text"><![CDATA[工作中遇到一些问题，希望记录下来，以后方便查看 - Dubbo/Zookeeper 2020-04-20 所在项目组架构使用Dubbo+Zookeeper以及spingboot，mybatis，mybatis-plus，开发过程中，需要传递实体类并传递分页信息，以便根据实体类条件查询结果分页，查阅资料，都是在controller层，使用service接口调用mybatis-plus的page方法，但是，因为公司使用dubbo架构，会产生rpc调用，所以导致调用失败，MyBaits-Plus官网提示 ​ 选择在service层，服务提供者处，使用selectPage方法 ​ 2.实体类LocalDateTime 在项目中，序列化出现问题，导致异常（截取自网络）解决方法：更换数据类型 com.alibaba.dubbo.rpc.RpcException: Failed to invoke the method compositeQuery in the service com.wwwarehouse.xdw.resourcecenter.service.ImConsumeRealityService. Tried 3 times of the providers [192.168.72.158:20880] (1/1) from the registry 192.168.6.21:2181 on the consumer 192.168.72.158 using the dubbo version 2.8.4. Last error is: Failed to invoke remote method: compositeQuery, provider:]]></content>
+    <content type="text"><![CDATA[Dubbo+Zookeeper中MyBatis-PLUS分页使用 2020-04-20 所在项目组架构使用Dubbo+Zookeeper以及spingboot，mybatis，mybatis-plus，开发过程中，需要传递实体类并传递分页信息，以便根据实体类条件查询结果分页，查阅资料，都是在controller层，使用service接口调用mybatis-plus的page方法，但是，因为公司使用dubbo架构，会产生rpc调用，所以导致调用失败，MyBaits-Plus官网提示 ​ 选择在service层，服务提供者处，使用selectPage方法 ​ 2.实体类LocalDateTime 在项目中，序列化出现问题，导致异常（截取自网络）解决方法：更换数据类型 com.alibaba.dubbo.rpc.RpcException: Failed to invoke the method compositeQuery in the service com.wwwarehouse.xdw.resourcecenter.service.ImConsumeRealityService. Tried 3 times of the providers [192.168.72.158:20880] (1/1) from the registry 192.168.6.21:2181 on the consumer 192.168.72.158 using the dubbo version 2.8.4. Last error is: Failed to invoke remote method: compositeQuery, provider:]]></content>
       <categories>
         <category>工作总结</category>
       </categories>
@@ -684,7 +230,7 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[工作总结]]></title>
+    <title><![CDATA[MyBatis 调用 带返回值 的存储过程]]></title>
     <url>%2F2020%2F02%2F17%2F%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93%2F20200217%2F</url>
     <content type="text"><![CDATA[MyBatis 调用 带返回值 的存储过程 序 mybatis 调用oracle 存储过程，返回一个表。这样的景场用得比较少，我用了mybatis这么长时间，还第一次这么用。尝试过程也是比较痛苦，网上资料少不说，很多配置拿下来，也是跑不起来。。最后自己不停地跟据mybatis抛出来的错误调整代码，终于跑起来了。做一下笔记。 存储过程 存储过程比较长，只需要关注输入，输出参数就可以了。 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899CREATE OR REPLACE PROCEDURE P_QMS_GET_MIS_RPT(MIS_TYPE VARCHAR2, --1:3MIS 2:6MIS MIS_DATE VARCHAR2, --时间条件 OTHER_CONDITION VARCHAR2, --其它条件 DATE_TYPE NVARCHAR2, -- 1:年 2：月 3：周 GROUP_BY VARCHAR2, --维度 BRAND P_CUR OUT SYS_REFCURSOR ) AS V_SQL VARCHAR2(4000); V_CON VARCHAR2(500):=''; V_DATE DATE; V_STRAT_DATE date; V_END_DATE date; V_MIS_MONTH varchar2(50); V_START_DATE_STR VARCHAR2(100); V_END_DATE_STR VARCHAR2(100);BEGINV_DATE:=TO_DATE(MIS_DATE,'yyyy-MM-dd'); V_STRAT_DATE := Trunc(add_months(V_DATE, -3 * MIS_TYPE ), 'mm'); V_END_DATE := Last_Day(add_months(V_DATE, -1)); V_MIS_MONTH := to_char(Trunc(add_months(V_DATE, -1), 'mm'), 'yyyymm'); V_START_DATE_STR:= ' to_date('''|| to_char( V_STRAT_DATE,'yyyy-MM-dd') ||''',''yyyy-MM-dd'') '; V_END_DATE_STR := ' to_date('''|| to_char( V_END_DATE,'yyyy-MM-dd') ||''',''yyyy-MM-dd'') '; V_CON:=V_CON || ' and ACTIVE_START&gt;= ' || V_START_DATE_STR ; V_CON:=V_CON || ' and ACTIVE_START &lt; '|| V_END_DATE_STR || '+1'; V_CON:=V_CON|| ' '; V_SQL := ' with B as --市场不良数 (SELECT '|| GROUP_BY ||', sum(QTY) AS sc_qty FROM T_QMS_DB_COMMON_CACULATE cc where cc.CACULATE_TYPE = ''10'' '|| V_CON ||' group by '|| GROUP_BY ||'), --销售数量 C as (SELECT '|| GROUP_BY ||', sum(QTY) AS s_qty FROM T_QMS_DB_COMMON_CACULATE cc where cc.CACULATE_TYPE = ''40'' '|| V_CON ||' group by '|| GROUP_BY ||' ), --生产数量 D as (SELECT '|| GROUP_BY ||', sum(QTY) AS pro_qty FROM T_QMS_DB_COMMON_CACULATE cc where cc.CACULATE_TYPE = ''30'' '|| V_CON ||' group by '|| GROUP_BY ||' ), --销售比率 E as (select d.'|| GROUP_BY ||', round(least(sum(c.s_qty) / sum(d.pro_qty), 1), 8) as rate, sum(c.s_qty) sale_qty, sum(d.pro_qty) pro_qty from D, c where 1 = 1 and d.'|| GROUP_BY ||' = c.'|| GROUP_BY ||' group by d.'|| GROUP_BY ||'), --交货数量 F as (SELECT '|| GROUP_BY ||', sum(QTY) AS part_qty FROM T_QMS_DB_COMMON_CACULATE cc where cc.CACULATE_TYPE = ''20'' '|| V_CON ||' group by '|| GROUP_BY ||' ), --交货数量*销售比率获取 =索赔零件总数 G as (select F.BRAND, sum(F.part_qty * E.rate) as instrorage_qty from F, E where F.'|| GROUP_BY ||' = E.'|| GROUP_BY ||' group by F.'|| GROUP_BY ||'), --计算实绩值 H AS (select G.'|| GROUP_BY ||', B.sc_qty, instrorage_qty, round(B.sc_qty / instrorage_qty * 1000000, 1) as rate, round(B.sc_qty / instrorage_qty * 1000000, 10) rate_dec from G left join B on G.'|| GROUP_BY ||' = B.'|| GROUP_BY ||'), V AS (SELECT TARGET_VAL, BRAND AS TARGET_TYPE_NAME FROM T_QMS_DB_TARGET_VAL T WHERE T.BUSI_TYPE = ''10'' AND T.TARGET_DATE= '''||V_MIS_MONTH||''') SELECT '|| GROUP_BY ||' as SUMARY_NAME, rate_dec, '''||V_MIS_MONTH||''' as MIS_DATE, nvl((select target_val from V where H.'|| GROUP_BY ||' = V.target_type_name and rownum=1), 0) as target_val FROM H'; OPEN P_CUR FOR V_SQL;END; Mapper.xml 12345678910111213141516171819202122&lt;?xml version="1.0" encoding="UTF-8" ?&gt;&lt;!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" &gt;&lt;mapper namespace="com.xx.xx.xx.reportstatic.idal.mapper.MisRptMapper"&gt; &lt;resultMap id= "misPrcInputResult" type ="com.ly.mp.qms.reportstatic.entities.MisPrcInputResult" &gt; &lt;result column ="sumary_name" property="sumaryName" jdbcType="VARCHAR" /&gt; &lt;result column ="rate" property="rate" jdbcType="VARCHAR" /&gt; &lt;result column ="mis_date" property="misDate" jdbcType="VARCHAR" /&gt; &lt;result column ="target_val" property="targetVal" jdbcType="VARCHAR" /&gt; &lt;/resultMap &gt; &lt;select id="getMisRpt" statementType="CALLABLE" &gt; &#123;call p_qms_get_mis_rpt ( #&#123;misType,mode=IN,jdbcType=VARCHAR&#125;, &lt;!--注意要使用置jdbcType --&gt; #&#123;misDate,mode=IN,jdbcType=VARCHAR&#125;, #&#123;otherCondition,mode=IN,jdbcType=VARCHAR&#125;, #&#123;dateType,mode=IN,jdbcType=VARCHAR&#125;, #&#123;groupBy,mode=IN,jdbcType=VARCHAR&#125;, #&#123;result,mode=OUT,jdbcType=CURSOR, javaType=ResultSet,resultMap=misPrcInputResult&#125; )&#125; &lt;/select&gt;&lt;/mapper&gt; 这里主要注意1：输入参数的格式为 #{misType,mode=IN,jdbcType=VARCHAR}，需要设参数名称（misType），参数类型 （mode=IN)，参数数据类型（jdbcType=VARCHAR）为字符,网上找的资料都是没有设置 jdbcType=VARCHAR，但我的环境跑不起来。2：输出参数设置， #{result,mode=OUT,jdbcType=CURSOR, javaType=ResultSet,resultMap=misPrcInputResult。名称（result），参数类型为输出（mode=OUT），参数数据类型（jdbcType=CURSOR）为索引。输出的参数还需要另外设置javaType和resultMap。javaType=ResultSet 表示对应的java类型是一个列表，对应List；resultMap=misPrcInputResult 表示集合字段对应的印身是 misPrcInputResult。 Entity 123456789101112131415161718192021222324252627282930313233343536373839public class MisPrcInputResult implements java.io.Serializable &#123; private String sumaryName; private String rate; private String misDate; private String targetVal; public String getSumaryName() &#123; return sumaryName; &#125; public void setSumaryName(String sumaryName) &#123; this.sumaryName = sumaryName; &#125; public String getRate() &#123; return rate; &#125; public void setRate(String rate) &#123; this.rate = rate; &#125; public String getMisDate() &#123; return misDate; &#125; public void setMisDate(String misDate) &#123; this.misDate = misDate; &#125; public String getTargetVal() &#123; return targetVal; &#125; public void setTargetVal(String targetVal) &#123; this.targetVal = targetVal; &#125; &#125; 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647import java.sql.Date;import java.util.List;public class MisPrcInput implements java.io.Serializable &#123; private String misType; private String misDate; private String otherCondition; private String dateType; private String groupBy; private List&lt;MisPrcInputResult&gt; result; public String getMisType() &#123; return misType; &#125; public void setMisType(String misType) &#123; this.misType = misType; &#125; public String getMisDate() &#123; return misDate; &#125; public void setMisDate(String misDate) &#123; this.misDate = misDate; &#125; public String getOtherCondition() &#123; return otherCondition; &#125; public void setOtherCondition(String otherCondition) &#123; this.otherCondition = otherCondition; &#125; public String getDateType() &#123; return dateType; &#125; public void setDateType(String dateType) &#123; this.dateType = dateType; &#125; public String getGroupBy() &#123; return groupBy; &#125; public void setGroupBy(String groupBy) &#123; this.groupBy = groupBy; &#125; public List&lt;MisPrcInputResult&gt; getResult() &#123; return result; &#125; public void setResult(List&lt;MisPrcInputResult&gt; result) &#123; this.result = result; &#125;&#125; Mapper.java 1234public interface MisRptMapper extends BaseMapper&lt;MisCaculate&gt; &#123; public void getMisRpt(MisPrcInput inp );&#125; Biz 1234567891011121314151617181920@Autowired MisRptMapper misRptMapper; @Override public RestResult&lt;List&lt;MisPrcInputResult&gt;&gt; getMisPrc() throws ParseException &#123; MisPrcInput inp= new MisPrcInput(); inp.setDateType("1"); inp.setGroupBy("brand"); inp.setMisType("1"); inp.setMisDate("2018-02-1"); inp.setOtherCondition( " 1=1 "); inp.setResult(new ArrayList&lt;MisPrcInputResult&gt;()); RestResult&lt;List&lt;MisPrcInputResult&gt;&gt; result =new RestResult(); result.setResult(1); misRptMapper.getMisRpt( inp); result.setMsg("获取成功"); result.setData(inp.getResult()); return result; &#125; 接口跟Service层就不贴代码了。。 最终运行结果]]></content>
       <categories>
@@ -695,7 +241,7 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[工作总结]]></title>
+    <title><![CDATA[煮方便面谈 CountDownLatch]]></title>
     <url>%2F2020%2F02%2F16%2F%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93%2F20200216%2F</url>
     <content type="text"><![CDATA[煮方便面谈 CountDownLatch CountDownLatch用法解释 CountDownLatch要是控制多线程操作时，等待多线程执行完后，再执行下去。举个例子，冲泡面，需要以下3个步骤A：装水到电锅，打开电源，等3分钟B：拆方便盒，放调味料C：倒开水到方便面盒。其中A跟B是可以同时进行的，C则需要依赖A，B完成了再执行。 代码参数 实始化：CountDownLatch latch = new CountDownLatch(3) ，表示 count初始化为2个。wait方法:表示等待count=0时，执行。countDown方法：count减1。 实例 上面说的冲泡面的生活例子。 代码实现 1234567891011121314151617181920212223242526272829303132333435363738394041424344import java.util.concurrent.CountDownLatch;public class ClassTestApplication &#123; public static void main(String[] args) &#123; final CountDownLatch latch = new CountDownLatch(2); //初始化，count=3 System.out.println("Count="+latch.getCount()); new Thread(() -&gt; &#123; System.out.println("开始煮开水。。。"); try &#123; Thread.sleep(10000); &#125; catch (InterruptedException e) &#123; e.printStackTrace(); &#125; System.out.println("开水煮好了。。。"); latch.countDown(); //count = count -1; System.out.println("Count="+latch.getCount()); &#125;).start(); new Thread(() -&gt; &#123; System.out.println("拆方便面盒。。。"); try &#123; Thread.sleep(3000); &#125; catch (InterruptedException e) &#123; e.printStackTrace(); &#125; System.out.println("方便面盒拆好了。。。"); latch.countDown(); //count = count -1; System.out.println("Count="+latch.getCount()); &#125;).start(); try &#123; latch.await(); System.out.println("水煮好了，面拆好了，充水到面盒。。。"); &#125; catch (InterruptedException e) &#123; e.printStackTrace(); &#125; &#125;&#125; 执行结果如下：Count=2开始煮开水。。。拆方便面盒。。。方便面盒拆好了。。。Count=1开水煮好了。。。Count=0水煮好了，面拆好了，充水到面盒。。。]]></content>
       <categories>
@@ -706,7 +252,7 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[工作总结]]></title>
+    <title><![CDATA[ORACLE动态SQL存储过程]]></title>
     <url>%2F2020%2F02%2F14%2F%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93%2F20200214%2F</url>
     <content type="text"><![CDATA[ORACLE动态SQL存储过程 引言 在工作中，经常会遇到拼写动态sql，虽然写法不是很优美，但却无法避免。如果在后台（java 或者C#）写非常简单，拼写完直接运行就可以了。但如果是在数据库里面拼呢？因为公司经常用到，我把它总结一下，用一个简单的例子来说明。 场景 写一个存储过程，支持动态的条件，并根据条件输出结果。 实现 12345678910111213141516171819202122232425262728CREATE OR REPLACE PROCEDURE P_TEST(V_C1 VARCHAR2, --条件1 V_C2 VARCHAR2, --条件2 P_CUR OUT SYS_REFCURSOR --用于输出的索引（输出表） ) AS V_SQL VARCHAR2(4000) := ' '; --用于构造要执行的动态SQL V_CON VARCHAR2(500) := ' where 1=1 '; --用于构造条件BEGIN V_SQL := ' WITH T AS (SELECT ''1'' AS C1 ,''1'' AS C2 FROM DUAL UNIONSELECT ''2'' AS C1 ,''2'' AS C2 FROM DUAL UNIONSELECT ''3'' AS C1 ,''3'' AS C2 FROM DUAL UNIONSELECT ''4'' AS C1 ,''4'' AS C2 FROM DUAL )SELECT * FROM T ';--构造条件 V_CON := V_CON || ' AND C1=''' || V_C1 || ''' '; V_CON := V_CON || ' AND C2=''' || V_C2 || ''' ';--构造动态SQL V_SQL := V_SQL || V_CON; DBMS_OUTPUT.put_line(V_SQL); ----输出，方便测试动态生成的SQL OPEN P_CUR FOR V_SQL;//关键，执行并输出结果END; 以上实现已经完成，我们在PL SQL运行一下看看结果。 实例分享 下面分再享个复杂一些的，以及写的写的过程。代码如下： 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135136137138139140141142143144145146147148149150151152153154155156157158159160161162163164165166167168169170171172173174175176CREATE OR REPLACE PROCEDURE P_QMS_GET_MIS_RPT(MIS_TYPE VARCHAR2, --1:3MIS 2:6MIS V_DATE DATE, --时间条件 OTHER_CONDITION VARCHAR2, --其它条件 DATE_TYPE NVARCHAR2, -- 1:年 2：月 3：周 GROUP_BY VARCHAR2, --维度 BRAND P_CUR OUT SYS_REFCURSOR ) AS V_SQL VARCHAR2(4000); V_CON VARCHAR2(500):=''; V_STRAT_DATE date; V_END_DATE date; V_MIS_MONTH varchar2(50); V_START_DATE_STR VARCHAR2(100); V_END_DATE_STR VARCHAR2(100);BEGIN V_STRAT_DATE := Trunc(add_months(V_DATE, -3 * MIS_TYPE ), 'mm'); V_END_DATE := Last_Day(add_months(V_DATE, -1)); V_MIS_MONTH := to_char(Trunc(add_months(V_DATE, -1), 'mm'), 'yyyymm'); V_START_DATE_STR:= ' to_date('''|| to_char( V_STRAT_DATE,'yyyy-MM-dd') ||''',''yyyy-MM-dd'') '; V_END_DATE_STR := ' to_date('''|| to_char( V_END_DATE,'yyyy-MM-dd') ||''',''yyyy-MM-dd'') '; V_CON:=V_CON || ' and ACTIVE_START&gt;= ' || V_START_DATE_STR ; V_CON:=V_CON || ' and ACTIVE_START &lt; '|| V_END_DATE_STR || '+1'; V_CON:=V_CON|| ' '; V_SQL := ' with B as --市场不良数 (SELECT '|| GROUP_BY ||', sum(QTY) AS sc_qty FROM T_QMS_DB_COMMON_CACULATE cc where cc.CACULATE_TYPE = ''10'' '|| V_CON ||' group by '|| GROUP_BY ||'), --销售数量 C as (SELECT '|| GROUP_BY ||', sum(QTY) AS s_qty FROM T_QMS_DB_COMMON_CACULATE cc where cc.CACULATE_TYPE = ''40'' '|| V_CON ||' group by '|| GROUP_BY ||' ), --生产数量 D as (SELECT '|| GROUP_BY ||', sum(QTY) AS pro_qty FROM T_QMS_DB_COMMON_CACULATE cc where cc.CACULATE_TYPE = ''30'' '|| V_CON ||' group by '|| GROUP_BY ||' ), --销售比率 E as (select d.'|| GROUP_BY ||', round(least(sum(c.s_qty) / sum(d.pro_qty), 1), 8) as rate, sum(c.s_qty) sale_qty, sum(d.pro_qty) pro_qty from D, c where 1 = 1 and d.'|| GROUP_BY ||' = c.'|| GROUP_BY ||' group by d.'|| GROUP_BY ||'), --交货数量 F as (SELECT '|| GROUP_BY ||', sum(QTY) AS part_qty FROM T_QMS_DB_COMMON_CACULATE cc where cc.CACULATE_TYPE = ''20'' '|| V_CON ||' group by '|| GROUP_BY ||' ), --交货数量*销售比率获取 =索赔零件总数 G as (select F.BRAND, sum(F.part_qty * E.rate) as instrorage_qty from F, E where F.'|| GROUP_BY ||' = E.'|| GROUP_BY ||' group by F.'|| GROUP_BY ||'), --计算实绩值 H AS (select G.'|| GROUP_BY ||', B.sc_qty, instrorage_qty, round(B.sc_qty / instrorage_qty * 1000000, 1) as rate, round(B.sc_qty / instrorage_qty * 1000000, 10) rate_dec from G left join B on G.'|| GROUP_BY ||' = B.'|| GROUP_BY ||'), V AS (SELECT TARGET_VAL, BRAND AS TARGET_TYPE_NAME FROM T_QMS_DB_TARGET_VAL T WHERE T.BUSI_TYPE = ''10'' AND T.TARGET_DATE= '''||V_MIS_MONTH||''') SELECT sysdate, '|| GROUP_BY ||' as SUMARY_NAME, rate_dec, '''||V_MIS_MONTH||''' as MIS_MONTH, nvl((select target_val from V where H.'|| GROUP_BY ||' = V.target_type_name and rownum=1), 0) as target_val FROM H'; /* with B as --市场不良数 (SELECT BRAND, sum(QTY) AS sc_qty FROM T_QMS_DB_COMMON_CACULATE cc where cc.CACULATE_TYPE = '10' and ACTIVE_START&gt;= V_STRAT_DATE and ACTIVE_START &lt; V_END_DATE+1 group by BRAND), --销售数量 C as (SELECT BRAND, sum(QTY) AS s_qty FROM T_QMS_DB_COMMON_CACULATE cc where cc.CACULATE_TYPE = '40' and ACTIVE_START&gt;= V_STRAT_DATE and ACTIVE_START &lt; V_END_DATE+1 group by BRAND), --生产数量 D as (SELECT BRAND, sum(QTY) AS pro_qty FROM T_QMS_DB_COMMON_CACULATE cc where cc.CACULATE_TYPE = '30' and ACTIVE_START&gt;= V_STRAT_DATE and ACTIVE_START &lt; V_END_DATE+1 group by BRAND), --销售比率 E as (select d.BRAND, round(least(sum(c.s_qty) / sum(d.pro_qty), 1), 8) as rate, sum(c.s_qty) sale_qty, sum(d.pro_qty) pro_qty from D, c where 1 = 1 and d.BRAND = c.BRAND group by d.BRAND), --交货数量 F as (SELECT BRAND, sum(QTY) AS part_qty FROM T_QMS_DB_COMMON_CACULATE cc where cc.CACULATE_TYPE = '20' and ACTIVE_START&gt;= V_STRAT_DATE and ACTIVE_START &lt; V_END_DATE+1 group by BRAND), --交货数量*销售比率获取 =索赔零件总数 G as (select F.BRAND, sum(F.part_qty * E.rate) as instrorage_qty from F, E where F.BRAND = E.BRAND group by F.BRAND), --计算实绩值 H AS (select G.BRAND, B.sc_qty, instrorage_qty, round(B.sc_qty / instrorage_qty * 1000000, 1) as rate, round(B.sc_qty / instrorage_qty * 1000000, 10) rate_dec from G left join B on G.BRAND = B.BRAND), V AS (SELECT TARGET_VAL, BRAND AS TARGET_TYPE_NAME FROM T_QMS_DB_TARGET_VAL T WHERE T.BUSI_TYPE = '10' AND T.TARGET_DATE= V_MIS_MONTH) SELECT sysdate, '10' AS CACULATE_TYPE, '统计因子，品牌3MIS' AS REMARK, BRAND, BRAND, rate_dec, V_MIS_MONTH, nvl((select target_val from V where H.BRAND = V.target_type_name and rownum=1), 0) as target_val, V_ASYNC_ID FROM H */ DBMS_OUTPUT.put_line(V_SQL); OPEN P_CUR FOR V_SQL;END; 经验分享 123456上面这个实例其实也不算复杂，但做这样的活，却是一件很头痛的事情。过程非常不好调整，特别是业务调整的时候，你想死的心都有。当然，实际使用能避免就避免吧。经过了多次经维护与编写，我总结了以下步骤。1：整理好逻辑，最好以文字的方式把它实现的逻辑写出来贴在备注里。因为SQL本身可读性就差。下次维护连自己都可能不认识了。2：根据第1步整理好的逻辑，写代SQL，变量部分先写死。保证能运行通过。3：整理并定义变量。4：拼写SQL主体，条件。用变量替换写死的代码。5：执行，输出。一般这个过程需要输出多次，先解决语法问题，再解决数据正确性问题。]]></content>
       <categories>
@@ -717,7 +263,7 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[工作总结]]></title>
+    <title><![CDATA[Java公平锁与非公平锁]]></title>
     <url>%2F2020%2F02%2F10%2F%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93%2F20200210%2F</url>
     <content type="text"><![CDATA[Java公平锁与非公平锁 定义 当程序使用多线程里，难免有多线程争夺资源的情况。而资源只能被一个线程独占使用，至于资源怎么分配，就涉及到非公平锁与公平锁了。 非公平锁：非公平锁的资源的分配是随机的，看谁先抢到就给谁。可能会出现一个线程长期霸占资源，而另一线程长期得不到资源。公平锁：顾名思义，公平锁的资源是公平分配的，先来先得，后来排队。 实例 开20个线程进行计数，每个线程计算到10000，最后 非公平锁synchroized实现 12345678910111213141516171819202122232425import org.springframework.util.StopWatch;public class ClassTestApp4lication &#123; public static Integer i = new Integer(0); public static Object oj = new Object(); public static void main(String[] args) &#123; StopWatch watch = new StopWatch(); watch.start(); for (int ac = 0; ac &lt; 20; ac++) &#123; Thread t1 = new Thread() &#123; @Override public void run() &#123; for (int ac2 = 0; ac2 &lt; 10000; ac2++) &#123; synchronized (oj) &#123; System.out.println("线程ID:"+Thread.currentThread().getId());//输出当前线程ID，便于确认分配的机制 i = i + 1; &#125; &#125; &#125; &#125;; t1.start(); &#125; &#125;&#125; 因为输出的结果太长了，这里抽取部分输出结果，如下：线程ID:12线程ID:12线程ID:12线程ID:12线程ID:12线程ID:12线程ID:12线程ID:12线程ID:12线程ID:12线程ID:12线程ID:12线程ID:12线程ID:12线程ID:12线程ID:12线程ID:12线程ID:12线程ID:12线程ID:12线程ID:14线程ID:14线程ID:14线程ID:14线程ID:14线程ID:27线程ID:27线程ID:27线程ID:27 非公平锁ReentrantLock实现 用ReentrantLock实现，关键在于实例化ReentrantLock时传参为false。使用无参数重载也是非公平锁，如：public static ReentrantLock rlock=new ReentrantLock(false)或者 public static ReentrantLock rlock=new ReentrantLock()。代码如下： 12345678910111213141516171819202122232425262728import org.springframework.util.StopWatch;import java.util.concurrent.locks.ReentrantLock;public class ClassTest3Application &#123; public static ReentrantLock rlock=new ReentrantLock(false);//false表示非公平锁，或使用无参数重载。 public volatile static int i; public static void main(String[] args) &#123; StopWatch watch =new StopWatch(); watch.start(); for (int ac = 0; ac &lt; 20; ac++) &#123; Thread t1 = new Thread() &#123; @Override public void run() &#123; for (int ac2 = 0; ac2 &lt; 1000; ac2++) &#123; try &#123; rlock.lock(); System.out.println("线程ID:"+Thread.currentThread().getId()); i = i + 1; &#125; finally &#123; rlock.unlock(); &#125; &#125; &#125; &#125;; t1.start(); &#125; &#125;&#125; 同样这里也只贴出部分的输出，如下线程ID:12线程ID:17线程ID:17线程ID:17线程ID:17线程ID:17线程ID:17线程ID:17线程ID:17线程ID:17线程ID:17线程ID:17线程ID:17线程ID:17线程ID:17线程ID:17线程ID:17线程ID:17线程ID:17线程ID:17线程ID:17线程ID:28线程ID:28 公平锁ReentrantLock实现 用ReentrantLock实现，关键在于实例化ReentrantLock时传参为true。如：public static ReentrantLock rlock=new ReentrantLock(true) 12345678910111213141516171819202122232425262728import org.springframework.util.StopWatch;import java.util.concurrent.locks.ReentrantLock;public class ClassTest3Application &#123; public static ReentrantLock rlock=new ReentrantLock(true);//true 表示公平锁 public volatile static int i; public static void main(String[] args) &#123; StopWatch watch =new StopWatch(); watch.start(); for (int ac = 0; ac &lt; 20; ac++) &#123; Thread t1 = new Thread() &#123; @Override public void run() &#123; for (int ac2 = 0; ac2 &lt; 1000; ac2++) &#123; try &#123; rlock.lock(); System.out.println("线程ID:"+Thread.currentThread().getId()); i = i + 1; &#125; finally &#123; rlock.unlock(); &#125; &#125; &#125; &#125;; t1.start(); &#125; &#125;&#125; 同样这里也只贴出部分的输出，如下线程ID:12线程ID:13线程ID:14线程ID:15线程ID:16线程ID:17线程ID:12线程ID:18线程ID:19线程ID:13线程ID:20线程ID:14线程ID:21线程ID:15线程ID:22线程ID:16线程ID:23线程ID:17线程ID:24线程ID:12线程ID:25线程ID:18线程ID:26线程ID:19 性能测试 性能测试场景 开启20个线程，每个线程计数1000000次。计划耗时 测试结果 synchronized 非公平锁 | 测试序号 | 耗时(单位为秒) || ——– | ————– || 1 | 0.5398486 || 2 | 0.5319575 || 3 | 0.5299667 || 4 | 0.5496109 || 5 | 0.5520412 | ReentrantLock 非公平锁 | 测试序号 | 耗时(单位为秒) || ——– | ————– || 1 | 0.4283422 || 2 | 0.4390329 || 3 | 0.4378793 || 4 | 0.4409746 || 5 | 0.4377871 | ReentrantLock 公平锁 | 测试序号 | 耗时(单位为秒) || ——– | ————– || 1 | 209.9848296 | 这个比较久，我等了好几分钟，就只做一次测试吧。 结论 | | 性能 | 描述 || ———————- | —- | ——————————————————- || synchronized 非公平锁 | 很好 | 耗时在0.54秒样子 || ReentrantLock 非公平锁 | 最好 | 耗时在0.43秒样子 || ReentrantLock 公平锁 | 最差 | 耗时超过200秒，与非公平锁不是一样等级，公平是有代价的。 |]]></content>
       <categories>
@@ -728,7 +274,7 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[工作总结]]></title>
+    <title><![CDATA[Java悲观锁与乐观锁]]></title>
     <url>%2F2020%2F02%2F09%2F%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93%2F20200209%2F</url>
     <content type="text"><![CDATA[Java悲观锁与乐观锁 锁的目的 多线程编程如有共用资源的使用时，需要保证数据安全，资源需要同步处理。处理资源的手段可以有：互斥同步与非阻塞同步。实现分别对应：悲观锁与乐观锁。 实例 开20个线程进行计数，每个线程计算到10000。分别使用悲观锁与乐观锁来实现。 悲观锁实现 悲观锁是主要使用synchronized实现，通过锁住对应的对象，独占资源的方式。demo实现代码如下： 1234567891011121314151617181920212223242526272829303132import org.springframework.util.StopWatch;public class ClassTestApplication &#123; public static Integer i = new Integer(0); public static Object oj = new Object();//用于锁对象 public static void main(String[] args) &#123; StopWatch watch = new StopWatch(); watch.start(); for (int ac = 0; ac &lt; 20; ac++) &#123; Thread t1 = new Thread() &#123; @Override public void run() &#123; for (int ac2 = 0; ac2 &lt; 10000; ac2++) &#123; synchronized (oj) &#123;//锁只能锁对象，不能锁值类型,所以需要另外新建oj对象 i = i + 1; Thread.yield();//降低当前线程的优先级 &#125; &#125; System.out.println("i=" + i); //输出时耗 if (i == 200000) &#123; watch.stop(); System.out.println("耗时:" + watch.getTotalTimeSeconds()); &#125; &#125; &#125;; t1.start(); &#125; &#125;&#125; 输出结果如下：i=20480i=60223i=71641i=102771i=103641i=117543i=127194i=131049i=140436i=146951i=153894i=160899i=162207i=164290i=170482i=181676i=189241i=194425i=198873i=200000耗时:0.1261655 乐观锁实现 乐观锁主要通过CAS（Compare and swap）去现实。demo实现代码如下： 12345678910111213141516171819202122232425262728293031323334353637import org.springframework.util.StopWatch;import java.util.concurrent.atomic.AtomicInteger;public class ClassTest2Application &#123; public static AtomicInteger j = new AtomicInteger(); public volatile static int i; public static void main(String[] args) &#123; StopWatch watch =new StopWatch(); watch.start(); for (int ac = 0; ac &lt; 20; ac++) &#123; Thread t1 = new Thread() &#123; @Override public void run() &#123; for (int ac2 = 0; ac2 &lt; 10000; ac2++) &#123; for (; ; ) &#123; //自旋 Integer current = i; Integer next = i + 1; if (j.compareAndSet(current, next)) &#123; //对比并赋值,注意需要新建一变量current，不能直接使用i i = next; Thread.yield();//降低当前线程的优先级 break; &#125; &#125; &#125; System.out.println("i=" + i); if(i==200000) &#123; watch.stop(); System.out.println("耗时:"+watch.getTotalTimeSeconds()); &#125; &#125; &#125;; t1.start(); &#125; &#125;&#125; 输出结果如下i=143289i=146323i=147099i=150204i=150598i=155177i=177143i=184003i=184685i=187439i=188419i=189595i=190235i=192196i=193054i=194514i=194798i=198438i=199530i=200000耗时:0.0482009 总结 这里只针对demo的场景做一下简单对比。 性能(好) 可读性（好） 复杂度（低） 乐观锁 悲观锁 悲观锁 PS：1： synchronize 实际是多种锁组合，根据使用的情况，从 无锁-&gt;偏向锁-&gt;轻量级锁-&gt;重量级锁 。2：因为测试的线程比较多，使用synchronize瞬间就升级为重量级锁。所以性能的对比还是可以的。]]></content>
       <categories>
