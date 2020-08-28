@@ -88,19 +88,19 @@
 
 
 
-<meta name="description" content="并发面试总结   [toc] 1、并发编程三要素?123456（1）原子性原子性指的是一个或者多个操作，要么全部执行并且在执行的过程中不被其他操作打断，要么就全部都不执行。（2）可见性可见性指多个线程操作一个共享变量时，其中一个线程对变量进行修改后，其他线程可以立即看到修改的结果。（3）有序性有序性，即程序的执行顺序按照代码的先后顺序来执行。 2、实现可见性的方法有哪些？1synchronize">
+<meta name="description" content="并发面试题整理  [toc] 1、并发编程三要素?123456（1）原子性原子性指的是一个或者多个操作，要么全部执行并且在执行的过程中不被其他操作打断，要么就全部都不执行。（2）可见性可见性指多个线程操作一个共享变量时，其中一个线程对变量进行修改后，其他线程可以立即看到修改的结果。（3）有序性有序性，即程序的执行顺序按照代码的先后顺序来执行。 2、实现可见性的方法有哪些？1synchronize">
 <meta name="keywords" content="并发面试总结">
 <meta property="og:type" content="article">
-<meta property="og:title" content="面试总结">
+<meta property="og:title" content="并发面试题整理">
 <meta property="og:url" content="https://woshibaize.github.io/2018/08/27/面试/并发面试题整理/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="并发面试总结   [toc] 1、并发编程三要素?123456（1）原子性原子性指的是一个或者多个操作，要么全部执行并且在执行的过程中不被其他操作打断，要么就全部都不执行。（2）可见性可见性指多个线程操作一个共享变量时，其中一个线程对变量进行修改后，其他线程可以立即看到修改的结果。（3）有序性有序性，即程序的执行顺序按照代码的先后顺序来执行。 2、实现可见性的方法有哪些？1synchronize">
+<meta property="og:description" content="并发面试题整理  [toc] 1、并发编程三要素?123456（1）原子性原子性指的是一个或者多个操作，要么全部执行并且在执行的过程中不被其他操作打断，要么就全部都不执行。（2）可见性可见性指多个线程操作一个共享变量时，其中一个线程对变量进行修改后，其他线程可以立即看到修改的结果。（3）有序性有序性，即程序的执行顺序按照代码的先后顺序来执行。 2、实现可见性的方法有哪些？1synchronize">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://note.youdao.com/yws/public/resource/a3e7702c99de3b8eb94f0f1d65049ff6/xmlnote/A880D91E8131430F91E39CDF46516FCA/158">
-<meta property="og:updated_time" content="2020-08-28T03:09:41.311Z">
+<meta property="og:updated_time" content="2020-08-28T04:20:59.679Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="面试总结">
-<meta name="twitter:description" content="并发面试总结   [toc] 1、并发编程三要素?123456（1）原子性原子性指的是一个或者多个操作，要么全部执行并且在执行的过程中不被其他操作打断，要么就全部都不执行。（2）可见性可见性指多个线程操作一个共享变量时，其中一个线程对变量进行修改后，其他线程可以立即看到修改的结果。（3）有序性有序性，即程序的执行顺序按照代码的先后顺序来执行。 2、实现可见性的方法有哪些？1synchronize">
+<meta name="twitter:title" content="并发面试题整理">
+<meta name="twitter:description" content="并发面试题整理  [toc] 1、并发编程三要素?123456（1）原子性原子性指的是一个或者多个操作，要么全部执行并且在执行的过程中不被其他操作打断，要么就全部都不执行。（2）可见性可见性指多个线程操作一个共享变量时，其中一个线程对变量进行修改后，其他线程可以立即看到修改的结果。（3）有序性有序性，即程序的执行顺序按照代码的先后顺序来执行。 2、实现可见性的方法有哪些？1synchronize">
 <meta name="twitter:image" content="https://note.youdao.com/yws/public/resource/a3e7702c99de3b8eb94f0f1d65049ff6/xmlnote/A880D91E8131430F91E39CDF46516FCA/158">
 
 
@@ -156,7 +156,7 @@
 <!-- fontawesome5 -->
 <link href="/lib/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" type="text/css">
 
-  <title>面试总结 | 个人博客</title>
+  <title>并发面试题整理 | 个人博客</title>
   
 
 
@@ -350,7 +350,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">面试总结</h2>
+          <h2 class="post-title" itemprop="name headline">并发面试题整理</h2>
         
 
         <div class="post-meta">
@@ -456,7 +456,7 @@
       
 
       
-        <p><center> 并发面试总结 </center></p>
+        <p><center> 并发面试题整理</center></p>
 <hr>
 <p>[toc]</p>
 <h5 id="1、并发编程三要素"><a href="#1、并发编程三要素" class="headerlink" title="1、并发编程三要素?"></a>1、并发编程三要素?</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">（1）原子性</span><br><span class="line">原子性指的是一个或者多个操作，要么全部执行并且在执行的过程中不被其他操作打断，要么就全部都不执行。</span><br><span class="line">（2）可见性</span><br><span class="line">可见性指多个线程操作一个共享变量时，其中一个线程对变量进行修改后，其他线程可以立即看到修改的结果。</span><br><span class="line">（3）有序性</span><br><span class="line">有序性，即程序的执行顺序按照代码的先后顺序来执行。</span><br></pre></td></tr></table></figure>
@@ -572,7 +572,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://woshibaize.github.io/2018/08/27/面试/并发面试题整理/" title="面试总结">https://woshibaize.github.io/2018/08/27/面试/并发面试题整理/</a>
+    <a href="https://woshibaize.github.io/2018/08/27/面试/并发面试题整理/" title="并发面试题整理">https://woshibaize.github.io/2018/08/27/面试/并发面试题整理/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -597,8 +597,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/08/27/面试/Dubbo面试题整理/" rel="prev" title="面试总结">
-                面试总结 <i class="fas fa-chevron-right"></i>
+              <a href="/2018/08/27/面试/Dubbo面试题整理/" rel="prev" title="Dubbo面试题整理">
+                Dubbo面试题整理 <i class="fas fa-chevron-right"></i>
               </a>
             
           </div>
