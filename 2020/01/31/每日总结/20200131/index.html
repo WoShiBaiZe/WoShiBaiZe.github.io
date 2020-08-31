@@ -88,19 +88,19 @@
 
 
 
-<meta name="description" content="MySQL是行级锁还是表级锁 一、概述​        数据库锁定机制简单来说，就是数据库为了保证数据的一致性，而使各种共享资源在被并发访问变得有序所设计的一种规则。对于任何一种数据库来说都需要有相应的锁定机制，所以MySQL自然也不能例外。MySQL数据库由于其自身架构的特点，存在多种数据存储引擎，每种存储引擎所针对的应用场景特点都不太一样，为了满足各自特定应用场景的需求，每种存储引擎的锁定机制">
+<meta name="description" content="MySQL是行级锁还是表级锁[toc] 一、概述​        数据库锁定机制简单来说，就是数据库为了保证数据的一致性，而使各种共享资源在被并发访问变得有序所设计的一种规则。对于任何一种数据库来说都需要有相应的锁定机制，所以MySQL自然也不能例外。MySQL数据库由于其自身架构的特点，存在多种数据存储引擎，每种存储引擎所针对的应用场景特点都不太一样，为了满足各自特定应用场景的需求，每种存储引擎">
 <meta name="keywords" content="工作总结">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL是行级锁还是表级锁">
 <meta property="og:url" content="https://woshibaize.github.io/2020/01/31/每日总结/20200131/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="MySQL是行级锁还是表级锁 一、概述​        数据库锁定机制简单来说，就是数据库为了保证数据的一致性，而使各种共享资源在被并发访问变得有序所设计的一种规则。对于任何一种数据库来说都需要有相应的锁定机制，所以MySQL自然也不能例外。MySQL数据库由于其自身架构的特点，存在多种数据存储引擎，每种存储引擎所针对的应用场景特点都不太一样，为了满足各自特定应用场景的需求，每种存储引擎的锁定机制">
+<meta property="og:description" content="MySQL是行级锁还是表级锁[toc] 一、概述​        数据库锁定机制简单来说，就是数据库为了保证数据的一致性，而使各种共享资源在被并发访问变得有序所设计的一种规则。对于任何一种数据库来说都需要有相应的锁定机制，所以MySQL自然也不能例外。MySQL数据库由于其自身架构的特点，存在多种数据存储引擎，每种存储引擎所针对的应用场景特点都不太一样，为了满足各自特定应用场景的需求，每种存储引擎">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://images2015.cnblogs.com/blog/1033231/201701/1033231-20170118181153984-1417117507.png">
-<meta property="og:updated_time" content="2020-08-31T15:33:18.388Z">
+<meta property="og:updated_time" content="2020-08-31T16:12:46.658Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL是行级锁还是表级锁">
-<meta name="twitter:description" content="MySQL是行级锁还是表级锁 一、概述​        数据库锁定机制简单来说，就是数据库为了保证数据的一致性，而使各种共享资源在被并发访问变得有序所设计的一种规则。对于任何一种数据库来说都需要有相应的锁定机制，所以MySQL自然也不能例外。MySQL数据库由于其自身架构的特点，存在多种数据存储引擎，每种存储引擎所针对的应用场景特点都不太一样，为了满足各自特定应用场景的需求，每种存储引擎的锁定机制">
+<meta name="twitter:description" content="MySQL是行级锁还是表级锁[toc] 一、概述​        数据库锁定机制简单来说，就是数据库为了保证数据的一致性，而使各种共享资源在被并发访问变得有序所设计的一种规则。对于任何一种数据库来说都需要有相应的锁定机制，所以MySQL自然也不能例外。MySQL数据库由于其自身架构的特点，存在多种数据存储引擎，每种存储引擎所针对的应用场景特点都不太一样，为了满足各自特定应用场景的需求，每种存储引擎">
 <meta name="twitter:image" content="https://images2015.cnblogs.com/blog/1033231/201701/1033231-20170118181153984-1417117507.png">
 
 
@@ -456,7 +456,7 @@
       
 
       
-        <p><center>MySQL是行级锁还是表级锁</center></p>
+        <h2 id="MySQL是行级锁还是表级锁"><a href="#MySQL是行级锁还是表级锁" class="headerlink" title="MySQL是行级锁还是表级锁"></a><center>MySQL是行级锁还是表级锁</center></h2><p>[toc]</p>
 <h5 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h5><p>​        数据库锁定机制简单来说，就是数据库为了保证数据的一致性，而使各种共享资源在被并发访问变得有序所设计的一种规则。对于任何一种数据库来说都需要有相应的锁定机制，所以MySQL自然也不能例外。MySQL数据库由于其自身架构的特点，存在多种数据存储引擎，每种存储引擎所针对的应用场景特点都不太一样，为了满足各自特定应用场景的需求，每种存储引擎的锁定机制都是为各自所面对的特定场景而优化设计，所以各存储引擎的锁定机制也有较大区别。MySQL各存储引擎使用了三种类型（级别）的锁定机制：表级锁定，行级锁定和页级锁定。</p>
 <h6 id="1-表级锁定（table-level）"><a href="#1-表级锁定（table-level）" class="headerlink" title="1.表级锁定（table-level）"></a>1.表级锁定（table-level）</h6><p>​        表级别的锁定是MySQL各存储引擎中最大颗粒度的锁定机制。该锁定机制最大的特点是实现逻辑非常简单，带来的系统负面影响最小。所以获取锁和释放锁的速度很快。由于表级锁一次会将整个表锁定，所以可以很好的避免困扰我们的死锁问题。<br>​        当然，锁定颗粒度大所带来最大的负面影响就是出现锁定资源争用的概率也会最高，致使并大度大打折扣。<br>使用表级锁定的主要是MyISAM，MEMORY，CSV等一些非事务性存储引擎。</p>
 <h6 id="2-行级锁定（row-level）"><a href="#2-行级锁定（row-level）" class="headerlink" title="2.行级锁定（row-level）"></a>2.行级锁定（row-level）</h6><p>​        行级锁定最大的特点就是锁定对象的颗粒度很小，也是目前各大数据库管理软件所实现的锁定颗粒度最小的。由于锁定颗粒度很小，所以发生锁定资源争用的概率也最小，能够给予应用程序尽可能大的并发处理能力而提高一些需要高并发应用系统的整体性能。<br>​        虽然能够在并发处理能力上面有较大的优势，但是行级锁定也因此带来了不少弊端。由于锁定资源的颗粒度很小，所以每次获取锁和释放锁需要做的事情也更多，带来的消耗自然也就更大了。此外，行级锁定也最容易发生死锁。<br>使用行级锁定的主要是InnoDB存储引擎。</p>
@@ -597,8 +597,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/27/面试/Dubbo面试题整理/" rel="next" title="Dubbo面试题整理">
-                <i class="fas fa-chevron-left"></i> Dubbo面试题整理
+              <a href="/2020/01/20/每日总结/20200120/" rel="next" title="MySQL四种常见数据库引擎">
+                <i class="fas fa-chevron-left"></i> MySQL四种常见数据库引擎
               </a>
             
           </div>
@@ -694,7 +694,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -915,7 +915,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#一、概述"><span class="nav-text">一、概述</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-表级锁定（table-level）"><span class="nav-text">1.表级锁定（table-level）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-行级锁定（row-level）"><span class="nav-text">2.行级锁定（row-level）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-页级锁定（page-level）"><span class="nav-text">3.页级锁定（page-level）</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二、表级锁定"><span class="nav-text">二、表级锁定</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-MySQL表级锁的锁模式"><span class="nav-text">1.MySQL表级锁的锁模式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-如何加表锁"><span class="nav-text">2.如何加表锁</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-MyISAM表锁优化建议"><span class="nav-text">3.MyISAM表锁优化建议</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（1）查询表级锁争用情况"><span class="nav-text">（1）查询表级锁争用情况</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（2）缩短锁定时间"><span class="nav-text">（2）缩短锁定时间</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（3）分离能并行的操作"><span class="nav-text">（3）分离能并行的操作</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（4）合理利用读写优先级"><span class="nav-text">（4）合理利用读写优先级</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#三、行级锁定"><span class="nav-text">三、行级锁定</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#1-InnoDB锁定模式及实现机制"><span class="nav-text">1.InnoDB锁定模式及实现机制</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-InnoDB行锁实现方式"><span class="nav-text">2.InnoDB行锁实现方式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-间隙锁（Next-Key锁）"><span class="nav-text">3.间隙锁（Next-Key锁）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-死锁"><span class="nav-text">4.死锁</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-什么时候使用表锁"><span class="nav-text">5.什么时候使用表锁</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#6-InnoDB行锁优化建议"><span class="nav-text">6.InnoDB行锁优化建议</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL是行级锁还是表级锁"><span class="nav-text">MySQL是行级锁还是表级锁</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#一、概述"><span class="nav-text">一、概述</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-表级锁定（table-level）"><span class="nav-text">1.表级锁定（table-level）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-行级锁定（row-level）"><span class="nav-text">2.行级锁定（row-level）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-页级锁定（page-level）"><span class="nav-text">3.页级锁定（page-level）</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二、表级锁定"><span class="nav-text">二、表级锁定</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-MySQL表级锁的锁模式"><span class="nav-text">1.MySQL表级锁的锁模式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-如何加表锁"><span class="nav-text">2.如何加表锁</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-MyISAM表锁优化建议"><span class="nav-text">3.MyISAM表锁优化建议</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（1）查询表级锁争用情况"><span class="nav-text">（1）查询表级锁争用情况</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（2）缩短锁定时间"><span class="nav-text">（2）缩短锁定时间</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（3）分离能并行的操作"><span class="nav-text">（3）分离能并行的操作</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（4）合理利用读写优先级"><span class="nav-text">（4）合理利用读写优先级</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#三、行级锁定"><span class="nav-text">三、行级锁定</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#1-InnoDB锁定模式及实现机制"><span class="nav-text">1.InnoDB锁定模式及实现机制</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-InnoDB行锁实现方式"><span class="nav-text">2.InnoDB行锁实现方式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-间隙锁（Next-Key锁）"><span class="nav-text">3.间隙锁（Next-Key锁）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-死锁"><span class="nav-text">4.死锁</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-什么时候使用表锁"><span class="nav-text">5.什么时候使用表锁</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#6-InnoDB行锁优化建议"><span class="nav-text">6.InnoDB行锁优化建议</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -948,7 +948,7 @@
     
       <span class="post-meta-item-text">全站共计字数&#58;</span>
     
-    <span title="全站共计字数">44.3k</span>
+    <span title="全站共计字数">52.7k</span>
   
 </div>
 

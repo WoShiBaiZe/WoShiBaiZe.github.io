@@ -77,6 +77,7 @@
 
 
 
+  <meta name="keywords" content="工作总结,">
 
 
 
@@ -86,16 +87,23 @@
 
 
 
-<meta name="description" content="Java从入门到放弃">
-<meta property="og:type" content="website">
-<meta property="og:title" content="个人博客">
-<meta property="og:url" content="https://woshibaize.github.io/archives/index.html">
+
+<meta name="description" content="四种MySQL存储引擎   [toc] 前言数据库存储引擎是数据库底层软件组织，数据库管理系统（DBMS）使用数据引擎进行创建、查询、更新和删除数据。不同的存储引擎提供不同的存储机制、索引技巧、锁定水平等功能，使用不同的存储引擎，还可以 获得特定的功能。现在许多不同的数据库管理系统都支持多种不同的数据引擎。MySQL的核心就是存储引擎。 存储引擎查看MySQL给开发者提供了查询存储引擎的功能，我这">
+<meta name="keywords" content="工作总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL四种常见数据库引擎">
+<meta property="og:url" content="https://woshibaize.github.io/2020/01/20/每日总结/20200120/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="Java从入门到放弃">
+<meta property="og:description" content="四种MySQL存储引擎   [toc] 前言数据库存储引擎是数据库底层软件组织，数据库管理系统（DBMS）使用数据引擎进行创建、查询、更新和删除数据。不同的存储引擎提供不同的存储机制、索引技巧、锁定水平等功能，使用不同的存储引擎，还可以 获得特定的功能。现在许多不同的数据库管理系统都支持多种不同的数据引擎。MySQL的核心就是存储引擎。 存储引擎查看MySQL给开发者提供了查询存储引擎的功能，我这">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/a3e7702c99de3b8eb94f0f1d65049ff6/xmlnote/3832C3E066F546509CCF4BDB95C26376/173">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/a3e7702c99de3b8eb94f0f1d65049ff6/xmlnote/57C5B1F98664492F8BC3064C70F7596C/175">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11464886-82267cb5926d26fb.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp">
+<meta property="og:updated_time" content="2020-08-31T16:12:15.037Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="个人博客">
-<meta name="twitter:description" content="Java从入门到放弃">
+<meta name="twitter:title" content="MySQL四种常见数据库引擎">
+<meta name="twitter:description" content="四种MySQL存储引擎   [toc] 前言数据库存储引擎是数据库底层软件组织，数据库管理系统（DBMS）使用数据引擎进行创建、查询、更新和删除数据。不同的存储引擎提供不同的存储机制、索引技巧、锁定水平等功能，使用不同的存储引擎，还可以 获得特定的功能。现在许多不同的数据库管理系统都支持多种不同的数据引擎。MySQL的核心就是存储引擎。 存储引擎查看MySQL给开发者提供了查询存储引擎的功能，我这">
+<meta name="twitter:image" content="https://note.youdao.com/yws/public/resource/a3e7702c99de3b8eb94f0f1d65049ff6/xmlnote/3832C3E066F546509CCF4BDB95C26376/173">
 
 
 
@@ -125,7 +133,7 @@
 
 
 
-  <link rel="canonical" href="https://woshibaize.github.io/archives/">
+  <link rel="canonical" href="https://woshibaize.github.io/2020/01/20/每日总结/20200120/">
 
 
 
@@ -150,7 +158,7 @@
 <!-- fontawesome5 -->
 <link href="/lib/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" type="text/css">
 
-  <title>文章 | 个人博客</title>
+  <title>MySQL四种常见数据库引擎 | 个人博客</title>
   
 
 
@@ -169,7 +177,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband">
 	<a href="https://github.com/woshibaize" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="/images/headband/forkme_right_red.png" alt="Fork me on GitHub"></a>
     </div>
@@ -313,390 +321,287 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      <span class="archive-page-counter">
-        
-        
-         
-        
-        OK! 目前共计 36 篇日志。 继续努力。
-      </span>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2020/01/20/每日总结/20200120/">
 
-      
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BaiZe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
 
         
         
+          <h2 class="post-title" itemprop="name headline">MySQL四种常见数据库引擎</h2>
         
 
-        
+        <div class="post-meta">
+	  
+	  
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar-plus"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-20T23:51:27+08:00">
+                2020-01-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-          <div class="collection-title">
-            <h2 class="archive-year" id="archive-year-2020">2020</h2>
-          </div>
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/08/16/每日总结/20200816/" itemprop="url">
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
               
-                <span itemprop="name">ztree数据格式</span>
+                <span class="post-meta-item-text">分类于</span>
               
-            </a>
-        
-      </h3>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工作总结/" itemprop="url" rel="index">
+                    <span itemprop="name">工作总结</span>
+                  </a>
+                </span>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-08-16T10:56:51+08:00" content="2020-08-16">
-          08-16
-        </time>
-      </div>
+                
+                
+              
+            </span>
+          
 
-    </header>
-  </article>
+          
+            
+          
 
+          
+          
 
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <!--<i class="far fa-file-word"></i>-->
+		  <i class="fas fa-book-open"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文共计 &#58;</span>
+                
+                <span title="本文共计">
+                  1.9k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="far fa-clock"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅文耗时 &asymp;</span>
+                
+                <span title="阅文耗时">
+                  6 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/08/14/每日总结/20200814/" itemprop="url">
-              
-                <span itemprop="name">百万数据导出</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-08-14T11:41:51+08:00" content="2020-08-14">
-          08-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
+      
+        <center>四种MySQL存储引擎</center>
 
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/08/13/每日总结/20200813/" itemprop="url">
-              
-                <span itemprop="name">数据排序</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-08-13T19:27:27+08:00" content="2020-08-13">
-          08-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+<hr>
+<p>[toc]</p>
+<h5 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h5><p><a href="http://lib.csdn.net/base/mysql" target="_blank" rel="noopener"><strong>数据库</strong></a>存储引擎是数据库底层软件组织，数据库管理系统（DBMS）使用数据引擎进行创建、查询、更新和删除数据。不同的存储引擎提供不同的存储机制、索引技巧、锁定水平等功能，使用不同的存储引擎，还可以 获得特定的功能。现在许多不同的数据库管理系统都支持多种不同的数据引擎。<a href="http://lib.csdn.net/base/mysql" target="_blank" rel="noopener"><strong>MySQL</strong></a><strong>的核心就是存储引擎</strong>。</p>
+<h5 id="存储引擎查看"><a href="#存储引擎查看" class="headerlink" title="存储引擎查看"></a><strong>存储引擎查看</strong></h5><p>MySQL给开发者提供了查询存储引擎的功能，我这里使用的是MySQL5.1，可以使用：</p>
+<p>SHOW ENGINES</p>
+<p>命令来查看MySQL使用的引擎，命令的输出为（我用的Navicat Premium）：</p>
+<p><img src="https://note.youdao.com/yws/public/resource/a3e7702c99de3b8eb94f0f1d65049ff6/xmlnote/3832C3E066F546509CCF4BDB95C26376/173" alt></p>
+<p>看到MySQL给用户提供了这么多存储引擎，包括处理事务安全表的引擎和出来了非事物安全表的引擎。</p>
+<p>如果要想查看数据库默认使用哪个引擎，可以通过使用命令：</p>
+<p>show variables like ‘%storage_engine%’;</p>
+<p>来查看，查询结果为：</p>
+<p><img src="https://note.youdao.com/yws/public/resource/a3e7702c99de3b8eb94f0f1d65049ff6/xmlnote/57C5B1F98664492F8BC3064C70F7596C/175" alt></p>
+<p>​        在MySQL中，不需要在整个服务器中使用同一种存储引擎，针对具体的要求，可以对每一个表使用不同的存储引擎。Support列的值表示某种引擎是否能使用：YES表示可以使用、NO表示不能使用、DEFAULT表示该引擎为当前默认的存储引擎 。下面来看一下其中几种常用的引擎。</p>
+<h5 id="InnoDB存储引擎"><a href="#InnoDB存储引擎" class="headerlink" title="InnoDB存储引擎"></a><strong>InnoDB存储引擎</strong></h5><p>InnoDB是事务型数据库的首选引擎，支持事务安全表（ACID），支持行锁定和外键，上图也看到了，InnoDB是默认的MySQL引擎。InnoDB主要特性有：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1、InnoDB给MySQL提供了具有提交、回滚和崩溃恢复能力的事物安全（ACID兼容）存储引擎。InnoDB锁定在行级并且也在SELECT语句中提供一个类似Oracle的非锁定读。这些功能增加了多用户部署和性能。在SQL查询中，可以自由地将InnoDB类型的表和其他MySQL的表类型混合起来，甚至在同一个查询中也可以混合</span><br><span class="line"></span><br><span class="line">2、InnoDB是为处理巨大数据量的最大性能设计。它的CPU效率可能是任何其他基于磁盘的关系型数据库引擎锁不能匹敌的</span><br><span class="line"></span><br><span class="line">3、InnoDB存储引擎完全与MySQL服务器整合，InnoDB存储引擎为在主内存中缓存数据和索引而维持它自己的缓冲池。InnoDB将它的表和索引在一个逻辑表空间中，表空间可以包含数个文件（或原始磁盘文件）。这与MyISAM表不同，比如在MyISAM表中每个表被存放在分离的文件中。InnoDB表可以是任何尺寸，即使在文件尺寸被限制为2GB的操作系统上</span><br><span class="line"></span><br><span class="line">4、InnoDB支持外键完整性约束，存储表中的数据时，每张表的存储都按主键顺序存放，如果没有显示在表定义时指定主键，InnoDB会为每一行生成一个6字节的ROWID，并以此作为主键</span><br><span class="line"></span><br><span class="line">5、InnoDB被用在众多需要高性能的大型数据库站点上</span><br></pre></td></tr></table></figure>
+<p>InnoDB不创建目录，使用InnoDB时，MySQL将在MySQL数据目录下创建一个名为ibdata1的10MB大小的自动扩展数据文件，以及两个名为ib_logfile0和ib_logfile1的5MB大小的日志文件</p>
+<h5 id="MyISAM存储引擎"><a href="#MyISAM存储引擎" class="headerlink" title="MyISAM存储引擎"></a><strong>MyISAM存储引擎</strong></h5><p>MyISAM基于ISAM存储引擎，并对其进行扩展。它是在Web、数据仓储和其他应用环境下最常使用的存储引擎之一。MyISAM拥有较高的插入、查询速度，但<strong>不支持事物</strong>。MyISAM主要特性有：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">1、大文件（达到63位文件长度）在支持大文件的文件系统和操作系统上被支持</span><br><span class="line"></span><br><span class="line">2、当把删除和更新及插入操作混合使用的时候，动态尺寸的行产生更少碎片。这要通过合并相邻被删除的块，以及若下一个块被删除，就扩展到下一块自动完成</span><br><span class="line"></span><br><span class="line">3、每个MyISAM表最大索引数是64，这可以通过重新编译来改变。每个索引最大的列数是16</span><br><span class="line"></span><br><span class="line">4、最大的键长度是1000字节，这也可以通过编译来改变，对于键长度超过250字节的情况，一个超过1024字节的键将被用上</span><br><span class="line"></span><br><span class="line">5、BLOB和TEXT列可以被索引</span><br><span class="line"></span><br><span class="line">6、NULL被允许在索引的列中，这个值占每个键的0~1个字节</span><br><span class="line"></span><br><span class="line">7、所有数字键值以高字节优先被存储以允许一个更高的索引压缩</span><br><span class="line"></span><br><span class="line">8、每个MyISAM类型的表都有一个AUTO_INCREMENT的内部列，当INSERT和UPDATE操作的时候该列被更新，同时AUTO_INCREMENT列将被刷新。所以说，MyISAM类型表的AUTO_INCREMENT列更新比InnoDB类型的AUTO_INCREMENT更快</span><br><span class="line"></span><br><span class="line">9、可以把数据文件和索引文件放在不同目录</span><br><span class="line"></span><br><span class="line">10、每个字符列可以有不同的字符集</span><br><span class="line"></span><br><span class="line">11、有VARCHAR的表可以固定或动态记录长度</span><br><span class="line"></span><br><span class="line">12、VARCHAR和CHAR列可以多达64KB</span><br></pre></td></tr></table></figure>
+<p>使用MyISAM引擎创建数据库，将产生3个文件。文件的名字以表名字开始，扩展名之处文件类型：frm文件存储表定义、数据文件的扩展名为.MYD（MYData）、索引文件的扩展名时.MYI（MYIndex）</p>
+<h5 id="MEMORY存储引擎"><a href="#MEMORY存储引擎" class="headerlink" title="MEMORY存储引擎"></a><strong>MEMORY存储引擎</strong></h5><p>MEMORY存储引擎将表中的数据存储到内存中，未查询和引用其他表数据提供快速访问。MEMORY主要特性有：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">1、MEMORY表的每个表可以有多达32个索引，每个索引16列，以及500字节的最大键长度</span><br><span class="line"></span><br><span class="line">2、MEMORY存储引擎执行HASH和BTREE缩影</span><br><span class="line"></span><br><span class="line">3、可以在一个MEMORY表中有非唯一键值</span><br><span class="line"></span><br><span class="line">4、MEMORY表使用一个固定的记录长度格式</span><br><span class="line"></span><br><span class="line">5、MEMORY不支持BLOB或TEXT列</span><br><span class="line"></span><br><span class="line">6、MEMORY支持AUTO_INCREMENT列和对可包含NULL值的列的索引</span><br><span class="line"></span><br><span class="line">7、MEMORY表在所由客户端之间共享（就像其他任何非TEMPORARY表）</span><br><span class="line"></span><br><span class="line">8、MEMORY表内存被存储在内存中，内存是MEMORY表和服务器在查询处理时的空闲中，创建的内部表共享</span><br><span class="line"></span><br><span class="line">9、当不再需要MEMORY表的内容时，要释放被MEMORY表使用的内存，应该执行DELETE FROM或TRUNCATE TABLE，或者删除整个表（使用DROP TABLE）</span><br></pre></td></tr></table></figure>
+<h5 id="存储引擎的选择"><a href="#存储引擎的选择" class="headerlink" title="存储引擎的选择"></a><strong>存储引擎的选择</strong></h5><p>不同的存储引擎都有各自的特点，以适应不同的需求，如下表所示：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11464886-82267cb5926d26fb.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp" alt></p>
+<p>如果要提供提交、回滚、崩溃恢复能力的事物安全（ACID兼容）能力，并要求实现并发控制，InnoDB是一个好的选择</p>
+<p>如果数据表主要用来插入和查询记录，则MyISAM引擎能提供较高的处理效率</p>
+<p>如果只是临时存放数据，数据量不大，并且不需要较高的数据安全性，可以选择将数据保存在内存中的Memory引擎，MySQL中使用该引擎作为临时表，存放查询的中间结果</p>
+<p>如果只有INSERT和SELECT操作，可以选择Archive，Archive支持高并发的插入操作，但是本身不是事务安全的。Archive非常适合存储归档数据，如记录日志信息可以使用Archive</p>
+<p>使用哪一种引擎需要灵活选择，<strong>一个数据库中多个表可以使用不同引擎以满足各种性能和实际需求</strong>，使用合适的存储引擎，将会提高整个数据库的性能</p>
+<p>作者：一行代码一首诗<br>链接：<a href="https://www.jianshu.com/p/4bb9f78b4f6d" target="_blank" rel="noopener">https://www.jianshu.com/p/4bb9f78b4f6d</a><br>来源：简书</p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/08/13/其它/webservice学习/" itemprop="url">
-              
-                <span itemprop="name">webService学习</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-08-13T17:26:37+08:00" content="2020-08-13">
-          08-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/08/13/其它/excel宏-sheet合并/" itemprop="url">
-              
-                <span itemprop="name">excel宏-sheet合并</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-08-13T17:26:37+08:00" content="2020-08-13">
-          08-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/08/11/每日总结/20200811/" itemprop="url">
-              
-                <span itemprop="name">多线程与线程池</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-08-11T16:47:27+08:00" content="2020-08-11">
-          08-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/08/10/我的学习环境/我的学习环境-K8S/" itemprop="url">
-              
-                <span itemprop="name">K8S</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-08-10T22:26:03+08:00" content="2020-08-10">
-          08-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/08/05/我的学习环境/我的学习环境-容器服务/" itemprop="url">
-              
-                <span itemprop="name">容器服务</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-08-05T18:54:03+08:00" content="2020-08-05">
-          08-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/08/03/我的学习环境/我的学习环境-Docker/" itemprop="url">
-              
-                <span itemprop="name">Docker</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-08-03T19:54:03+08:00" content="2020-08-03">
-          08-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/08/03/每日总结/20200803/" itemprop="url">
-              
-                <span itemprop="name">Inner Join与LEFT JOIN</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-08-03T19:52:27+08:00" content="2020-08-03">
-          08-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wechat.jpg" alt="BaiZe wechat" style="width: 200px; max-width: 100%;">
+    <div>欢迎扫描二维码关注公众号一起成长~</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>觉得文章对您有帮助请我喝杯咖啡吧^_^</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="BaiZe 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/工作总结/" rel="tag"><i class="fas fa-tag"></i> 工作总结</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div>
+	  <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    BaiZe
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://woshibaize.github.io/2020/01/20/每日总结/20200120/" title="MySQL四种常见数据库引擎">https://woshibaize.github.io/2020/01/20/每日总结/20200120/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章均采用 <a href rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议，转载请注明出处！
+  </li>
+</ul>
+
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/01/18/每日总结/20200118/" rel="next" title="String、StringBuffer与StringBuilder之间区别">
+                <i class="fas fa-chevron-left"></i> String、StringBuffer与StringBuilder之间区别
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/01/31/每日总结/20200131/" rel="prev" title="MySQL是行级锁还是表级锁">
+                MySQL是行级锁还是表级锁 <i class="fas fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/4/">4</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fas fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -704,6 +609,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MzY0My8yMDE4Mg=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -724,8 +638,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -955,6 +878,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#存储引擎查看"><span class="nav-text">存储引擎查看</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#InnoDB存储引擎"><span class="nav-text">InnoDB存储引擎</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#MyISAM存储引擎"><span class="nav-text">MyISAM存储引擎</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#MEMORY存储引擎"><span class="nav-text">MEMORY存储引擎</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#存储引擎的选择"><span class="nav-text">存储引擎的选择</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
     </div>
@@ -1106,6 +1045,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -1134,6 +1077,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 

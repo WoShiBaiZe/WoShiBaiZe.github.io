@@ -2282,14 +2282,8 @@ Role.java
       
         
           
-          Insert是行锁还是表锁？
-
-
-项目中遇到一个很奇怪的问题：问题描述：现在需要从项目外部导大量的数据到项目内，这个时候我起了一个spring事务往很多张表中去插入数据，这个时候其他用户访问系统去更新旧的数据的时候发现表被锁了。也就是说我在导入数据的时候，其他用户都不能对系统的表进行相应的更新操作。这是为什么？？？？
-
-
-
-答：数据库的事务机制就是这样，insert时全表锁，因为要生成主键字段、索
+          Insert是行锁还是表锁？[toc]
+一、前言项目中遇到一个很奇怪的问题：问题描述：现在需要从项目外部导大量的数据到项目内，这个时候我起了一个spring事务往很多张表中去插入数据，这个时候其他用户访问系统去更新旧的数据的时候发现表被锁了。也就是说我在导入数据的时候，其他用户都不能对系统的表进行相应的更新操作。这是为什么？？？？于是想要了解一下insert加锁机制，但是发现网上介绍的文章比较少且
           ...
 	  <!--noindex-->
 	  <div class="post-footer-index">
@@ -2394,7 +2388,7 @@ Role.java
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2632,7 +2626,7 @@ Role.java
     
       <span class="post-meta-item-text">全站共计字数&#58;</span>
     
-    <span title="全站共计字数">44.3k</span>
+    <span title="全站共计字数">52.7k</span>
   
 </div>
 
