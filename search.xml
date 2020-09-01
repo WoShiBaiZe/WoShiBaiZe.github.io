@@ -34,17 +34,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[webService学习]]></title>
-    <url>%2F2020%2F08%2F13%2F%E5%85%B6%E5%AE%83%2Fwebservice%E5%AD%A6%E4%B9%A0%2F</url>
-    <content type="text"><![CDATA[webService学习 1.webService 概述 webservice 跨平台 跨编程语言 远程调用技术 服务端 (服务的提供者) java webservice 客户端 (服务的消费者) java 调用webservice 2.webService 三个要素 2.1 SOAP（Simple Object Access protocol） 简单对象的访问协议 webservice 底层传输协议 SOAP = HTTP 协议 + XML（W3C 标准规范） 格式数据 2.2 WSDL (web service description language) webserivce的服务使用说明书 2.3 UUDI 是一种目录服务（地址: 注册UUDI 目录）—–&gt;商业化道路 资源共享促进全球经济合作 3.webService 第一个程序 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748webService 服务端开发使用jdk开发webService 的方式 Java API for XML Web Services JAX-WS java 开发的webService 服务1.安装jdk 服务 在1.6版本之后 配置换进变量2.开发服务 服务必须存在接口 动态代理技术 //天气查询服务 @WebService //注解 修饰范围 在类上 作用：用来标识这个类|接口是一个webService接口|类 public interface WeatherWebService&#123; public String queryWeatherByCity(String cityName); &#125; 3.开发服务实现类 @WebService WeatherServiceImpl implements WeatherWebService&#123; public String queryWeatherByCity(String cityName)&#123; return &quot;天气不好，注意身体。。。。。&quot;; &#125; &#125; 4.发布服务 Endpoint.published(&quot;服务地址&quot;,服务实现类对象);5.测试是否发布成功 浏览器访问 服务地址?wsdl webService 客户端开发1.根据服务地址查看wsdl使用说明书 自下往上查看2.根据wsdl地址生成客户端调用代码 wsimport -s . -p com.xxx.client wsdl地址3.将生成客户端代码拷贝当前项目4.调用 创建服务视图对象 通过服务视图对象获取服务的核心类对象 服务核心对象的调用方法 第一种调用方式 基于服务视图对象的调用 WeatherServiceImpl weatherServiceImpl = new WeatherServiceImpl(); WeatherServiceImpl weatherServicePortType = weatherServiceImpl.getWeatherServiceImplPort(); String name = weatherServicePortType.queryWeratherByCity(&quot;北京&quot;);第二种调用方式 标准客户端调用方式 通过jdk提供的通用服务对象进行调用 参数1：wsdl地址 参数2：wsdl命名空间对象 QName QName = new QName(&quot;目标命名空间targetName&quot;,&quot;服务视图名&quot;); Service service = Service.create(new URL(&quot;url?wsdl&quot;),QName); WeatherServiceImpl portType = service.getPort(WeatherServiceImpl.class); String name = portType.queryWeatherByCity(&quot;天津&quot;); 4.ApacheCXF 4.1 使用CXF框架发布webservice 引入CXF jar包 123456&lt;!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-spring-boot-starter-jaxws --&gt;&lt;dependency&gt; &lt;groupId&gt;org.apache.cxf&lt;/groupId&gt; &lt;artifactId&gt;cxf-spring-boot-starter-jaxws&lt;/artifactId&gt; &lt;version&gt;3.2.8&lt;/version&gt;&lt;/dependency&gt; 开发服务接口类 @Webservice注解 配置]]></content>
-      <categories>
-        <category>其它</category>
-      </categories>
-      <tags>
-        <tag>其他</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[excel宏-sheet合并]]></title>
     <url>%2F2020%2F08%2F13%2F%E5%85%B6%E5%AE%83%2Fexcel%E5%AE%8F-sheet%E5%90%88%E5%B9%B6%2F</url>
     <content type="text"><![CDATA[和同事合作写产品文档，但是写完后发现两个人没法合并，然后百度查到excel宏可以解决这个问题，以下是宏合并脚本 123456789101112131415161718192021222324Sub CombineWorkbooks()Dim FilesToOpen, ftDim x As IntegerApplication.ScreenUpdating = FalseOn Error GoTo errhandlerFilesToOpen = Application.GetOpenFilename _(FileFilter:=&quot;Micrsofe Excel文件(*.xls), *.xls&quot;, _MultiSelect:=True, Title:=&quot;要合并的文件&quot;)If TypeName(FilesToOpen) = &quot;boolean&quot; ThenMsgBox &quot;没有选定文件&quot;&apos;GoTo errhandlerEnd Ifx = 1While x &lt;= UBound(FilesToOpen)Set wk = Workbooks.Open(Filename:=FilesToOpen(x))wk.Sheets().Move after:=ThisWorkbook.Sheets _(ThisWorkbook.Sheets.Count)x = x + 1WendMsgBox &quot;合并成功完成！&quot;errhandler:&apos;MsgBox Err.Description&apos;Resume errhandlerEnd Sub]]></content>
@@ -53,6 +42,17 @@
       </categories>
       <tags>
         <tag>其它</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[webService学习]]></title>
+    <url>%2F2020%2F08%2F13%2F%E5%85%B6%E5%AE%83%2Fwebservice%E5%AD%A6%E4%B9%A0%2F</url>
+    <content type="text"><![CDATA[webService学习 1.webService 概述 webservice 跨平台 跨编程语言 远程调用技术 服务端 (服务的提供者) java webservice 客户端 (服务的消费者) java 调用webservice 2.webService 三个要素 2.1 SOAP（Simple Object Access protocol） 简单对象的访问协议 webservice 底层传输协议 SOAP = HTTP 协议 + XML（W3C 标准规范） 格式数据 2.2 WSDL (web service description language) webserivce的服务使用说明书 2.3 UUDI 是一种目录服务（地址: 注册UUDI 目录）—–&gt;商业化道路 资源共享促进全球经济合作 3.webService 第一个程序 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748webService 服务端开发使用jdk开发webService 的方式 Java API for XML Web Services JAX-WS java 开发的webService 服务1.安装jdk 服务 在1.6版本之后 配置换进变量2.开发服务 服务必须存在接口 动态代理技术 //天气查询服务 @WebService //注解 修饰范围 在类上 作用：用来标识这个类|接口是一个webService接口|类 public interface WeatherWebService&#123; public String queryWeatherByCity(String cityName); &#125; 3.开发服务实现类 @WebService WeatherServiceImpl implements WeatherWebService&#123; public String queryWeatherByCity(String cityName)&#123; return &quot;天气不好，注意身体。。。。。&quot;; &#125; &#125; 4.发布服务 Endpoint.published(&quot;服务地址&quot;,服务实现类对象);5.测试是否发布成功 浏览器访问 服务地址?wsdl webService 客户端开发1.根据服务地址查看wsdl使用说明书 自下往上查看2.根据wsdl地址生成客户端调用代码 wsimport -s . -p com.xxx.client wsdl地址3.将生成客户端代码拷贝当前项目4.调用 创建服务视图对象 通过服务视图对象获取服务的核心类对象 服务核心对象的调用方法 第一种调用方式 基于服务视图对象的调用 WeatherServiceImpl weatherServiceImpl = new WeatherServiceImpl(); WeatherServiceImpl weatherServicePortType = weatherServiceImpl.getWeatherServiceImplPort(); String name = weatherServicePortType.queryWeratherByCity(&quot;北京&quot;);第二种调用方式 标准客户端调用方式 通过jdk提供的通用服务对象进行调用 参数1：wsdl地址 参数2：wsdl命名空间对象 QName QName = new QName(&quot;目标命名空间targetName&quot;,&quot;服务视图名&quot;); Service service = Service.create(new URL(&quot;url?wsdl&quot;),QName); WeatherServiceImpl portType = service.getPort(WeatherServiceImpl.class); String name = portType.queryWeatherByCity(&quot;天津&quot;); 4.ApacheCXF 4.1 使用CXF框架发布webservice 引入CXF jar包 123456&lt;!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-spring-boot-starter-jaxws --&gt;&lt;dependency&gt; &lt;groupId&gt;org.apache.cxf&lt;/groupId&gt; &lt;artifactId&gt;cxf-spring-boot-starter-jaxws&lt;/artifactId&gt; &lt;version&gt;3.2.8&lt;/version&gt;&lt;/dependency&gt; 开发服务接口类 @Webservice注解 配置]]></content>
+      <categories>
+        <category>其它</category>
+      </categories>
+      <tags>
+        <tag>其他</tag>
       </tags>
   </entry>
   <entry>
