@@ -924,6 +924,204 @@ StringBuffer是可变类，和线程安全的字符串操作类，任何对它�
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2019/10/13/其它/MySQL优化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BaiZe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/13/其它/MySQL优化/" itemprop="url">MySQL优化</a></h2>
+        
+
+        <div class="post-meta">
+	  
+	  
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar-plus"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-13T17:26:37+08:00">
+                2019-10-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/其它/" itemprop="url" rel="index">
+                    <span itemprop="name">其它</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <!--<i class="far fa-file-word"></i>-->
+		  <i class="fas fa-book-open"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文共计 &#58;</span>
+                
+                <span title="本文共计">
+                  1.4k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="far fa-clock"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅文耗时 &asymp;</span>
+                
+                <span title="阅文耗时">
+                  5 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          MySQL优化
+
+表关联查询时务必遵循 小表驱动大表 原则；
+使用查询语句 where 条件时，不允许出现 函数，否则索引会失效；
+使用单表查询时，相同字段尽量不要用 OR，因为可能导致索引失效，比如：SELECT * FROM table WHERE name = &#39;手机&#39; OR name = &#39;电脑&#39;，可以使用 UNION 替代；
+LIKE 语句不允许使用 % 
+          ...
+	  <!--noindex-->
+	  <div class="post-footer-index">
+	    
+	      <div class="post-tags">
+		
+		  <a href="/tags/其它/" rel="tag"><i class="fas fa-tag"></i> 其它</a>
+		
+	      </div>
+	    
+            <div class="post-button text-center">
+              <a class="btn" target="_blank" href="/2019/10/13/其它/MySQL优化/" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+	  </div>
+	  <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+        
+    
+        
+            
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2018/08/27/面试/Dubbo面试题整理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1052,13 +1250,12 @@ StringBuffer是可变类，和线程安全的字符串操作类，任何对它�
         
           
           Dubbo面试题整理
-
 [toc]
 1.Dubbo是什么？​    Dubbo 是一个分布式、高性能、透明化的 RPC 服务框架，提供服务自动注册、自动发现等高效服务治理方案， 可以和 Spring 框架无缝集成。RPC 指的是远程调用协议，也就是说两个服务器交互数据。
 2.Dubbo的由来？​    互联网的快速发展，Web应用程序的规模不断扩大，一般会经历如下四个发展阶段。
 单一应用架构
  
-
+当
           ...
 	  <!--noindex-->
 	  <div class="post-footer-index">
@@ -1252,10 +1449,9 @@ StringBuffer是可变类，和线程安全的字符串操作类，任何对它�
         
           
            并发面试题整理
-
 [toc]
 1、并发编程三要素?123456（1）原子性原子性指的是一个或者多个操作，要么全部执行并且在执行的过程中不被其他操作打断，要么就全部都不执行。（2）可见性可见性指多个线程操作一个共享变量时，其中一个线程对变量进行修改后，其他线程可以立即看到修改的结果。（3）有序性有序性，即程序的执行顺序按照代码的先后顺序来执行。
-2、实现可见性的方法有哪些？1synchronize
+2、实现可见性的方法有哪些？1synchronized
           ...
 	  <!--noindex-->
 	  <div class="post-footer-index">
@@ -1268,6 +1464,199 @@ StringBuffer是可变类，和线程安全的字符串操作类，任何对它�
 	    
             <div class="post-button text-center">
               <a class="btn" target="_blank" href="/2018/08/27/面试/并发面试题整理/" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+	  </div>
+	  <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+        
+    
+        
+            
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2018/08/27/面试/Java基础方面/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BaiZe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/27/面试/Java基础方面/" itemprop="url">Java基础方面</a></h2>
+        
+
+        <div class="post-meta">
+	  
+	  
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar-plus"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-27T16:32:27+08:00">
+                2018-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/面试/" itemprop="url" rel="index">
+                    <span itemprop="name">面试</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <!--<i class="far fa-file-word"></i>-->
+		  <i class="fas fa-book-open"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文共计 &#58;</span>
+                
+                <span title="本文共计">
+                  128 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="far fa-clock"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅文耗时 &asymp;</span>
+                
+                <span title="阅文耗时">
+                  1 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+           并发面试题整理1、作用域public,private,protected以及不写时的区别答：区别如下：作用域      当前类    同一package 子孙类    其他packagepublic          √               √                         √       √protected    √               √         
+          ...
+	  <!--noindex-->
+	  <div class="post-footer-index">
+	    
+	      <div class="post-tags">
+		
+		  <a href="/tags/Java基础方面/" rel="tag"><i class="fas fa-tag"></i> Java基础方面</a>
+		
+	      </div>
+	    
+            <div class="post-button text-center">
+              <a class="btn" target="_blank" href="/2018/08/27/面试/Java基础方面/" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1565,7 +1954,7 @@ Dubbo+Zookeeper中MyBatis
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1587,7 +1976,7 @@ Dubbo+Zookeeper中MyBatis
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1803,7 +2192,7 @@ Dubbo+Zookeeper中MyBatis
     
       <span class="post-meta-item-text">全站共计字数&#58;</span>
     
-    <span title="全站共计字数">52.7k</span>
+    <span title="全站共计字数">54.6k</span>
   
 </div>
 

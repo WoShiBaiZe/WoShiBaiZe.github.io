@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950@FunctionalInterfaceinterface Foo&amp;#123;    //函数式接口有且只有一个方法    //public void sayHello();    public int add(int">
+<meta name="description" content="JDK8 新特性 概述以下列出两点重要特性：  Lambda 表达式（匿名函数） Stream 多线程并行数据处理（重要）  新特性 接口的默认方法只需要使用 default 关键字即可，这个特征又叫做 扩展方法 Lambda 表达式 Functional 接口 函数式接口 是指仅仅只包含一个抽象方法的接口，每一个该类型的 Lambda 表达式都会被匹配到这个抽象方法。你只需要给你的接口添加 @F">
 <meta name="keywords" content="JDK新特性">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JDK新特性">
 <meta property="og:url" content="https://woshibaize.github.io/2020/04/26/JDK新特性/JDK新特性/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950@FunctionalInterfaceinterface Foo&amp;#123;    //函数式接口有且只有一个方法    //public void sayHello();    public int add(int">
+<meta property="og:description" content="JDK8 新特性 概述以下列出两点重要特性：  Lambda 表达式（匿名函数） Stream 多线程并行数据处理（重要）  新特性 接口的默认方法只需要使用 default 关键字即可，这个特征又叫做 扩展方法 Lambda 表达式 Functional 接口 函数式接口 是指仅仅只包含一个抽象方法的接口，每一个该类型的 Lambda 表达式都会被匹配到这个抽象方法。你只需要给你的接口添加 @F">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-08-28T04:48:25.186Z">
+<meta property="og:updated_time" content="2020-09-01T02:30:59.652Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDK新特性">
-<meta name="twitter:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950@FunctionalInterfaceinterface Foo&amp;#123;    //函数式接口有且只有一个方法    //public void sayHello();    public int add(int">
+<meta name="twitter:description" content="JDK8 新特性 概述以下列出两点重要特性：  Lambda 表达式（匿名函数） Stream 多线程并行数据处理（重要）  新特性 接口的默认方法只需要使用 default 关键字即可，这个特征又叫做 扩展方法 Lambda 表达式 Functional 接口 函数式接口 是指仅仅只包含一个抽象方法的接口，每一个该类型的 Lambda 表达式都会被匹配到这个抽象方法。你只需要给你的接口添加 @F">
 
 
 
@@ -417,7 +417,7 @@
                   <span class="post-meta-item-text">本文共计 &#58;</span>
                 
                 <span title="本文共计">
-                  390 字
+                  760 字
                 </span>
               
 
@@ -433,7 +433,7 @@
                   <span class="post-meta-item-text">阅文耗时 &asymp;</span>
                 
                 <span title="阅文耗时">
-                  1 min
+                  3 min
                 </span>
               
             </div>
@@ -454,11 +454,37 @@
       
 
       
-        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Foo</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">//函数式接口有且只有一个方法</span></span><br><span class="line">    <span class="comment">//public void sayHello();</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>;</span><br><span class="line">    <span class="comment">//default 可以定义一个</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">default</span> <span class="keyword">int</span> <span class="title">mul</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        retrun x * y;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// static 可以定义多个</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">div</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        retrun x/y;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> *	  函数式接口可以使用 Lambda</span></span><br><span class="line"><span class="comment"> *    1.拷贝中括号,写死右箭头，落地大括号</span></span><br><span class="line"><span class="comment"> *	  2.<span class="doctag">@FunctionalInterface</span></span></span><br><span class="line"><span class="comment"> * 	  3.default</span></span><br><span class="line"><span class="comment"> *	  4.static</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> clas LambdaExpresssDemo</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">/*Foo foo = new Foo()</span></span><br><span class="line"><span class="comment">        &#123;</span></span><br><span class="line"><span class="comment">            @Override</span></span><br><span class="line"><span class="comment">            public void sayHello()</span></span><br><span class="line"><span class="comment">            &#123;</span></span><br><span class="line"><span class="comment">            	System.out.println("****** hello");    </span></span><br><span class="line"><span class="comment">            &#125;</span></span><br><span class="line"><span class="comment">            foo.sayHello();</span></span><br><span class="line"><span class="comment">         &#125;*/</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//Foo foo = () -&gt; &#123;System.out.println("****** hello");&#125;;</span></span><br><span class="line">        <span class="comment">//foo.sayHello();</span></span><br><span class="line">        </span><br><span class="line">        Foo foo = (<span class="keyword">int</span> x, <span class="keyword">int</span> y)&#123;System.out.println(<span class="string">"come in math"</span>);<span class="keyword">return</span> x+y;&#125;;</span><br><span class="line">        System.out.println(foo.add(<span class="number">3</span>,<span class="number">5</span>));</span><br><span class="line">        </span><br><span class="line">        System.out.println(foo.mul(<span class="number">3</span>,<span class="number">5</span>));</span><br><span class="line">        </span><br><span class="line">        System.out.println(Foo.div(<span class="number">10</span>,<span class="number">2</span>))</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>​    Stream 是对集合(Collection)对象功能的增强，它专注于对集合对象进行各种非常便利、高效的聚合操作，或者大批量数据操作。通常我们需要多行代码才能完成的操作，借助于Stream流式处理可以很简单的实现。</p>
-<p>   Stream 不是集合元素，它不是数据结构并不保存数据，它是有关算法和计算的，它更像一个高级版本的Iterator。同时Stream提供串行和并行两种模式进行汇聚操作。比如你的Stream里面有很多数据，Stream可以开多个线程每个线程处理一部分。最后把结果汇总起来。</p>
-<p>  在开始之前我们先用一个图来整体的概况下Stream。如下所示：</p>
-<p><a href="https://blog.csdn.net/wuyuxing24/article/details/96560995" target="_blank" rel="noopener">https://blog.csdn.net/wuyuxing24/article/details/96560995</a></p>
+        <h2 id="JDK8-新特性"><a href="#JDK8-新特性" class="headerlink" title="JDK8 新特性"></a><center>JDK8 新特性</center></h2><hr>
+<h5 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h5><p>以下列出两点重要特性：</p>
+<ul>
+<li>Lambda 表达式（匿名函数）</li>
+<li>Stream 多线程并行数据处理（重要）</li>
+</ul>
+<h5 id="新特性"><a href="#新特性" class="headerlink" title="新特性"></a>新特性</h5><ul>
+<li>接口的默认方法只需要使用 <code>default</code> 关键字即可，这个特征又叫做 <strong>扩展方法</strong></li>
+<li>Lambda 表达式</li>
+<li>Functional 接口 <strong>函数式接口</strong> 是指仅仅只包含一个抽象方法的接口，每一个该类型的 Lambda 表达式都会被匹配到这个抽象方法。你只需要给你的接口添加 <code>@FunctionalInterface</code> 注解</li>
+<li>使用 <code>::</code> 双冒号关键字来传递方法(静态方法和非静态方法)</li>
+<li>Predicate 接口和 Lambda 表达式</li>
+<li>Function 接口<ul>
+<li>Function 有一个参数并且返回一个结果，并附带了一些可以和其他函数组合的默认方法</li>
+<li>compose 方法表示在某个方法之前执行</li>
+<li>andThen 方法表示在某个方法之后执行</li>
+<li>注意：compose 和 andThen 方法调用之后都会把对象自己本身返回，这可以 <strong>方便链式编程</strong></li>
+</ul>
+</li>
+<li>Supplier 接口，返回一个任意范型的值，和 Function 接口不同的是该接口 <strong>没有任何参数</strong></li>
+<li>Consumer 接口，接收一个任意范型的值，和 Function 接口不同的是该接口 <strong>没有任何值</strong></li>
+<li>Optional 类<ul>
+<li>Optional 不是接口而是一个类，这是个用来防止 <code>NullPointerException</code> 异常的辅助类型</li>
+<li>Optional 被定义为一个简单的容器，其值可能是 null 或者不是 null。</li>
+<li>在 Java8 之前一般某个函数应该返回非空对象但是偶尔却可能返回了 null，而在 Java8 中，不推荐你返回 null 而是返回 Optional。</li>
+<li>这是一个可以为 null 的容器对象。</li>
+<li>如果值存在则 <code>isPresent()</code> 方法会返回 true，调用 <code>get()</code> 方法会返回该对象。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.funtl.jdk8.feature.lambda;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.stream.Collectors;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Lambda 基本用法</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;Title: BaseLambda&lt;/p&gt;</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;Description: &lt;/p&gt;</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Lusifer</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0.0</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/1/6 10:42</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseLambda</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        testForeach();</span><br><span class="line">        testStreamDuplicates();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Lambda 遍历</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testForeach</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 定义一个数组</span></span><br><span class="line">        String[] array = &#123;</span><br><span class="line">                <span class="string">"尼尔机械纪元"</span>,</span><br><span class="line">                <span class="string">"关于我转生成为史莱姆这件事"</span>,</span><br><span class="line">                <span class="string">"实力至上主义教师"</span>,</span><br><span class="line">                <span class="string">"地狱少女"</span></span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 转换成集合</span></span><br><span class="line">        List&lt;String&gt; acgs = Arrays.asList(array);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 传统的遍历方式</span></span><br><span class="line">        System.out.println(<span class="string">"传统的遍历方式："</span>);</span><br><span class="line">        <span class="keyword">for</span> (String acg : acgs) &#123;</span><br><span class="line">            System.out.println(acg);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 使用 Lambda 表达式以及函数操作(functional operation)</span></span><br><span class="line">        System.out.println(<span class="string">"Lambda 表达式以及函数操作："</span>);</span><br><span class="line">        acgs.forEach((acg) -&gt; System.out.println(acg));</span><br><span class="line">        System.out.println();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 在 Java 8 中使用双冒号操作符(double colon operator)</span></span><br><span class="line">        System.out.println(<span class="string">"使用双冒号操作符："</span>);</span><br><span class="line">        acgs.forEach(System.out::println);</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Stream 去重复</span></span><br><span class="line"><span class="comment">     * String 和 Integer 可以使用该方法去重</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testStreamDuplicates</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Stream 去重复："</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 定义一个数组</span></span><br><span class="line">        String[] array = &#123;</span><br><span class="line">                <span class="string">"test"</span>,</span><br><span class="line">                <span class="string">"test"</span>,</span><br><span class="line">                <span class="string">"test1"</span>,</span><br><span class="line">                <span class="string">"test1"</span>,</span><br><span class="line">                <span class="string">"test2"</span>,</span><br><span class="line">                <span class="string">"test2"</span>,</span><br><span class="line">                <span class="string">"test3"</span>,</span><br><span class="line">                <span class="string">"test3"</span></span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 转换成集合</span></span><br><span class="line">        List&lt;String&gt; acgs = Arrays.asList(array);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Stream 去重复</span></span><br><span class="line">        acgs = acgs.stream().distinct().collect(Collectors.toList());</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 打印</span></span><br><span class="line">        acgs.forEach(System.out::println);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -608,8 +634,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -627,7 +662,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -649,7 +684,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -839,6 +874,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JDK8-新特性"><span class="nav-text">JDK8 新特性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#新特性"><span class="nav-text">新特性</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
     </div>
@@ -865,7 +916,7 @@
     
       <span class="post-meta-item-text">全站共计字数&#58;</span>
     
-    <span title="全站共计字数">52.7k</span>
+    <span title="全站共计字数">54.6k</span>
   
 </div>
 
