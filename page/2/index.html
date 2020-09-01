@@ -863,8 +863,7 @@ java.util.concurrent.locks   锁
         
           
           Dubbo以及两个实体List的合并
-
-工作中有导出功能，导出需要和页面展示的内容一致，但是，导出的数据Float型自动转成了Double型，日期多.0，很是奇怪，同事自己写的sql没有这些问题，因为公司框架中封装了mybatis-plus，我的页面有很多字段，为了方便开发，使用了mybatis-plus，出现这些问题，于是Debug代码，发现在service层，没有查询出的数据格式，与页面相同，
+工作中有导出功能，导出需要和页面展示的内容一致，但是，导出的数据Float型自动转成了Double型，日期多.0，很是奇怪，同事自己写的sql没有这些问题，因为公司框架中封装了mybatis-plus，我的页面有很多字段，为了方便开发，使用了mybatis-plus，出现这些问题，于是Debug代码，发现在service层，没有查询出的数据格式，与页面相同，但
           ...
 	  <!--noindex-->
 	  <div class="post-footer-index">
@@ -1268,7 +1267,6 @@ JVM 基本结构
         
           
           Java数据校验
-
 1.因为工作中有部分时间在写前端，没有怎么写后台，突然给到任务让写数据校验，就参考了一下以前的校验方式，感觉有些性能不好，而且作用不好，重新写一下校验
 
 2.原来的校验方式：是通过查询所有数据，遍历数据，与输入数据进行比较，第一：性能不好，要查询所有数据，然后遍历。 第二：如果是自己本身数据没有改变，需要判断，代码感觉混乱，不容易维护
@@ -1277,7 +1275,7 @@ JVM 基本结构
 
 1.添加：
 
-根据传入
+根据传入数
           ...
 	  <!--noindex-->
 	  <div class="post-footer-index">
@@ -1471,7 +1469,6 @@ JVM 基本结构
         
           
           SVN版本冲突
-
 这个冲突文件是同事写的代码，并不是我的，但是，我在更新代码的时候发生了代码冲突
 
 解决步骤
@@ -1482,7 +1479,7 @@ JVM 基本结构
 
 
 2.虽然我没有修改但是，我还是选择了第三个，合并到本地目录，保存我的和服务器的，再次更新代码就可以了
-出现界面，分为”Theirs”、”Mine”和”Merged”3部分，表示”别人修改的内容”、 ”我修改的内容”和”合并后的结
+出现界面，分为”Theirs”、”Mine”和”Merged”3部分，表示”别人修改的内容”、 ”我修改的内容”和”合并后的结果
           ...
 	  <!--noindex-->
 	  <div class="post-footer-index">
@@ -1676,14 +1673,13 @@ JVM 基本结构
         
           
           JqGrid行编辑
-
 ​    1.jqGrid学习网站
 jqGrid实例中文版
 jqGrid官网
 
 ​    2.editRow 编辑行
 //最后一行追加行
-123456$("#productList").addRowData(rowid, josnData, "last");//调用方式jQuery("#grid_id").editRow(rowid, keys, oneditfunc, su
+123456$("#productList").addRowData(rowid, josnData, "last");//调用方式jQuery("#grid_id").editRow(rowid, keys, oneditfunc, suc
           ...
 	  <!--noindex-->
 	  <div class="post-footer-index">
@@ -2265,13 +2261,12 @@ jqGrid官网
         
           
           请求头
-
 前端请求415错误
 
 @RequestParam主要来是于URL，例如百度的地址 https://www.baidu.com/s?wd=前端415@RequestBody主要来自表单信息，通过POST的方式把表单的信息传到后台。@RequestHeader求请的表单头。一般用来放浏览器信息，cookies等信息。
 
 
-@RequestParam对应的是URL的参数。@RequestBod
+@RequestParam对应的是URL的参数。@RequestBody
           ...
 	  <!--noindex-->
 	  <div class="post-footer-index">

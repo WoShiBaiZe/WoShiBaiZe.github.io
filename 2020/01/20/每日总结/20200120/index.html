@@ -88,21 +88,21 @@
 
 
 
-<meta name="description" content="四种MySQL存储引擎   [toc] 前言数据库存储引擎是数据库底层软件组织，数据库管理系统（DBMS）使用数据引擎进行创建、查询、更新和删除数据。不同的存储引擎提供不同的存储机制、索引技巧、锁定水平等功能，使用不同的存储引擎，还可以 获得特定的功能。现在许多不同的数据库管理系统都支持多种不同的数据引擎。MySQL的核心就是存储引擎。 存储引擎查看MySQL给开发者提供了查询存储引擎的功能，我这">
+<meta name="description" content="四种MySQL存储引擎 [toc] 前言数据库存储引擎是数据库底层软件组织，数据库管理系统（DBMS）使用数据引擎进行创建、查询、更新和删除数据。不同的存储引擎提供不同的存储机制、索引技巧、锁定水平等功能，使用不同的存储引擎，还可以 获得特定的功能。现在许多不同的数据库管理系统都支持多种不同的数据引擎。MySQL的核心就是存储引擎。 存储引擎查看MySQL给开发者提供了查询存储引擎的功能，我这里使">
 <meta name="keywords" content="工作总结">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL四种常见数据库引擎">
 <meta property="og:url" content="https://woshibaize.github.io/2020/01/20/每日总结/20200120/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="四种MySQL存储引擎   [toc] 前言数据库存储引擎是数据库底层软件组织，数据库管理系统（DBMS）使用数据引擎进行创建、查询、更新和删除数据。不同的存储引擎提供不同的存储机制、索引技巧、锁定水平等功能，使用不同的存储引擎，还可以 获得特定的功能。现在许多不同的数据库管理系统都支持多种不同的数据引擎。MySQL的核心就是存储引擎。 存储引擎查看MySQL给开发者提供了查询存储引擎的功能，我这">
+<meta property="og:description" content="四种MySQL存储引擎 [toc] 前言数据库存储引擎是数据库底层软件组织，数据库管理系统（DBMS）使用数据引擎进行创建、查询、更新和删除数据。不同的存储引擎提供不同的存储机制、索引技巧、锁定水平等功能，使用不同的存储引擎，还可以 获得特定的功能。现在许多不同的数据库管理系统都支持多种不同的数据引擎。MySQL的核心就是存储引擎。 存储引擎查看MySQL给开发者提供了查询存储引擎的功能，我这里使">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://note.youdao.com/yws/public/resource/a3e7702c99de3b8eb94f0f1d65049ff6/xmlnote/3832C3E066F546509CCF4BDB95C26376/173">
 <meta property="og:image" content="https://note.youdao.com/yws/public/resource/a3e7702c99de3b8eb94f0f1d65049ff6/xmlnote/57C5B1F98664492F8BC3064C70F7596C/175">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11464886-82267cb5926d26fb.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp">
-<meta property="og:updated_time" content="2020-08-31T16:12:15.037Z">
+<meta property="og:updated_time" content="2020-09-01T01:40:21.085Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL四种常见数据库引擎">
-<meta name="twitter:description" content="四种MySQL存储引擎   [toc] 前言数据库存储引擎是数据库底层软件组织，数据库管理系统（DBMS）使用数据引擎进行创建、查询、更新和删除数据。不同的存储引擎提供不同的存储机制、索引技巧、锁定水平等功能，使用不同的存储引擎，还可以 获得特定的功能。现在许多不同的数据库管理系统都支持多种不同的数据引擎。MySQL的核心就是存储引擎。 存储引擎查看MySQL给开发者提供了查询存储引擎的功能，我这">
+<meta name="twitter:description" content="四种MySQL存储引擎 [toc] 前言数据库存储引擎是数据库底层软件组织，数据库管理系统（DBMS）使用数据引擎进行创建、查询、更新和删除数据。不同的存储引擎提供不同的存储机制、索引技巧、锁定水平等功能，使用不同的存储引擎，还可以 获得特定的功能。现在许多不同的数据库管理系统都支持多种不同的数据引擎。MySQL的核心就是存储引擎。 存储引擎查看MySQL给开发者提供了查询存储引擎的功能，我这里使">
 <meta name="twitter:image" content="https://note.youdao.com/yws/public/resource/a3e7702c99de3b8eb94f0f1d65049ff6/xmlnote/3832C3E066F546509CCF4BDB95C26376/173">
 
 
@@ -458,9 +458,7 @@
       
 
       
-        <center>四种MySQL存储引擎</center>
-
-<hr>
+        <h2 id="四种MySQL存储引擎"><a href="#四种MySQL存储引擎" class="headerlink" title="四种MySQL存储引擎"></a><center>四种MySQL存储引擎</center></h2><hr>
 <p>[toc]</p>
 <h5 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h5><p><a href="http://lib.csdn.net/base/mysql" target="_blank" rel="noopener"><strong>数据库</strong></a>存储引擎是数据库底层软件组织，数据库管理系统（DBMS）使用数据引擎进行创建、查询、更新和删除数据。不同的存储引擎提供不同的存储机制、索引技巧、锁定水平等功能，使用不同的存储引擎，还可以 获得特定的功能。现在许多不同的数据库管理系统都支持多种不同的数据引擎。<a href="http://lib.csdn.net/base/mysql" target="_blank" rel="noopener"><strong>MySQL</strong></a><strong>的核心就是存储引擎</strong>。</p>
 <h5 id="存储引擎查看"><a href="#存储引擎查看" class="headerlink" title="存储引擎查看"></a><strong>存储引擎查看</strong></h5><p>MySQL给开发者提供了查询存储引擎的功能，我这里使用的是MySQL5.1，可以使用：</p>
@@ -887,7 +885,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#存储引擎查看"><span class="nav-text">存储引擎查看</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#InnoDB存储引擎"><span class="nav-text">InnoDB存储引擎</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#MyISAM存储引擎"><span class="nav-text">MyISAM存储引擎</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#MEMORY存储引擎"><span class="nav-text">MEMORY存储引擎</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#存储引擎的选择"><span class="nav-text">存储引擎的选择</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#四种MySQL存储引擎"><span class="nav-text">四种MySQL存储引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#存储引擎查看"><span class="nav-text">存储引擎查看</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#InnoDB存储引擎"><span class="nav-text">InnoDB存储引擎</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#MyISAM存储引擎"><span class="nav-text">MyISAM存储引擎</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#MEMORY存储引擎"><span class="nav-text">MEMORY存储引擎</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#存储引擎的选择"><span class="nav-text">存储引擎的选择</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -457,10 +457,9 @@
         
           
           Dubbo+Zookeeper中MyBatis-PLUS分页使用
-
 2020-04-20
 
-所在项目组架构使用Dubbo+Zookeeper以及spingboot，mybatis，mybatis-plus，开发过程中，需要传递实体类并传递分页信息，以便根据实体类条件查询结果分页，查阅资料，都是在controller层，使用service接口调用mybatis-plus的page方法，但是，因为公司
+所在项目组架构使用Dubbo+Zookeeper以及spingboot，mybatis，mybatis-plus，开发过程中，需要传递实体类并传递分页信息，以便根据实体类条件查询结果分页，查阅资料，都是在controller层，使用service接口调用mybatis-plus的page方法，但是，因为公司使
           ...
 	  <!--noindex-->
 	  <div class="post-footer-index">
@@ -868,8 +867,6 @@
         
           
           MyBatis 调用 带返回值 的存储过程
-
-
 序
 
 mybatis 调用oracle 存储过程，返回一个表。这样的景场用得比较少，我用了mybatis这么长时间，还第一次这么用。尝试过程也是比较痛苦，网上资料少不说，很多配置拿下来，也是跑不起来。。最后自己不停地跟据mybatis抛出来的错误调整代码，终于跑起来了。做一下笔记。
@@ -877,7 +874,7 @@ mybatis 调用oracle 存储过程，返回一个表。这样的景场用得比�
 存储过程
 
 存储过程比较长，只需要关注输入，输出参数就可以了。
-1
+123
           ...
 	  <!--noindex-->
 	  <div class="post-footer-index">
@@ -1071,14 +1068,13 @@ mybatis 调用oracle 存储过程，返回一个表。这样的景场用得比�
         
           
           煮方便面谈 CountDownLatch
-
 CountDownLatch用法解释
 
 CountDownLatch要是控制多线程操作时，等待多线程执行完后，再执行下去。举个例子，冲泡面，需要以下3个步骤A：装水到电锅，打开电源，等3分钟B：拆方便盒，放调味料C：倒开水到方便面盒。其中A跟B是可以同时进行的，C则需要依赖A，B完成了再执行。
 
 代码参数
 
-实始化：CountDownLatch latc
+实始化：CountDownLatch latch
           ...
 	  <!--noindex-->
 	  <div class="post-footer-index">
@@ -1272,7 +1268,6 @@ CountDownLatch要是控制多线程操作时，等待多线程执行完后，再
         
           
           ORACLE动态SQL存储过程
-
 引言
 
 在工作中，经常会遇到拼写动态sql，虽然写法不是很优美，但却无法避免。如果在后台（java 或者C#）写非常简单，拼写完直接运行就可以了。但如果是在数据库里面拼呢？因为公司经常用到，我把它总结一下，用一个简单的例子来说明。
@@ -1283,7 +1278,7 @@ CountDownLatch要是控制多线程操作时，等待多线程执行完后，再
 
 实现
 
-123456789101112131415161718192
+1234567891011121314151617181920
           ...
 	  <!--noindex-->
 	  <div class="post-footer-index">
@@ -1477,13 +1472,12 @@ CountDownLatch要是控制多线程操作时，等待多线程执行完后，再
         
           
           Java公平锁与非公平锁
-
 定义
 当程序使用多线程里，难免有多线程争夺资源的情况。而资源只能被一个线程独占使用，至于资源怎么分配，就涉及到非公平锁与公平锁了。
 非公平锁：非公平锁的资源的分配是随机的，看谁先抢到就给谁。可能会出现一个线程长期霸占资源，而另一线程长期得不到资源。公平锁：顾名思义，公平锁的资源是公平分配的，先来先得，后来排队。
 
 实例
-开20个线程进行计数，每个线程计算到10000，最
+开20个线程进行计数，每个线程计算到10000，最后
           ...
 	  <!--noindex-->
 	  <div class="post-footer-index">
@@ -1677,8 +1671,6 @@ CountDownLatch要是控制多线程操作时，等待多线程执行完后，再
         
           
           Java悲观锁与乐观锁
-
-
 锁的目的
 
 多线程编程如有共用资源的使用时，需要保证数据安全，资源需要同步处理。处理资源的手段可以有：互斥同步与非阻塞同步。实现分别对应：悲观锁与乐观锁。
@@ -1692,7 +1684,7 @@ CountDownLatch要是控制多线程操作时，等待多线程执行完后，再
 
 悲观锁是主要使用synchronized实现，通过锁住对应的对象，独占资源的方式。demo实现代码如下：
 
-
+12
           ...
 	  <!--noindex-->
 	  <div class="post-footer-index">
@@ -1887,12 +1879,11 @@ CountDownLatch要是控制多线程操作时，等待多线程执行完后，再
           
           MyBatis添加记录，返回主键ID
 
-
 Role.java实体类
 
 Role.java
 
-1234567891011121314151617181920212223public class Role implements Serializable &#123;    private String roleId;    private String name;    private Integer
+1234567891011121314151617181920212223public class Role implements Serializable &#123;    private String roleId;    private String name;    private Integer 
           ...
 	  <!--noindex-->
 	  <div class="post-footer-index">
@@ -2085,8 +2076,7 @@ Role.java
       
         
           
-          拦截器与过滤器的区别
-
+          拦截器与过滤器的区别 
 [TOC]
 1.过滤器：1依赖于servlet容器。在实现上基于函数回调，可以对几乎所有请求进行过滤，但是缺点是一个过滤器实例只能在容器初始化时调用一次。使用过滤器的目的是用来做一些过滤操作，获取我们想要获取的数据，比如：在过滤器中修改字符编码；在过滤器中修改HttpServletRequest的一些参数，包括：过滤低俗文字、危险字符等
 2.拦截器：1依赖于web框架，在S
