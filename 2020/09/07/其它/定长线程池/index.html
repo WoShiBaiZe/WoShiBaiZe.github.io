@@ -77,6 +77,7 @@
 
 
 
+  <meta name="keywords" content="其它,">
 
 
 
@@ -86,16 +87,19 @@
 
 
 
-<meta name="description" content="Java从入门到放弃">
-<meta property="og:type" content="website">
-<meta property="og:title" content="个人博客">
-<meta property="og:url" content="https://woshibaize.github.io/categories/工作总结/page/2/index.html">
+
+<meta name="description" content="定长线程池 1.概述 工作中有些业务场景需要使用线程，以便处理效率、性能提升，创建线程的方法有继承Thread类，实现Runnable等方法，或者使用线程池的方法。线程池可以使用缓存线程池，或者定长线程池等方法。这里主要讲述定长线程池的方法。  2.定长线程池使用1234567891011121314151617181920/**     * Creates a thread pool that">
+<meta name="keywords" content="其它">
+<meta property="og:type" content="article">
+<meta property="og:title" content="定长线程池">
+<meta property="og:url" content="https://woshibaize.github.io/2020/09/07/其它/定长线程池/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="Java从入门到放弃">
+<meta property="og:description" content="定长线程池 1.概述 工作中有些业务场景需要使用线程，以便处理效率、性能提升，创建线程的方法有继承Thread类，实现Runnable等方法，或者使用线程池的方法。线程池可以使用缓存线程池，或者定长线程池等方法。这里主要讲述定长线程池的方法。  2.定长线程池使用1234567891011121314151617181920/**     * Creates a thread pool that">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-09-06T16:44:26.135Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="个人博客">
-<meta name="twitter:description" content="Java从入门到放弃">
+<meta name="twitter:title" content="定长线程池">
+<meta name="twitter:description" content="定长线程池 1.概述 工作中有些业务场景需要使用线程，以便处理效率、性能提升，创建线程的方法有继承Thread类，实现Runnable等方法，或者使用线程池的方法。线程池可以使用缓存线程池，或者定长线程池等方法。这里主要讲述定长线程池的方法。  2.定长线程池使用1234567891011121314151617181920/**     * Creates a thread pool that">
 
 
 
@@ -125,7 +129,7 @@
 
 
 
-  <link rel="canonical" href="https://woshibaize.github.io/categories/工作总结/page/2/">
+  <link rel="canonical" href="https://woshibaize.github.io/2020/09/07/其它/定长线程池/">
 
 
 
@@ -150,7 +154,7 @@
 <!-- fontawesome5 -->
 <link href="/lib/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" type="text/css">
 
-  <title>分类: 工作总结 | 个人博客</title>
+  <title>定长线程池 | 个人博客</title>
   
 
 
@@ -169,7 +173,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband">
 	<a href="https://github.com/woshibaize" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="/images/headband/forkme_right_red.png" alt="Fork me on GitHub"></a>
     </div>
@@ -313,291 +317,267 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block category">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>工作总结<small>分类</small>
-        </h2>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://woshibaize.github.io/2020/09/07/其它/定长线程池/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BaiZe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2020/04/22/每日总结/20200422/" itemprop="url">
-              
-                <span itemprop="name">请求头</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">定长线程池</h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-04-22T22:03:56+08:00" content="2020-04-22">
-          04-22
-        </time>
-      </div>
+        <div class="post-meta">
+	  
+	  
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar-plus"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-07T00:23:10+08:00">
+                2020-09-07
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/其它/" itemprop="url" rel="index">
+                    <span itemprop="name">其它</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <!--<i class="far fa-file-word"></i>-->
+		  <i class="fas fa-book-open"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文共计 &#58;</span>
+                
+                <span title="本文共计">
+                  787 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="far fa-clock"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅文耗时 &asymp;</span>
+                
+                <span title="阅文耗时">
+                  3 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/04/20/每日总结/20200420/" itemprop="url">
-              
-                <span itemprop="name">Dubbo+Zookeeper中MyBatis-PLUS分页使用</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-04-20T22:03:56+08:00" content="2020-04-20">
-          04-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/02/17/每日总结/20200217/" itemprop="url">
-              
-                <span itemprop="name">MyBatis 调用 带返回值 的存储过程</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-02-17T23:42:27+08:00" content="2020-02-17">
-          02-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/02/16/每日总结/20200216/" itemprop="url">
-              
-                <span itemprop="name">煮方便面谈 CountDownLatch</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-02-16T00:14:07+08:00" content="2020-02-16">
-          02-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/02/14/每日总结/20200214/" itemprop="url">
-              
-                <span itemprop="name">ORACLE动态SQL存储过程</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-02-14T22:21:01+08:00" content="2020-02-14">
-          02-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/02/10/每日总结/20200210/" itemprop="url">
-              
-                <span itemprop="name">Java公平锁与非公平锁</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-02-10T22:02:26+08:00" content="2020-02-10">
-          02-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/02/09/每日总结/20200209/" itemprop="url">
-              
-                <span itemprop="name">Java悲观锁与乐观锁</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-02-09T16:30:27+08:00" content="2020-02-09">
-          02-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/02/07/每日总结/20200207/" itemprop="url">
-              
-                <span itemprop="name">MyBatis添加记录，返回主键ID</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-02-07T18:20:27+08:00" content="2020-02-07">
-          02-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/02/05/每日总结/20200205/" itemprop="url">
-              
-                <span itemprop="name">过滤器与拦截器的区别</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-02-05T18:27:27+08:00" content="2020-02-05">
-          02-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2020/02/01/每日总结/20200201/" itemprop="url">
-              
-                <span itemprop="name">insert是行锁还是表锁？</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-02-01T18:27:27+08:00" content="2020-02-01">
-          02-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <h2 id="定长线程池"><a href="#定长线程池" class="headerlink" title="定长线程池"></a><center>定长线程池</center></h2><hr>
+<h5 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h5><ul>
+<li>工作中有些业务场景需要使用线程，以便处理效率、性能提升，创建线程的方法有继承Thread类，实现Runnable等方法，或者使用线程池的方法。线程池可以使用缓存线程池，或者定长线程池等方法。这里主要讲述定长线程池的方法。</li>
+</ul>
+<h5 id="2-定长线程池使用"><a href="#2-定长线程池使用" class="headerlink" title="2.定长线程池使用"></a>2.定长线程池使用</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Creates a thread pool that reuses a fixed number of threads</span></span><br><span class="line"><span class="comment">     * operating off a shared unbounded queue.  At any point, at most</span></span><br><span class="line"><span class="comment">     * &#123;<span class="doctag">@code</span> nThreads&#125; threads will be active processing tasks.</span></span><br><span class="line"><span class="comment">     * If additional tasks are submitted when all threads are active,</span></span><br><span class="line"><span class="comment">     * they will wait in the queue until a thread is available.</span></span><br><span class="line"><span class="comment">     * If any thread terminates due to a failure during execution</span></span><br><span class="line"><span class="comment">     * prior to shutdown, a new one will take its place if needed to</span></span><br><span class="line"><span class="comment">     * execute subsequent tasks.  The threads in the pool will exist</span></span><br><span class="line"><span class="comment">     * until it is explicitly &#123;<span class="doctag">@link</span> ExecutorService#shutdown shutdown&#125;.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nThreads the number of threads in the pool</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> the newly created thread pool</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> IllegalArgumentException if &#123;<span class="doctag">@code</span> nThreads &lt;= 0&#125;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ExecutorService <span class="title">newFixedThreadPool</span><span class="params">(<span class="keyword">int</span> nThreads)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ThreadPoolExecutor(nThreads, nThreads,</span><br><span class="line">                                      <span class="number">0L</span>, TimeUnit.MILLISECONDS,</span><br><span class="line">                                      <span class="keyword">new</span> LinkedBlockingQueue&lt;Runnable&gt;());</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>因为时间原因，不会讲解单参数方法。讲解朋友公司的定长线程池的创建方法，如何计算定长线程池的默认线程数量。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Creates a thread pool that reuses a fixed number of threads</span></span><br><span class="line"><span class="comment">     * operating off a shared unbounded queue, using the provided</span></span><br><span class="line"><span class="comment">     * ThreadFactory to create new threads when needed.  At any point,</span></span><br><span class="line"><span class="comment">     * at most &#123;<span class="doctag">@code</span> nThreads&#125; threads will be active processing</span></span><br><span class="line"><span class="comment">     * tasks.  If additional tasks are submitted when all threads are</span></span><br><span class="line"><span class="comment">     * active, they will wait in the queue until a thread is</span></span><br><span class="line"><span class="comment">     * available.  If any thread terminates due to a failure during</span></span><br><span class="line"><span class="comment">     * execution prior to shutdown, a new one will take its place if</span></span><br><span class="line"><span class="comment">     * needed to execute subsequent tasks.  The threads in the pool will</span></span><br><span class="line"><span class="comment">     * exist until it is explicitly &#123;<span class="doctag">@link</span> ExecutorService#shutdown</span></span><br><span class="line"><span class="comment">     * shutdown&#125;.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nThreads the number of threads in the pool</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> threadFactory the factory to use when creating new threads</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> the newly created thread pool</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> NullPointerException if threadFactory is null</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> IllegalArgumentException if &#123;<span class="doctag">@code</span> nThreads &lt;= 0&#125;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ExecutorService <span class="title">newFixedThreadPool</span><span class="params">(<span class="keyword">int</span> nThreads, ThreadFactory threadFactory)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ThreadPoolExecutor(nThreads, nThreads,</span><br><span class="line">                                      <span class="number">0L</span>, TimeUnit.MILLISECONDS,</span><br><span class="line">                                      <span class="keyword">new</span> LinkedBlockingQueue&lt;Runnable&gt;(),</span><br><span class="line">                                      threadFactory);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>朋友公司使用的定长线程池nThreads是通过获取系统信息，是否为Linux系统，以及服务器、电脑的CPU的内核数计算出nThreads线程数，晚上重点研究ThreadFactory是什么？朋友传入的参数是200，起初认为是动态扩容线程数，但是根据阅读源码以及上网查询，认为这个200应该是对列的数量，如果任务数超过线程数量，会把任务放到队列里面等待，看到有大佬写到<strong>LinkedBlockingQueue</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * Creates a &#123;<span class="doctag">@code</span> LinkedBlockingQueue&#125; with a capacity of</span></span><br><span class="line"><span class="comment">    * &#123;<span class="doctag">@link</span> Integer#MAX_VALUE&#125;.</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">LinkedBlockingQueue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">this</span>(Integer.MAX_VALUE);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>LinkedBlockingQueue 方法的默认大小为Integer.MAX_VALUE 为了避免队列过大造成机器负载或者内存爆满的情况出现，我们在使用的时候建议手动传一个队列的大小。所以朋友公司写为了200，至于为什么是200还不清楚，需要后续研究。</p>
+<h5 id="3-最佳线程数目"><a href="#3-最佳线程数目" class="headerlink" title="3.最佳线程数目"></a>3.最佳线程数目</h5><ul>
+<li><strong>最佳线程数目 = （（线程等待时间+线程CPU时间）/线程CPU时间 ）* CPU数目</strong></li>
+</ul>
+<p>因为有些公司机密，就不把朋友的工具类上传了，可以通过大概思路自己实现</p>
+<p>推荐：[<a href="https://www.cnblogs.com/javalyy/p/10930330.html" target="_blank" rel="noopener">多线程，到底该设置多少个线程？</a></p>
 
       
     </div>
+    
+    
+    
 
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wechat.jpg" alt="BaiZe wechat" style="width: 200px; max-width: 100%;">
+    <div>欢迎扫描二维码关注公众号一起成长~</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>觉得文章对您有帮助请我喝杯咖啡吧^_^</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="BaiZe 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/其它/" rel="tag"><i class="fas fa-tag"></i> 其它</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div>
+	  <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    BaiZe
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://woshibaize.github.io/2020/09/07/其它/定长线程池/" title="定长线程池">https://woshibaize.github.io/2020/09/07/其它/定长线程池/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章均采用 <a href rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议，转载请注明出处！
+  </li>
+</ul>
+
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/08/16/每日总结/20200816/" rel="next" title="ztree数据格式">
+                <i class="fas fa-chevron-left"></i> ztree数据格式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/categories/工作总结/"><i class="fas fa-angle-left"></i></a><a class="page-number" href="/categories/工作总结/">1</a><span class="page-number current">2</span><a class="page-number" href="/categories/工作总结/page/3/">3</a><a class="extend next" rel="next" href="/categories/工作总结/page/3/"><i class="fas fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -605,6 +585,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MzY0My8yMDE4Mg=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -625,8 +614,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -856,6 +854,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#定长线程池"><span class="nav-text">定长线程池</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-概述"><span class="nav-text">1.概述</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-定长线程池使用"><span class="nav-text">2.定长线程池使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-最佳线程数目"><span class="nav-text">3.最佳线程数目</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
     </div>
@@ -1007,6 +1021,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -1035,6 +1053,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
